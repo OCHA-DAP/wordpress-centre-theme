@@ -1,7 +1,7 @@
 // ==== CONFIGURATION ==== //
 
 // Project paths
-var project     = 'humdata-theme',        // The directory name for your theme; change this at the very least!
+var project     = 'uncode-child',        // The directory name for your theme; change this at the very least!
     src         = './src/',               // The raw material of your theme: custom scripts, SCSS source files, PHP files, images, etc.; do not delete this folder!
     build       = './build/',             // A temporary directory containing a development version of your theme; delete it anytime
     dist        = './dist/'+project+'/',  // The distribution package that you'll be uploading to your server; delete it anytime
@@ -55,12 +55,12 @@ module.exports = {
       footer: [
         modules+'timeago/jquery.timeago.js', // The modules directory contains packages downloaded via npm
         modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js', 
-        src+'js/responsive-menu.js',
-        src+'js/footer.js'
+        // src+'js/responsive-menu.js',
+        // src+'js/footer.js'
       ],
       header: [
         modules+'svg4everybody/dist/svg4everybody.js',
-        src+'js/header.js'
+        //src+'js/header.js'
       ],
       // The pageloader chunk provides an example of how you would add a user-configurable feature to your theme; you can delete this if you wish
       // Have a look at the `src/inc/assets.php` to see how script bundles could be conditionally loaded by a theme
@@ -69,7 +69,7 @@ module.exports = {
         modules+'spin.js/spin.js',
         modules+'spin.js/jquery.spin.js',
         modules+'wp-ajax-page-loader/wp-ajax-page-loader.js',
-        src+'js/page-loader.js'
+        //src+'js/page-loader.js'
       ]
     },
     dest: build+'js/', // Where the scripts end up in your theme
