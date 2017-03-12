@@ -50,22 +50,24 @@ if (isset($metabox_data['_uncode_specific_footer_block'][0]) && $metabox_data['_
 	}
 }
 
-if (isset($footer_block) && !empty($footer_block) && $footer_block !== 'none' && defined( 'WPB_VC_VERSION' )) {
-	$footer_block = apply_filters( 'wpml_object_id', $footer_block, 'post' );
-	$footer_block_content = get_post_field('post_content', $footer_block);
-	if ($footer_full_width) {
-		$footer_block_content = preg_replace('#\s(unlock_row)="([^"]+)"#', ' unlock_row="yes"', $footer_block_content);
-		$footer_block_content = preg_replace('#\s(unlock_row_content)="([^"]+)"#', ' unlock_row_content="yes"', $footer_block_content);
-		$footer_block_counter = substr_count($footer_block_content, 'unlock_row_content');
-		if ($footer_block_counter === 0) $footer_block_content = str_replace('[vc_row ', '[vc_row unlock_row="yes" unlock_row_content="yes" ', $footer_block_content);
-	} else {
-		$footer_block_content = preg_replace('#\s(unlock_row)="([^"]+)"#', ' unlock_row="yes"', $footer_block_content);
-		$footer_block_content = preg_replace('#\s(unlock_row_content)="([^"]+)"#', ' unlock_row_content="no"', $footer_block_content);
-		$footer_block_counter = substr_count($footer_block_content, 'unlock_row_content');
-		if ($footer_block_counter === 0) $footer_block_content = str_replace('[vc_row ', '[vc_row unlock_row="yes" unlock_row_content="no" ', $footer_block_content);
-	}
-	$footer_content .= uncode_remove_wpautop($footer_block_content);
-}
+// if (isset($footer_block) && !empty($footer_block) && $footer_block !== 'none' && defined( 'WPB_VC_VERSION' )) {
+// 	$footer_block = apply_filters( 'wpml_object_id', $footer_block, 'post' );
+// 	$footer_block_content = get_post_field('post_content', $footer_block);
+// 	if ($footer_full_width) {
+// 		$footer_block_content = preg_replace('#\s(unlock_row)="([^"]+)"#', ' unlock_row="yes"', $footer_block_content);
+// 		$footer_block_content = preg_replace('#\s(unlock_row_content)="([^"]+)"#', ' unlock_row_content="yes"', $footer_block_content);
+// 		$footer_block_counter = substr_count($footer_block_content, 'unlock_row_content');
+// 		if ($footer_block_counter === 0) $footer_block_content = str_replace('[vc_row ', '[vc_row unlock_row="yes" unlock_row_content="yes" ', $footer_block_content);
+// 	} else {
+// 		$footer_block_content = preg_replace('#\s(unlock_row)="([^"]+)"#', ' unlock_row="yes"', $footer_block_content);
+// 		$footer_block_content = preg_replace('#\s(unlock_row_content)="([^"]+)"#', ' unlock_row_content="no"', $footer_block_content);
+// 		$footer_block_counter = substr_count($footer_block_content, 'unlock_row_content');
+// 		if ($footer_block_counter === 0) $footer_block_content = str_replace('[vc_row ', '[vc_row unlock_row="yes" unlock_row_content="no" ', $footer_block_content);
+// 	}
+// 	$footer_content .= uncode_remove_wpautop($footer_block_content);
+// }
+
+
 
 $footer_position = ot_get_option('_uncode_footer_position');
 if ($footer_position === '') $footer_position = 'left';
@@ -80,8 +82,13 @@ if ($footer_text !== '' && $footer_copyright === 'off') {
 	$footer_text_content = uncode_the_content($footer_text);
 }
 
+//build footer menus
+$secondary_list = uncode_get_menu_list('secondary');
+$primary_list = uncode_get_menu_list('primary');
+
 if ($footer_text_content !== '') {
-	$footer_text_content = '<div class="site-info uncell col-lg-6 pos-middle text-'.$footer_position.'">'.$footer_text_content.'</div><!-- site info -->';
+	$copyright = $footer_text_content;
+	$footer_text_content = '<div class="site-info uncell col-lg-3 pos-middle text-'.$footer_position.'">'.$primary_list.'</div><div class="site-info uncell col-lg-5 pos-middle text-'.$footer_position.'">'.$secondary_list.'</div><div class="site-info uncell col-lg-4 pos-middle text-'.$footer_position.'"><img src="'.get_stylesheet_directory_uri().'/assets/footer-map.svg"></div><!-- site info -->';
 }
 
 $footer_social = ot_get_option('_uncode_footer_social');
@@ -155,6 +162,6 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 
 	<?php }
 
-	wp_footer(); ?>yooooooo
+	wp_footer(); ?>
 </body>
 </html>

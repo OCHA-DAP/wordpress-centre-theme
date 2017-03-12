@@ -1,0 +1,39 @@
+#particles-js {
+	background-color: $green;
+	height: $header-height;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.home {
+	#particles-js {
+		height: 524px;
+	}
+}
+
+ul {
+	list-style-type: none;
+}
+
+table {
+	tbody {
+		tr {
+			td {
+				a {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+.style-color-wayh-bg {
+	background-color: transparent;
+}
+
+.btn {
+	font-family: $font-sans-bold;
+	font-size: 14px;
+	letter-spacing: 0;
+}

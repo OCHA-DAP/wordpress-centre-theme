@@ -1,0 +1,19 @@
+h1,
+h3,
+h5 {
+	color: $black;
+	font-family: $font-serif-book;
+	font-weight: normal;
+}
+h2 {
+	font-family: $font-sans-brandon;
+	font-weight: normal;
+	text-transform: none;
+}
+h3 {
+	font-family: $font-serif-medium;
+}
+p {
+	font-size: 20px;
+	line-height: 1.5;
+}

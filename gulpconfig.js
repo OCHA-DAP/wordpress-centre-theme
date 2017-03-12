@@ -53,8 +53,9 @@ module.exports = {
     chunks: { // Chunks are arrays of paths or globs matching a set of source files; this way you can organize a bunch of scripts that go together into pieces that can then be bundled (above)
       // The core footer chunk is loaded no matter what; put essential scripts that you want loaded by your theme in here
       footer: [
-        modules+'timeago/jquery.timeago.js', // The modules directory contains packages downloaded via npm
-        modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js', 
+        //modules+'timeago/jquery.timeago.js', // The modules directory contains packages downloaded via npm
+        //modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js', 
+        src+'scripts/particles.js'
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
       ],
@@ -113,6 +114,7 @@ module.exports = {
         modules+'normalize.css',
         modules+'scut/dist',
         modules+'bootstrap-sass/assets/stylesheets',
+        modules+'font-awesome/scss',
         modules,
         bower,
       ],

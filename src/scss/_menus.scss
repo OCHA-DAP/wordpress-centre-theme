@@ -1,0 +1,88 @@
+.menu-container {
+	ul.menu-smart {
+		> li {
+			> a {
+				font-weight: normal;
+			}
+		}
+	}
+}
+.menu-light {
+	.menu-smart {
+		> li.active {
+			> a {
+				color: $green;
+			}
+		}
+	}
+}
+
+.site-footer {
+	li {
+		font-family: $font-serif-book;
+		font-size: 15px;
+		line-height: 1.4;
+	}
+	#menu-secondary {
+		margin-top: 30px;
+		li {
+			display: inline-block;
+			margin-bottom: 32px;
+			margin-right: 32px;
+			min-width: 140px;
+			a {
+				img {
+					height: 32px;
+					max-width: none;
+					vertical-align: middle;
+					width: auto;
+				}				
+				&#agendaforhumanity {
+					img {
+						height: 42px;
+					}
+				}
+			}
+		}
+	}
+	.footer-last {
+		.uncell {
+			padding-bottom: 110px;
+			padding-top: 110px;
+		}
+	}
+}
+
+@media (min-width: 960px) {
+	.hmenu .menu-primary .menu-smart > li > a:before, 
+	.hmenu-center .menu-primary .menu-smart > li > a:before {
+		height: calc(50% - 1em);
+	}
+	.style-light-override:not(.is_stuck).menu-transparent .menu-horizontal-inner > .nav > .menu-smart > li > a {
+		color: $white !important;
+	}
+	.is_stuck {
+		.menu-smart {
+			a:hover {
+				color: $green;
+			}
+		}
+		.navbar-brand {
+			.logo-skinnable {
+				background: transparent url('assets/logo-green.svg') no-repeat 0 0;
+				background-size: 100% 100%;
+				height: 50px !important;
+				width: 157px !important;
+				> img {
+					display: none !important;
+				}
+			}
+		}
+	}
+	.hmenu-center-split .logo-container {
+		padding: 28px 30px;
+	}
+	.menu-smart > li > a {
+		padding: 0 13px;
+	}
+}

@@ -1,0 +1,45 @@
+//content blocks on homepage
+.t-entry-meta {
+	background-color: $black;
+	font-size: 13px;
+	left: 50%;
+	margin-top: -1px;
+	padding: 3px 10px;
+	position: absolute;
+	transform: translateX(-50%);
+	top: 0;
+}
+
+.t-overlay-content {
+	bottom: 0;
+	position: absolute;
+}
+
+//page elements
+.page-template-default {
+	.type-page {
+		.post-wrapper {
+			margin-top: 15px;
+		}
+		h3 {
+			margin-bottom: 30px;
+		}
+		hr {
+			border-color: $black;
+			margin: 50px 0;
+			width: 15px;
+		}
+	}
+}
+.home {
+	&.page-template-default {
+		.type-page {
+			.post-wrapper {
+				margin-top: 0;
+			}
+		}
+	}
+}
+.main-container .row-container .row-parent .half-internal-gutter .uncont > .heading-text {
+	margin-top: 0;
+}
