@@ -15,6 +15,73 @@
 	position: absolute;
 }
 
+.single-block-padding {
+	padding-bottom: 100px;
+}
+
+.style-light a:not(.btn-text-skin):hover {
+	color: $black;
+}
+
+.isotope-filters {
+	background-color: $white;
+	.menu-horizontal {
+		padding-top: 60px;
+		h3 {
+			font-size: 30px;
+			margin-bottom: 45px;
+		}
+	}
+	ul {
+		&.menu-smart {
+			padding-top: 0;
+			padding-bottom: 45px;
+			> li {
+				> span {
+					padding: 0 4px 15px;
+					> a {
+						background-color: $white;
+						border: 2px solid $yellow;
+						border-radius: 10em;
+						font-family: $font-serif-book;
+						font-size: 15px;
+						padding: 6px 30px !important;
+						&.active {
+							background-color: $yellow;
+							color: $black !important;
+						}
+						&:hover {
+							background-color: $yellow;
+							color: $black !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.isotope-footer {
+	background: transparent url('assets/bg-pattern-grey.png') repeat 0 0;
+}
+
+.loadmore-button {
+	margin: 50px 18px;
+}
+
+.style-light .btn.btn-default.btn-outline {
+	background-color: $white !important;
+	border-color: $green !important;
+	border-width: 2px;
+	color: $green !important;
+	padding: 21px 75px 18px !important;
+	&:hover {
+		background-color: $green !important;	
+		border-color: $green !important;
+		color: $white !important;
+	}
+}
+
 //page elements
 .page-template-default {
 	.type-page {

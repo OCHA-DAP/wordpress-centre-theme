@@ -12,6 +12,9 @@ h2 {
 }
 h3 {
 	font-family: $font-serif-medium;
+	&.t-entry-title {
+		font-family: $font-serif-book;
+	}
 }
 p {
 	font-size: 20px;

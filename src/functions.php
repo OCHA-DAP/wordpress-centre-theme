@@ -41,3 +41,6 @@ function quote($att, $content = null) {
     return '<div class="quote">"'.$content.'"</div>';
 }
 add_shortcode('quote', 'quote');
+
+
+
