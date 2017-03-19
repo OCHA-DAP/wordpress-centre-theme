@@ -287,7 +287,7 @@ get_header();
 		}
 
 
-    $the_content .= wp_link_pages( array(
+    	$the_content .= wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'uncode' ),
 			'after'  => '</div>',
 			'link_before'	=> '<span>',

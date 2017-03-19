@@ -470,15 +470,16 @@ if (!function_exists('uncode_create_single_block')) {
 			$block_classes[] = 'tmb-img-ratio';
 		}
 
-		if (empty($item_thumb_id) || FALSE === get_post_mime_type( $item_thumb_id ))
-		{
+		//NOTE: comment out conditional so post info always displays whether there is media or not
+		//if (empty($item_thumb_id) || FALSE === get_post_mime_type( $item_thumb_id ))
+		//{
 			$item_media = 'https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=media+not+available&amp;w=500&amp;h=500';
 			$media_attributes = '';
 			$image_orig_w = 500;
 			$image_orig_h = 500;
-		}
-		else
-		{
+		// }
+		// else
+		// {
 			/** get media info **/
 			$items_thumb_id = explode(',', $item_thumb_id);
 			if (count($items_thumb_id) > 1 ) {
@@ -740,12 +741,12 @@ if (!function_exists('uncode_create_single_block')) {
 					}
 				}
 			}
-		}
+		//}
 
 		if ($item_media === '' && !isset($media_attributes->guid) && !$multiple_items)
 		{
 			$media_type = 'image';
-			$item_media = 'http://placehold.it/500&amp;text=media+not+available';
+			$item_media = 'http://placehold.it/500x500';//http://placehold.it/500&amp;text=media+not+available';
 			$image_orig_w = 500;
 			$image_orig_h = 500;
 		}
@@ -771,11 +772,38 @@ if (!function_exists('uncode_create_single_block')) {
 				break;
 
 				case 'title':
+					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
+
+					// <div class="content video preview">
+					// 			<video muted autoplay loop>
+					// 			  	<source src="assets/video/the-centre-for-humanitarian-design.mp4" type="video/mp4">
+					// 				Your browser does not support the video tag.
+					// 			</video>
+					// 			<div class="btn playpause-btn"></div>
+					// 		</div>
+
 					$get_title = (isset($media_attributes->post_title)) ? $media_attributes->post_title : '';
 					if (($single_text === 'overlay' && $single_elements_click !== 'yes') || (isset($media_attributes->team) && $media_attributes->team) || $title_link === '#') {
 						$print_title = $single_title ? $single_title : $media_attributes->post_title;
 						// if ($print_title !== '') $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
-						if ($print_title !== '') $inner_entry .= '<h3 class="t-entry-title">'.$print_title.'</h3>';
+
+						//set block content based on post format
+						if ($post_category === 'quote') {
+							$custom_post = uncode_custom_just_post($block_data['id']);
+							$print_title = '-'.$print_title;
+						}
+						else if ($post_category === 'mention') {
+							$custom_post = uncode_custom_just_post($block_data['id']);
+							$print_title = '('.$print_title.')';
+						}
+						else if ($post_category === 'tweet' || $post_category === 'dataviz') {
+							$custom_post = uncode_custom_just_post($block_data['id']);
+						}
+						else {
+							$custom_post = '';
+							$print_title = $print_title;
+						}
+						if ($print_title !== '') $inner_entry .= $custom_post.'<h3 class="t-entry-title">'.$print_title.'</h3>';
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
 						if ($print_title !== '') {
@@ -943,8 +971,11 @@ if (!function_exists('uncode_create_single_block')) {
 					$author_name = get_the_author_meta( 'display_name', $author );
 					$author_link = get_author_posts_url( $author );
 					$inner_entry .= '<p class="t-entry-author">';
-					if ($single_text === 'overlay' && $single_elements_click !== 'yes') $inner_entry .= get_avatar( $author, 80 ). '<span>' . esc_html__('by','uncode') . ' ' . $author_name . '</span>';
-					else $inner_entry .= '<a href="'.$author_link.'">'.get_avatar( $author, 80 ). '<span>' . esc_html__('by','uncode') . ' ' . $author_name.'</span></a>';
+					// if ($single_text === 'overlay' && $single_elements_click !== 'yes') $inner_entry .= get_avatar( $author, 80 ). '<span>' . esc_html__('by','uncode') . ' ' . $author_name . '</span>';
+					// else $inner_entry .= '<a href="'.$author_link.'">'.get_avatar( $author, 80 ). '<span>' . esc_html__('by','uncode') . ' ' . $author_name.'</span></a>';
+					// $inner_entry .= '</p>';
+					if ($single_text === 'overlay' && $single_elements_click !== 'yes') $inner_entry .= esc_html__('By','uncode') . ' ' . $author_name . '</span>';
+					else $inner_entry .= '<a href="'.$author_link.'">'.get_avatar( $author, 80 ). esc_html__('By','uncode') . ' ' . $author_name.'</span></a>';
 					$inner_entry .= '</p>';
 				break;
 
@@ -1132,6 +1163,7 @@ if (!function_exists('uncode_create_single_block')) {
 		}
 
 		$media_alt = (isset($media_attributes->alt)) ? $media_attributes->alt : '';
+		$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 
 		if ($single_back_color === '') {
 			$block_classes[] = 'tmb-no-bg';
@@ -1149,7 +1181,7 @@ if (!function_exists('uncode_create_single_block')) {
 		}
 
 		if (array_key_exists('media',$layout) || $single_text === 'overlay') :
-			$output .= 		'<div class="t-entry-visual" tabindex="0"><div class="t-entry-visual-tc"><div class="t-entry-visual-cont">';
+			$output .= 		'<div class="t-entry-visual '.$post_category.'" tabindex="0"><div class="t-entry-visual-tc"><div class="t-entry-visual-cont">';
 
 			if ($style_preset === 'masonry' && ($images_size !== '' || ($single_text === 'under' || $single_elements_click !== 'yes')) && array_key_exists('media',$layout)):
 
@@ -1167,7 +1199,17 @@ if (!function_exists('uncode_create_single_block')) {
 
 				$data_values = (isset($block_data['link']['target']) && !empty($block_data['link']['target']) && is_array($block_data['link'])) ? ' target="'.trim($block_data['link']['target']).'"' : '';
 
-				$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+				//customize block link based on post format
+				$post_format = get_post_format($block_data['id']);
+				if ($post_format === 'quote' || $post_format === 'image' || $post_format === 'video' ) {
+				}
+				else if ($post_format === 'link') {
+					$custom_post = uncode_custom_just_post($block_data['id']);
+					$output .= '<a tabindex="-1" href="'. get_content_link( $custom_post ) .'" target="_blank">';
+				}
+				else {
+					$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+				}
 
 			endif;
 
@@ -1248,15 +1290,26 @@ if (!function_exists('uncode_create_single_block')) {
 
 						$data_values = !empty($block_data['link']['target']) ? ' target="'.trim($block_data['link']['target']).'"' : '';
 
+
 						$output .= 			'<a href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>
 												<div class="t-background-cover'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>
 											</a>';
 
 					else:
 
+						$post_format = get_post_format($block_data['id']);
+						$custom_post = ($post_category === 'image' || $post_category === 'video') ? uncode_custom_just_post($block_data['id']) : '';
 						if ($media_type === 'image') :
 
-							$output .= 		'<div class="t-background-cover'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+							if ($post_format === 'video') {
+								$output .= $custom_post;
+							}
+							else if ($post_format === 'image') {
+								$output .=  $custom_post;
+							}
+							else {
+								$output .= 		'<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+							}
 
 						else:
 
@@ -1380,15 +1433,35 @@ if (!function_exists('uncode_custom_post_info')) {
 
 		if($categories){
 			$cat_output .= '<a href="'.get_category_link( $categories[0]->term_id ).'" title="' . esc_attr( sprintf( esc_html__( "View all posts in %s", 'uncode' ), $categories[0]->name ) ) . '">'.$categories[0]->cat_name.'</a>';
-			// foreach($categories as $category) {
-			// 	$cat_output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( esc_html__( "View all posts in %s", 'uncode' ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
-			// }
 			$output[] = '<div class="category-info">' . trim($cat_output, $separator) . '</div>';
 		}
 
 		$output[] = '<div class="date-info">' . get_the_date() . '</div>';
 
 		return '<div class="post-info">' . implode('', $output) . '</div>';
+	}
+}
+
+/**
+ * Create custom just post category
+ */
+if (!function_exists('uncode_custom_just_category')) {
+	function uncode_custom_just_category($postid) {
+		$categories = get_the_category($postid);
+		return $categories[0]->cat_name;
+	}
+}
+
+/**
+ * Create custom just post content
+ */
+if (!function_exists('uncode_custom_just_post')) {
+	function uncode_custom_just_post($postid) {
+		$content_post = get_post($postid);
+		$content = $content_post->post_content;
+		$content = apply_filters('the_content', $content);
+
+		return $content;
 	}
 }
 

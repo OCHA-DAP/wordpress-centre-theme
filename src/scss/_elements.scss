@@ -6,6 +6,10 @@
 	width: 100%;
 }
 
+.bg-pattern-green{
+	background: $green url('assets/bg-pattern-green.png') repeat 0 0;
+}
+
 .home {
 	#particles-js {
 		height: 524px;
@@ -36,4 +40,75 @@ table {
 	font-family: $font-sans-bold;
 	font-size: 14px;
 	letter-spacing: 0;
+	margin: 20px 0;
+	text-decoration: none;
+	&.submit-btn{
+		background-color: #3d3030;
+		border-color: #3d3030;
+		border-radius: 0;
+		color: $white;
+		font-family: $font-serif-book;
+		font-size: 24px;
+		font-weight: normal !important;
+		letter-spacing: 0;
+		line-height: 68px;
+		margin: 0;
+		padding: 0 40px !important;
+		text-transform: none;
+		vertical-align: top;
+		&:hover{
+			background-color: $white;
+			color: #3d3030;
+		}
+	}
+	&.playpause-btn{
+		background: transparent url('assets/play.svg') no-repeat 0 0;
+		border: none;
+		height: 100px;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+  		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		width: 100px;
+		&.pause{
+			background: transparent url('assets/stop.svg') no-repeat 0 0;
+		}
+	}
 }
+
+input{
+	border: 0;
+	display: inline-block;
+	margin-top: 0;
+	padding: 0 15px;
+	&[type="email"]{
+		color: $gray33;
+		font-family: $font-serif-book;
+		font-size: 24px;
+		height: 70px;
+		line-height: 70px;
+		max-width: 448px;
+		padding-left: 35px;
+		width: 100%;
+		vertical-align: top;
+	}
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: #CCC;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+	  color: #CCC;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+	  color: #CCC;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+	  color: #CCC;
+	}
+}
+
+.media-credit {
+	margin-left: 0;
+	text-align: left;
+}
+

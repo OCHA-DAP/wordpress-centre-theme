@@ -54,9 +54,8 @@
 }
 
 @media (min-width: 960px) {
-	.hmenu .menu-primary .menu-smart > li > a:before, 
-	.hmenu-center .menu-primary .menu-smart > li > a:before {
-		height: calc(50% - 1em);
+	.hmenu .menu-primary .menu-smart > li > a:before, .hmenu-center .menu-primary .menu-smart > li > a:before{
+		height: 39%;
 	}
 	.style-light-override:not(.is_stuck).menu-transparent .menu-horizontal-inner > .nav > .menu-smart > li > a {
 		color: $white !important;

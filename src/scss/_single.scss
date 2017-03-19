@@ -179,12 +179,13 @@ div[class*=sharer-].share-button .social ul li {
 	display: none !important;
 }
 
-.quote {
+blockquote {
 	background: transparent url('assets/quote-underline.png') no-repeat left bottom;
+	border: none;
 	color: $coral;
 	font-family: $font-serif-book;
 	font-size: 36px;
 	margin: 50px 0 35px -225px;
-	padding-bottom: 50px;
+	padding: 0 0 50px;
 	width: 500px;
 }

@@ -9,10 +9,218 @@
 	transform: translateX(-50%);
 	top: 0;
 }
-
 .t-overlay-content {
 	bottom: 0;
 	position: absolute;
+}
+.tmb .t-entry .t-entry-title {
+	font-weight: normal;
+}
+.t-entry-author {
+	font-family: $font-serif-book;
+	font-size: 18px;
+}
+// .tmb-text-space-reduced.tmb .t-entry > *:not(hr):not(.t-entry-readmore):not(:first-child) {
+// 	margin-top: 8px !important;
+// }
+.t-entry-visual {	
+	.t-overlay-text {
+		width: 90% !important;
+	}
+	&.quote {
+		background-color: $gray33;
+		.t-background-cover,
+		.t-entry-visual-overlay,
+		.t-entry-author {
+			display: none;
+		}
+		.t-overlay-content {
+			bottom: auto;
+			top: 18px;
+		}
+		.t-entry-title {
+			font-size: 18px;
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+		.t-entry {
+			.label {
+				color: #757575;
+				font-family: $font-serif-book;
+				font-size: 18px;
+				line-height: 30px;
+				margin-bottom: 30px;
+				text-transform: uppercase;
+			}
+			p {
+				font-family: $font-serif-book;
+				font-size: 24px;
+				line-height: 30px;
+				margin-bottom: 36px !important;
+			}
+		}
+	}
+	&.tweet {
+		background-color: $blue;
+		.t-background-cover,
+		.t-entry-visual-overlay,
+		.t-entry-author,
+		.t-entry-title {
+			display: none;
+		}
+		.t-overlay-content {
+			bottom: auto;
+			height: 100%;
+			top: 18px;
+			.t-overlay-text {
+				height: 100%;
+			}
+		}
+		.t-entry {
+			p {
+				display: none;
+				font-family: $font-serif-book;
+				font-size: 24px;
+				line-height: 30px;
+				margin-bottom: 36px !important;
+				&.author {
+					display: block;
+					font-size: 18px;
+					margin-bottom: 0 !important;
+					position: absolute;
+					bottom: 50px;
+				}
+				&.tweet-text {
+					display: block;
+				}
+			}
+			.fa-twitter {
+				font-size: 24px;
+			}
+		}
+	}
+	&.dataviz {
+		background-color: $teal;
+		.t-background-cover,
+		.t-entry-visual-overlay,
+		.t-entry-author,
+		.t-entry-title {
+			display: none;
+		}
+		.t-overlay-content {
+			bottom: auto;
+			top: 24px;
+		}
+		.t-overlay-text {
+			padding-top: 0;
+			padding-right: 36px !important;
+			width: 100% !important;
+		}
+		.t-entry {
+			img {
+				margin-bottom: 24px;
+			}
+			p {
+				&.title {
+					font-family: $font-serif-book;
+					font-size: 24px;
+				}
+				&.author {
+					font-family: $font-serif-book;
+					font-size: 18px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+	&.mention {
+		background-color: $dark-blue;
+		.t-background-cover,
+		.t-entry-visual-overlay,
+		.t-entry-author {
+			display: none;
+		}
+		.t-overlay-content {
+			bottom: auto;
+			top: 0;
+		}
+		.t-entry-title {
+			font-size: 18px;
+			font-weight: normal;
+		}
+		.t-entry {
+			p {
+				font-family: $font-serif-book;
+				font-size: 24px;
+				line-height: 30px;
+				margin-bottom: 36px !important;
+			}
+		}
+	}
+	&.calendar {
+		background-color: $coral;
+	}
+	&.image {
+		.t-background-cover,
+		.t-entry-meta,
+		.t-entry-author,
+		.t-entry-title {
+			display: none;
+		}
+	}
+	&.video {
+		.t-background-cover,
+		.t-entry-meta,
+		.t-entry-author,
+		.t-entry-title {
+			display: none;
+		}
+		.content.video {
+			.mejs-video {
+				height: 431px !important;
+				width: auto !important;
+				.mejs-controls,
+				.mejs-layers {
+					display: none !important;
+				}
+				.mejs-mediaelement {
+					video {
+						height: auto !important;
+						left: 0;
+						position: absolute;
+						top: 50%;
+						transform: translate(0,-50%);
+						width: 100% !important;
+					}
+				}
+			}
+			&.preview {
+				.mejs-mediaelement {
+					video {
+						height: 431px !important;
+	    				left: 50%;
+						position: absolute;
+						top: 0;
+	   				 	transform: translate(-50%, 0);
+						width: auto !important;
+					}
+				}
+			}
+		}
+		.t-entry-visual-cont {
+			cursor: pointer;
+			&:hover {
+				.playpause-btn{
+					opacity: 1;
+				}
+			}
+			.playpause-btn{
+				opacity: 0;
+				-webkit-transition: all 0.5s; 
+    			transition: all 0.5s;
+			}
+		}
+	}
 }
 
 .single-block-padding {
@@ -109,4 +317,48 @@
 }
 .main-container .row-container .row-parent .half-internal-gutter .uncont > .heading-text {
 	margin-top: 0;
+}
+
+.page-body {
+	.post-content {
+		.row {
+			&.limit-width {
+				max-width: 864px;
+				.widget_nav_menu {
+					ul.menu {
+						list-style-type: none;
+						padding-left: 0;
+						a {
+							color: $green;
+							font-family: $font-serif-book;
+							font-size: 18px;
+							&:hover,
+							&.active {
+								color: $black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#contact {
+	padding: 80px 0 150px;
+	text-align: center;
+	h2 {
+		color: $white;
+		font-family: $font-serif-book;
+		margin-top: 0;
+	}
+	p {
+		color: $white;
+		font-size: 18px;
+		margin-bottom: 75px;
+	}
+}
+
+.uncode_text_column {
+	margin-bottom: 100px;
 }

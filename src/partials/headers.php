@@ -143,7 +143,8 @@ if (!class_exists('unheader')) {
 							//show featured image if post type is page
 							if ( has_post_thumbnail() && $get_post_type==='page' ) {
 								$feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() );
-						        $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo credit here</div>';
+								$image_credit = get_media_credit( get_post_thumbnail_id() );
+						        $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo: '.$image_credit.'</div>';
 						   	}
 
 						   	//show header title
@@ -177,7 +178,8 @@ if (!class_exists('unheader')) {
 							//show featured image
 							if ( has_post_thumbnail() && $get_post_type!='page' ) {
 								$feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() );
-						        $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo credit here</div>';
+								$image_credit = get_media_credit( get_post_thumbnail_id() );
+						        $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo: '.$image_credit.'</div>';
 						   	}
 
 
