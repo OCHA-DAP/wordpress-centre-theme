@@ -5,6 +5,23 @@ function uncode_language_setup()
 }
 add_action('after_setup_theme', 'uncode_language_setup');
 
+function uncode_hdx_api_init(){
+    add_settings_field('hdx-mixpanel-token', 'HDX Mixpanel Token', 'render_hdx_mixpanel_token', 'general');
+    add_settings_field('hdx-google-analytics-token', 'HDX Google Analytics Token', 'render_hdx_google_analytics_token', 'general');
+    // Register our setting so that $_POST handling is done for us and
+    // our callback function just has to echo the <input>
+    register_setting( 'general', 'hdx-mixpanel-token' );
+    register_setting( 'general', 'hdx-google-analytics-token' );
+}
+add_action( 'admin_init', 'uncode_hdx_api_init' );
+
+function render_hdx_mixpanel_token() {
+    echo '<input name="hdx-mixpanel-token" id="hdx-mixpanel-token" type="text" value="' . get_option('hdx-mixpanel-token') . '" class="code" />';
+}
+function render_hdx_google_analytics_token() {
+    echo '<input name="hdx-google-analytics-token" id="hdx-google-analytics-token" type="text" value="' . get_option('hdx-google-analytics-token') . '" class="code" />';
+}
+
 function theme_enqueue_styles()
 {
 	$production_mode = ot_get_option('_uncode_production');
