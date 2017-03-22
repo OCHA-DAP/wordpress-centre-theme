@@ -308,10 +308,11 @@ if (!function_exists('uncode_get_back_html')) {
 											</div>';
 		} else {
 			if ($overlay_html !== '' || $header_background_video !== '' || $back_image !== '' || $header_background_selfvideo !== '' || $carousel_html !== '')
-			$back_html = 	'<div class="header-bg-wrapper">
-											<div class="header-bg' . $back_mime_css . $adaptive_async_class . ($carousel_html !=='' ? ' header-carousel-wrapper' : '') . '"' . $header_background_video . $back_image . $adaptive_async_data . '>' . $header_background_selfvideo . $carousel_html . '</div>
-											'.$overlay_html.'
-										</div><div id="particles-js"></div>';
+			// $back_html = 	'<div class="header-bg-wrapper">
+			// 								<div class="header-bg' . $back_mime_css . $adaptive_async_class . ($carousel_html !=='' ? ' header-carousel-wrapper' : '') . '"' . $header_background_video . $back_image . $adaptive_async_data . '>' . $header_background_selfvideo . $carousel_html . '</div>
+			// 								'.$overlay_html.'
+			// 							</div>';
+				$back_html = 	'<div id="particles-js"></div>';
 		}
 
 		return array(
