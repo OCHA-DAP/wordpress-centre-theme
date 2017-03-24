@@ -1,6 +1,6 @@
 #particles-js {
 	background-color: $green;
-	height: $header-height;
+	//height: $header-height;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -11,8 +11,12 @@
 }
 
 .home {
+	#page-header {
+		display:block;
+		position: relative;
+	}
 	#particles-js {
-		height: 524px;
+		bottom: 0;
 	}
 }
 
