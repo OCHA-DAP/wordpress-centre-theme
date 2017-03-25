@@ -149,7 +149,7 @@ module.exports = {
   watch: { // What to watch before triggering each specified task; if files matching the patterns below change it will trigger BrowserSync or Livereload
     src: {
       styles:       src+'scss/**/*.scss',
-      scripts:      src+'js/**/*.js', // You might also want to watch certain dependency trees but that's up to you
+      scripts:      src+'scripts/**/*.js', // You might also want to watch certain dependency trees but that's up to you
       images:       src+'**/*(*.png|*.jpg|*.jpeg|*.gif|*.svg)',
       theme:        src+'**/*.php',
       livereload:   build+'**/*'

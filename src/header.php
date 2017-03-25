@@ -140,6 +140,22 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 			?>
 			<script type="text/javascript">UNCODE.fixMenuHeight();</script>
 
+			<!-- build expand menu -->
+			<div class="hdc-overlay-menu">
+				<?php $menu_items = wp_get_nav_menu_items( 'expand-menu' );
+					$menu_list .= '<ul class="expand-menu">';
+					foreach( $menu_items as $menu_item ) {
+						$menu_list .= '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
+					}
+					$menu_list .= '</ul>';
+					$menu_list .= '<h6>Our Product Sites:</h6>';
+					$menu_list .= '<ul class="product-sites"><li><a href="https://data.humdata.org/" target="_blank"><img src="'.get_stylesheet_directory_uri().'/assets/hdx-white.svg" height="25"></a></li><li><a href="http://hxlstandard.org/" target="_blank"><img src="'.get_stylesheet_directory_uri().'/assets/hxl-white.svg" height="25"></a></li></ul>';
+					$expand_menu_content = '<div class="">'.$menu_list.'</div>';
+					echo $expand_menu_content ;
+				?>
+			</div>
+			<!--  -->
+
 			<div class="main-wrapper">
 				<div class="main-container">
 					<div class="page-wrapper<?php if ($onepage) echo ' main-onepage'; ?>">

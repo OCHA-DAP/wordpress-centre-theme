@@ -1,6 +1,7 @@
 h1,
 h3,
-h5 {
+h5,
+h6 {
 	color: $black;
 	font-family: $font-serif-book;
 	font-weight: normal;
@@ -19,4 +20,14 @@ h3 {
 p {
 	font-size: 20px;
 	line-height: 1.5;
+}
+
+::-moz-selection { /* Code for Firefox */
+    background: $green;
+    color: $black !important;
+}
+
+::selection {
+    background: $green;
+    color: $black !important;
 }

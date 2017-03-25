@@ -793,7 +793,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = '-'.$print_title;
 						}
-						else if ($post_category === 'mention') {
+						else if ($post_category === 'casestudy' || $post_category === 'media') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = '('.$print_title.')';
 						}
@@ -1636,7 +1636,9 @@ if (!function_exists('uncode_breadcrumbs')) {
 					$cat = get_the_category();
 					if (isset($cat[0])) {
 						$cat = $cat[0];
-						$cats = get_category_parents($cat, TRUE, $delimiter);
+						//NOTE remove category archive link for v1
+						//$cats = get_category_parents($cat, TRUE, $delimiter);
+						$cats = $link_before . get_category_parents($cat, FALSE, $delimiter) . $link_after;
 						if ($show_current == 0) $cats = preg_replace("#^(.+)$delimiter$#", "$1", $cats);
 						$cats = str_replace('<a', $link_before . '<a' . $link_attr, $cats);
 						$cats = str_replace('</a>', '</a>' . $link_after, $cats);
