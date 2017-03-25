@@ -774,6 +774,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 				case 'title':
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
+					$post_category = str_replace(' ','',$post_category);
 
 					// <div class="content video preview">
 					// 			<video muted autoplay loop>
@@ -1165,6 +1166,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 		$media_alt = (isset($media_attributes->alt)) ? $media_attributes->alt : '';
 		$post_category = strtolower(uncode_custom_just_category($block_data['id']));
+		$post_category = str_replace(' ','',$post_category);
 
 		if ($single_back_color === '') {
 			$block_classes[] = 'tmb-no-bg';
