@@ -6,6 +6,11 @@
 	    	var vid = $(this).find('video')["0"];
 	    	var btn = $(vidContainer).find('.btn');
 
+	    	//resize video player
+			var blockHeight = $('.tmb-format-video').height();
+			$('.content.video .mejs-video').attr('style','height:'+blockHeight+'px !important');
+			$('.mejs-mediaelement video').attr('style','');
+
 	      	//video autplays on mute, first time pressing play unmutes and plays the video from the beginning
 			if ($(vidContainer).hasClass('preview')){ 
 				$(vidContainer).removeClass('preview');
@@ -27,13 +32,20 @@
 				}
 			}
 	    });
+
+		//resize video player once grid is built
+		setTimeout(function(){ 
+			var blockHeight = $('.tmb-format-video').height();
+			var vid = $('.mejs-mediaelement video');
+			vid.attr('style','height:'+blockHeight+'px !important');
+		}, 1000);
 	}
 
 	//inject hamburger menu to navigation
-	$('.menu-wrapper').append('<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>');
+	$('.menu-wrapper').append('<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button>');
 
 	//override parent theme forcing z-index
-	$('.menu-wrapper .navbar-toggle').css('z-index', 1002);
+	$('.menu-wrapper .navbar-toggle').css('z-index', 2001);
 	$('.hdc-overlay-menu').css('z-index', 1001);
 
 	//handle hamburger menu events
@@ -48,4 +60,6 @@
 		}
 		return false;
 	});
+
+	
 })(jQuery);

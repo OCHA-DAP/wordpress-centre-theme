@@ -20,9 +20,9 @@
 	.navbar-toggle {
 		background-color: transparent;
 		cursor: pointer;
-		position: absolute;
+		position: fixed;
 		right: 40px;
-		top: 45px;
+		top: 65px;
 		z-index: 1001;
 		.sr-only {
 		    position: absolute;
@@ -38,12 +38,12 @@
 		    background-color: $white;
 	    	border-radius: 1px;
 		    display: block;
-		    height: 3px;
-		    transition: 0.25s ease-in-out;    
-		    width: 30px;
+		    height: 5px;
+		    transition: 0.25s ease-out;    
+		    width: 36px;
 		}
 		.icon-bar + .icon-bar {
-		    margin-top: 4px;
+		    margin-top: 12px;
 		}
 		&.expanded {
 			.icon-bar {
@@ -55,16 +55,18 @@
 				    right: 10px;
 				}
 				&:nth-child(3) {
-				    display: none;
-				}
-				&:nth-child(4) {
 				    -webkit-transform: rotate(-45deg);
 				    transform: rotate(-45deg);
 				    position: absolute;
-				    top: 11px;
+				    top: 3px;
 				    right: 10px;
 				}
 			}
+		}
+	}
+	header.is_stuck + .navbar-toggle {
+		.icon-bar {
+			background-color: $green;
 		}
 	}
 }
@@ -72,8 +74,9 @@
 .hdc-overlay-menu {
 	background-color: rgba(50,50,50,0.95);
 	display: none;
+	margin-left: 4px;
 	padding: 60px 0 100px;
-	position: absolute;
+	position: fixed;
 	text-align: center;
 	width: 100%;
 	a {
@@ -133,6 +136,10 @@
 		}
 	}
 	.footer-last {
+		> div {
+			margin: 0 auto;
+			max-width: $footer-max-width;
+		}
 		.uncell {
 			padding-bottom: 110px;
 			padding-top: 110px;

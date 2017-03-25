@@ -180,7 +180,7 @@
 		}
 		.content.video {
 			.mejs-video {
-				height: 431px !important;
+				//height: 431px !important;
 				width: auto !important;
 				.mejs-controls,
 				.mejs-layers {
@@ -200,7 +200,7 @@
 			&.preview {
 				.mejs-mediaelement {
 					video {
-						height: 431px !important;
+						//height: 520px !important;
 	    				left: 50%;
 						position: absolute;
 						top: 0;
