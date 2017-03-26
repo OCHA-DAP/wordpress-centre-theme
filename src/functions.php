@@ -73,18 +73,46 @@ add_filter('user_contactmethods','user_contact',10,1);
 
 
 //shortcodes
-function quote($att, $content = null) 
+function blockquote($att, $content = null) 
 {
 	return '<blockquote>“'.$content.'”</blockquote>';
+}
+add_shortcode('blockquote', 'blockquote');
+
+
+function quote($att, $content = null) 
+{
+	extract(shortcode_atts(array(
+      'label' => '',
+    ), $att));
+	$str = '<div class="label">'.$label.'</div><p>'.$content.'</p>';
+	return $str;
 }
 add_shortcode('quote', 'quote');
 
 
-function label($att, $content = null) 
+function casestudy($att, $content = null) 
 {
-	return '<div class="label">'.$content.'</div>';
+	extract(shortcode_atts(array(
+      'label' => '',
+      'link' => '',
+    ), $att));
+	$str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span><br>'.$content.'</p></a>';
+	return $str;
 }
-add_shortcode('label', 'label');
+add_shortcode('casestudy', 'casestudy');
+
+
+function media($att, $content = null) 
+{
+	extract(shortcode_atts(array(
+      'label' => '',
+      'link' => '',
+    ), $att));
+	$str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
+	return $str;
+}
+add_shortcode('media', 'media');
 
 
 function dataviz($att, $content = null) 
@@ -92,8 +120,9 @@ function dataviz($att, $content = null)
 	extract(shortcode_atts(array(
       'title' => '',
       'author' => 'humdata',
-   ), $att));
-	$str = '<img src="'.$content.'"/><p class="title">'.$title.'</p><p class="author">By '.$author.'</p>';
+      'link' => '',
+    ), $att));
+	$str = '<a href="'.$link.'"><p class="title">'.$title.'</p><p class="author">By '.$author.'</p></a>';
 	return $str;
 }
 add_shortcode('dataviz', 'dataviz');
@@ -113,9 +142,9 @@ add_shortcode('tweet', 'tweet');
 function video($att, $content = null) 
 {
 	extract(shortcode_atts(array(
-      'mp4' => ''
+      'src' => ''
    ), $att));
-	$str = '<div class="content video preview"><video muted autoplay loop><source src="'.$mp4.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
+	$str = '<div class="content video preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
 	return $str;
 }
 add_shortcode('video', 'video');

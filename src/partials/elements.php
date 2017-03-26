@@ -1460,9 +1460,14 @@ if (!function_exists('uncode_custom_just_category')) {
  */
 if (!function_exists('uncode_custom_just_post')) {
 	function uncode_custom_just_post($postid) {
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $postid ), 'single-post-thumbnail' ); 
 		$content_post = get_post($postid);
 		$content = $content_post->post_content;
 		$content = apply_filters('the_content', $content);
+
+		if (!empty($image)) {
+			$content = '<img src="' . $image[0] . '"/>' . $content;
+		}
 
 		return $content;
 	}

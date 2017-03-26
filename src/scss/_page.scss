@@ -118,7 +118,7 @@
 		}
 		.t-entry {
 			img {
-				margin-bottom: 24px;
+				margin: 30px 0 24px;
 			}
 			p {
 				&.title {
@@ -129,6 +129,7 @@
 					font-family: $font-serif-book;
 					font-size: 18px;
 					line-height: 20px;
+					margin-top: 0;
 				}
 			}
 		}
@@ -180,7 +181,6 @@
 		}
 		.content.video {
 			.mejs-video {
-				//height: 431px !important;
 				width: auto !important;
 				.mejs-controls,
 				.mejs-layers {
@@ -200,7 +200,6 @@
 			&.preview {
 				.mejs-mediaelement {
 					video {
-						//height: 520px !important;
 	    				left: 50%;
 						position: absolute;
 						top: 0;
