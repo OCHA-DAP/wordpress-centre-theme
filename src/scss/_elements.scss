@@ -17,11 +17,20 @@
 	}
 	#particles-js {
 		bottom: 0;
+		height: auto;
+	}
+}
+.error404 {
+	#particles-js {
+		height: 100%;
 	}
 }
 
 ul {
 	list-style-type: none;
+	li {
+		font-size: 18px;
+	}
 }
 
 table {
@@ -57,6 +66,7 @@ table {
 		letter-spacing: 0;
 		line-height: 68px;
 		margin: 0;
+		max-width: 156px;
 		padding: 0 40px !important;
 		text-transform: none;
 		vertical-align: top;
@@ -121,3 +131,7 @@ input{
 	text-align: left;
 }
 
+
+@media (max-width: $screen-md) {
+
+}

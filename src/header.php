@@ -153,7 +153,8 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 					$product_sites = wp_get_nav_menu_items( 'product-sites-menu' );
 					$product_list .= '<h6>Our Product Sites:</h6><ul class="product-sites">';
 					foreach( $product_sites as $product_site  ) {
-						$product_list .= '<li><a href="' . $product_site->url . '" target="_blank"><img src="' . get_stylesheet_directory_uri() . '/assets/' . $product_site->title . '-white.svg" height="25"></a></li>';
+						$product_title = strtolower($product_site->title);
+						$product_list .= '<li><a href="' . $product_site->url . '" target="_blank"><img src="' . get_stylesheet_directory_uri() . '/assets/' . $product_title . '-white.svg" height="25"></a></li>';
 					}
 					$product_list .= '</ul>';
 

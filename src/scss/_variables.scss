@@ -1,3 +1,4 @@
+//brand colors
 $green: #1bb580;
 $light-green: #edfaf8;
 $coral: #f2645a;
@@ -6,6 +7,7 @@ $dark-blue: #0077ce;
 $teal: #1ebfb3;
 $yellow: #e0f121;
 
+//supporting colors
 $gray2e: #2e2e2e;
 $gray33: #333;
 $gray66: #666;
@@ -16,13 +18,19 @@ $white: #FFF;
 $black: #000;
 
 
-
+//font styles
 $font-serif-book: 'Stag-Book';
 $font-serif-medium: 'Stag-Medium';
 $font-sans-bold: 'Gotham-Bold';
 $font-sans-brandon: 'Brandon';
 
 
+//key dimensions
 $post-content-inner-width: 864px;
 $header-height: 510px;
 $footer-max-width: 1170px;
+
+
+//breakpoints
+$screen-md: 959px;
+$screen-sm: 569px;

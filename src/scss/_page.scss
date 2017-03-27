@@ -376,3 +376,21 @@
 .uncode_text_column {
 	margin-bottom: 100px;
 }
+
+
+@media (max-width: $screen-md) {
+	.isotope-filters ul.menu-smart > li > span {
+    	padding: 0 4px 15px !important;
+	}	
+	:not(.with-bg).isotope-filters ul.menu-smart > li > span > a {
+		padding: 6px 30px!important;
+	}
+	.sections-container {
+		padding: 0 20px;
+	}
+	.home {
+		.sections-container {
+			padding: 0;
+		}
+	}
+}

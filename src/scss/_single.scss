@@ -104,7 +104,6 @@
 	}
 }
 
-
 .header-scrolldown {
 	display: none;
 }
@@ -179,6 +178,11 @@ div[class*=sharer-].share-button .social ul li {
 	display: none !important;
 }
 
+#comments #reply-title, 
+#respond #reply-title {
+	font-family: $font-serif-book;
+}
+
 blockquote {
 	background: transparent url('assets/quote-underline.png') no-repeat left bottom;
 	border: none;
@@ -189,3 +193,23 @@ blockquote {
 	padding: 0 0 50px;
 	width: 500px;
 }
+
+@media (max-width: $screen-md) {
+	blockquote {
+		margin: 50px auto 35px;
+	}
+	.post-author {
+		text-align: left;
+		img {
+			max-width: 100px;
+		}
+	}
+}
+
+@media (max-width: $screen-sm) {
+	.post-author img {
+		max-width: 72px;
+	}
+}
+
+

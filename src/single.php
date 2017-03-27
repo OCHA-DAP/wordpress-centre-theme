@@ -530,7 +530,8 @@ while (have_posts()):
 		}
 
 		$row_classes.= ' no-bottom-padding';
-		$sidebar_inner_padding.= ' double-bottom-padding';
+		//$sidebar_inner_padding.= ' double-bottom-padding';
+		$sidebar_inner_padding.= '';
 
 		/** Build sidebar **/
 

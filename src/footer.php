@@ -96,7 +96,7 @@ $menu_list .= '</ul>';
 
 if ($footer_text_content !== '') {
 	$copyright = $footer_text_content;
-	$footer_text_content = '<div class="site-info uncell col-lg-3 pos-middle text-'.$footer_position.'">'.$menu_list.'</div><div class="site-info uncell col-lg-5 pos-middle text-'.$footer_position.'">'.$secondary_list.'</div><div class="site-info uncell col-lg-4 pos-middle text-'.$footer_position.'"><img src="'.get_stylesheet_directory_uri().'/assets/footer-map.svg"></div><!-- site info -->';
+	$footer_text_content = '<div class="site-info uncell col-lg-3 pos-middle text-'.$footer_position.'">'.$menu_list.'</div><div class="site-info uncell col-lg-5 pos-middle text-'.$footer_position.'">'.$secondary_list.'</div><div class="site-info uncell col-lg-4 pos-middle text-'.$footer_position.' footer-map"><img src="'.get_stylesheet_directory_uri().'/assets/footer-map.svg"></div><!-- site info -->';
 }
 
 $footer_social = ot_get_option('_uncode_footer_social');
