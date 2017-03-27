@@ -56,6 +56,7 @@ module.exports = {
         //modules+'timeago/jquery.timeago.js', // The modules directory contains packages downloaded via npm
         //modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js', 
         src+'scripts/particles.js',
+        src+'scripts/twitterFetcher_min.js',
         src+'scripts/humdata.js'
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
