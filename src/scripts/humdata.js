@@ -132,13 +132,13 @@
     }
 
     setInterval(function(){
-        $.when($('.tweet > *').animate({
+        $.when($('.tweet .t-overlay-content').animate({
             'opacity': '0',
             'marginTop': '+40px'
         }, 750)).done(function(){
             getTweet();
-            $('.tweet > *').css('marginTop', '-40px');
-            $('.tweet > *').animate({
+            $('.tweet .t-overlay-content').css('marginTop', '-40px');
+            $('.tweet .t-overlay-content').animate({
                 'opacity': '1',
                 'marginTop': '0'
             }, 600)

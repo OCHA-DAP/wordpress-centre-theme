@@ -28,7 +28,7 @@
 		width: 90% !important;
 	}
 	&.quote {
-		background-color: $gray33;
+		@include bg-gradient($gray33);
 		.t-background-cover,
 		.t-entry-visual-overlay,
 		.t-entry-author {
@@ -61,7 +61,7 @@
 		}
 	}
 	&.tweet {
-		background-color: $blue;
+		@include bg-gradient($blue);
 		.t-background-cover,
 		.t-entry-visual-overlay,
 		.t-entry-author,
@@ -89,6 +89,28 @@
 					margin-bottom: 0 !important;
 					position: absolute;
 					bottom: 50px;
+					width: 100%;
+					.TweetAuthor{
+						.TweetAuthor-avatar .Avatar {
+							border-radius: 50%;
+							float: left;
+							height: auto;
+							margin-right: 8px;
+							width: 50px;
+						}
+						.TweetAuthor-verifiedBadge {
+							display: none;
+						}
+						.TweetAuthor-name {
+							margin-top: 8px;
+						}
+						.TweetAuthor-name,
+						.TweetAuthor-screenname {
+							float: left;
+							line-height: 16px;
+							width: 75%;
+						}
+					}
 				}
 				&.tweet-text {
 					display: block;
@@ -96,11 +118,14 @@
 			}
 			.fa-twitter {
 				font-size: 24px;
+				position: absolute;
+			    bottom: 55px;
+			    right: 0px;
 			}
 		}
 	}
 	&.dataviz {
-		background-color: $teal;
+		@include bg-gradient($teal);
 		.t-background-cover,
 		.t-entry-visual-overlay,
 		.t-entry-author,
@@ -137,7 +162,7 @@
 	&.casestudy,
 	&.media,
 	 {
-		background-color: $dark-blue;
+		@include bg-gradient($dark-blue);
 		.t-background-cover,
 		.t-entry-visual-overlay,
 		.t-entry-author {
@@ -161,7 +186,7 @@
 		}
 	}
 	&.calendar {
-		background-color: $coral;
+		@include bg-gradient($coral);
 	}
 	&.image {
 		.t-background-cover,

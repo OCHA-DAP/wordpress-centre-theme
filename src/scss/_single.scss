@@ -86,7 +86,8 @@
 .main-container {
 	.row-container {
 		.row-parent {
-			padding: 0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 }
@@ -191,7 +192,7 @@ blockquote {
 	font-size: 36px;
 	margin: 50px 0 35px -225px;
 	padding: 0 0 50px;
-	width: 500px;
+	max-width: 500px;
 }
 
 @media (max-width: $screen-md) {

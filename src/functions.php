@@ -132,8 +132,9 @@ function tweet($att, $content = null)
 {
 	extract(shortcode_atts(array(
       'author' => '',
+      'link' => '',
    ), $att));
-	$str = '<p class="tweet-text">“'.$content.'”</p><p class="author">@'.$author.'<br><i class="fa fa-twitter twhite" aria-hidden="true"></i></p>';
+	$str = '<a href="'.$link.'" target="_blank"><p class="tweet-text">“'.$content.'”</p><p class="author">@'.$author.'<br></p><i class="fa fa-twitter twhite" aria-hidden="true"></i></a>';
 	return $str;
 }
 add_shortcode('tweet', 'tweet');
