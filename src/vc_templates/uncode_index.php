@@ -381,7 +381,7 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
         ?>
           <div class="isotope-filters menu-container <?php echo esc_attr($gutter_size) . esc_attr($filter_background); if ($filter_mobile === 'yes') echo ' mobile-hidden table-hidden'; if ($filter_scroll === 'yes') echo ' filter-scroll'; if ($inner_padding === 'yes') echo ' filters-inner-padding'; if ($filter_sticky === 'yes') echo ' sticky-element';?>">
               <div class="menu-horizontal<?php if ($filtering_full_width !== 'yes') echo ' limit-width'; ?> menu-<?php echo esc_attr($filter_style); ?> text-<?php echo esc_attr($filtering_position); ?>">
-                  <h3>Latest from the centre</h3>
+                  <h3>Latest from the Centre</h3>
                   <ul class="menu-smart<?php  if ($filtering_uppercase === 'yes') echo ' text-uppercase'; ?>">
                       <?php
                         global $wp;

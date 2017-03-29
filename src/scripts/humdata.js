@@ -89,13 +89,14 @@
 	});
 
 	function twitterDataReady(data){
-		console.log(data);
+		//console.log(data);
 		var processedTweets = [];
 		for (var i = 0; i < data.length; i++){
 			var dataTweet = data[i];
 			processedTweets.push({
 				"tweet": dataTweet.tweet,
 				"tid": dataTweet.tid,
+				"link": dataTweet.permalinkURL,
 				"author": dataTweet.author
 			});
 		}
@@ -129,6 +130,7 @@
         tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
         $('.tweet .tweet-text').html(val.tweet);
         $('.tweet .author').html(val.author);
+        $('.tweet a').attr('href',val.link);
     }
 
     setInterval(function(){

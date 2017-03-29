@@ -114,6 +114,7 @@
 				}
 				&.tweet-text {
 					display: block;
+					@include breakword();
 				}
 			}
 			.fa-twitter {
@@ -366,7 +367,7 @@
 					ul.menu {
 						list-style-type: none;
 						padding-left: 0;
-						padding-top: 14px;
+						//padding-top: 14px;
 						a {
 							color: $green;
 							font-family: $font-serif-book;
