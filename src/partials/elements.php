@@ -1301,14 +1301,15 @@ if (!function_exists('uncode_create_single_block')) {
 					else:
 
 						$post_format = get_post_format($block_data['id']);
-						$custom_post = ($post_category === 'image' || $post_category === 'video') ? uncode_custom_just_post($block_data['id']) : '';
+						$custom_post = ($post_category === 'video') ? uncode_custom_just_post($block_data['id']) : '';
 						if ($media_type === 'image') :
 
 							if ($post_format === 'video') {
 								$output .= $custom_post;
 							}
 							else if ($post_format === 'image') {
-								$output .=  $custom_post;
+								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $block_data['id'] ), 'single-post-thumbnail' ); 
+								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 							else {
 								$output .= 		'<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';

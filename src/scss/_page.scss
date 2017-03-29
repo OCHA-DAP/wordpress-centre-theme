@@ -114,7 +114,7 @@
 				}
 				&.tweet-text {
 					display: block;
-					@include breakword();
+					@include break-word();
 				}
 			}
 			.fa-twitter {
@@ -190,7 +190,6 @@
 		@include bg-gradient($coral);
 	}
 	&.image {
-		.t-background-cover,
 		.t-entry-meta,
 		.t-entry-author,
 		.t-entry-title {
