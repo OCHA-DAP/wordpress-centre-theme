@@ -82,7 +82,7 @@
     var configList = {
         "profile": {"screenName": 'humdata'},
         // "domId": 'exampleList',
-        "maxTweets": 5,
+        "maxTweets": 10,
         "enableLinks": false,
         "showUser": true,
         "showTime": true,
