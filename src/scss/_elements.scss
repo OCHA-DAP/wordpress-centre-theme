@@ -45,6 +45,19 @@ table {
 	}
 }
 
+html {
+	margin-top: 0 !important;
+}
+
+.style-light {
+	a {
+		color: $coral;
+		&:not(.btn-text-skin):hover {
+			color: darken($coral, 20%) !important;
+		}
+	}
+}
+
 .style-color-wayh-bg {
 	background-color: transparent;
 }
@@ -133,5 +146,9 @@ input{
 
 
 @media (max-width: $screen-md) {
-
+	.video {
+		.btn.playpause-btn {
+			display: none;
+		}
+	}
 }

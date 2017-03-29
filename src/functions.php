@@ -39,9 +39,15 @@ function custom_javascript()
 }
 add_filter('wp_enqueue_scripts','custom_javascript');
 
+
+add_filter( 'wp_mail_from', function() {
+    return 'wordpress@[MyDomain]';
+} );
+
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
 require_once( get_stylesheet_directory(). '/partials/headers.php' );
+
 
 //get first link in post content
 function get_content_link( $content = false )
@@ -75,7 +81,17 @@ add_filter('user_contactmethods','user_contact',10,1);
 //shortcodes
 function blockquote($att, $content = null) 
 {
-	return '<blockquote>“'.$content.'”</blockquote>';
+	extract(shortcode_atts(array(
+      'author' => '',
+    ), $att));
+    if ($author !== '') {
+    	$auth_str = '<br><span>-'.$author.'</span>'; 
+    }
+    else {
+    	$auth_str = '';
+    }
+	$str = '<blockquote>“'.$content.'”'.$auth_str.'</blockquote>';
+	return $str;
 }
 add_shortcode('blockquote', 'blockquote');
 

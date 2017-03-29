@@ -22,7 +22,7 @@
 		cursor: pointer;
 		position: fixed;
 		right: 40px;
-		top: 65px;
+		top: 42px;
 		z-index: 1001;
 		.sr-only {
 		    position: absolute;
@@ -144,6 +144,40 @@
 			padding-top: 110px;
 		}
 	}
+	input[type="email"] {
+		background-color: $white;
+		border-radius: 0;
+		font-size: 16px;
+		height: 40px;
+		line-height: 40px;
+		padding-left: 10px;
+		width: 68%;	
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: #CCC !important;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  color: #CCC !important;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  color: #CCC !important;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  color: #CCC !important;
+		}
+	}
+	h2:not([class*="fontsize-"]) {
+		font-size: 28px;
+	}
+	p {
+		margin: 10px 0;
+	}
+	.btn.submit-btn {
+		background-color: $green;
+		border: 0;
+		font-size: 16px;
+		line-height: 40px;
+		padding: 0 12px !important;
+	}
 }
 
 @media (min-width: 960px) {
@@ -246,10 +280,6 @@
 		.footer-last {
 			.uncell {
 				padding: 50px 0;
-			}
-			.footer-map {
-				margin: 0 auto;
-				width: 75%;
 			}
 		}
 	}
