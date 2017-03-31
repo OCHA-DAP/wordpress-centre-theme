@@ -49,6 +49,10 @@ html {
 	margin-top: 0 !important;
 }
 
+div > a {
+	border-bottom: 0 !important;
+}
+
 .style-light {
 	a {
 		color: $coral;

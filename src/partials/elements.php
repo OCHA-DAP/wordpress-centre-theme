@@ -474,7 +474,7 @@ if (!function_exists('uncode_create_single_block')) {
 		//NOTE: comment out conditional so post info always displays whether there is media or not
 		//if (empty($item_thumb_id) || FALSE === get_post_mime_type( $item_thumb_id ))
 		//{
-			$item_media = 'https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=media+not+available&amp;w=500&amp;h=500';
+			$item_media = catch_that_image($block_data['id']);//'https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=media+not+available&amp;w=500&amp;h=500';
 			$media_attributes = '';
 			$image_orig_w = 500;
 			$image_orig_h = 500;
@@ -747,7 +747,7 @@ if (!function_exists('uncode_create_single_block')) {
 		if ($item_media === '' && !isset($media_attributes->guid) && !$multiple_items)
 		{
 			$media_type = 'image';
-			$item_media = 'http://placehold.it/500x500';//http://placehold.it/500&amp;text=media+not+available';
+			$item_media = catch_that_image($block_data['id']);//'http://placehold.it/500x500';//http://placehold.it/500&amp;text=media+not+available';
 			$image_orig_w = 500;
 			$image_orig_h = 500;
 		}
@@ -1436,7 +1436,7 @@ if (!function_exists('uncode_custom_post_info')) {
 		$cat_output = '';
 
 		if($categories){
-			$cat_output .= '<a href="'.get_category_link( $categories[0]->term_id ).'" title="' . esc_attr( sprintf( esc_html__( "View all posts in %s", 'uncode' ), $categories[0]->name ) ) . '">'.$categories[0]->cat_name.'</a>';
+			$cat_output .= $categories[0]->cat_name;
 			$output[] = '<div class="category-info">' . trim($cat_output, $separator) . '</div>';
 		}
 

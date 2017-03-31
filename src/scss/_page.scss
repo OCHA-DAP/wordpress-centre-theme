@@ -161,8 +161,7 @@
 		}
 	}
 	&.casestudy,
-	&.media,
-	 {
+	&.media {
 		@include bg-gradient($dark-blue);
 		.t-background-cover,
 		.t-entry-visual-overlay,
@@ -185,6 +184,9 @@
 				margin-bottom: 36px !important;
 			}
 		}
+	}
+	&.media {
+		@include bg-gradient($purple);
 	}
 	&.calendar {
 		@include bg-gradient($coral);

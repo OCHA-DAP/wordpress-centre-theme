@@ -147,6 +147,10 @@
 	}
 }
 
+.category-info {
+	color: $white;
+}
+
 .post-wrapper {
 	.post-share {
 		border-bottom-width: 0;
@@ -182,6 +186,10 @@ div[class*=sharer-].share-button .social ul li {
 #comments #reply-title, 
 #respond #reply-title {
 	font-family: $font-serif-book;
+}
+
+.post-tag-container.widget-container {
+	display: none;
 }
 
 blockquote,
