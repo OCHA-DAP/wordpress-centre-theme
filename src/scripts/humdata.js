@@ -3,14 +3,14 @@
 	//handle video block events on home page
    	if ($('body').hasClass('home')) {
 	   	$('.t-entry-visual.video').on('click', function(e){
-	   		var vidContainer = $(this).find('.content.video');
+	   		var vidContainer = $(this).find('.videoplayer');
 	    	var vid = $(this).find('video')["0"];
 	    	var btn = $(vidContainer).find('.btn');
 
 	    	//resize video player
 			var blockHeight = $('.tmb-format-video').height();
-			$('.content.video .mejs-video').attr('style','height:'+blockHeight+'px !important');
-			$('.mejs-mediaelement video').attr('style','');
+			$(vidContainer).find('.mejs-video').attr('style','height:'+blockHeight+'px !important');
+			$(vidContainer).find('.mejs-mediaelement video').attr('style','');
 
 	      	//video autplays on mute, first time pressing play unmutes and plays the video from the beginning
 			if ($(vidContainer).hasClass('preview')){ 

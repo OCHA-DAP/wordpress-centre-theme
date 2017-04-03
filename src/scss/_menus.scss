@@ -65,6 +65,7 @@
 		}
 	}
 	header.is_stuck + .navbar-toggle {
+		top: 34px;
 		.icon-bar {
 			background-color: $green;
 		}
@@ -166,6 +167,7 @@
 		}
 	}
 	h2:not([class*="fontsize-"]) {
+		font-family: $font-serif-book;
 		font-size: 28px;
 	}
 	p {
@@ -219,9 +221,21 @@
 		.navbar-toggle {
 			padding: 0;
 			right: 20px;
-			top: 80px;
+			top: 35px;
 			.icon-bar {
 				background-color: $green;
+			}
+			&.expanded {
+				.icon-bar {
+					&:nth-child(2) {
+					    top: 9px;
+					    right: 0;
+					}
+					&:nth-child(3) {
+					    top: -3px;
+					    right: 0;
+					}
+				}
 			}
 		}
 	}

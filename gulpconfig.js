@@ -1,7 +1,7 @@
 // ==== CONFIGURATION ==== //
 
 // Project paths
-var project     = 'uncode-child',        // The directory name for your theme; change this at the very least!
+var project     = 'uncode-child2',        // The directory name for your theme; change this at the very least!
     src         = './src/',               // The raw material of your theme: custom scripts, SCSS source files, PHP files, images, etc.; do not delete this folder!
     build       = './build/',             // A temporary directory containing a development version of your theme; delete it anytime
     dist        = './dist/'+project+'/',  // The distribution package that you'll be uploading to your server; delete it anytime

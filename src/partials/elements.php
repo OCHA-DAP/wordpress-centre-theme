@@ -796,7 +796,7 @@ if (!function_exists('uncode_create_single_block')) {
 						}
 						else if ($post_category === 'casestudy' || $post_category === 'media') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
-							$print_title = '('.$print_title.')';
+							$print_title = $print_title;
 						}
 						else if ($post_category === 'tweet' || $post_category === 'dataviz') {
 							$custom_post = uncode_custom_just_post($block_data['id']);

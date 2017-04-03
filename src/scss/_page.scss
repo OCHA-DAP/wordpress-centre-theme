@@ -206,8 +206,9 @@
 		.t-entry-title {
 			display: none;
 		}
-		.content.video {
+		.content.videoplayer {
 			.mejs-video {
+				height: 100% !important;
 				width: auto !important;
 				.mejs-controls,
 				.mejs-layers {

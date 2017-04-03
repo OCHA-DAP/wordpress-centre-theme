@@ -6,12 +6,12 @@ function uncode_language_setup()
 add_action('after_setup_theme', 'uncode_language_setup');
 
 function uncode_hdx_api_init(){
-    add_settings_field('hdx-mixpanel-token', 'HDX Mixpanel Token', 'render_hdx_mixpanel_token', 'general');
-    add_settings_field('hdx-google-analytics-token', 'HDX Google Analytics Token', 'render_hdx_google_analytics_token', 'general');
-    // Register our setting so that $_POST handling is done for us and
-    // our callback function just has to echo the <input>
-    register_setting( 'general', 'hdx-mixpanel-token' );
-    register_setting( 'general', 'hdx-google-analytics-token' );
+  add_settings_field('hdx-mixpanel-token', 'HDX Mixpanel Token', 'render_hdx_mixpanel_token', 'general');
+  add_settings_field('hdx-google-analytics-token', 'HDX Google Analytics Token', 'render_hdx_google_analytics_token', 'general');
+  // Register our setting so that $_POST handling is done for us and
+  // our callback function just has to echo the <input>
+  register_setting( 'general', 'hdx-mixpanel-token' );
+  register_setting( 'general', 'hdx-google-analytics-token' );
 }
 add_action( 'admin_init', 'uncode_hdx_api_init' );
 
@@ -41,7 +41,7 @@ add_filter('wp_enqueue_scripts','custom_javascript');
 
 
 add_filter( 'wp_mail_from', function() {
-    return 'wordpress@[MyDomain]';
+  return 'wordpress@[MyDomain]';
 } );
 
 //override parent theme partials
@@ -69,16 +69,16 @@ function catch_that_image($postid) {
 function get_content_link( $content = false )
 {
 if ( ! in_the_loop() )
-    return;
+  return;
 
-    // allows using this function also for excerpts
-    ! $content AND $content = get_the_content();
+  // allows using this function also for excerpts
+  ! $content AND $content = get_the_content();
 
-    $content = preg_match_all( '/href\s*=\s*[\"\']([^\"\']+)/', $content, $links );
-    $content = $links[1][0];
-    //$content = make_clickable( $content );
+  $content = preg_match_all( '/href\s*=\s*[\"\']([^\"\']+)/', $content, $links );
+  $content = $links[1][0];
+  //$content = make_clickable( $content );
 
-    return $content;
+  return $content;
 }
 
 
@@ -98,14 +98,14 @@ add_filter('user_contactmethods','user_contact',10,1);
 function blockquote($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'author' => '',
-    ), $att));
-    if ($author !== '') {
-      $auth_str = '<br><span>-'.$author.'</span>'; 
-    }
-    else {
-      $auth_str = '';
-    }
+    'author' => '',
+  ), $att));
+  if ($author !== '') {
+    $auth_str = '<br><span>-'.$author.'</span>'; 
+  }
+  else {
+    $auth_str = '';
+  }
   $str = '<blockquote>“'.$content.'”'.$auth_str.'</blockquote>';
   return $str;
 }
@@ -115,8 +115,8 @@ add_shortcode('blockquote', 'blockquote');
 function quote($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'label' => '',
-    ), $att));
+    'label' => '',
+  ), $att));
   $str = '<div class="label">'.$label.'</div><p>'.$content.'</p>';
   return $str;
 }
@@ -126,9 +126,9 @@ add_shortcode('quote', 'quote');
 function casestudy($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'label' => '',
-      'link' => '',
-    ), $att));
+    'label' => '',
+    'link' => '',
+  ), $att));
   $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span><br>'.$content.'</p></a>';
   return $str;
 }
@@ -138,9 +138,9 @@ add_shortcode('casestudy', 'casestudy');
 function media($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'label' => '',
-      'link' => '',
-    ), $att));
+    'label' => '',
+    'link' => '',
+  ), $att));
   $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
   return $str;
 }
@@ -150,12 +150,12 @@ add_shortcode('media', 'media');
 function dataviz($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'title' => '',
-      'author' => '',
-      'link' => '',
-    ), $att));
-    if ($author != '') $auth_str = '<p class="author">By '.$author.'</p>';
-    else $auth_str = '';
+    'title' => '',
+    'author' => '',
+    'link' => '',
+  ), $att));
+  if ($author != '') $auth_str = '<p class="author">'.$author.'</p>';
+  else $auth_str = '';
   $str = '<a href="'.$link.'"><p class="title">'.$title.'</p>'.$auth_str.'</a>';
   return $str;
 }
@@ -165,9 +165,9 @@ add_shortcode('dataviz', 'dataviz');
 function tweet($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'author' => '',
-      'link' => '',
-   ), $att));
+    'author' => '',
+    'link' => '',
+  ), $att));
   $str = '<a href="'.$link.'" target="_blank"><p class="tweet-text">“'.$content.'”</p><p class="author">@'.$author.'<br></p><i class="fa fa-twitter twhite" aria-hidden="true"></i></a>';
   return $str;
 }
@@ -178,8 +178,8 @@ function video($att, $content = null)
 {
   extract(shortcode_atts(array(
       'src' => ''
-   ), $att));
-  $str = '<div class="content video preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
+  ), $att));
+  $str = '<div class="content videoplayer preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
   return $str;
 }
 add_shortcode('video', 'video');
