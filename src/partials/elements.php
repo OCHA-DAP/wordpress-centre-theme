@@ -776,14 +776,6 @@ if (!function_exists('uncode_create_single_block')) {
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 					$post_category = str_replace(' ','',$post_category);
 
-					// <div class="content video preview">
-					// 			<video muted autoplay loop>
-					// 			  	<source src="assets/video/the-centre-for-humanitarian-design.mp4" type="video/mp4">
-					// 				Your browser does not support the video tag.
-					// 			</video>
-					// 			<div class="btn playpause-btn"></div>
-					// 		</div>
-
 					$get_title = (isset($media_attributes->post_title)) ? $media_attributes->post_title : '';
 					if (($single_text === 'overlay' && $single_elements_click !== 'yes') || (isset($media_attributes->team) && $media_attributes->team) || $title_link === '#') {
 						$print_title = $single_title ? $single_title : $media_attributes->post_title;

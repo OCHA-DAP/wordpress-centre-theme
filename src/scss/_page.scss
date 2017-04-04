@@ -201,55 +201,73 @@
 	&.video {
 		background-color: $black;
 		.t-background-cover,
-		.t-entry-meta,
-		.t-entry-author,
-		.t-entry-title {
+		.t-entry-visual-overlay,
+		.t-overlay-wrap {
 			display: none;
 		}
-		.content.videoplayer {
-			.mejs-video {
-				height: 100% !important;
-				width: auto !important;
-				.mejs-controls,
-				.mejs-layers {
-					display: none !important;
-				}
-				.mejs-mediaelement {
-					video {
-						height: auto !important;
-						left: 0;
-						position: absolute;
-						top: 50%;
-						transform: translate(0,-50%);
-						width: 100% !important;
-					}
-				}
-			}
-			&.preview {
-				.mejs-mediaelement {
-					video {
-	    				left: 50%;
-						position: absolute;
-						top: 0;
-	   				 	transform: translate(-50%, 0);
-						width: auto !important;
-					}
-				}
+		.mejs-video {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.mejs-overlay-button {
+			background: transparent url('assets/play.svg') no-repeat 0 0;
+			border: none;
+			height: 100px;
+			margin: -50px 0 0 -50px !important;
+			width: 100px;
+			&:before {
+				display: none;
 			}
 		}
-		.t-entry-visual-cont {
-			cursor: pointer;
-			&:hover {
-				.playpause-btn{
-					opacity: 1;
-				}
-			}
-			.playpause-btn{
-				opacity: 0;
-				-webkit-transition: all 0.5s; 
-    			transition: all 0.5s;
-			}
+		.mejs-controls {
+		 	display: none !important;
+		 	visibility: hidden !important;
 		}
+		// .content.videoplayer {
+		// 	.mejs-video {
+		// 		height: 100% !important;
+		// 		width: auto !important;
+		// 		.mejs-controls,
+		// 		.mejs-layers {
+		// 			display: none !important;
+		// 		}
+		// 		.mejs-mediaelement {
+		// 			video {
+		// 				height: auto !important;
+		// 				left: 0;
+		// 				position: absolute;
+		// 				top: 50%;
+		// 				transform: translate(0,-50%);
+		// 				width: 100% !important;
+		// 			}
+		// 		}
+		// 	}
+		// 	&.preview {
+		// 		.mejs-mediaelement {
+		// 			video {
+	 //    				left: 50%;
+		// 				position: absolute;
+		// 				top: 0;
+	 //   				 	transform: translate(-50%, 0);
+		// 				width: auto !important;
+		// 			}
+		// 		}
+		// 	}
+		// }
+		// .t-entry-visual-cont {
+		// 	cursor: pointer;
+		// 	&:hover {
+		// 		.playpause-btn{
+		// 			opacity: 1;
+		// 		}
+		// 	}
+		// 	.playpause-btn{
+		// 		opacity: 0;
+		// 		-webkit-transition: all 0.5s; 
+  //   			transition: all 0.5s;
+		// 	}
+		// }
 	}
 }
 

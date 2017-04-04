@@ -174,12 +174,12 @@ function tweet($att, $content = null)
 add_shortcode('tweet', 'tweet');
 
 
-function video($att, $content = null) 
-{
-  extract(shortcode_atts(array(
-      'src' => ''
-  ), $att));
-  $str = '<div class="content videoplayer preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
-  return $str;
-}
-add_shortcode('video', 'video');
+// function video($att, $content = null) 
+// {
+//   extract(shortcode_atts(array(
+//       'src' => ''
+//   ), $att));
+//   $str = '<div class="content videoplayer preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
+//   return $str;
+// }
+// add_shortcode('video', 'video');
