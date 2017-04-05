@@ -20,9 +20,11 @@
 	.navbar-toggle {
 		background-color: transparent;
 		cursor: pointer;
+		height: 50px;
 		position: fixed;
 		right: 40px;
 		top: 42px;
+		width: 50px;
 		z-index: 1001;
 		.sr-only {
 		    position: absolute;
