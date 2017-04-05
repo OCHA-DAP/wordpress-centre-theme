@@ -192,6 +192,19 @@ div[class*=sharer-].share-button .social ul li {
 	display: none;
 }
 
+.post-body {
+	.row-inner div[class*=col-lg-] {
+		font-size: 20px;
+	}
+	div > a {
+		font-size: 20px;
+	}
+	.style-light p b {
+		color: $coral;
+	}
+}
+
+
 blockquote,
 blockquote p {
 	background: transparent url('assets/quote-underline.png') no-repeat left bottom;

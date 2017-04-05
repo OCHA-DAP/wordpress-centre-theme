@@ -81,6 +81,12 @@ if ( ! in_the_loop() )
   return $content;
 }
 
+add_filter('the_content', function( $content ){
+    //--Remove all inline styles--
+    $content = preg_replace('/ style=("|\')(.*?)("|\')/','',$content);
+    return $content;
+}, 20);
+
 
 //add extra contact fields to user profiles
 function user_contact($contactmethods) 
