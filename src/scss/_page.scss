@@ -205,25 +205,28 @@
 		.t-overlay-wrap {
 			display: none;
 		}
-		.mejs-video {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
+		iframe {
+			height: 100%;
 		}
-		.mejs-overlay-button {
-			background: transparent url('assets/play.svg') no-repeat 0 0;
-			border: none;
-			height: 100px;
-			margin: -50px 0 0 -50px !important;
-			width: 100px;
-			&:before {
-				display: none;
-			}
-		}
-		.mejs-controls {
-		 	display: none !important;
-		 	visibility: hidden !important;
-		}
+		// .mejs-video {
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	transform: translateY(-50%);
+		// }
+		// .mejs-overlay-button {
+		// 	background: transparent url('assets/play.svg') no-repeat 0 0;
+		// 	border: none;
+		// 	height: 100px;
+		// 	margin: -50px 0 0 -50px !important;
+		// 	width: 100px;
+		// 	&:before {
+		// 		display: none;
+		// 	}
+		// }
+		// .mejs-controls {
+		//  	display: none !important;
+		//  	visibility: hidden !important;
+		// }
 		// .content.videoplayer {
 		// 	.mejs-video {
 		// 		height: 100% !important;

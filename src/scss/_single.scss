@@ -15,13 +15,15 @@
 				margin-top: 30px;
 				width: $post-content-inner-width;
 			}
-			.photo-credit {
-				color: $black;
-				font-size: 12px;
-				margin-top: 8px;
-			}
+			
 		}
 	}
+}
+
+.photo-credit {
+	color: $black;
+	font-size: 12px;
+	margin-top: 8px;
 }
 
 .row-breadcrumb {
@@ -99,8 +101,16 @@
 			font-size: 24px;
 		}
 		ul {
-			list-style: none;
-			padding: 0;
+			//list-style: none;
+			//padding: 0;
+		}
+		li {
+			font-size: 18px;
+		}
+		ol {
+			li {
+				padding-left: 5px;
+			}
 		}
 	}
 }

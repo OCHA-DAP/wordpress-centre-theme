@@ -23,7 +23,7 @@
 		height: 50px;
 		position: fixed;
 		right: 40px;
-		top: 42px;
+		top: 28px;
 		width: 50px;
 		z-index: 1001;
 		.sr-only {
@@ -53,21 +53,21 @@
 				    -webkit-transform: rotate(45deg);
 				    transform: rotate(45deg);
 				    position: absolute;
-				    top: 15px;
+				    top: 24px;
 				    right: 10px;
 				}
 				&:nth-child(3) {
 				    -webkit-transform: rotate(-45deg);
 				    transform: rotate(-45deg);
 				    position: absolute;
-				    top: 3px;
+				    top: 12px;
 				    right: 10px;
 				}
 			}
 		}
 	}
 	header.is_stuck + .navbar-toggle {
-		top: 34px;
+		top: 22px;
 		.icon-bar {
 			background-color: $green;
 		}
@@ -222,20 +222,20 @@
 		height: 90px !important;
 		.navbar-toggle {
 			padding: 0;
-			right: 20px;
-			top: 35px;
+			right: 7px;
+			top: 21px;
 			.icon-bar {
 				background-color: $green;
 			}
 			&.expanded {
 				.icon-bar {
 					&:nth-child(2) {
-					    top: 9px;
-					    right: 0;
+					    top: 23px;
+					    right: 10px;
 					}
 					&:nth-child(3) {
-					    top: -3px;
-					    right: 0;
+					    top: 11px;
+					    right: 10px;
 					}
 				}
 			}
@@ -270,7 +270,7 @@
 @media (max-width: $screen-sm) {
 	.menu-wrapper {
 		.navbar-toggle {
-			top: 34px;
+			top: 20px;
 		}
 	}
 	.row-parent.no-h-padding .isotope-filters > .menu-horizontal > .menu-smart {

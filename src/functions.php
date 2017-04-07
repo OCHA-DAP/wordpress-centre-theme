@@ -179,6 +179,15 @@ function tweet($att, $content = null)
 }
 add_shortcode('tweet', 'tweet');
 
+function video($att, $content = null) 
+{
+  extract(shortcode_atts(array(
+      'src' => ''
+  ), $att));
+  $str = '<iframe src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
+  return $str;
+}
+add_shortcode('video', 'video');
 
 // function video($att, $content = null) 
 // {
