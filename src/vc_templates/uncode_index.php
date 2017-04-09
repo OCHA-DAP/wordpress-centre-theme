@@ -403,13 +403,17 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
                           </span>
                       </li>
                   <?php foreach ( $categories_array as $cat ):
-                      if ($cat->taxonomy !== 'product_type'): ?>
-                      <?php if (($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) && !isset($_GET['ucat'])) : ?>
-                      <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="#" data-filter="grid-cat-<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
-                      <?php else: ?>
-                      <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="<?php echo $current_url; ?>?id=<?php echo esc_attr($el_id); ?>&amp;ucat=<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
-                      <?php endif; ?>
-                  <?php endif;
+                      //do not include Tweet as a filter option
+                      if ($cat->name !== 'Tweet') :
+                        if ($cat->taxonomy !== 'product_type'): ?>
+                        <?php if (($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) && !isset($_GET['ucat'])) : ?>
+                        <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="#" data-filter="grid-cat-<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
+                        <?php else: ?>
+                        <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="<?php echo $current_url; ?>?id=<?php echo esc_attr($el_id); ?>&amp;ucat=<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
+                        <?php endif; ?>
+                    <?php
+                        endif;
+                      endif;
                   endforeach; ?>
                   </ul>
               </div>

@@ -106,6 +106,8 @@
 		}
 		li {
 			font-size: 18px;
+			line-height: 30px;
+			margin-bottom: 10px;
 		}
 		ol {
 			li {
@@ -206,14 +208,27 @@ div[class*=sharer-].share-button .social ul li {
 	.row-inner div[class*=col-lg-] {
 		font-size: 20px;
 	}
+	.row-parent.double-top-padding {
+		padding-top: 36 !important;
+	}
 	div > a {
 		font-size: 20px;
 	}
 	.style-light p b {
-		color: $coral;
+		//color: $coral;
 	}
 }
 
+.comment-content {
+	.comment-meta {
+		p {
+			font-size: 16px;
+			&.comment-meta-item {
+				font-size: 11px;
+			}
+		}
+	}
+}
 
 blockquote,
 blockquote p {

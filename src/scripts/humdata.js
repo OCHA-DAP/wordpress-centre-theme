@@ -1,5 +1,4 @@
 (function($) {
-   
 	//handle video block events on home page
  //   	if ($('body').hasClass('home')) {
 	//    	$('.t-entry-visual.video').on('click', function(e){
@@ -41,6 +40,8 @@
 	// 		vid.attr('style','height:'+blockHeight+'px !important');
 	// 	}, 1000);
 	// }
+	
+	$('#particles-js').prependTo('.header-wrapper .uncol');
 
 	//inject hamburger menu to navigation
 	$('.menu-wrapper').append('<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button>');
@@ -119,5 +120,5 @@
                 'marginTop': '0'
             }, 600)
         });
-    }, 5000);
+    }, 500000);
 })(jQuery);

@@ -77,6 +77,8 @@
 			}
 		}
 		.t-entry {
+			max-height: 85%;
+			overflow: hidden;
 			p {
 				display: none;
 				font-family: $font-serif-book;
@@ -194,6 +196,7 @@
 	&.image {
 		.t-entry-meta,
 		.t-entry-author,
+		.t-entry-visual-overlay,
 		.t-entry-title {
 			display: none;
 		}
