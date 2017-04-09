@@ -194,6 +194,14 @@ input{
 	// .t-entry-visual.video .mejs-overlay-button {
 	// 	display: none;
 	// }
+	.single {
+		.header-wrapper {
+			background-color: transparent;
+		}
+		#particles-js {
+			display: none;
+		}
+	}
 	.header-wrapper {
 		.row-inner {
 			padding: 0 20px;
