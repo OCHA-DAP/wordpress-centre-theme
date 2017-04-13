@@ -10,17 +10,6 @@
 	background: $green url('assets/bg-pattern-green.png') repeat 0 0;
 }
 
-.home {
-	#page-header {
-		display: block;
-		position: relative;
-	}
-	#particles-js {
-		bottom: 0;
-		top: -127px;
-		//height: auto;
-	}
-}
 .error404 {
 	#particles-js {
 		height: 100%;
@@ -28,7 +17,6 @@
 }
 
 .header-wrapper {
-	background-color: $green;
 	.row-container {
 		.row-inner {
 			margin-left: 0;
@@ -45,6 +33,20 @@
 				width: auto;
 			}
 		}
+	}
+}
+
+.home {
+	#page-header {
+		display: block;
+		position: relative;
+	}
+	#particles-js {
+		bottom: 0;
+		top: -127px;
+	}
+	.header-wrapper {
+		background-color: $green;
 	}
 }
 
@@ -149,17 +151,6 @@ input{
 	display: inline-block;
 	margin-top: 0;
 	padding: 0 15px;
-	&[type="email"]{
-		color: $gray33;
-		font-family: $font-serif-book;
-		font-size: 24px;
-		height: 70px;
-		line-height: 70px;
-		max-width: 448px;
-		padding-left: 35px;
-		width: 100%;
-		vertical-align: top;
-	}
 	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	  color: #CCC;
 	}
@@ -174,6 +165,22 @@ input{
 	}
 }
 
+.mc-field-group {
+	input {
+		&[type="email"]{
+			color: $gray33;
+			font-family: $font-serif-book;
+			font-size: 24px;
+			height: 70px;
+			line-height: 70px;
+			max-width: 448px;
+			padding-left: 35px;
+			width: 100%;
+			vertical-align: top;
+		}
+	}
+}
+
 #contact #mc_embed_signup div.mce_inline_error {
 	background-color: transparent;
 	color: #FF0000;
@@ -184,6 +191,12 @@ input{
 	text-align: left;
 }
 
+.comments-area {
+	input {
+		border: 1px solid #eaeaea;
+		line-height: 30px;
+	}
+}
 
 @media (max-width: $screen-md) {
 	// .video {
