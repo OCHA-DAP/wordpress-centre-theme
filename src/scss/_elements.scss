@@ -91,6 +91,13 @@ div > a {
 	border-bottom: 0 !important;
 }
 
+a {
+	color: $coral;
+	&:hover {
+		color: darken($coral, 20%);
+	}
+}
+
 .style-light {
 	a {
 		color: $coral;
@@ -130,20 +137,6 @@ div > a {
 			color: #3d3030;
 		}
 	}
-	// &.playpause-btn{
-	// 	background: transparent url('assets/play.svg') no-repeat 0 0;
-	// 	border: none;
-	// 	height: 100px;
-	// 	left: 50%;
-	// 	position: absolute;
-	// 	top: 50%;
- //  		-webkit-transform: translate(-50%, -50%);
-	// 	transform: translate(-50%, -50%);
-	// 	width: 100px;
-	// 	&.pause{
-	// 		background: transparent url('assets/stop.svg') no-repeat 0 0;
-	// 	}
-	// }
 }
 
 input{
@@ -199,14 +192,6 @@ input{
 }
 
 @media (max-width: $screen-md) {
-	// .video {
-	// 	.btn.playpause-btn {
-	// 		display: none;
-	// 	}
-	// }
-	// .t-entry-visual.video .mejs-overlay-button {
-	// 	display: none;
-	// }
 	.single {
 		.header-wrapper {
 			background-color: transparent;

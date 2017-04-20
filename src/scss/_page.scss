@@ -20,9 +20,6 @@
 	font-family: $font-serif-book;
 	font-size: 18px;
 }
-// .tmb-text-space-reduced.tmb .t-entry > *:not(hr):not(.t-entry-readmore):not(:first-child) {
-// 	margin-top: 8px !important;
-// }
 .t-entry-visual {	
 	.t-overlay-text {
 		width: 90% !important;
@@ -211,69 +208,6 @@
 		iframe {
 			height: 100%;
 		}
-		// .mejs-video {
-		// 	position: absolute;
-		// 	top: 50%;
-		// 	transform: translateY(-50%);
-		// }
-		// .mejs-overlay-button {
-		// 	background: transparent url('assets/play.svg') no-repeat 0 0;
-		// 	border: none;
-		// 	height: 100px;
-		// 	margin: -50px 0 0 -50px !important;
-		// 	width: 100px;
-		// 	&:before {
-		// 		display: none;
-		// 	}
-		// }
-		// .mejs-controls {
-		//  	display: none !important;
-		//  	visibility: hidden !important;
-		// }
-		// .content.videoplayer {
-		// 	.mejs-video {
-		// 		height: 100% !important;
-		// 		width: auto !important;
-		// 		.mejs-controls,
-		// 		.mejs-layers {
-		// 			display: none !important;
-		// 		}
-		// 		.mejs-mediaelement {
-		// 			video {
-		// 				height: auto !important;
-		// 				left: 0;
-		// 				position: absolute;
-		// 				top: 50%;
-		// 				transform: translate(0,-50%);
-		// 				width: 100% !important;
-		// 			}
-		// 		}
-		// 	}
-		// 	&.preview {
-		// 		.mejs-mediaelement {
-		// 			video {
-	 //    				left: 50%;
-		// 				position: absolute;
-		// 				top: 0;
-	 //   				 	transform: translate(-50%, 0);
-		// 				width: auto !important;
-		// 			}
-		// 		}
-		// 	}
-		// }
-		// .t-entry-visual-cont {
-		// 	cursor: pointer;
-		// 	&:hover {
-		// 		.playpause-btn{
-		// 			opacity: 1;
-		// 		}
-		// 	}
-		// 	.playpause-btn{
-		// 		opacity: 0;
-		// 		-webkit-transition: all 0.5s; 
-  //   			transition: all 0.5s;
-		// 	}
-		// }
 	}
 }
 
@@ -393,7 +327,6 @@
 					ul.menu {
 						list-style-type: none;
 						padding-left: 0;
-						//padding-top: 14px;
 						a {
 							color: $green;
 							font-family: $font-serif-book;
@@ -421,7 +354,11 @@
 	p {
 		color: $white;
 		font-size: 18px;
-		margin-bottom: 75px;
+		margin: 20px auto 45px;
+		width: 35%;
+		a {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -444,5 +381,8 @@
 		.sections-container {
 			padding: 0;
 		}
+	}
+	#contact p {
+		width: 90%;
 	}
 }

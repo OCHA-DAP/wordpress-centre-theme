@@ -114,6 +114,12 @@
 }
 
 .site-footer {
+	a {
+		cursor: pointer;
+		&:hover {
+			color: darken($coral, 20%) !important;
+		}
+	}
 	li {
 		font-family: $font-serif-book;
 		font-size: 15px;
@@ -178,6 +184,10 @@
 	}
 	p {
 		margin: 10px 0;
+		a {
+			color: $coral;
+			text-decoration: underline;
+		}
 	}
 	.btn.submit-btn {
 		background-color: $green;
