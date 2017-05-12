@@ -179,6 +179,7 @@ function tweet($att, $content = null)
 }
 add_shortcode('tweet', 'tweet');
 
+
 function video($att, $content = null) 
 {
   extract(shortcode_atts(array(
@@ -188,6 +189,20 @@ function video($att, $content = null)
   return $str;
 }
 add_shortcode('video', 'video');
+
+
+function gallery($att, $content = null)
+{
+  extract(shortcode_atts(array(
+      'ids' => ''
+  ), $att));
+  //$str = $ids;
+  $str = wp_get_attachment_image( $ids, 'thumbnail', false, '' );
+  //echo "'<script>console.log(\"$str\")</script>'";
+  return $str;
+  //wp_get_attachment_image( $attachment_id, $size, $icon, $attr );
+}
+add_shortcode('gallery', 'gallery');
 
 // function video($att, $content = null) 
 // {

@@ -790,7 +790,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = $print_title;
 						}
-						else if ($post_category === 'tweet' || $post_category === 'dataviz') {
+						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'gallery') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 						}
 						else {
@@ -1293,6 +1293,7 @@ if (!function_exists('uncode_create_single_block')) {
 					else:
 
 						$post_format = get_post_format($block_data['id']);
+
 						$custom_post = ($post_category === 'video') ? uncode_custom_just_post($block_data['id']) : '';
 						if ($media_type === 'image') :
 
