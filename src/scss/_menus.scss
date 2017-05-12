@@ -1,3 +1,15 @@
+//TEMPORARILY HIDE FILTERS
+.menu-container {
+	.menu-horizontal {
+		padding-bottom: 30px;
+	}
+	ul.menu-smart {
+		display: none;
+	}
+}
+		
+
+
 .menu-container {
 	ul.menu-smart {
 		> li {
