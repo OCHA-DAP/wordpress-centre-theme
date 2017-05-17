@@ -1,3 +1,14 @@
+//TEMPORARILY HIDE FILTERS
+.isotope-filters {
+	> .menu-horizontal {
+		padding-bottom: 30px;
+		> .menu-smart {
+			display: none;
+		}
+	}
+}
+
+
 .menu-container {
 	ul.menu-smart {
 		> li {
