@@ -790,7 +790,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = $print_title;
 						}
-						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'gallery') {
+						else if ($post_category === 'tweet' || $post_category === 'dataviz') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 						}
 						else {
@@ -1196,7 +1196,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 				//customize block link based on post format
 				$post_format = get_post_format($block_data['id']);
-				if ($post_format === 'quote' || $post_format === 'image' || $post_format === 'video' ) {
+				if ($post_format === 'quote' || $post_format === 'image' || $post_format === 'video') {
 				}
 				else if ($post_format === 'link') {
 					$custom_post = uncode_custom_just_post($block_data['id']);
@@ -1294,10 +1294,13 @@ if (!function_exists('uncode_create_single_block')) {
 
 						$post_format = get_post_format($block_data['id']);
 
-						$custom_post = ($post_category === 'video') ? uncode_custom_just_post($block_data['id']) : '';
+						$custom_post = ($post_category === 'video' || $post_category === 'slideshow') ? uncode_custom_just_post($block_data['id']) : '';
 						if ($media_type === 'image') :
 
 							if ($post_format === 'video') {
+								$output .= $custom_post;
+							}
+							else if ($post_format === 'link' && $post_category === 'slideshow') {
 								$output .= $custom_post;
 							}
 							else if ($post_format === 'image') {

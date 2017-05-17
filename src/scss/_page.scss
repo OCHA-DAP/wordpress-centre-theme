@@ -159,6 +159,29 @@
 			}
 		}
 	}
+	&.slideshow {
+		@include bg-gradient($black);
+		.t-overlay-content {
+			width: 100%;
+		}
+		.t-entry-visual-cont {
+			.slideshow-container {
+				height: 100%;
+			}
+			img {
+				height: 100%;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
+				opacity: 0;
+				position: absolute;
+				width: auto;
+    			transition: opacity 1s; 
+    			&.fadeIn {
+    				opacity: 1;
+    			}
+			}
+		}
+	}
 	&.casestudy,
 	&.media {
 		@include bg-gradient($dark-blue);
@@ -366,6 +389,23 @@
 	margin-bottom: 100px;
 }
 
+.slideshow-modal-overlay {
+	background-color: rgba(0, 0, 0, .85);
+	display: none;
+	left: 0;
+	height: 100%;
+	position: fixed;
+	top: 0;
+    white-space: nowrap;
+	width: 100%;
+	z-index: 2001;
+	.slideshow-modal {
+		text-align: center;
+		img {
+			display: inline-block;
+		}
+	}
+}
 
 @media (max-width: $screen-md) {
 	.isotope-filters ul.menu-smart > li > span {

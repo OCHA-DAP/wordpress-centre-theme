@@ -183,7 +183,7 @@ add_shortcode('tweet', 'tweet');
 function video($att, $content = null) 
 {
   extract(shortcode_atts(array(
-      'src' => ''
+    'src' => ''
   ), $att));
   $str = '<iframe src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
   return $str;
@@ -194,22 +194,18 @@ add_shortcode('video', 'video');
 function gallery($att, $content = null)
 {
   extract(shortcode_atts(array(
-      'ids' => ''
+    'ids' => ''
   ), $att));
-  //$str = $ids;
-  $str = wp_get_attachment_image( $ids, 'thumbnail', false, '' );
-  //echo "'<script>console.log(\"$str\")</script>'";
+  $image_ids = explode(',', strval($ids));
+
+  $str = '<div class="slideshow-container">';
+  $count = 0;
+  foreach ($image_ids as $id) {
+    $str = $str .  '<img data-index="' . $count . '" src="' . wp_get_attachment_image_src( $id, 'large')[0] . '">';
+    $count++;
+  }
+  $str = $str . '</div>';
   return $str;
-  //wp_get_attachment_image( $attachment_id, $size, $icon, $attr );
 }
 add_shortcode('gallery', 'gallery');
 
-// function video($att, $content = null) 
-// {
-//   extract(shortcode_atts(array(
-//       'src' => ''
-//   ), $att));
-//   $str = '<div class="content videoplayer preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
-//   return $str;
-// }
-// add_shortcode('video', 'video');
