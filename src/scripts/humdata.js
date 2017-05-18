@@ -137,7 +137,7 @@
 	});
 
 	//handle slideshow click, launch modal
-	$('.slideshow').find('a').on('click', function(e) {
+	$('.slideshow').on('click', function(e) {
 		createSlideshowModal($(this).find('.slideshow-container').children());
 		e.preventDefault();
 	});
