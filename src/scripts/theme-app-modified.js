@@ -1190,7 +1190,8 @@
                     url: href
                 }).done(function(data) {
                     var $resultItems = $(data).find('#' + isotopeId + ' .isotope-layout').html(),
-                        $resultPagination = $(data).find('#' + isotopeId + ' .pagination');
+                        $resultPagination = $(data).find('#' + isotopeId + ' .pagination'),
+                        $resultLoadMore = $(data).find('#' + isotopeId + ' .loadmore-button');
                     isotopeWrapper.addClass('isotope-reloaded');
                     setTimeout(function() {
                         isotopeWrapper.removeClass('isotope-loading');
@@ -1209,6 +1210,12 @@
                             $(val).addClass('animate_when_almost_visible zoom-reverse zoom-in force-anim');
                         }
                     });
+                    $('.pagination', isotopeFooter).remove();
+                    isotopeFooter.append($resultPagination);
+
+                    $('.loadmore-button', isotopeFooter).remove();
+                    isotopeFooter.append($resultLoadMore);
+
                     setTimeout(function() {
                         if (isotopeContainer.data('isotope')) {
                             isotopeContainer.html($resultItems).isotope('reloadItems', onLayout(isotopeContainer, 0));
@@ -1216,9 +1223,8 @@
                             var getLightbox = UNCODE.lightboxArray['ilightbox_' + isotopeContainer.closest('.isotope-system').attr('id')];
                             if (typeof getLightbox === 'object') getLightbox.refresh();
                         }
+                        init_isotope();
                     }, 300);
-                    $('.pagination', isotopeFooter).remove();
-                    isotopeFooter.append($resultPagination);
                 });
             };
             $filters.each(function(i, buttonGroup) {
