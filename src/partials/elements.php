@@ -1519,7 +1519,8 @@ if (!function_exists('uncode_breadcrumbs')) {
 		$text['home'] = esc_html__('Home', 'uncode');
 
 		// text for the 'Home' link
-		$text['category'] = esc_html__('Archive by Category', 'uncode') . ' ' . '"%s"';
+		//$text['category'] = esc_html__('Archive by Category', 'uncode') . ' ' . '"%s"';
+		$text['category'] = esc_html__('', 'uncode') . ' ' . '%s';
 
 		// text for a category page
 		$text['search'] = esc_html__('Search Results for', 'uncode') . ' ' . '"%s" Query';
@@ -1636,9 +1637,7 @@ if (!function_exists('uncode_breadcrumbs')) {
 					$cat = get_the_category();
 					if (isset($cat[0])) {
 						$cat = $cat[0];
-						//NOTE remove category archive link for v1
-						//$cats = get_category_parents($cat, TRUE, $delimiter);
-						$cats = $link_before . get_category_parents($cat, FALSE, $delimiter) . $link_after;
+						$cats = get_category_parents($cat, TRUE, $delimiter);
 						if ($show_current == 0) $cats = preg_replace("#^(.+)$delimiter$#", "$1", $cats);
 						$cats = str_replace('<a', $link_before . '<a' . $link_attr, $cats);
 						$cats = str_replace('</a>', '</a>' . $link_after, $cats);
