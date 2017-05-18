@@ -35,9 +35,11 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 function custom_javascript()
 {
-  wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), false, true);
+    wp_dequeue_script('uncode-app');
+//    wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), false, true);
 }
-add_filter('wp_enqueue_scripts','custom_javascript');
+add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
 
 add_filter( 'wp_mail_from', function() {
