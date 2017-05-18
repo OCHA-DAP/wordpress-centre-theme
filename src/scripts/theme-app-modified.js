@@ -936,9 +936,9 @@
                                     newElements = newElements.filter(function(x) {
                                         return filters.indexOf(x) < 0
                                     });
-                                    $.each($(filters), function(index, val) {
-                                        if ($('#' + isotopeId + ' a[data-filter="' + $('a', val).attr('data-filter') + '"]').length == 0) $('#' + isotopeId + ' .isotope-filters ul').append($(val));
-                                    });
+                                    // $.each($(filters), function(index, val) {
+                                    // 	if ($('#' + isotopeId + ' a[data-filter="' + $('a', val).attr('data-filter') + '"]').length == 0) $('#' + isotopeId + ' .isotope-filters ul').append($(val));
+                                    // });
                                     $isotope.isotope('reloadItems', onLayout($isotope, newElements.length));
                                 });
                             if ($(isotopeContainersArray[i]).hasClass('isotope-infinite-button')) {
