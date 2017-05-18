@@ -895,6 +895,9 @@
                             isOriginLeft: isOriginLeft
                         }).on('layoutComplete', onLayout($(isotopeContainersArray[i]), 0));
                         if ($(isotopeContainersArray[i]).hasClass('isotope-infinite')) {
+                            //be sure to destroy infinite scroll and reinit infinite scroll each time (needed when we filter by different categories
+                            $(isotopeContainersArray[i]).infinitescroll('destroy');
+                            $(isotopeContainersArray[i]).data('infinitescroll', null);
                             $(isotopeContainersArray[i]).infinitescroll({
                                     navSelector: '#' + isotopeId + ' .loadmore-button', // selector for the pagination container
                                     nextSelector: '#' + isotopeId + ' .loadmore-button a', // selector for the NEXT link (to page 2)
