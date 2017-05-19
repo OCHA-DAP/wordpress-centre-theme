@@ -65,11 +65,11 @@
     });
 
     function getTweet(){
-        // var val = tweetArray[tweetID];
-        // tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
-        // $('.tweet .tweet-text').html(val.tweet);
-        // $('.tweet .author').html(val.author);
-        // $('.tweet a').attr('href',val.link);
+        var val = tweetArray[tweetID];
+        tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
+        $('.tweet .tweet-text').html(val.tweet);
+        $('.tweet .author').html(val.author);
+        $('.tweet a').attr('href',val.link);
     }
 
     setInterval(function(){
@@ -161,11 +161,9 @@
 		$('.slideshow-modal-overlay').hide();
 		$('.slides').empty();
 	});
-	$('.slideshow-modal-overlay .prev').on('click', function(e) {
-		showSlideModal('prev');
-	});
-	$('.slideshow-modal-overlay .next').on('click', function(e) {
-		showSlideModal('next');
+	$('.slideshow-modal-overlay .slideshow-btn').on('click', function(e) {
+		//get next slide
+		showSlideModal($(this).attr('data-dir'));
 	});
 
 

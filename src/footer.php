@@ -211,8 +211,8 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 	<div class="slideshow-modal-overlay">
 		<span class="close">&times;</span>
 		<div class="slideshow-modal">
-			<a class="prev">&#10094;</a>
-    		<a class="next">&#10095;</a>
+			<a class="slideshow-btn prev" data-dir="prev">&#10094;</a>
+    		<a class="slideshow-btn next" data-dir="next">&#10095;</a>
     		<div class="slides"></div>
     	</div>
 	</div>
