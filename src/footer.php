@@ -209,7 +209,12 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 	?>
 
 	<div class="slideshow-modal-overlay">
-		<div class="slideshow-modal-container"><div class="slideshow-modal"></div></div>
+		<span class="close">&times;</span>
+		<div class="slideshow-modal">
+			<a class="prev">&#10094;</a>
+    		<a class="next">&#10095;</a>
+    		<div class="slides"></div>
+    	</div>
 	</div>
 
 	<div class="overlay overlay-<?php echo $search_animation; ?> style-dark style-dark-bg overlay-search" data-area="search" data-container="box-container">

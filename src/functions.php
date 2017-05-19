@@ -40,10 +40,6 @@ function custom_javascript()
 add_filter('wp_enqueue_scripts','custom_javascript');
 
 
-add_filter( 'wp_mail_from', function() {
-  return 'wordpress@[MyDomain]';
-} );
-
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
 require_once( get_stylesheet_directory(). '/partials/headers.php' );
