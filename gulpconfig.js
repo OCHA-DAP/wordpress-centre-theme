@@ -54,10 +54,11 @@ module.exports = {
       // The core footer chunk is loaded no matter what; put essential scripts that you want loaded by your theme in here
       footer: [
         //modules+'timeago/jquery.timeago.js', // The modules directory contains packages downloaded via npm
-        //modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js', 
+        //modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js',
         src+'scripts/particles.js',
         src+'scripts/util.js',
         src+'scripts/twitterFetcher_min.js',
+        src+'scripts/theme-app-modified.js',
         src+'scripts/humdata.js'
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
