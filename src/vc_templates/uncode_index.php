@@ -234,10 +234,10 @@ if (class_exists('WC_Query') && ( isset( $_GET['max_price'] ) || isset( $_GET['m
 }
 
 if (isset($_GET['upage'])) $paged = $_GET['upage'];
-if ($infinite !== 'yes') {
+//if ($infinite !== 'yes') {
   $loop_pagination = $loop;
   if(isset($_GET['ucat'])) $loop .= '|category:'.$_GET['ucat'];
-}
+//}
 $loop .= '|paged:' . $paged;
 
 if (function_exists('is_plugin_active') && is_plugin_active( 'relevanssi/relevanssi.php' ) && is_search() && $using_plugin === 'yes') {
@@ -359,7 +359,13 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
         $this->resetTaxonomies();
         $categories_array = array();
         if ($infinite === 'yes' || $pagination != 'yes') {
-          if (count($this->filter_categories) != 0) $categories_array = $this->getFilterCategories();
+          if (count($this->filter_categories) != 0) {
+//              $categories_array = $this->getFilterCategories();
+              $categories_array = get_categories( array(
+                  'orderby' => 'name',
+                  'order'   => 'ASC'
+              ) );
+          }
         }
         else {
           $parse_query = $this->parseData($loop_pagination);
@@ -392,25 +398,28 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
                           if ($filtering_position === 'right') $show_all_class = ' float-left';
                         }
                       ?>
-                      <li class="<?php echo esc_attr($show_all_class); ?>">
-                          <span>
-                      <?php if ($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) : ?>
-                          <a href="#" data-filter="*" class="<?php if (!isset($_GET['ucat'])) echo 'active'; ?>">
-                      <?php else: ?>
-                          <a href="<?php echo $current_url; ?>" class="<?php if (isset($_GET['ucat'])) echo 'active'; ?>">
-                      <?php endif; ?>
-                          <?php esc_html_e( 'Show all', 'uncode' ) ?></a>
-                          </span>
-                      </li>
+<!--                      <li class="--><?php //echo esc_attr($show_all_class); ?><!--">-->
+<!--                          <span>-->
+<!--                      --><?php //if ($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) : ?>
+<!--                          <a href="#" data-filter="*" class="--><?php //if (!isset($_GET['ucat'])) echo 'active'; ?><!--">-->
+<!--                      --><?php //else: ?>
+<!--                          <a href="--><?php //echo $current_url; ?><!--" class="--><?php //if (isset($_GET['ucat'])) echo 'active'; ?><!--">-->
+<!--                      --><?php //endif; ?>
+<!--                          --><?php //esc_html_e( 'Show all', 'uncode' ) ?><!--</a>-->
+<!--                          </span>-->
+<!--                      </li>-->
+
+                  <li class="filter-cat-all"><span><a href="<?php echo $current_url; ?>?id=<?php echo esc_attr($el_id); ?>" class="<?php if (!isset($_GET['ucat'])) echo 'active'; ?>"><?php esc_html_e( 'Show all', 'uncode' ) ?></a></span></li>
+
                   <?php foreach ( $categories_array as $cat ):
                       //do not include Tweet as a filter option
                       if ($cat->name !== 'Tweet') :
                         if ($cat->taxonomy !== 'product_type'): ?>
-                        <?php if (($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) && !isset($_GET['ucat'])) : ?>
-                        <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="#" data-filter="grid-cat-<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
-                        <?php else: ?>
-                        <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="<?php echo $current_url; ?>?id=<?php echo esc_attr($el_id); ?>&amp;ucat=<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>"><?php echo esc_attr( $cat->name ) ?></a></span></li>
-                        <?php endif; ?>
+<!--                        --><?php //if (($infinite === 'yes' || $pagination !== 'yes' || $my_query->max_num_pages == 1) && !isset($_GET['ucat'])) : ?>
+<!--                        <li class="filter-cat---><?php //echo esc_attr($cat->term_id); ?><!--"><span><a href="#" data-filter="grid-cat---><?php //echo esc_attr($cat->term_id); ?><!--" class="--><?php //if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?><!--">--><?php //echo esc_attr( $cat->name ) ?><!--</a></span></li>-->
+<!--                        --><?php //else: ?>
+                        <li class="filter-cat-<?php echo esc_attr($cat->term_id); ?>"><span><a href="<?php echo $current_url; ?>?id=<?php echo esc_attr($el_id); ?>&amp;ucat=<?php echo esc_attr($cat->term_id); ?>" class="<?php if (isset($_GET['ucat']) && $_GET['ucat'] == $cat->term_id) echo 'active'; ?>" ><?php echo esc_attr( $cat->name ) ?></a></span></li>
+<!--                        --><?php //endif; ?>
                     <?php
                         endif;
                       endif;
@@ -800,8 +809,8 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
     ?>
     <div class="<?php echo esc_attr($index_type); ?>-footer<?php echo esc_attr($footer_background) . ' ' . esc_attr($gutter_size); ?>">
         <div class="<?php echo esc_attr($index_type); ?>-footer-inner<?php if ($footer_full_width !== 'yes') echo ' limit-width'; ?> menu-<?php echo esc_attr($footer_style); ?> text-center">
-            <?php if ($infinite === 'yes' && $pagination !== 'yes' && $my_query->max_num_pages != 1 && $paged < $my_query->max_num_pages): ?>
-            <nav class="loadmore-button"<?php if ($infinite_button !== 'yes') echo ' style="display: none;"'; ?>>
+            <?php if ($infinite === 'yes' && $pagination !== 'yes' && $my_query->max_num_pages != 1): ?>
+            <nav id="load-more-button" class="loadmore-button"<?php if ($infinite_button !== 'yes' && !($paged < $my_query->max_num_pages)) echo ' style="display: none;"'; ?>>
               <?php
                 if ($infinite_button_text === '') {
                   $infinite_button_text = ($infinite_button === 'yes') ? esc_html__('Load more' , 'uncode') : esc_html__('Loading…' , 'uncode');
