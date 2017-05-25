@@ -42,9 +42,9 @@ function custom_javascript()
 add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
 
-add_filter( 'wp_mail_from', function() {
-  return 'wordpress@[MyDomain]';
-} );
+//add_filter( 'wp_mail_from', function() {
+//  return 'wordpress@[MyDomain]';
+//} );
 
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
