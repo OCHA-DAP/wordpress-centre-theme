@@ -42,10 +42,6 @@ function custom_javascript()
 add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
 
-//add_filter( 'wp_mail_from', function() {
-//  return 'wordpress@[MyDomain]';
-//} );
-
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
 require_once( get_stylesheet_directory(). '/partials/headers.php' );
@@ -181,22 +177,33 @@ function tweet($att, $content = null)
 }
 add_shortcode('tweet', 'tweet');
 
-function video($att, $content = null) 
+
+function video($att, $content = null)
 {
   extract(shortcode_atts(array(
-      'src' => ''
+    'src' => ''
   ), $att));
   $str = '<iframe src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
   return $str;
 }
 add_shortcode('video', 'video');
 
-// function video($att, $content = null) 
-// {
-//   extract(shortcode_atts(array(
-//       'src' => ''
-//   ), $att));
-//   $str = '<div class="content videoplayer preview"><video muted autoplay loop><source src="'.$src.'" type="video/mp4">Your browser does not support the video tag.</video><div class="btn playpause-btn"></div></div>';
-//   return $str;
-// }
-// add_shortcode('video', 'video');
+
+function gallery($att, $content = null)
+{
+  extract(shortcode_atts(array(
+    'ids' => ''
+  ), $att));
+  $image_ids = explode(',', strval($ids));
+
+  $str = '<div class="slideshow-container">';
+  $count = 0;
+  foreach ($image_ids as $id) {
+    $str = $str .  '<img data-index="' . $count . '" src="' . wp_get_attachment_image_src( $id, 'large')[0] . '">';
+    $count++;
+  }
+  $str = $str . '</div>';
+  return $str;
+}
+add_shortcode('gallery', 'gallery');
+

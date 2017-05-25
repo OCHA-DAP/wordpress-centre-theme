@@ -207,6 +207,16 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 		if ($search_animation === '' || $search_animation === '3d') $search_animation = 'contentscale';
 
 	?>
+
+	<div class="slideshow-modal-overlay">
+		<span class="close">&times;</span>
+		<div class="slideshow-modal">
+			<a class="slideshow-btn prev" data-dir="prev">&#10094;</a>
+    		<a class="slideshow-btn next" data-dir="next">&#10095;</a>
+    		<div class="slides"></div>
+    	</div>
+	</div>
+
 	<div class="overlay overlay-<?php echo $search_animation; ?> style-dark style-dark-bg overlay-search" data-area="search" data-container="box-container">
 		<div class="mmb-container"><div class="menu-close-search mobile-menu-button menu-button-offcanvas mobile-menu-button-dark lines-button x2 overlay-close close" data-area="search" data-container="box-container"><span class="lines"></span></div></div>
 		<div class="search-container"><?php get_search_form( true ); ?></div>
