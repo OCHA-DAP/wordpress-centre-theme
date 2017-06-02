@@ -89,7 +89,7 @@
 
    
 	//*********** SLIDESHOW CONTENT BLOCK ***********//
-    var SLIDESHOW_DURATION = 5000;
+    var SLIDESHOW_DURATION = 3000;
 
     function Slideshow(slider) {
 	  	this.slider = slider;
