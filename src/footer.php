@@ -111,7 +111,7 @@ if ($footer_text_content !== '') {
 								    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value=""></div>
 							    </div>
 							</form>
-							<p>or <a href="http://docs.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">download</a> our brochure to learn more</p>
+							<p>or download (<a href="https://centre.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/CentreForHumdata_Flyer_01_2017_FR_v2.pdf" target="_blank">FR</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/DataCentre_One_Pager_06_2017_ES_v2.pdf" target="_blank">ES</a>) our brochure to learn more</p>
 						</div></div><!-- site info -->';
 }
 
