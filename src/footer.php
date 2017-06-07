@@ -153,7 +153,7 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 			<?php if (is_front_page()) { ?>
 				<section id="contact" class="bg-pattern-green">
 					<h2>Stay in touch</h2>
-					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="http://docs.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">download</a> our brochure to learn more</p>
+					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or download (<a href="https://centre.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/CentreForHumdata_Flyer_01_2017_FR_v2.pdf" target="_blank">FR</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/DataCentre_One_Pager_06_2017_ES_v2.pdf" target="_blank">ES</a>) our brochure to learn more</p>
 	
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
