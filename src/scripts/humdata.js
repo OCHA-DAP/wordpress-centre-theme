@@ -129,14 +129,9 @@
 	//initialize any slideshow elements on page load
 	initSlideshow();
 
-	//check for new slideshow elements on load more
-	$('.loadmore-button .btn').on('click', function() {
-		setTimeout(function() {
-            initSlideshow();
-        }, 2000);
-	});
+	//check for new slideshow elements after load more or filtering
+	$(document).on( 'onLayout', initSlideshow);
 	
-
 
 	//*********** SLIDESHOW MODAL ***********//
 	var slideIndex = 1;
