@@ -111,7 +111,7 @@ if ($footer_text_content !== '') {
 								    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value=""></div>
 							    </div>
 							</form>
-							<p>or <a href="http://docs.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">download</a> our brochure to learn more</p>
+							<p>or download (<a href="https://centre.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/CentreForHumdata_Flyer_01_2017_FR_v2.pdf" target="_blank">FR</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/DataCentre_One_Pager_06_2017_ES_v2.pdf" target="_blank">ES</a>) our brochure to learn more</p>
 						</div></div><!-- site info -->';
 }
 
@@ -153,7 +153,7 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 			<?php if (is_front_page()) { ?>
 				<section id="contact" class="bg-pattern-green">
 					<h2>Stay in touch</h2>
-					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="http://docs.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">download</a> our brochure to learn more</p>
+					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or download (<a href="https://centre.humdata.org/wp-content/uploads/centreforhumdata_handout_dec2016.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/CentreForHumdata_Flyer_01_2017_FR_v2.pdf" target="_blank">FR</a> | <a href="https://centre.humdata.org/wp-content/uploads/2017/06/DataCentre_One_Pager_06_2017_ES_v2.pdf" target="_blank">ES</a>) our brochure to learn more</p>
 	
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
@@ -207,6 +207,16 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 		if ($search_animation === '' || $search_animation === '3d') $search_animation = 'contentscale';
 
 	?>
+
+	<div class="slideshow-modal-overlay">
+		<span class="close">&times;</span>
+		<div class="slideshow-modal">
+			<a class="slideshow-btn prev" data-dir="prev">&#10094;</a>
+    		<a class="slideshow-btn next" data-dir="next">&#10095;</a>
+    		<div class="slides"></div>
+    	</div>
+	</div>
+
 	<div class="overlay overlay-<?php echo $search_animation; ?> style-dark style-dark-bg overlay-search" data-area="search" data-container="box-container">
 		<div class="mmb-container"><div class="menu-close-search mobile-menu-button menu-button-offcanvas mobile-menu-button-dark lines-button x2 overlay-close close" data-area="search" data-container="box-container"><span class="lines"></span></div></div>
 		<div class="search-container"><?php get_search_form( true ); ?></div>
