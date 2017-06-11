@@ -102,7 +102,7 @@ add_filter('user_contactmethods','user_contact',10,1);
 function blockquote($att, $content = null) 
 {
   extract(shortcode_atts(array(
-    'author' => '',
+    'author' => ''
   ), $att));
   if ($author !== '') {
     $auth_str = '<br><span>-'.$author.'</span>'; 
@@ -119,7 +119,7 @@ add_shortcode('blockquote', 'blockquote');
 function quote($att, $content = null) 
 {
   extract(shortcode_atts(array(
-    'label' => '',
+    'label' => ''
   ), $att));
   $str = '<div class="label">'.$label.'</div><p>'.$content.'</p>';
   return $str;
@@ -131,7 +131,7 @@ function casestudy($att, $content = null)
 {
   extract(shortcode_atts(array(
     'label' => '',
-    'link' => '',
+    'link' => ''
   ), $att));
   $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span><br>'.$content.'</p></a>';
   return $str;
@@ -143,7 +143,7 @@ function media($att, $content = null)
 {
   extract(shortcode_atts(array(
     'label' => '',
-    'link' => '',
+    'link' => ''
   ), $att));
   $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
   return $str;
@@ -156,7 +156,7 @@ function dataviz($att, $content = null)
   extract(shortcode_atts(array(
     'title' => '',
     'author' => '',
-    'link' => '',
+    'link' => ''
   ), $att));
   if ($author != '') $auth_str = '<p class="author">'.$author.'</p>';
   else $auth_str = '';
@@ -170,7 +170,7 @@ function tweet($att, $content = null)
 {
   extract(shortcode_atts(array(
     'author' => '',
-    'link' => '',
+    'link' => ''
   ), $att));
   $str = '<a href="'.$link.'" target="_blank"><p class="tweet-text">“'.$content.'”</p><p class="author">@'.$author.'<br></p><i class="fa fa-twitter twhite" aria-hidden="true"></i></a>';
   return $str;
@@ -192,11 +192,12 @@ add_shortcode('video', 'video');
 function gallery($att, $content = null)
 {
   extract(shortcode_atts(array(
+    'name' => '',
     'ids' => ''
   ), $att));
   $image_ids = explode(',', strval($ids));
 
-  $str = '<div class="slideshow-container">';
+  $str = '<div class="slideshow-container" id="'.$name.'">';
   $count = 0;
   foreach ($image_ids as $id) {
     $str = $str .  '<img data-index="' . $count . '" src="' . wp_get_attachment_image_src( $id, 'large')[0] . '">';
