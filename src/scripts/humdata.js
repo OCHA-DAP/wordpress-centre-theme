@@ -97,7 +97,8 @@
 		this.currSlideIndex = 0;
 	}
 
-	Slideshow.prototype.init = function() {
+	Slideshow.prototype.init = function(dur) {
+		var duration = (dur!=undefined) ? dur : SLIDESHOW_DURATION;
 	  	var self = this;
 	  	$(this.slides[this.currSlideIndex]).removeClass('fadeIn');
         this.currSlideIndex++;
@@ -108,14 +109,17 @@
 
         setTimeout(function() {
             self.init();
-        }, SLIDESHOW_DURATION);
+        }, duration);
 	}
 
 	function initSlideshow() {
-		$('.slideshow-container').each(function() {
+		var delay = 0;
+		$('.slideshow-container').each(function(index) {
+			var dur = SLIDESHOW_DURATION;
 			if (!$(this).find('img').hasClass('fadeIn')) {
 				var slide = new Slideshow($(this));
-				slide.init();
+				dur += 300*index;
+				slide.init(dur);
 			}
 		});
 
