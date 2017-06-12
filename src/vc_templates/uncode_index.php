@@ -875,11 +875,11 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
         $paginate_links = paginate_links($pagination_args);
           if (is_array($paginate_links)) {
             echo "<ul class='pagination'>";
-            echo '<li class="page-prev"><a class="btn btn-link text-default-color" href="'.$prev_link.'"><i class="fa fa-angle-left"></i></a></li>';
+            echo '<li class="page-prev"><a class="btn btn-link text-default-color" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> Previous</a></li>';
             foreach ( $paginate_links as $page ) {
                 echo '<li><span class="btn btn-link text-default-color">'.$page.'</span></li>';
             }
-            echo '<li class="page-next"><a class="btn btn-link text-default-color" href="'.$next_link.'"><i class="fa fa-angle-right"></i></a></li>';
+            echo '<li class="page-next"><a class="btn btn-link text-default-color" href="'.$next_link.'">Next <i class="fa fa-angle-right"></i></a></li>';
             echo "</ul>";
           }
             endif;

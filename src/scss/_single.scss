@@ -43,7 +43,7 @@
 			color: $gray33;
 			font-family: $font-serif-book;
 			a {
-				color: $gray33;
+				color: $coral;
 			}
 		}
 	}
@@ -68,6 +68,11 @@
 					}
 				}
 			}
+		}
+	}
+	a:not(.btn-text-skin) {
+		&:hover {
+			color: $coral !important;
 		}
 	}
 }
