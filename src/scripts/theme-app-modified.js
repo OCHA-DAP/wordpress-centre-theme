@@ -963,6 +963,9 @@
                     }
                 },
                 onLayout = function(isotopeObj, startIndex) {
+                    //send event that layout is rendering
+                    $(document).trigger('onLayout');
+
                     isotopeObj.css('opacity', 1);
                     isotopeObj.closest('.isotope-system').find('.isotope-footer').css('opacity', 1);
                     setTimeout(function() {
