@@ -137,18 +137,12 @@
 	$(document).on( 'onLayout', initSlideshow);
 	
 	//detect if location is direct link to slideshow
-	if (window.location.href.indexOf('#slideshow') != -1) {
+	if (window.location.href.indexOf('&slideshow=') != -1) {
 		var url = window.location.href;
-		var loc = url.split('#slideshow-');
-		var id = loc[1];
-		if (url.indexOf('ucat') == -1) {
-			window.location.href = loc[0] + '?ucat=110#slideshow-' + id;
-		}
-		else {
-			var slides = $('#'+id).children();
-			if (slides.length>0) {
-				createSlideshowModal($('#'+id).children());
-			}
+		var id = url.split('&slideshow=')[1];
+		var slides = $('#'+id).children();
+		if (slides.length>0) {
+			createSlideshowModal($('#'+id).children());
 		}
 	}
 
