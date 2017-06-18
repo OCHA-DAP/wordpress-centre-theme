@@ -181,7 +181,8 @@ if (have_posts()):
 
 		$generic_body_content_block = apply_filters( 'wpml_object_id', $generic_body_content_block, 'post' );
 		$uncode_block = get_post_field('post_content', $generic_body_content_block);
-		$archive_query = ' loop="size:'.get_option('posts_per_page').'|order_by:date|post_type:'.(!is_date() ? $post->post_type : 'post');
+		$archive_query = ' loop="size:12|order_by:date|post_type:'.(!is_date() ? $post->post_type : 'post');
+		//$archive_query = ' loop="size:'.get_option('posts_per_page').'|order_by:date|post_type:'.(!is_date() ? $post->post_type : 'post');
 
 		if (is_author()) {
 			$archive_query .= '|authors:'.get_queried_object()->ID.'"';

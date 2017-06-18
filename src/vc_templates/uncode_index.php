@@ -840,17 +840,17 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
         $base = $page_url[0] . '%_%';
         $prev_link = '';
         $next_link = '';
-        if (isset($_GET['ucat']) || is_front_page() || is_home() || is_archive() || is_single()) {
+        if (isset($_GET['ucat']) || is_front_page() || is_home() || is_single()) { //|| is_archive()
           if (isset($page_url[1]) && $page_url[1] !== '') parse_str($page_url[1], $output);
           $output['upage'] = '%#%';
           $format = add_query_arg( $output, '?' );
           if ($paged - 1 > 0) {
             $output['upage'] = $paged - 1;
-            $prev_link = $page_url[0] . add_query_arg( $output, '?' );
+            $prev_link = add_query_arg( $output, '?' );
           }
           if ($paged < $my_query->max_num_pages) {
             $output['upage'] = $paged + 1;
-            $next_link = $page_url[0] . add_query_arg( $output, '?' );
+            $next_link = add_query_arg( $output, '?' );
           }
         } else {
           $format = 'page/%#%';
@@ -874,12 +874,17 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
         );
         $paginate_links = paginate_links($pagination_args);
           if (is_array($paginate_links)) {
-            echo "<ul class='pagination'>";
-            echo '<li class="page-prev"><a class="btn btn-link text-default-color" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> Previous</a></li>';
+            $pageTotal = count($paginate_links)+1;
+            echo "<ul class='pagination' data-total='".$pageTotal."'>";
+            $prevClass = ($paged===1) ? ' disabled' : '';
+            echo '<li class="page-prev"><a class="btn btn-link text-default-color'.$prevClass.'" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> Previous</a></li>';
+            
             foreach ( $paginate_links as $page ) {
                 echo '<li><span class="btn btn-link text-default-color">'.$page.'</span></li>';
             }
-            echo '<li class="page-next"><a class="btn btn-link text-default-color" href="'.$next_link.'">Next <i class="fa fa-angle-right"></i></a></li>';
+
+            $nextClass = ($paged===$pageTotal) ? ' disabled' : '';
+            echo '<li class="page-next"><a data-format="'.$next_link.'" class="btn btn-link text-default-color'.$nextClass.'" href="'.$next_link.'">Next <i class="fa fa-angle-right"></i></a></li>';
             echo "</ul>";
           }
             endif;

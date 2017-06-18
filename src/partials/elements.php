@@ -872,7 +872,13 @@ if (!function_exists('uncode_create_single_block')) {
 									$tag_icon = true;
 								}
 							} else {
-								$cat_link = $block_data['single_categories'][$t_key];
+								if (strtolower($block_data['single_categories'][$t_key])==='blog') {
+									$cat_link = '<a href="'.add_query_arg( $output, '?' ).'category/'.strtolower($block_data['single_categories'][$t_key]).'">'.$block_data['single_categories'][$t_key].'</a>';
+								}
+								else {
+									$cat_link = $block_data['single_categories'][$t_key];
+								}
+
 								if (isset($block_data['single_tags']) && $key === 'category' && in_array($cat_link, $block_data['single_tags'])) continue;
 							}
 
@@ -1228,7 +1234,7 @@ if (!function_exists('uncode_create_single_block')) {
 			}
 
 			//anchor tag moved here to only link the t-overlay-content elements
-			$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
 
 			$output .= '<div class="t-overlay-content">
 							<div class="t-overlay-text '.$block_data['text_padding'].'">';

@@ -55,6 +55,9 @@
 	.style-light { 
 		.text-default-color {
 			color: $coral !important;
+			&.disabled {
+				color: #ccc !important;
+			}
 		}
 	}
 	.row-parent.no-h-padding .isotope-footer-inner > .pagination {
@@ -102,5 +105,10 @@
 				}
 			}
 		}
+	}
+	.style-metro .tmb .t-inside .t-entry-text {
+		display: block;
+		table-layout: auto;
+		height: 104px;
 	}
 }
