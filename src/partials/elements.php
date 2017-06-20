@@ -747,7 +747,7 @@ if (!function_exists('uncode_create_single_block')) {
 		if ($item_media === '' && !isset($media_attributes->guid) && !$multiple_items)
 		{
 			$media_type = 'image';
-			$item_media = catch_that_image($block_data['id']);//'http://placehold.it/500x500';//http://placehold.it/500&amp;text=media+not+available';
+			$item_media = catch_that_image($block_data['id']);
 			$image_orig_w = 500;
 			$image_orig_h = 500;
 		}
@@ -802,7 +802,7 @@ if (!function_exists('uncode_create_single_block')) {
 						$print_title = $single_title ? $single_title : $get_title;
 						if ($print_title !== '') {
 							if ($title_link === '') $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
-							else $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							else $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 						}
 					}
 				break;
@@ -872,7 +872,13 @@ if (!function_exists('uncode_create_single_block')) {
 									$tag_icon = true;
 								}
 							} else {
-								$cat_link = $block_data['single_categories'][$t_key];
+								if (strtolower($block_data['single_categories'][$t_key])==='blog') {
+									$cat_link = '<a href="'.add_query_arg( $output, '?' ).'category/'.strtolower($block_data['single_categories'][$t_key]).'">'.$block_data['single_categories'][$t_key].'</a>';
+								}
+								else {
+									$cat_link = $block_data['single_categories'][$t_key];
+								}
+
 								if (isset($block_data['single_tags']) && $key === 'category' && in_array($cat_link, $block_data['single_tags'])) continue;
 							}
 
@@ -1175,7 +1181,7 @@ if (!function_exists('uncode_create_single_block')) {
 			$output .= $entry;
 		}
 
-		if (array_key_exists('media',$layout) || $single_text === 'overlay') :
+		if (array_key_exists('media',$layout) || $single_text === 'overlay' || $single_text === 'under') :
 			$output .= 		'<div class="t-entry-visual '.$post_category.'" tabindex="0"><div class="t-entry-visual-tc"><div class="t-entry-visual-cont">';
 
 			if ($style_preset === 'masonry' && ($images_size !== '' || ($single_text === 'under' || $single_elements_click !== 'yes')) && array_key_exists('media',$layout)):
@@ -1203,19 +1209,14 @@ if (!function_exists('uncode_create_single_block')) {
 					$output .= '<a tabindex="-1" href="'. get_content_link( $custom_post ) .'" target="_blank">';
 				}
 				else {
-					$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+					//move anchor tag to link the 't-overlay-content' element so category tags can link separately
+					//$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
 				}
 
 			endif;
 
 			if (is_object($media_attributes) && $media_attributes->post_mime_type !== 'oembed/facebook' && $media_attributes->post_mime_type !== 'oembed/twitter') :
 
-			////
-			if ($meta_inner !== '') {
-				$inner_entry .= '<p class="t-entry-meta">';
-				$inner_entry .= $meta_inner;
-				$inner_entry .= '</p>';
-			}
 
 			// $output .= 	'<div class="t-entry-visual-overlay"><div class="t-entry-visual-overlay-in '.$overlay_color.'" style="opacity: '.$overlay_opacity.';"></div></div>
 			// 						<div class="t-overlay-wrap">
@@ -1231,6 +1232,9 @@ if (!function_exists('uncode_create_single_block')) {
 				$output .= $meta_inner;
 				$output .= '</p>';
 			}
+
+			//anchor tag moved here to only link the t-overlay-content elements
+			$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
 
 			$output .= '<div class="t-overlay-content">
 							<div class="t-overlay-text '.$block_data['text_padding'].'">';
@@ -1257,11 +1261,11 @@ if (!function_exists('uncode_create_single_block')) {
 
 			endif;
 
-			$output .= 						'</div></div></div></div>';
+			$output .= 						'</div></div></a></div></div>';
 
 			endif;
 
-			if (array_key_exists('media',$layout)) :
+			if (array_key_exists('media',$layout) || $single_text === 'under'): //added 'under' conditional to force images to print out on archive page
 
 				if (isset($layout['media'][3]) && $layout['media'][3] === 'show-sale') {
 					global $woocommerce;
@@ -1276,11 +1280,11 @@ if (!function_exists('uncode_create_single_block')) {
 						}
 					}
 				}
-
 				if ($style_preset === 'metro'):
 
 					if ($single_elements_click === 'yes' && $media_type === 'image'):
 
+						
 						$a_classes[] = 't-background-click';
 
 						$data_values = !empty($block_data['link']['target']) ? ' target="'.trim($block_data['link']['target']).'"' : '';
@@ -1291,7 +1295,6 @@ if (!function_exists('uncode_create_single_block')) {
 											</a>';
 
 					else:
-
 						$post_format = get_post_format($block_data['id']);
 
 						$custom_post = ($post_category === 'video' || $post_category === 'slideshow') ? uncode_custom_just_post($block_data['id']) : '';
@@ -1313,7 +1316,9 @@ if (!function_exists('uncode_create_single_block')) {
 
 						else:
 
-							$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
+							//print background image for 'other' media_types as well
+							$output .= 		'<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+							//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;
 
@@ -1358,7 +1363,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 			if (($single_text === 'under' || $single_elements_click !== 'yes') && $media_type === 'image'):
 
-				$output .= 				'</a>';
+				//$output .= 				'</a>';
 
 			endif;
 
@@ -1523,7 +1528,8 @@ if (!function_exists('uncode_breadcrumbs')) {
 		$text['home'] = esc_html__('Home', 'uncode');
 
 		// text for the 'Home' link
-		$text['category'] = esc_html__('Archive by Category', 'uncode') . ' ' . '"%s"';
+		//$text['category'] = esc_html__('Archive by Category', 'uncode') . ' ' . '"%s"';
+		$text['category'] = esc_html__('', 'uncode') . ' ' . '%s';
 
 		// text for a category page
 		$text['search'] = esc_html__('Search Results for', 'uncode') . ' ' . '"%s" Query';
@@ -1640,9 +1646,7 @@ if (!function_exists('uncode_breadcrumbs')) {
 					$cat = get_the_category();
 					if (isset($cat[0])) {
 						$cat = $cat[0];
-						//NOTE remove category archive link for v1
-						//$cats = get_category_parents($cat, TRUE, $delimiter);
-						$cats = $link_before . get_category_parents($cat, FALSE, $delimiter) . $link_after;
+						$cats = get_category_parents($cat, TRUE, $delimiter);
 						if ($show_current == 0) $cats = preg_replace("#^(.+)$delimiter$#", "$1", $cats);
 						$cats = str_replace('<a', $link_before . '<a' . $link_attr, $cats);
 						$cats = str_replace('</a>', '</a>' . $link_after, $cats);
