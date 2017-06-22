@@ -877,14 +877,14 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
             $pageTotal = count($paginate_links)+1;
             echo "<ul class='pagination' data-total='".$pageTotal."'>";
             $prevClass = ($paged===1) ? ' disabled' : '';
-            echo '<li class="page-prev"><a class="btn btn-link text-default-color'.$prevClass.'" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> Previous</a></li>';
+            echo '<li class="page-prev"><a class="btn btn-link text-default-color'.$prevClass.'" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> <span>Previous</span></a></li>';
             
             foreach ( $paginate_links as $page ) {
                 echo '<li><span class="btn btn-link text-default-color">'.$page.'</span></li>';
             }
 
             $nextClass = ($paged===$pageTotal) ? ' disabled' : '';
-            echo '<li class="page-next"><a data-format="'.$next_link.'" class="btn btn-link text-default-color'.$nextClass.'" href="'.$next_link.'">Next <i class="fa fa-angle-right"></i></a></li>';
+            echo '<li class="page-next"><a data-format="'.$next_link.'" class="btn btn-link text-default-color'.$nextClass.'" href="'.$next_link.'"><span>Next</span> <i class="fa fa-angle-right"></i></a></li>';
             echo "</ul>";
           }
             endif;
