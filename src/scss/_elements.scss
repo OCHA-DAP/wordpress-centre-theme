@@ -199,6 +199,19 @@ input{
 	}
 }
 
+.widget-container .tagcloud.dark a {
+	background-color: $black;
+	border-radius: 0;
+	border: 0;
+	color: $white;
+	font-family: $font-serif-book;
+    font-size: 13px !important;
+    font-weight: normal;
+    line-height: 1.5;
+    padding: 3px 10px;
+    text-transform: capitalize;
+}
+
 @media (max-width: $screen-md) {
 	.single {
 		.header-wrapper {
