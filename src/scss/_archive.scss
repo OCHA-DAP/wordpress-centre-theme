@@ -1,4 +1,7 @@
 .archive {
+	.main-container .row-inner > div {
+		padding-left: 0;
+	}
 	h1 {
 		font-size: 36px;
 		margin-top: 0 !important;
@@ -110,5 +113,54 @@
 		display: block;
 		table-layout: auto;
 		height: 104px;
+	}
+}
+
+@media (max-width: $screen-md) {
+	.archive {
+		.isotope-wrapper.single-gutter .isotope-layout {
+			margin-right: 0;
+		}
+		.sections-container {
+			padding: 0;
+		}
+		.header-wrapper {
+			min-height: 150px !important;
+			padding-top: 50px;
+		}
+		.post-wrapper {
+			margin-top: 75px;
+		}
+	}
+}
+
+@media (max-width: $screen-sm) {
+	.archive {
+		.single-gutter .tmb {
+			margin-bottom: 0;
+			padding-left: 0;
+			padding-right: 0;
+			width: 100vw !important;
+		}
+		.style-metro .tmb .t-inside .t-entry-text .t-entry-text-tc {
+			padding-left: 20px !important;
+			padding-right: 20px !important;
+		}
+		.isotope-footer .pagination {
+			> li {
+				padding-right: 5px;
+			}
+			.page-prev,
+			.page-next {
+				a {
+					span {
+						display: none;	
+					}
+					i {
+						margin-top: -4px;
+					}
+				}
+			}
+		}
 	}
 }
