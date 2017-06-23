@@ -861,7 +861,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$single_cat = $block_data['single_categories'][$t_key];
 							if (gettype($single_cat) !== 'string' && isset($single_cat['link'])) {
 								if ($key === 'category' && $block_data['single_categories'][$t_key]['tax'] === 'post_tag') continue;
-								$cat_link = $block_data['single_categories'][$t_key]['link'];
+								$cat_link = $post_category;//$block_data['single_categories'][$t_key]['link'];
 
 								if ($block_data['single_categories'][$t_key]['tax'] === 'category' && !$cat_icon) {
 									$category .= '<i class="fa fa-archive2 fa-push-right"></i>';
@@ -897,7 +897,12 @@ if (!function_exists('uncode_create_single_block')) {
 							
 							$add_comma = true;
 						} else $category = '';
-						$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+
+						if ($single_text === 'under') //if this is archive page
+							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+						else
+							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+
 						$cat_counter++;
 						$category = '';
 					}
@@ -1317,7 +1322,7 @@ if (!function_exists('uncode_create_single_block')) {
 						else:
 
 							//print background image for 'other' media_types as well
-							$output .= 		'<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;

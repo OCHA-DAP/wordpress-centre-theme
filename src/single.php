@@ -352,7 +352,7 @@ while (have_posts()):
 				'number'										=> 999,
 			);
 
-			$tag_cloud = '<div class="widget-container post-tag-container uncont text-'.$show_tags_align.'"><div class="tagcloud">' . wp_tag_cloud($args) . '</div></div>';
+			$tag_cloud = '<div class="widget-container post-tag-container uncont text-'.$show_tags_align.'"><div class="tagcloud dark">' . wp_tag_cloud($args) . '</div></div>';
 
 			if (!$with_builder) $the_content .= $tag_cloud;
 			else {
