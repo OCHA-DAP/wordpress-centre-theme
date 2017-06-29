@@ -1,9 +1,10 @@
+.search,
 .archive {
 	.main-container .row-inner > div {
 		padding-left: 0;
 	}
 	h1 {
-		font-size: 36px;
+		font-size: 36px !important;
 		margin-top: 0 !important;
 	}
 	.header-main-container {
@@ -103,6 +104,7 @@
 			}
 			.page-prev,
 			.page-next {
+				margin-top: 6px;
 				width: auto;
 				i {
 					font-size: 24px;
@@ -125,6 +127,17 @@
 		.t-entry-visual .t-entry-visual-tc .t-entry-visual-cont > a {
 			z-index: 1;
 		}
+	}
+}
+
+.search {
+	&.search-no-results {
+		.post-wrapper {
+			margin-top: 0;
+		}
+	}
+	.row-navigation {
+		display: none;
 	}
 }
 

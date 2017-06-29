@@ -15,6 +15,7 @@
 		if ($(this).hasClass('collapsed')) {
 			$(this).removeClass('collapsed').addClass('expanded');
 			$('.hdc-overlay-menu').fadeIn();
+			$('.search-container input').focus();
 		}
 		else {
 			$(this).removeClass('expanded').addClass('collapsed');
@@ -23,6 +24,8 @@
 		return false;
 	});
 
+	//reset search placeholder text
+	$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;

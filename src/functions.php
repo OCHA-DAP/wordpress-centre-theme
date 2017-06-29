@@ -45,6 +45,7 @@ add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority 
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
 require_once( get_stylesheet_directory(). '/partials/headers.php' );
+//require_once( get_stylesheet_directory(). '/partials/menus.php' );
 
 
 //get first image in post content
