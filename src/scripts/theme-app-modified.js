@@ -1041,7 +1041,7 @@
                         $('html, body').scrollTop(calc_scroll);
                     } else {
                         $('html, body').animate({
-                            scrollTop: calc_scroll
+                            scrollTop: calc_scroll-50
                         },{
                             easing: 'easeInOutQuad',
                             duration: scrollSpeed,
