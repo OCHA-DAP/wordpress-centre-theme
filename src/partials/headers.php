@@ -149,11 +149,11 @@ if (!class_exists('unheader')) {
 
 						   	//show header title
 							if ($header_title_custom !== 'on') {
-								$content_html .= '<h1 class="header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1>';
+								$content_html .= '<h1 class="header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1><div class="search-container">' . get_search_form(false) . '</div>';
 							} else {
 								if (isset($args['_uncode_header_text'][0]))
 								{
-									$content = '<h1 class="2 header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>';
+									$content = '<h1 class="header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>';
 									$title = trim($args['_uncode_header_text'][0]);
 									$title_lines = explode("\n", $title);
 									$lines_counter = count($title_lines);

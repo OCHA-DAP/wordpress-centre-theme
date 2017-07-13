@@ -25,7 +25,7 @@
 	});
 
 	//reset search placeholder text
-	$('.search-container input').attr('placeholder', 'Press enter to search');
+	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;
