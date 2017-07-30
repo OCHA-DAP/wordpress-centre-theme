@@ -344,6 +344,11 @@
 
 .page-body {
 	.post-content {
+		.row-container {
+			.row-parent {
+				padding-top: 0;
+			}
+		}
 		.row {
 			&.limit-width {
 				max-width: $post-content-inner-width;
