@@ -1485,7 +1485,7 @@ if (!function_exists('uncode_custom_just_post')) {
  */
 if (!function_exists('uncode_author_info')) {
 	function uncode_author_info() {
-		$output[] = get_avatar( $author, 150 ) . '<div class="author-info"><h5>' . esc_html__('By','uncode') . ' ' . '<a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'">'.get_the_author().'</a></h5><div class="position">'.get_the_author_meta('position') . '</div><div class="social-links">';
+		$output[] = get_avatar( get_the_author_meta( 'ID' ), 150 ) . '<div class="author-info"><h5>' . esc_html__('By','uncode') . ' ' . '<a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'">'.get_the_author().'</a></h5><div class="position">'.get_the_author_meta('position') . '</div><div class="social-links">';
 		
 		$output[] .= (get_the_author_meta('twitter')==='') ? '' : '<a href="http://twitter.com/'.get_the_author_meta('twitter') . '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
 		
