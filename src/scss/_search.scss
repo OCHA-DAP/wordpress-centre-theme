@@ -36,6 +36,22 @@ body {
 				}
 			}
 		}
+		.search-tabs {
+			margin-bottom: 80px;
+			margin-left: -18px;
+			ul {
+				border-bottom: 1px solid $coral;
+				display: inline-block;
+				li {
+					display: inline-block;
+					font-size: 14px;
+					padding: 0 25px 10px;
+					&.active {
+						border-bottom: 4px solid $coral;
+					}
+				}
+			}
+		}
 	}
 }
 

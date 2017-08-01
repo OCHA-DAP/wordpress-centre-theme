@@ -288,8 +288,15 @@ if (have_posts()):
 	}
 
 	/** Display post html **/
-	echo 	'<div class="page-body' . $bg_color . '">
+	echo 	'<div class="2 page-body' . $bg_color . '">
           <div class="post-wrapper">
+          	<div class="search-tabs">
+          		<ul>
+          			<li class="active"><a href="#">All Results</a></li>
+          			<li><a href="#">Only News</a></li>
+          			<li><a href="#">Only Pages</a></li>
+          		</ul>
+          	</div>
           	<div class="post-body">' . do_shortcode($the_content) . '</div>' .
           	$navigation_content . '
           </div>
