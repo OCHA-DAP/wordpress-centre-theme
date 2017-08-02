@@ -801,8 +801,12 @@ if (!function_exists('uncode_create_single_block')) {
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
 						if ($print_title !== '') {
-							if ($title_link === '') $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
-							else $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							if ($title_link === '') {
+								$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+							}
+							else {
+								if ($post_category !== '') $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							}
 						}
 					}
 				break;
@@ -814,7 +818,8 @@ if (!function_exists('uncode_create_single_block')) {
 						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
 					}
 					$get_the_post_type = ucfirst($get_the_post_type);
-					$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
+					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
+					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
@@ -1485,7 +1490,7 @@ if (!function_exists('uncode_custom_just_post')) {
  */
 if (!function_exists('uncode_author_info')) {
 	function uncode_author_info() {
-		$output[] = get_avatar( $author, 150 ) . '<div class="author-info"><h5>' . esc_html__('By','uncode') . ' ' . '<a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'">'.get_the_author().'</a></h5><div class="position">'.get_the_author_meta('position') . '</div><div class="social-links">';
+		$output[] = get_avatar( get_the_author_meta( 'ID' ), 150 ) . '<div class="author-info"><h5>' . esc_html__('By','uncode') . ' ' . '<a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'">'.get_the_author().'</a></h5><div class="position">'.get_the_author_meta('position') . '</div><div class="social-links">';
 		
 		$output[] .= (get_the_author_meta('twitter')==='') ? '' : '<a href="http://twitter.com/'.get_the_author_meta('twitter') . '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
 		
