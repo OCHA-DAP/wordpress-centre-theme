@@ -351,7 +351,7 @@
 		}
 		.row {
 			&.limit-width {
-				max-width: $post-content-inner-width;
+				max-width: $page-content-inner-width;
 				.widget_nav_menu {
 					ul.menu {
 						list-style-type: none;

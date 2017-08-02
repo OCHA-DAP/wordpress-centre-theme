@@ -801,8 +801,12 @@ if (!function_exists('uncode_create_single_block')) {
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
 						if ($print_title !== '') {
-							if ($title_link === '') $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
-							else $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							if ($title_link === '') {
+								$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+							}
+							else {
+								if ($post_category !== '') $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							}
 						}
 					}
 				break;
@@ -814,7 +818,8 @@ if (!function_exists('uncode_create_single_block')) {
 						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
 					}
 					$get_the_post_type = ucfirst($get_the_post_type);
-					$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
+					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
+					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
