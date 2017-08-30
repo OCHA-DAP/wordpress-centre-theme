@@ -178,10 +178,5 @@
 		showSlideModal($(this).attr('data-dir'));
 	});
 
-
-
-
-
-
-
 })(jQuery);
+
