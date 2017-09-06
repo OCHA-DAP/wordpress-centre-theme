@@ -5,6 +5,12 @@ body {
 		}
 	}
 	&.search-results {
+		.header-content-inner {
+			.featured-image,
+			.photo-credit {
+				display: none;
+			}
+		}
 		.header-wrapper {
 			max-height: 350px;
 		}
