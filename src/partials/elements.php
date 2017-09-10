@@ -772,6 +772,16 @@ if (!function_exists('uncode_create_single_block')) {
 					if ($single_icon !== '' && $single_text === 'overlay') $inner_entry.= '<i class="' . $single_icon . ' t-overlay-icon"></i>';
 				break;
 
+				case 'type':
+					$get_the_post_type = get_post_type($block_data['id']);
+					if ($get_the_post_type === 'portfolio') {
+						$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
+						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
+					}
+					$get_the_post_type = ucfirst($get_the_post_type);
+					//$inner_entry .= '<h6 class="t-entry-type">' . $get_the_post_type . '</h6>';
+				break;
+
 				case 'title':
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 					$post_category = str_replace(' ','',$post_category);
@@ -800,21 +810,22 @@ if (!function_exists('uncode_create_single_block')) {
 						if ($print_title !== '') $inner_entry .= $custom_post.'<h3 class="t-entry-title">'.$print_title.'</h3>';
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
+
+						//get post type here
+						$get_the_post_type = get_post_type($block_data['id']);
+						if ($get_the_post_type === 'portfolio') {
+							$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
+							if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
+						}
+						$get_the_post_type = ucfirst($get_the_post_type);
+						$post_type = ($get_the_post_type==='Post') ? '' : '<h6 class="t-entry-type">' . $get_the_post_type . '</h6>';
+						////
+
 						if ($print_title !== '') {
 							if ($title_link === '') $inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
-							else $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+							else $inner_entry .= $post_type . '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 						}
 					}
-				break;
-
-				case 'type':
-					$get_the_post_type = get_post_type($block_data['id']);
-					if ($get_the_post_type === 'portfolio') {
-						$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
-						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
-					}
-					$get_the_post_type = ucfirst($get_the_post_type);
-					$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
 				break;
 
 				case 'category':

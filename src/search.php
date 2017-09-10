@@ -293,7 +293,7 @@ if (have_posts()):
 	if (!$pageTypeQ){
 		$pageTypeQ = 'any';
 	}
-	echo 	'<div class="2 page-body' . $bg_color . '">
+	echo 	'<div class="page-body' . $bg_color . '">
           <div class="post-wrapper">
           	<div class="search-tabs">
           		<ul>

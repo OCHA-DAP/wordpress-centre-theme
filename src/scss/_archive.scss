@@ -31,11 +31,16 @@
 	.single-block-padding {
 		padding-top: 22px;
 	}
-	.archive-category {
+	.archive-category,
+	.t-entry-type {
 		color: $gray88;
 		font-size: 12px;
 		padding-bottom: 5px;
 		text-transform: uppercase;
+	}
+	.t-entry-type {
+		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 	.t-entry-title {
 		a {

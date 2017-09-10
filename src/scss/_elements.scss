@@ -12,7 +12,16 @@
 
 .error404 {
 	#particles-js {
-		height: 100%;
+		height: 700px;
+	}
+	.limit-width {
+		max-width: none !important;
+	}
+	.main-container .row-container .row-parent {
+		padding-top: 0;
+		.uncoltable {
+			padding-top: 36px;
+		}
 	}
 }
 

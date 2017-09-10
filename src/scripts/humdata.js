@@ -24,6 +24,11 @@
 		return false;
 	});
 
+	//capture search term
+	var searchTerm = window.location.href.split('s=')[1];
+	if (searchTerm!=undefined)
+		$('.header-main-container .search-container .search-field').val(searchTerm);
+
 	//reset search placeholder text
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
