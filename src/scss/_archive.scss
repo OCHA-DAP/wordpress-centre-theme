@@ -169,15 +169,14 @@
 
 @media (max-width: $screen-sm) {
 	.archive {
-		.tmb-image-anim.tmb .t-entry-visual .t-background-cover {
-			width: 100vw !important;
-		}
 		.single-gutter .tmb {
 			border-right: 0;
 			margin-bottom: 0;
 			padding-left: 0;
 			padding-right: 0;
-			width: 100vw !important;
+			&:nth-child(4n+4) {
+				padding-right: 0;
+			}
 		}
 		.style-metro .tmb .t-inside .t-entry-text .t-entry-text-tc {
 			padding-left: 20px !important;
