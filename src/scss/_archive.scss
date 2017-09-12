@@ -1,5 +1,23 @@
 .search,
 .archive {
+	.t-entry-visual {
+		&.dataviz {
+			.t-background-cover {
+				background-size: contain;
+				display: block;
+				margin: 10px auto 0;
+				width: 90%;
+				&.default {
+					background-size: cover;
+					margin: 0;
+					width: 100%;
+				}
+			}
+			.t-overlay-content {
+				display: none;
+			}
+		}
+	}
 	.main-container .row-inner > div {
 		padding-left: 0;
 	}

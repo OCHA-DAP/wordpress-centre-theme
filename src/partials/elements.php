@@ -1222,7 +1222,7 @@ if (!function_exists('uncode_create_single_block')) {
 				}
 				else if ($post_format === 'link') {
 					$custom_post = uncode_custom_just_post($block_data['id']);
-					$output .= '<a tabindex="-1" href="'. get_content_link( $custom_post ) .'" target="_blank">';
+					$output .= '<a tabindex="-1" href="'. get_url_in_content( $custom_post ) .'" target="_blank">';
 				}
 				else {
 					//move anchor tag to link the 't-overlay-content' element so category tags can link separately
@@ -1333,7 +1333,7 @@ if (!function_exists('uncode_create_single_block')) {
 						else:
 
 							//print background image for 'other' media_types as well
-							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;
