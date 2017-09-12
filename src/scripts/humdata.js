@@ -15,6 +15,7 @@
 		if ($(this).hasClass('collapsed')) {
 			$(this).removeClass('collapsed').addClass('expanded');
 			$('.hdc-overlay-menu').fadeIn();
+			$('.search-container input').focus();
 		}
 		else {
 			$(this).removeClass('expanded').addClass('collapsed');
@@ -23,6 +24,15 @@
 		return false;
 	});
 
+	//capture search term
+	var searchTerm = window.location.href.split('s=')[1];
+	if (searchTerm!=undefined) {
+		searchTerm = searchTerm.replace('+',' ');
+		$('.header-main-container .search-container .search-field').val(searchTerm);
+	}
+
+	//reset search placeholder text
+	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;
@@ -175,10 +185,5 @@
 		showSlideModal($(this).attr('data-dir'));
 	});
 
-
-
-
-
-
-
 })(jQuery);
+

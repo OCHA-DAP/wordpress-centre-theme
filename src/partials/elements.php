@@ -772,6 +772,16 @@ if (!function_exists('uncode_create_single_block')) {
 					if ($single_icon !== '' && $single_text === 'overlay') $inner_entry.= '<i class="' . $single_icon . ' t-overlay-icon"></i>';
 				break;
 
+				case 'type':
+					$get_the_post_type = get_post_type($block_data['id']);
+					if ($get_the_post_type === 'portfolio') {
+						$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
+						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
+					}
+					$get_the_post_type = ucfirst($get_the_post_type);
+					//$inner_entry .= '<h6 class="t-entry-type">' . $get_the_post_type . '</h6>';
+				break;
+
 				case 'title':
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 					$post_category = str_replace(' ','',$post_category);
@@ -800,6 +810,17 @@ if (!function_exists('uncode_create_single_block')) {
 						if ($print_title !== '') $inner_entry .= $custom_post.'<h3 class="t-entry-title">'.$print_title.'</h3>';
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
+
+						//get post type here
+						$get_the_post_type = get_post_type($block_data['id']);
+						if ($get_the_post_type === 'portfolio') {
+							$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
+							if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
+						}
+						$get_the_post_type = ucfirst($get_the_post_type);
+						$post_type = ($get_the_post_type==='Post') ? '' : '<h6 class="t-entry-type">' . $get_the_post_type . '</h6>';
+						////
+
 						if ($print_title !== '') {
 							if ($title_link === '') {
 								$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
@@ -809,17 +830,6 @@ if (!function_exists('uncode_create_single_block')) {
 							}
 						}
 					}
-				break;
-
-				case 'type':
-					$get_the_post_type = get_post_type($block_data['id']);
-					if ($get_the_post_type === 'portfolio') {
-						$portfolio_cpt_name = ot_get_option('_uncode_portfolio_cpt');
-						if ($portfolio_cpt_name !== '') $get_the_post_type = $portfolio_cpt_name;
-					}
-					$get_the_post_type = ucfirst($get_the_post_type);
-					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
-					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
@@ -1216,7 +1226,7 @@ if (!function_exists('uncode_create_single_block')) {
 				}
 				else if ($post_format === 'link') {
 					$custom_post = uncode_custom_just_post($block_data['id']);
-					$output .= '<a tabindex="-1" href="'. get_content_link( $custom_post ) .'" target="_blank">';
+					$output .= '<a tabindex="-1" href="'. get_url_in_content( $custom_post ) .'" target="_blank">';
 				}
 				else {
 					//move anchor tag to link the 't-overlay-content' element so category tags can link separately
@@ -1327,7 +1337,7 @@ if (!function_exists('uncode_create_single_block')) {
 						else:
 
 							//print background image for 'other' media_types as well
-							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;

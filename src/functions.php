@@ -45,6 +45,7 @@ add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority 
 //override parent theme partials
 require_once( get_stylesheet_directory(). '/partials/elements.php' );
 require_once( get_stylesheet_directory(). '/partials/headers.php' );
+//require_once( get_stylesheet_directory(). '/partials/menus.php' );
 
 
 //get first image in post content
@@ -208,3 +209,13 @@ function gallery($att, $content = null)
 }
 add_shortcode('gallery', 'gallery');
 
+function searchfilter($query) {
+
+    if ($query->is_search && !is_admin() && isset($_GET['post_type'])) {
+        $query->set('post_type',array($_GET['post_type']));
+    }
+
+    return $query;
+}
+
+add_filter('pre_get_posts','searchfilter');
