@@ -27,6 +27,7 @@
 	//capture search term
 	var searchTerm = window.location.href.split('s=')[1];
 	if (searchTerm!=undefined) {
+		searchTerm = searchTerm.split('&')[0];
 		searchTerm = searchTerm.replace('+',' ');
 		$('.header-main-container .search-container .search-field').val(searchTerm);
 	}
