@@ -891,5 +891,6 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
           endif; ?>
         </div>
     </div>
+        <div id="arty-test" style="display: none;"><?php echo $item_prop; ?></div>
     <?php endif; ?>
 </div>
