@@ -702,7 +702,7 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
 
             if (isset($typeLayout['media']) && $item_thumb_id === '' && $single_text !== 'overlay') {
               unset($typeLayout['media']);
-              if ($single_back_color === '') $item_prop['single_padding'] = 0;
+              if ($single_back_color === '' && is_array($item_prop)) $item_prop['single_padding'] = 0;
             }
 
             $block_classes[] = $post->categories_css;
