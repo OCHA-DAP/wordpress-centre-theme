@@ -288,6 +288,7 @@ if (have_posts()):
 	}
 
 	/** Display post html **/
+	$current_url = home_url(add_query_arg(array(),$wp->request));
 	$searchQ = get_search_query( false );
 	$pageTypeQ = $_GET['post_type'];
 	if (!$pageTypeQ){
@@ -297,9 +298,9 @@ if (have_posts()):
           <div class="post-wrapper">
           	<div class="search-tabs">
           		<ul>
-          			<li '. ($pageTypeQ == 'any' ? 'class="active"' : '') .'><a href="?s='. $searchQ .'&post_type=any" class="filter-search-by-post-type">All Results</a></li>
-          			<li '. ($pageTypeQ == 'post' ? 'class="active"' : '') .'><a href="?s='. $searchQ .'&post_type=post" class="filter-search-by-post-type">Only News</a></li>
-          			<li '. ($pageTypeQ == 'page' ? 'class="active"' : '') .'><a href="?s='. $searchQ .'&post_type=page" class="filter-search-by-post-type">Only Pages</a></li>
+          			<li '. ($pageTypeQ == 'any' ? 'class="active"' : '') .'><a href="'. $current_url .'/?s='. $searchQ .'&post_type=any" class="filter-search-by-post-type">All Results</a></li>
+          			<li '. ($pageTypeQ == 'post' ? 'class="active"' : '') .'><a href="'. $current_url .'/?s='. $searchQ .'&post_type=post" class="filter-search-by-post-type">Only News</a></li>
+          			<li '. ($pageTypeQ == 'page' ? 'class="active"' : '') .'><a href="'. $current_url .'/?s='. $searchQ .'&post_type=page" class="filter-search-by-post-type">Only Pages</a></li>
           		</ul>
           	</div>
           	<div class="post-body">' . do_shortcode($the_content) . '</div>' .
