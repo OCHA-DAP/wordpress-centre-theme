@@ -800,7 +800,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = $print_title;
 						}
-						else if ($post_category === 'tweet' || $post_category === 'dataviz') {
+						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'impact') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 						}
 						else {
@@ -1225,8 +1225,9 @@ if (!function_exists('uncode_create_single_block')) {
 				if ($post_format === 'quote' || $post_format === 'image' || $post_format === 'video') {
 				}
 				else if ($post_format === 'link') {
+					$target = ($post_category === 'impact') ? '_self' : '_blank';
 					$custom_post = uncode_custom_just_post($block_data['id']);
-					$output .= '<a tabindex="-1" href="'. get_url_in_content( $custom_post ) .'" target="_blank">';
+					$output .= '<a tabindex="-1" href="'. get_url_in_content( $custom_post ) .'" target="'.$target.'">';
 				}
 				else {
 					//move anchor tag to link the 't-overlay-content' element so category tags can link separately

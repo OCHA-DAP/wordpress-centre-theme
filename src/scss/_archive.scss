@@ -1,7 +1,8 @@
 .search,
 .archive {
 	.t-entry-visual {
-		&.dataviz {
+		&.dataviz,
+		&.impact {
 			.t-background-cover {
 				background-size: contain;
 				display: block;

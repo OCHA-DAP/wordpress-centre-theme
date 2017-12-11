@@ -167,6 +167,21 @@ function dataviz($att, $content = null)
 add_shortcode('dataviz', 'dataviz');
 
 
+function impact($att, $content = null) 
+{
+  extract(shortcode_atts(array(
+    'title' => '',
+    'author' => '',
+    'link' => ''
+  ), $att));
+  if ($author != '') $auth_str = '<p class="author">'.$author.'</p>';
+  else $auth_str = '';
+  $str = '<a href="'.$link.'"><p class="title">'.$title.'</p>'.$auth_str.'</a>';
+  return $str;
+}
+add_shortcode('impact', 'impact');
+
+
 function tweet($att, $content = null) 
 {
   extract(shortcode_atts(array(
@@ -209,6 +224,7 @@ function gallery($att, $content = null)
 }
 add_shortcode('gallery', 'gallery');
 
+
 function searchfilter($query) {
 
     if ($query->is_search && !is_admin() && isset($_GET['post_type'])) {
@@ -219,3 +235,20 @@ function searchfilter($query) {
 }
 
 add_filter('pre_get_posts','searchfilter');
+
+
+function custom_template($template){
+  if( !is_single() )
+    return $template;
+  global $wp_query;
+  $c_template = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+  return empty( $c_template ) ? $template : $c_template;
+}
+
+add_filter( 'template_include', 'custom_template' );
+
+function get_custom_templates(){
+  add_post_type_support( 'post', 'page-attributes' );
+}
+
+add_action( 'init', 'get_custom_templates' );

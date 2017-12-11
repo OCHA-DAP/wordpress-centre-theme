@@ -185,5 +185,12 @@
 		showSlideModal($(this).attr('data-dir'));
 	});
 
+   
+	//*********** IMPACT VISUALS GALLERY ***********//
+	$('.visuals-gallery .gallery-btn').on('click', function(e) {
+		if ($(this).hasClass('next-btn')) {
+			
+		}
+	});
 })(jQuery);
 
