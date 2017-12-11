@@ -135,7 +135,8 @@
 
 		//handle slideshow click, launch modal
 		$('.slideshow').on('click', function(e) {
-			createSlideshowModal($(this).find('.slideshow-container').children());
+			var slideshowID = $(this).find('.slideshow-container').attr('id');
+			createSlideshowModal($(this).find('.slideshow-container').children(), slideshowID);
 			e.preventDefault();
 		});
 	}
@@ -159,11 +160,14 @@
 
 	//*********** SLIDESHOW MODAL ***********//
 	var slideIndex = 1;
-	function createSlideshowModal(slides) {
+	function createSlideshowModal(slides, id) {
 		$('.slideshow-modal-overlay').show();
 		slides.clone().appendTo('.slides');
 		$('.slides').find('img:nth-child(1)').show();
 		slideIndex = 1;
+
+		//update url with slideshow id
+		addSlideshowID(id);
 	}
 	function showSlideModal(dir) {
 		var slides = $('.slides').children();
@@ -174,11 +178,28 @@
 		$('.slides').find('img').hide();
 		$('.slides').find('img:nth-child('+slideIndex+')').show();
 	}
+	function addSlideshowID(id) {
+		removeSlideshowID();
+		if (history.pushState && id!=undefined) {
+			var cat = (window.location.href.indexOf('ucat') > -1) ? '' : '&ucat=110';
+			var newurl = window.location.href + '&slideshow='+id+cat;
+			window.history.pushState({path:newurl},'',newurl);
+		}
+	}
+	function removeSlideshowID() {
+		if (history.pushState && window.location.href.indexOf('&slideshow=') > -1) {
+			var newurl = window.location.href;
+			newurl = newurl.substring(0, newurl.indexOf('&slideshow='));
+			window.history.pushState({path:newurl},'',newurl);
+		}
+	}
 
 	$('.slideshow-modal-overlay .close').on('click', function(e) {
 		//close the modal and remove the slides
 		$('.slideshow-modal-overlay').hide();
 		$('.slides').empty();
+
+		removeSlideshowID();
 	});
 	$('.slideshow-modal-overlay .slideshow-btn').on('click', function(e) {
 		//get next slide

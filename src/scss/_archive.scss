@@ -30,6 +30,10 @@
 			background-color: transparent;
 			.header-content-inner {
 				padding-top: 0 !important;
+				.featured-image,
+				.photo-credit {
+					display: none;
+				}
 			}
 		}
 	}
