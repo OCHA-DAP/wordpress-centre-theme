@@ -189,7 +189,7 @@ get_header();
 			$breadcrumb_align = ' text-' . $breadcrumb_align;
 
 			$content_breadcrumb = uncode_breadcrumbs();
-			$breadcrumb_title = '<div class="breadcrumb-title h5 text-bold">' . get_the_title() . '</div>';
+			$breadcrumb_title = '<div class="breadcrumb-title heyyyh5 text-bold">' . get_the_title() . '</div>';
 			echo uncode_get_row_template($breadcrumb_title . $content_breadcrumb, '', $limit_content_width, $style, ' row-breadcrumb row-breadcrumb-' . $style . $breadcrumb_align, 'half', true, 'half');
 		}
 
