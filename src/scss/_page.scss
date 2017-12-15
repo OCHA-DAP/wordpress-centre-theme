@@ -391,10 +391,6 @@
 	}
 }
 
-.uncode_text_column {
-	margin-bottom: 100px;
-}
-
 .slideshow-modal-overlay {
 	background-color: rgba(0, 0, 0, .90);
 	display: none;
@@ -463,6 +459,58 @@
 	  	}
 	}
 }
+
+.home {
+	.header-wrapper {
+		.uncode_text_column {
+			margin: 0;
+		}
+		h3 {
+			font-family: $font-serif-book;
+		    margin: 0 auto;
+		    width: 70%; 
+		    &.h2 {
+		    	width: 100%;
+		    }
+		}
+		.mc-field-group input[type=email] {
+		    background-color: $white;
+		    color: $gray33;
+		    font-size: 14px;
+			height: 40px;
+		    line-height: 40px;
+		    max-width: 250px;
+		    padding-left: 20px;
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: #ccc !important;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: #ccc !important;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: #ccc !important;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: #ccc !important;
+			}
+		}
+		#mc_embed_signup div.mce_inline_error {
+			background-color: transparent;
+			color: #6B0505;
+		}
+		.mce_inline_error,
+		#mce-responses {
+			font-size: 18px;
+		}
+		.btn.submit-btn {
+		    font-size: 14px;
+			height: 40px;
+		    line-height: 40px;
+		    padding: 0 20px !important;
+		}
+	}
+}
+
 
 @media (max-width: $screen-md) {
 	.isotope-filters ul.menu-smart > li > span {
