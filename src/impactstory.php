@@ -239,6 +239,6 @@ get_header();
 	</article>
 
 
-	<? endwhile; // end of the loop. ?>
+	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>
