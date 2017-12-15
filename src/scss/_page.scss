@@ -460,10 +460,6 @@
 	}
 }
 
-.uncode_text_column {
-	margin-bottom: 100px;
-}
-
 .home {
 	.header-wrapper {
 		.uncode_text_column {
@@ -473,6 +469,9 @@
 			font-family: $font-serif-book;
 		    margin: 0 auto;
 		    width: 70%; 
+		    &.h2 {
+		    	width: 100%;
+		    }
 		}
 		.mc-field-group input[type=email] {
 		    background-color: $white;
