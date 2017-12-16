@@ -124,17 +124,24 @@ get_header();
 						<div class="row limit-width row-parent" data-imgready="true">
 							<div class="row-inner">
 								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
-									<p>In 2016, the International Federation of the Red Cross and Red Crescent Societies (lFRC) embarked on a journey to improve its information management capabilities ranging from technical platforms to data literacy. A core element of the strategy is the Humanitarian Exchange Language (HXL), a standard that works by adding semantic hashtags to the top of columns in spreadsheets and systems to make it easier to process, combine and visualize data.</p>
+									<?php if( get_field('summary') ): ?>
+										<?php the_field('summary'); ?>
+									<?php endif; ?>
 
-									<h3>Challenge:</h3>
-									<p>The IFRC has been great at responding to disasters with surge capacity. National societies send staff who lend their data skills for up to three months during the height of a disaster. However, when these months pass, the information management support is no longer provided. In response, the IFRC launched the Go Project. The aim is to improve information management throughout the movement, from compiling templates to maintaining technical platforms and providing consistency through data standards. As a large organisation, technology and process decisions move slowly. And as a membership organisation, it can be difficult to align so many societies on workflows.</p>
+									<?php if( get_field('challenge') ): ?>
+										<h3>Challenge:</h3>
+										<?php the_field('challenge'); ?>
+									<?php endif; ?>
 
-									<h3>Centre action:</h3>
-									<p>The Centre’s work to define and promote the HXL language and to build the tool infrastructure that make it useful have been vital for the IFRC. The HXL Tag Assist and Quick Charts provide the ideal toolset to push the Go Project forward through flexible standards and rapid prototyping. The HXL infrastructure meant that dashboards could be stood up in hours to test ideas and manage complex data processing without the need to create new systems from scratch. Flexible HXL hashtags meant that templates could be made which national societies could adapt to their own bespoke purposes, but with the added value of being able to visualize and combine data from many societies.</p>
+									<?php if( get_field('centre_action') ): ?>
+										<h3>Centre action:</h3>
+										<?php the_field('centre_action'); ?>
+									<?php endif; ?>
 
-									<h3>Outcome:</h3>
-									<p>At the end of the first year of Project Go, the IFRC now has the evidence to make further investment in tools and data. Without HXL, the low-risk environment for initial testing would not have existed.</p> 
-									<p>We have also seen how Project Go and HXL worked to support field operations. When Tropical Cyclone Enawo passed over Madagascar in March 2017, the national society was able to stand up an information management hub in hours to help coordinate the response. The Malagasy Red Cross Society, as the main responder, carried out a number of on-the-ground assessments. The data was shared on HDX and included HXL hashtags, which meant staff were able to visualise their work in a few clicks using Quick Charts.</p>
+									<?php if( get_field('outcome') ): ?>
+										<h3>Outcome:</h3>
+										<?php the_field('outcome'); ?>
+									<?php endif; ?>
 								</div>
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar">
 									<?php $partners = get_field('partners');
@@ -178,8 +185,10 @@ get_header();
 								<div class="pos-top pos-center align_left column_parent col-lg-12 boomapps_vccolumn single-internal-gutter">
 									<div class="row conclusion">
 										<div class="col-lg-8">
-											<h3>Conclusion:</h3>
-											<p>The Centre’s investment in HXL has helped the IFRC to create efficiency and meet the goals of Project Go. The use of HXL will continue to be critical as the IFRC’s develops its information management capabilities. The IFRC will also seek to integrate the functionality coming from the new HDX tools domain.</p>
+											<?php if( get_field('conclusion') ): ?>
+												<h3>Conclusion:</h3>
+												<?php the_field('conclusion'); ?>
+											<?php endif; ?>
 										</div>
 										<div class="col-lg-4 volunteer-signup">
 											<p>Interested in getting involved?<br>Signup to our volunteer list</p>
@@ -204,40 +213,15 @@ get_header();
 							</div>
 							<div class="row-inner">
 								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
-									<?php 
-
-$images = get_field('visuals');
-
-if( $images ): ?>
-    <div id="slider" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-                    <p><?php echo $image['caption']; ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <div id="carousel" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif; ?>
-
-									<!-- <div class="visuals-gallery">
-										<ul>
-											<li><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-1.png"></li>
-											<li><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-2.png"></li>
+									<div class="visuals-gallery">
+										<ul class="visuals">
+											<li class="active visual"><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-1.png"></li>
+											<li class="visual"><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-2.png"></li>
 										</ul>
+										<ul class="dot-indicator"><li class="dot active"></li><li class="dot"></li></ul>
 										<div class="gallery-btn next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 										<div class="gallery-btn prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-									</div> -->
+									</div>
 								</div>
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar-related">
 									<div>

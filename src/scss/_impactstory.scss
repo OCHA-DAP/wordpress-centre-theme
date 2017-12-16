@@ -128,10 +128,14 @@
 		margin: 40px 0;
 		position: relative;
 		width: 100%;
-		ul {
+		ul.visuals {
 			list-style-type: none;
 			li {
 				position: absolute;
+				opacity: 0;
+				&.active {
+					opacity: 1;
+				}
 			}
 		}
 		.gallery-btn {
@@ -145,6 +149,26 @@
 			}
 			&.prev-btn {
 				left: 20px;
+			}
+		}
+		ul.dot-indicator {
+			list-style-type: none;
+			padding: 0;
+			position: absolute;
+			bottom: 0;    
+			left: 50%;
+    		transform: translateX(-50%);
+			.dot {
+				cursor: pointer;
+				display: inline-block;
+				border-radius: 50%;
+				height: 8px;
+				width: 8px;
+				margin: 0 4px;
+				background-color: rgba(0,0,0,0.3);
+				&.active {
+					background-color: $gray33;
+				}
 			}
 		}
 	}
@@ -168,6 +192,9 @@
 			#mc_embed_signup {
 				padding: 0;
 			}
+		}
+		.visuals-gallery {
+			height: 200px;
 		}
 	}
 }

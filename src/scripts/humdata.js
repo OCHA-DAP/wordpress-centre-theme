@@ -188,9 +188,31 @@
    
 	//*********** IMPACT VISUALS GALLERY ***********//
 	$('.visuals-gallery .gallery-btn').on('click', function(e) {
+		var totalSlides = $('.visuals-gallery .visual').length;
+		var currSlide = $('.visuals-gallery .visual.active');
+		var nextSlide;
 		if ($(this).hasClass('next-btn')) {
-			
+			nextSlide = (currSlide.index()<totalSlides-1) ? currSlide.next() : nextSlide = $('.visuals-gallery .visual:first-child');
 		}
+		else {
+			nextSlide = (currSlide.index()==0) ? nextSlide = $('.visuals-gallery .visual:last-child') : currSlide.prev();
+		}
+		$('.visuals-gallery .visual').removeClass('active').fadeOut();
+		nextSlide.addClass('active').fadeIn();
+
+		var nextID = nextSlide.index()+1;
+		$('.visuals-gallery .dot').removeClass('active');
+		$('.visuals-gallery .dot:nth-child('+nextID+')').addClass('active');
+	});
+
+	$('.visuals-gallery .dot-indicator .dot').on('click', function(e) {
+		var currID = $('.visuals-gallery .visual.active').index();
+		var nextID = $(this).index() + 1;
+		console.log(currID,nextID);
+		$('.visuals-gallery .visual').removeClass('active').fadeOut();
+		$('.visuals-gallery .visual:nth-child('+nextID+')').addClass('active').fadeIn();
+		$('.visuals-gallery .dot').removeClass('active');
+		$('.visuals-gallery .dot:nth-child('+nextID+')').addClass('active');
 	});
 })(jQuery);
 
