@@ -460,8 +460,12 @@
 	}
 }
 
+.uncode_text_column {
+	margin-bottom: 100px;
+}
+
 .home {
-	.header-wrapper {
+	.opening-announcement {
 		.uncode_text_column {
 			margin: 0;
 		}
@@ -526,6 +530,12 @@
 		.sections-container {
 			padding: 0;
 		}
+		.opening-announcement {
+			padding-top: 40px;
+			h3 {
+				width: 100%;
+			}
+		}
 	}
 	#contact p {
 		width: 90%;
@@ -540,6 +550,13 @@
 		}
 		.slideshow-modal {
 			width: 100%;
+		}
+	}
+	.home {
+		.opening-announcement {
+			.mc-field-group input[type=email] {
+				max-width: 150px;
+			}
 		}
 	}
 }
