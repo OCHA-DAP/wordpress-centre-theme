@@ -137,28 +137,41 @@ get_header();
 									<p>We have also seen how Project Go and HXL worked to support field operations. When Tropical Cyclone Enawo passed over Madagascar in March 2017, the national society was able to stand up an information management hub in hours to help coordinate the response. The Malagasy Red Cross Society, as the main responder, carried out a number of on-the-ground assessments. The data was shared on HDX and included HXL hashtags, which meant staff were able to visualise their work in a few clicks using Quick Charts.</p>
 								</div>
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar">
-									<div>
-										<h5 class="label">Partners:</h5>
-										<img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/iom-logo.png" width="84">
-									</div>
-									<div>
-										<h5 class="label">Crisis:</h5>
-										<a href="#" target="_blank">Rohingya Displacement <i class="fa fa-external-link" aria-hidden="true"></i></a>
-									</div>
-									<div>
-										<h5 class="label">Centre Service:</h5>
-										<a href="#">Data Services</a>
-									</div>
+									<?php $partners = get_field('partners');
+										if( $partners ): ?>
+											<div>
+												<h5 class="label">Partners:</h5>
+												<a href="<?php echo $partners['partner_url']; ?>" target="_blank"><img src="<?php echo $partners['partner_logo']['url']; ?>" width="84" /></a>
+											</div>
+									<?php endif; ?>
+
+									<?php $story_type = get_field('impact_story_type');
+										if( $story_type ): ?>
+											<div>
+												<h5 class="label"><?php echo $story_type['type']; ?>:</h5>
+												<a href="<?php echo $story_type['name']['url']; ?>" target="_blank"><?php echo $story_type['name']['title']; ?> <i class="fa fa-external-link" aria-hidden="true"></i></a>
+											</div>
+									<?php endif; ?>
+
+									<?php $link = get_field('centre_service');
+										if( $link ): ?>
+											<div>
+												<h5 class="label">Centre Service:</h5>
+												<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>"><?php echo $link['title']; ?></a>
+											</div>
+									<?php endif; ?>
+
 									<div>
 										<h5 class="label">Tags:</h5>
-										<ul class="tags">
-											<li><a href="#">Madagascar</a></li>
-											<li><a href="#">Cyclone Enawo</a></li>
-										</ul>
+										<?php the_tags( '<ul class="tags"><li>', '</li><li>', '</li></ul>' ); ?>
 									</div>
-									<div>
-										<blockquote>“HXL super-powered our project. Without it, we would not have been able to test our ideas so quickly and show senior management our vision.”<br><span>- Simon Johnson, British Red Cross</span></blockquote>
-									</div>
+
+									<?php $quote = get_field('quote');
+										if( $quote ): ?>
+											<div>
+												<blockquote>“<?php echo $quote['quote_text']; ?>”<br><span>- <?php echo $quote['quote_author']; ?>, <?php echo $quote['quote_author_organization']; ?></span></blockquote>
+											</div>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="row-inner">
@@ -191,43 +204,61 @@ get_header();
 							</div>
 							<div class="row-inner">
 								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
-									<h3>Process:</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin et purus quis mattis. Aliquam lacinia malesuada nibh, sed condimentum urna laoreet eget. Vivamus in tincidunt est. Donec luctus sed lorem at molestie. Cras cursus ex id nunc porta ornare nec a elit. Vivamus nec purus ipsum. Duis et porttitor neque, ac bibendum sem. Sed ex augue, pulvinar ac diam a, aliquet imperdiet enim. Donec accumsan condimentum lorem, accumsan pretium lacus condimentum sed.</p>
+									<?php 
 
-									<div class="visuals-gallery">
+$images = get_field('visuals');
+
+if( $images ): ?>
+    <div id="slider" class="flexslider">
+        <ul class="slides">
+            <?php foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    <p><?php echo $image['caption']; ?></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div id="carousel" class="flexslider">
+        <ul class="slides">
+            <?php foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+									<!-- <div class="visuals-gallery">
 										<ul>
 											<li><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-1.png"></li>
 											<li><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-2.png"></li>
 										</ul>
 										<div class="gallery-btn next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 										<div class="gallery-btn prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-									</div>
+									</div> -->
 								</div>
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar-related">
 									<div>
-										<h6>Related content:</h6>
-										<ul class="links">
-											<li>
-												<h6>Asset</h6>
-												<a href="http://hxlstandard.org">HXL Standard</a>
-											</li>
-											<li>
-												<h6>Asset</h6>
-												<a href="https://tools.humdata.org">HDX Tools</a>
-											</li>
-											<li>
-												<h6>Asset</h6>
-												<a href="https://tools.humdata.org/quickcharts/">Quick Charts</a>
-											</li>
-											<li>
-												<h6>Asset</h6>
-												<a href="https://tools.humdata.org/examples/hxl/">HXL Tag Assist</a>
-											</li>
-											<li>
-												<h6>Blog</h6>
-												<a href="https://medium.com/@Simon_B_Johnson/how-hxl-is-being-used-at-the-british-red-cross-281c0b632df6 ">How HXL is Being Used at the British Red Cross</a>
-											</li>
-										</ul>
+										<?php if( have_rows('related_content') ): ?>
+											<h6>Related content:</h6>
+											<ul class="links">
+												<?php while( have_rows('related_content') ): the_row(); 
+													$link = get_sub_field('link'); ?>
+													
+													<li>
+														<?php if( $link ): ?>
+															<h6><?php echo get_sub_field('link_type'); ?></h6>
+															<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+																<?php echo $link['title']; ?>
+															</a>
+														<?php endif; ?>
+													</li>
+
+												<?php endwhile; ?>
+											</ul>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -236,8 +267,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-	</article>
-
+	</article>	
 
 	<?php endwhile; // end of the loop. ?>
 
