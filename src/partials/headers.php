@@ -142,9 +142,14 @@ if (!class_exists('unheader')) {
 
 							//show featured image if post type is page
 							if ( has_post_thumbnail() && $get_post_type==='page' ) {
-								$feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() );
-								$image_credit = get_media_credit( get_post_thumbnail_id() );
-						        $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo: '.$image_credit.'</div>';
+							    if (basename(get_page_template()) === 'impactstory.php') {
+							        $country_id = get_field('map_id');
+                                    $content_html .= '<iframe height="432" width="1024" frameborder="0" src="https://data.humdata.org/worldmap?id='.$country_id. '" style="height: 432px; width: 1024px; border: none;" class="featured-image"></iframe>';
+                                } else {
+                                    $feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() );
+                                    $image_credit = get_media_credit( get_post_thumbnail_id() );
+                                    $content_html .= '<img class="featured-image" src="' . $feat_image_url . '"><div class="photo-credit">Photo: '.$image_credit.'</div>';
+                                }
 						   	}
 
 						   	//show header title
