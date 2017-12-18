@@ -143,12 +143,24 @@ get_header();
 										<?php the_field('outcome'); ?>
 									<?php endif; ?>
 								</div>
+								
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar">
 									<?php $partners = get_field('partners');
 										if( $partners ): ?>
 											<div>
 												<h5 class="label">Partners:</h5>
-												<a href="<?php echo $partners['partner_url']; ?>" target="_blank"><img src="<?php echo $partners['partner_logo']['url']; ?>" width="84" /></a>
+												<?php if( $partners['partner_url'] ): ?>
+													<a href="<?php echo $partners['partner_url']; ?>" target="_blank">
+												<?php endif; ?>
+
+													<?php if( $partners['partner_logo']['url'] ): ?>
+														<img src="<?php echo $partners['partner_logo']['url']; ?>" width="84" />
+													<?php else: 
+														echo $partners['partner_name'];
+													endif; ?>
+												<?php if( $partners['partner_url'] ): ?>
+													</a>
+												<?php endif; ?>
 											</div>
 									<?php endif; ?>
 
@@ -156,15 +168,19 @@ get_header();
 										if( $story_type ): ?>
 											<div>
 												<h5 class="label"><?php echo $story_type['type']; ?>:</h5>
-												<a href="<?php echo $story_type['name']['url']; ?>" target="_blank"><?php echo $story_type['name']['title']; ?> <i class="fa fa-external-link" aria-hidden="true"></i></a>
+												<a href="<?php echo $story_type['name']['url']; ?>" target="_blank"><?php echo $story_type['name']['title']; ?><i class="fa fa-external-link" aria-hidden="true"></i></a>
 											</div>
 									<?php endif; ?>
 
-									<?php $link = get_field('centre_service');
-										if( $link ): ?>
+									<?php $services = get_field('centre_service');
+										if( $services ): ?>
 											<div>
 												<h5 class="label">Centre Service:</h5>
-												<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>"><?php echo $link['title']; ?></a>
+												<div class="services">
+												<?php foreach( $services as $key=>$service ): ?>
+													<a href="<?php echo $service['value']; ?>"><?php echo $service['label']; ?></a><?php if ($key<count($services)-1) echo ', ';
+												endforeach; ?>
+												</div>
 											</div>
 									<?php endif; ?>
 
