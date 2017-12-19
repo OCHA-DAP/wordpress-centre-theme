@@ -125,7 +125,8 @@
 			}
 		}
 	}
-	&.dataviz {
+	&.dataviz,
+	&.impact {
 		@include bg-gradient($teal);
 		.t-background-cover,
 		.t-entry-visual-overlay,
