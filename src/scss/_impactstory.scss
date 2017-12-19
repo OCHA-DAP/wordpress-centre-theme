@@ -76,6 +76,9 @@
 			}
 		}
 	}
+	.sidebar {
+		top: 40px;
+	}
 	.sidebar-related {
 		> div {
 			border-bottom: 1px solid $graycc;
@@ -87,6 +90,16 @@
 		background-position: right 100%;
 		margin-top: 40px;
 		text-align: left;
+	}
+	.author {
+		margin-top: 0;
+		margin-bottom: 30px;
+		a {
+			color: $black;
+			&:hover {
+				color: $coral;
+			}
+		}
 	}
 	.volunteer-signup {
 		padding-top: 94px;
