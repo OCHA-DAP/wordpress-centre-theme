@@ -124,6 +124,15 @@ get_header();
 						<div class="row limit-width row-parent" data-imgready="true">
 							<div class="row-inner">
 								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
+
+									<?php if( get_field('author') ): 
+										$author = get_field('author');  ?>
+										<h5 class="author">By <a href="<?php echo get_author_posts_url( $author['ID'], $author['user_nicename'] ); ?>"><?php echo $author['display_name'] ?></a></h5>
+									<?php else: ?>
+										<h5 class="author">By Centre Team</h5>
+									<?php endif; ?>
+								
+
 									<?php if( get_field('summary') ): ?>
 										<?php the_field('summary'); ?>
 									<?php endif; ?>
@@ -228,20 +237,30 @@ get_header();
 								</div>
 							</div>
 							<div class="row-inner">
-								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
-									<div class="visuals-gallery">
-										<ul class="visuals">
-											<li class="active visual"><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-1.png"></li>
-											<li class="visual"><img src="http://localhost:8888/humdata/wp-content/uploads/2017/04/impact-hxl-2.png"></li>
-										</ul>
-										<ul class="dot-indicator"><li class="dot active"></li><li class="dot"></li></ul>
-										<div class="gallery-btn next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-										<div class="gallery-btn prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-									</div>
-								</div>
-								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar-related">
-									<div>
-										<?php if( have_rows('related_content') ): ?>
+								<?php $images = get_field('visuals');
+									if( $images ): ?>
+										<div class="visuals-gallery">
+										    <ul class="visuals">
+										        <?php foreach( $images as $id=>$image ): ?>
+										            <li class="visual<?php if ($id==0) echo ' active' ?>">
+										                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+										                <p class="photo-credit"><?php echo $image['caption']; ?></p>
+										            </li>
+										        <?php endforeach; ?>
+										    </ul>
+											<ul class="dot-indicator">
+										        <?php foreach( $images as $id=>$image ): ?>
+													<li class="dot<?php if ($id==0) echo ' active' ?>"></li>
+										        <?php endforeach; ?>
+											</ul>
+											<div class="gallery-btn next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+											<div class="gallery-btn prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+									    </div>
+								<?php endif; ?>
+
+								<?php if( have_rows('related_content') ): ?>
+									<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar-related">
+										<div>
 											<h6>Related content:</h6>
 											<ul class="links">
 												<?php while( have_rows('related_content') ): the_row(); 
@@ -255,12 +274,11 @@ get_header();
 															</a>
 														<?php endif; ?>
 													</li>
-
 												<?php endwhile; ?>
 											</ul>
-										<?php endif; ?>
+										</div>
 									</div>
-								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

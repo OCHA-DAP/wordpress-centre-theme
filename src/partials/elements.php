@@ -1225,7 +1225,7 @@ if (!function_exists('uncode_create_single_block')) {
 				if ($post_format === 'quote' || $post_format === 'image' || $post_format === 'video') {
 				}
 				else if ($post_format === 'link') {
-					$target = ($post_category === 'impact') ? '_self' : '_blank';
+					$target = ($post_category === 'impactstory') ? '_self' : '_blank';
 					$custom_post = uncode_custom_just_post($block_data['id']);
 					$output .= '<a tabindex="-1" href="'. get_url_in_content( $custom_post ) .'" target="'.$target.'">';
 				}
