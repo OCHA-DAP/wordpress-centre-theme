@@ -127,7 +127,12 @@ get_header();
 
 									<?php if( get_field('author') ): 
 										$author = get_field('author');  ?>
-										<h5 class="author">By <a href="<?php echo get_author_posts_url( $author['ID'], $author['user_nicename'] ); ?>"><?php echo $author['display_name'] ?></a></h5>
+										<div class="author-info">
+											<h5 class="author">By <a href="<?php echo get_author_posts_url( $author['ID'], $author['user_nicename'] ); ?>"><?php echo $author['display_name'] ?></a></h5>
+											<div class="social-links">
+												<a href="mailto:<?php echo $author['user_email'] ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+											</div>
+										</div>
 									<?php else: ?>
 										<h5 class="author">By Centre Team</h5>
 									<?php endif; ?>
@@ -163,7 +168,7 @@ get_header();
 												<?php endif; ?>
 
 													<?php if( $partners['partner_logo']['url'] ): ?>
-														<img src="<?php echo $partners['partner_logo']['url']; ?>" width="84" />
+														<img class="partner-logo" src="<?php echo $partners['partner_logo']['url']; ?>" />
 													<?php else: 
 														echo $partners['partner_name'];
 													endif; ?>
@@ -199,7 +204,7 @@ get_header();
 									</div>
 
 									<?php $quote = get_field('quote');
-										if( $quote ): ?>
+										if( $quote['quote_text'] ): ?>
 											<div>
 												<blockquote>“<?php echo $quote['quote_text']; ?>”<br><span>- <?php echo $quote['quote_author']; ?>, <?php echo $quote['quote_author_organization']; ?></span></blockquote>
 											</div>

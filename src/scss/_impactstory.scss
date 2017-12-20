@@ -77,7 +77,7 @@
 		}
 	}
 	.sidebar {
-		top: 40px;
+		top: 60px;
 	}
 	.sidebar-related {
 		> div {
@@ -86,18 +86,32 @@
 			text-align: left;
 		}
 	}
+	.partner-log {
+		max-width: 84px;
+	}
 	blockquote {
 		background-position: right 100%;
 		margin-top: 40px;
 		text-align: left;
 	}
-	.author {
-		margin-top: 0;
-		margin-bottom: 30px;
+	.author-info {
+		margin-bottom: 20px;		
 		a {
 			color: $black;
 			&:hover {
 				color: $coral;
+			}
+		}
+		.author {
+			margin-top: 0;
+		}
+		.social-links {
+			margin-top: 5px;
+			a {
+				color: $blue;
+				&:hover {
+					color: $coral;
+				}
 			}
 		}
 	}
@@ -199,6 +213,9 @@
 				padding: 0 20px 60px;
 			}
 		}
+		.sidebar {
+			top: 0;
+		}
 	}
 }
 
@@ -210,7 +227,7 @@
 			}
 		}
 		.visuals-gallery {
-			height: 200px;
+			height: 240px;
 		}
 	}
 }

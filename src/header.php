@@ -166,8 +166,13 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 
 					$expand_menu_content = '<div>' . $menu_list . $product_list . '</div>';
 					echo $expand_menu_content ;
+
+					//show search if control is set to ON in WP
+					$search_active = ot_get_option( '_uncode_menu_search' );
+					if ($search_active === 'on') {
 				?>
-				<div class="search-container"><?php get_search_form( true ); ?></div>
+					<div class="search-container"><?php get_search_form( true ); ?></div>
+				<?php } ?>
 			</div>
 
 			<!--  -->
