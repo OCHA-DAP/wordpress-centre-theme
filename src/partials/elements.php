@@ -816,7 +816,12 @@ if (!function_exists('uncode_create_single_block')) {
 								$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
 							}
 							else {
-								if ($post_category !== '') $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+								//customize block link based on post format
+								$custom_post = uncode_custom_just_post($block_data['id']);
+								$post_format = get_post_format($block_data['id']);
+								$the_link = ($post_format === 'link') ? get_url_in_content( $custom_post ) : $title_link;
+								if ($post_category === 'impactstory') $post_category = 'Impact Story';
+								if ($post_category !== '') $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'">'.$print_title.'</a></h3>';
 							}
 						}
 					}
@@ -880,11 +885,11 @@ if (!function_exists('uncode_create_single_block')) {
 								$cat_link = $post_category;//$block_data['single_categories'][$t_key]['link'];
 
 								if ($block_data['single_categories'][$t_key]['tax'] === 'category' && !$cat_icon) {
-									$category .= '<i class="fa fa-archive2 fa-push-right"></i>';
+									//$category .= '<i class="fa fa-archive2 fa-push-right"></i>';
 									$cat_icon = true;
 								}
 								if ($block_data['single_categories'][$t_key]['tax'] === 'post_tag' && !$tag_icon) {
-									$category .= '<i class="fa fa-tag2 fa-push-right"></i>';
+									//$category .= '<i class="fa fa-tag2 fa-push-right"></i>';
 									$tag_icon = true;
 								}
 							} else {
@@ -914,10 +919,13 @@ if (!function_exists('uncode_create_single_block')) {
 							$add_comma = true;
 						} else $category = '';
 
-						if ($single_text === 'under') //if this is archive page
+						if ($single_text === 'under') { //if this is archive page
+							if ($category==='impactstory') $category = 'Impact Story';
 							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
-						else
+						}
+						else {
 							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+						}
 
 						$cat_counter++;
 						$category = '';
@@ -1338,9 +1346,12 @@ if (!function_exists('uncode_create_single_block')) {
 
 						else:
 
-							//print background image for 'other' media_types as well
-							$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
-							//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
+							if ($post_category === 'slideshow')
+								$output .= $custom_post;
+							else
+								//print background image for 'other' media_types as well
+								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+								//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;
 
@@ -1610,11 +1621,21 @@ if (!function_exists('uncode_breadcrumbs')) {
 		} else
 		{
 
+
+
 			$html = '<ol class="breadcrumb header-subtitle" vocab="http://schema.org/" typeof="BreadcrumbList">';
 			if ($show_home_link == 1)
 			{
 				$html.= '<li property="itemListElement" typeof="ListItem"><a href="' . $home_link . '" itemprop="url">' . $text['home'] . '</a></li>';
 				if ($frontpage_id == 0 || $parent_id != $frontpage_id) $html.= $delimiter;
+			}
+
+			//add impact story breadcrumb
+			if (basename(get_page_template()) === 'impactstory.php') {
+				$category_id = get_cat_ID( 'Impact Story' );
+			    // Get the URL of this category
+			    $category_link = get_category_link( $category_id );
+				$html.= '<li property="itemListElement" typeof="ListItem"><a href="'.$category_link.'" itemprop="url">Impact Story</a></li>';
 			}
 
 			if (is_category())

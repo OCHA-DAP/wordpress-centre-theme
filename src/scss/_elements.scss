@@ -11,7 +11,11 @@
 }
 
 .error404 {
+	.block-bg-overlay {
+		background-color: $green;
+	}
 	#particles-js {
+		background-color: transparent;
 		height: 700px;
 	}
 	.limit-width {
