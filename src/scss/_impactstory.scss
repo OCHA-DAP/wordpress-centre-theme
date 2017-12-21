@@ -114,6 +114,9 @@
 				}
 			}
 		}
+		&.default {
+			margin-bottom: 50px;
+		}
 	}
 	.volunteer-signup {
 		padding-top: 94px;
@@ -154,15 +157,25 @@
 		}
 	}
 	.visuals-gallery {
-		height: 400px;
+		height: 520px;
 		margin: 40px 0;
+		padding: 0 !important;
 		position: relative;
 		width: 100%;
 		ul.visuals {
 			list-style-type: none;
-			li {
+			li.visual {
 				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 				opacity: 0;
+				width: 100%;
+				img {
+					width: 100%;
+					max-height: 440px;
+					overflow: hidden;
+				}
 				&.active {
 					opacity: 1;
 				}
@@ -174,11 +187,14 @@
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
+			&:hover {
+				color: $coral;
+			}
 			&.next-btn {
-				right: 20px;
+				right: 10px;
 			}
 			&.prev-btn {
-				left: 20px;
+				left: 10px;
 			}
 		}
 		ul.dot-indicator {
@@ -227,7 +243,7 @@
 			}
 		}
 		.visuals-gallery {
-			height: 240px;
+			height: 350px;
 		}
 	}
 }
