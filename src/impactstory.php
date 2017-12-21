@@ -241,7 +241,7 @@ get_header();
 											<?php endif; ?>
 										</div>
 										<div class="col-lg-4 volunteer-signup">
-											<p>Interested in getting involved?<br>Signup to our volunteer list</p>
+											<p>Want to know the latest about the Centre and HDX?<br>Sign up for our newsletter.</p>
 											<div id="mc_embed_signup">
 												<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 												    <div id="mc_embed_signup_scroll">
