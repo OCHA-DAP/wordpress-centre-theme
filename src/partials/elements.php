@@ -1340,7 +1340,7 @@ if (!function_exists('uncode_create_single_block')) {
 								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $block_data['id'] ), 'single-post-thumbnail' ); 
 								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
-							else if ($post_category === 'impactstory') {
+							else if (($post_category === 'impactstory') && ($single_text === 'under')) {
 								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							}
 							else {
