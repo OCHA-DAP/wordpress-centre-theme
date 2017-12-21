@@ -18,6 +18,9 @@
 				display: none;
 			}
 		}
+		&.slideshow {
+			cursor: pointer;
+		}
 	}
 	.main-container .row-inner > div {
 		padding-left: 0;

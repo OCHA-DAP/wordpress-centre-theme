@@ -134,7 +134,9 @@ get_header();
 											</div>
 										</div>
 									<?php else: ?>
-										<h5 class="author">By Centre Team</h5>
+										<div class="author-info default">
+											<h5 class="author">By Centre Team</h5>
+										</div>
 									<?php endif; ?>
 								
 
@@ -198,10 +200,28 @@ get_header();
 											</div>
 									<?php endif; ?>
 
-									<div>
+									<!-- <div>
 										<h5 class="label">Tags:</h5>
 										<?php the_tags( '<ul class="tags"><li>', '</li><li>', '</li></ul>' ); ?>
-									</div>
+									</div> -->
+
+									
+									<?php $terms = get_field('tags');
+
+										if( $terms ): ?>
+											<div>
+												<h5 class="label">Tags:</h5>
+												<ul class="tags">
+
+													<?php foreach( $terms as $term ): ?>
+
+														<li><a href="<?php echo get_term_link( $term ); ?>"><?php echo $term->name; ?></a></li>
+
+													<?php endforeach; ?>
+
+												</ul>
+											</div>
+									<?php endif; ?>
 
 									<?php $quote = get_field('quote');
 										if( $quote['quote_text'] ): ?>
