@@ -111,7 +111,7 @@ if ($footer_text_content !== '') {
 								    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value=""></div>
 							    </div>
 							</form>
-							<p>or <a href="https://centre.humdata.org/wp-content/uploads/2017/12/CentreForHumdata_Flyer_12_2017_v3_interactive.pdf" target="_blank">download our brochure</a> to learn more</p>
+							<p>or download our brochure in <a href="https://centre.humdata.org/wp-content/uploads/2017/12/CentreForHumdata_Flyer_12_2017_v3_interactive.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2018/01/Centre_One_Pager_01_2017_v1_ES_interactive.pdf" target="_blank">ES</a> to learn more</p>
 						</div></div><!-- site info -->';
 }
 
@@ -153,7 +153,7 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 			<?php if (is_front_page()) { ?>
 				<section id="contact" class="bg-pattern-green">
 					<h2>Stay in touch</h2>
-					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="https://centre.humdata.org/wp-content/uploads/2017/12/CentreForHumdata_Flyer_12_2017_v3_interactive.pdf" target="_blank">download our brochure</a> to learn more</p>
+					<p class="large">Sign up to our mailing list to get the latest updates on the Centre or download our brochure in <a href="https://centre.humdata.org/wp-content/uploads/2017/12/CentreForHumdata_Flyer_12_2017_v3_interactive.pdf" target="_blank">EN</a> | <a href="https://centre.humdata.org/wp-content/uploads/2018/01/Centre_One_Pager_01_2017_v1_ES_interactive.pdf" target="_blank">ES</a> to learn more</p>
 	
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
