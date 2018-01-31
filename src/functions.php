@@ -29,7 +29,7 @@ function theme_enqueue_styles()
   $parent_style = 'uncode-style';
   $child_style = array('uncode-custom-style');
   wp_enqueue_style($parent_style, get_template_directory_uri() . '/library/css/style.css', array(), $resources_version);
-  wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', $child_style, $resources_version);
+  wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', $child_style, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -37,8 +37,8 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 function custom_javascript()
 {
     wp_dequeue_script('uncode-app');
-//    wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
-    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), false, true);
+    //wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), filemtime( get_stylesheet_directory() . '/js/humdata-footer.js' ) );
 }
 add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
