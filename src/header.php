@@ -59,7 +59,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 <?php endif; ?>
 
 <!-- start Drift -->
-<script>
+<!-- <script>
 	!function() {
 	  var t;
 	  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
@@ -80,7 +80,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 	}();
 	drift.SNIPPET_VERSION = '0.3.1';
 	drift.load('78e66wr87xr8');
-</script>
+</script> -->
 <!-- end Drift -->
 
 <?php wp_head(); ?>
