@@ -97,8 +97,8 @@ $menu_list .= '</ul>';
 if ($footer_text_content !== '') {
 	$copyright = $footer_text_content;
 	$footer_text_content = '<div class="site-info uncell col-lg-3 pos-middle text-'.$footer_position.'">'.$menu_list.'</div><div class="site-info uncell col-lg-5 pos-middle text-'.$footer_position.'">'.$secondary_list.'</div><div class="site-info uncell col-lg-4 pos-middle text-'.$footer_position.'"><h2>Stay in touch</h2>
-					<p>Sign up to our mailing list for latest updates on the Centre</p><div id="mc_embed_signup">
-							<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					<p>Sign up to our mailing list for latest updates on the Centre</p><div id="mc_embed_signup2">
+							<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 							    <div id="mc_embed_signup_scroll">
 									<div class="mc-field-group">
 										<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit-btn">
@@ -157,7 +157,7 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 	
 						<!-- Begin MailChimp Signup Form -->
 						<div id="mc_embed_signup">
-							<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 							    <div id="mc_embed_signup_scroll">
 									<div class="mc-field-group">
 										<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit-btn">
@@ -221,10 +221,6 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 		<div class="mmb-container"><div class="menu-close-search mobile-menu-button menu-button-offcanvas mobile-menu-button-dark lines-button x2 overlay-close close" data-area="search" data-container="box-container"><span class="lines"></span></div></div>
 		<div class="search-container"><?php get_search_form( true ); ?></div>
 	</div>
-
-	<?php if (is_front_page()) { ?>
-	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-	<?php } ?>
 
 	<?php }
 

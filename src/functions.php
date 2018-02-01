@@ -38,7 +38,7 @@ function custom_javascript()
 {
     wp_dequeue_script('uncode-app');
     //wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
-    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), filemtime( get_stylesheet_directory() . '/js/humdata-footer.js' ) );
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), filemtime( get_stylesheet_directory() . '/js/humdata-footer.js' ), true);
 }
 add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
