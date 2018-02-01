@@ -97,7 +97,7 @@ $menu_list .= '</ul>';
 if ($footer_text_content !== '') {
 	$copyright = $footer_text_content;
 	$footer_text_content = '<div class="site-info uncell col-lg-3 pos-middle text-'.$footer_position.'">'.$menu_list.'</div><div class="site-info uncell col-lg-5 pos-middle text-'.$footer_position.'">'.$secondary_list.'</div><div class="site-info uncell col-lg-4 pos-middle text-'.$footer_position.'"><h2>Stay in touch</h2>
-					<p>Sign up to our mailing list for latest updates on the Centre</p><div id="mc_embed_signup2">
+					<p>Sign up to our mailing list for latest updates on the Centre</p><div id="mc_embed_signup">
 							<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 							    <div id="mc_embed_signup_scroll">
 									<div class="mc-field-group">
