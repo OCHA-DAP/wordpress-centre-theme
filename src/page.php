@@ -193,6 +193,16 @@ get_header();
 			echo uncode_get_row_template($breadcrumb_title . $content_breadcrumb, '', $limit_content_width, $style, ' row-breadcrumb row-breadcrumb-' . $style . $breadcrumb_align, 'half', true, 'half');
 		}
 
+		/** Update tweet post date so it appears as first content block on front page **/
+		if (is_front_page())
+		{
+			$now = new DateTime();
+			$tweetpost = array();
+			$tweetpost['ID'] = 54975; 
+			$tweetpost['post_date'] = $now->format('Y-m-d H:i:s');
+			wp_update_post($tweetpost);
+		}
+
 		/** Build media **/
 
 		if ($media !== '' && !$with_builder && $show_media && !post_password_required())

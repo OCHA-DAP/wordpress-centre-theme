@@ -243,7 +243,7 @@ get_header();
 										<div class="col-lg-4 volunteer-signup">
 											<p>Want to know the latest about the Centre and HDX?<br>Sign up for our newsletter.</p>
 											<div id="mc_embed_signup">
-												<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+												<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 												    <div id="mc_embed_signup_scroll">
 														<div class="mc-field-group">
 															<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit-btn">
