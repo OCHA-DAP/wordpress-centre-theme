@@ -57,7 +57,7 @@ module.exports = {
         //modules+'bootstrap-sass/assets/javascripts/bootstrap.min.js',
         src+'scripts/particles.js',
         src+'scripts/util.js',
-        src+'scripts/twitterFetcher_min.js',
+        src+'scripts/twitterFetcher.js',
         src+'scripts/theme-app-modified.js',
         src+'scripts/humdata.js'
         // src+'js/responsive-menu.js',

@@ -77,10 +77,12 @@
 
     function getTweet(){
         var val = tweetArray[tweetID];
-        tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
-        $('.tweet .tweet-text').html(val.tweet);
-        $('.tweet .author').html(val.author);
-        $('.tweet a').attr('href',val.link);
+        if (val!==undefined) {
+	        tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
+	        $('.tweet .tweet-text').html(val.tweet);
+	        $('.tweet .author').html(val.author);
+	        $('.tweet a').attr('href',val.link);
+        }
     }
 
     setInterval(function(){
