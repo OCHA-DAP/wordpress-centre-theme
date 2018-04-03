@@ -120,7 +120,7 @@
 			}
 		}
 		.iframe-container {
-			overflow: auto;
+			overflow-x: scroll;
 			-webkit-overflow-scrolling: touch;
 		}
 		iframe {
