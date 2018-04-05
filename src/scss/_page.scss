@@ -90,26 +90,24 @@
 					position: absolute;
 					bottom: 50px;
 					width: 100%;
-					.TweetAuthor{
-						.TweetAuthor-avatar .Avatar {
-							border-radius: 50%;
-							float: left;
-							height: auto;
-							margin-right: 8px;
-							width: 50px;
-						}
-						.TweetAuthor-verifiedBadge {
-							display: none;
-						}
-						.TweetAuthor-name {
-							margin-top: 8px;
-						}
-						.TweetAuthor-name,
-						.TweetAuthor-screenname {
-							float: left;
-							line-height: 16px;
-							width: 75%;
-						}
+					.TweetAuthor-avatar .Avatar {
+						border-radius: 50%;
+						float: left;
+						height: auto;
+						margin-right: 8px;
+						width: 50px;
+					}
+					.TweetAuthor-verifiedBadge {
+						display: none;
+					}
+					.TweetAuthor-name {
+						margin-top: 8px;
+					}
+					.TweetAuthor-name,
+					.TweetAuthor-screenname {
+						float: left;
+						line-height: 16px;
+						width: 75%;
 					}
 				}
 				&.tweet-text {
