@@ -28,8 +28,9 @@
 	var searchTerm = window.location.href.split('s=')[1];
 	if (searchTerm!=undefined) {
 		searchTerm = searchTerm.split('&')[0];
-		searchTerm = searchTerm.replace('+',' ');
-		$('.header-main-container .search-container .search-field').val(searchTerm);
+		//searchTerm = searchTerm.replace('+',' ');
+		searchTerm = searchTerm.replace(/\+/g,' ');
+		$('.header-main-container .search-container .search-field').val(decodeURIComponent(searchTerm));
 	}
 
 	//reset search placeholder text
