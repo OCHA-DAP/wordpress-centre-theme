@@ -795,7 +795,19 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
 
           endforeach;
         else: ?>
-        <div class="tmb tmb-iso-w12 tmb-iso-h1"><p class="t-entry-title"><?php esc_html_e( "Nothing found.", "uncode" ) ?></p></div>
+
+            <?php if ( is_search() ) : ?>
+              <div class="no-results-container">
+                <div class="page-header">
+                  <h1 class="post-title"><?php esc_html_e( 'Nothing Found', 'uncode' ); ?></h1>
+                </div><!-- .page-header -->
+                <p>
+                  <?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'uncode' ); ?>  
+                </p>
+              </div>
+            <?php else: ?>
+              <div class="tmb tmb-iso-w12 tmb-iso-h1"><p class="t-entry-title"><?php esc_html_e( "Nothing found.", "uncode" ) ?></p></div>
+            <?php endif; ?>
         <?php endif; ?>
       </div>
 

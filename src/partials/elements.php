@@ -1353,6 +1353,9 @@ if (!function_exists('uncode_create_single_block')) {
 								$output .= $custom_post;
 							else
 								//print background image for 'other' media_types as well
+								if (strpos($item_media, 'docs.hdx.rwlabs.org')!== false)
+									$item_media = '/humdata/wp-content/themes/uncode-child2/assets/default.svg';
+					
 								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 								//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
