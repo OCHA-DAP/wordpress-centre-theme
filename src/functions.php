@@ -253,3 +253,26 @@ function get_custom_templates(){
 }
 
 add_action( 'init', 'get_custom_templates' );
+
+
+/**
+ * Select target _blank by default.
+ *
+ * Outputs javascript that hooks into the WordPress link dialog
+ * and sets the target _blank checkbox to be selected by default.
+ *
+ * @return null
+ */
+function default_target_blank() {
+  ?>
+  <script>
+    jQuery(document).on( 'wplink-open', function( wrap ) {
+      if ( jQuery( 'input#wp-link-url' ).val() <= 0 )
+        jQuery( 'input#wp-link-target' ).prop('checked', true );
+    });
+  </script>
+  <?php
+}
+add_action( 'admin_footer-post-new.php', 'default_target_blank', 10, 0 );
+add_action( 'admin_footer-post.php', 'default_target_blank', 10, 0 );
+
