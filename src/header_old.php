@@ -82,7 +82,6 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 	drift.load('78e66wr87xr8');
 </script> -->
 <!-- end Drift -->
-<script async src="https://www.youtube.com/iframe_api"></script>
 
 <?php wp_head(); ?>
 </head>

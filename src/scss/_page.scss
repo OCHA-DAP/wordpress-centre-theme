@@ -372,25 +372,6 @@
 	}
 }
 
-#contact {
-	padding: 80px 0 150px;
-	text-align: center;
-	h2 {
-		color: $white;
-		font-family: $font-serif-book;
-		margin-top: 0;
-	}
-	p {
-		color: $white;
-		font-size: 18px;
-		margin: 20px auto 45px;
-		width: 38%;
-		a {
-			text-decoration: underline;
-		}
-	}
-}
-
 .slideshow-modal-overlay {
 	background-color: rgba(0, 0, 0, .90);
 	display: none;
@@ -462,7 +443,6 @@
 
 .home {
 	.opening-announcement {
-    
 		.uncode_text_column {
 			margin: 0;
 		}
@@ -533,9 +513,6 @@
 				width: 100%;
 			}
 		}
-	}
-	#contact p {
-		width: 90%;
 	}
 }
 

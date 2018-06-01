@@ -135,7 +135,7 @@ function casestudy($att, $content = null)
     'label' => '',
     'link' => ''
   ), $att));
-  $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span><br>'.$content.'</p></a>';
+  $str = '<a href="'.$link.'" target="_blank"><p><span class="label">'.$label.'</span><br>'.$content.'</p></a>';
   return $str;
 }
 add_shortcode('casestudy', 'casestudy');
@@ -147,10 +147,21 @@ function media($att, $content = null)
     'label' => '',
     'link' => ''
   ), $att));
-  $str = '<a href="'.$link.'"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
+  $str = '<a href="'.$link.'" target="_blank"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
   return $str;
 }
 add_shortcode('media', 'media');
+
+function articles($att, $content = null) 
+{
+  extract(shortcode_atts(array(
+    'label' => '',
+    'link' => ''
+  ), $att));
+  $str = '<a href="'.$link.'" target="_blank"><p><span class="label">'.$label.'</span>'.$content.'</p></a>';
+  return $str;
+}
+add_shortcode('articles', 'articles');
 
 
 function dataviz($att, $content = null) 
@@ -198,9 +209,11 @@ add_shortcode('tweet', 'tweet');
 function video($att, $content = null)
 {
   extract(shortcode_atts(array(
-    'src' => ''
+    'src' => '',
+    'id' => ''
   ), $att));
-  $str = '<iframe src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
+  $uniqid = 'video-' . uniqid();
+  $str = '<iframe id="'.$uniqid.'" src="'.$src.'?rel=0&showinfo=0&controls=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
   return $str;
 }
 add_shortcode('video', 'video');

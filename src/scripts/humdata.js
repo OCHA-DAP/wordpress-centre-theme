@@ -10,6 +10,15 @@
 	$('.menu-wrapper .navbar-toggle').css('z-index', 2001);
 	$('.hdc-overlay-menu').css('z-index', 1001);
 
+	//initiate homepage carousel
+	$('.latest-carousel').slick({
+	 	dots: true,
+	  	speed: 500,
+	  	infinite: true,
+ 		autoplay: true,
+  		autoplaySpeed: 4000,
+	});
+
 	//handle hamburger menu events
 	$('.menu-wrapper .navbar-toggle').on('click', function() {
 		if ($(this).hasClass('collapsed')) {
@@ -37,7 +46,7 @@
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
-    var TWITTER_DURATION = 5000;
+    var TWITTER_DURATION = 10000;
 
 	function twitterDataReady(data){
 		//console.log(data);
@@ -80,20 +89,21 @@
         var val = tweetArray[tweetID];
         if (val!==undefined) {
 	        tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
-	        $('.tweet .tweet-text').html(val.tweet);
+	        $('.tweet .tweet-text span').html(val.tweet);
+	        //console.log(val.tweet, val.tweet.length)
 	        $('.tweet .author').html(val.author);
 	        $('.tweet a').attr('href',val.link);
         }
     }
 
     setInterval(function(){
-        $.when($('.tweet .t-overlay-content').animate({
+        $.when($('.tweet .tweet-content').animate({
             'opacity': '0',
             'marginTop': '+40px'
         }, 750)).done(function(){
             getTweet();
-            $('.tweet .t-overlay-content').css('marginTop', '-40px');
-            $('.tweet .t-overlay-content').animate({
+            $('.tweet .tweet-content').css('marginTop', '-40px');
+            $('.tweet .tweet-content').animate({
                 'opacity': '1',
                 'marginTop': '0'
             }, 600)
@@ -253,5 +263,50 @@
 		$('.visuals-gallery .dot').removeClass('active');
 		$('.visuals-gallery .dot:nth-child('+nextID+')').addClass('active');
 	});
+
+
+	//*********** CAROUSEL YOUTUBE PLAYERS ***********//
+	var playerDivs = document.querySelectorAll('.video');
+	var playerDivsArr = [].slice.call(playerDivs);
+	var players = new Array(playerDivsArr.length);
+
+	// create yt players
+	onYouTubeIframeAPIReady();
+
+	function onYouTubeIframeAPIReady() {
+	  playerDivsArr.forEach(function(e, i) { 
+	  	var iframeID = $(e).find('iframe').attr('id');
+	  	if (e.id!==null) {
+		    players[i] = new YT.Player(iframeID, {
+		      	events: {
+			 		'onReady': onPlayerReady,
+	      			'onStateChange': onPlayerStateChange
+	      		}
+		    })
+		}
+	  });
+	}
+
+	function onPlayerReady(event) {
+		var slide = $(event.target.a).parent();
+		var slideOverlay = $(slide).find('.slide-overlay');
+		slideOverlay.on('click', function() {
+			$('.latest-carousel').slick('slickPause');
+			$(slideOverlay).fadeOut();
+			$(slide).find('.title').fadeOut();
+			event.target.playVideo();
+		});
+	}
+
+	function onPlayerStateChange(event) {
+		var slide = $(event.target.a).parent();
+		var slideOverlay = $(slide).find('.slide-overlay');
+		if (event.data===2) {
+			$(slideOverlay).fadeIn();
+			$(slide).find('.title').fadeIn();
+		}
+	}
+  
+
 })(jQuery);
 

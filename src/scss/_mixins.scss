@@ -1,9 +1,9 @@
 @mixin bg-gradient($color, $from:1, $to:0.70) {
 	background-color: $color;
-	background: -webkit-linear-gradient(left top, rgba($color,$from), rgba($color,$to)); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, rgba($color,$from), rgba($color,$to)); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, rgba($color,$from), rgba($color,$to)); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, rgba($color,$from), rgba($color,$to)); /* Standard syntax */
+	background: -webkit-linear-gradient(left bottom, rgba($color,$from), rgba($color,$to)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(top right, rgba($color,$from), rgba($color,$to)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(top right, rgba($color,$from), rgba($color,$to)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to top right, rgba($color,$from), rgba($color,$to)); /* Standard syntax */
 }
 
 @mixin break-word {
