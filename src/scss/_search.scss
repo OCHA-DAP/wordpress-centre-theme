@@ -37,7 +37,7 @@ body {
 					i.fa {
 						color: $green;
 						left: auto;
-						margin-top: -13px;
+						margin-top: -25px;
 						right: 15px;
 					}
 				}
@@ -70,6 +70,10 @@ body {
 			}
 		}
 	}
+}
+
+.no-results-container {
+	padding: 35px 0 24px 114px;
 }
 
 .menu-item-link.search-icon {
@@ -110,11 +114,14 @@ body {
 				color: $white !important;
 			}
 		}
+		button[type="submit"] {
+			background-color: transparent;
+		}
 		i.fa {
 			color: $white;
 			font-size: 22px;
 			left: 7px;
-			margin-top: -15px;
+			margin-top: -25px;
 			right: auto;
 		}
 	}
