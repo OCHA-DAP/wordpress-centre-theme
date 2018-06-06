@@ -83,8 +83,6 @@ $press_args = array (
 );
 
 $latest_press = new WP_query($press_args);
-
-
 if ($latest_press->have_posts()) : ?>
 	<section class='latest-press-module'>
 		<h3>Press</h3>
