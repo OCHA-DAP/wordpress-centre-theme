@@ -10,6 +10,7 @@ $vars = $wp_query->query_vars;
 $category = get_the_category();
 $category_name = $category[0]->cat_name;
 $category_class = strtolower(str_replace(' ','',$category_name));
+$the_link = get_the_permalink();
 ?>
 
 <div class='col-lg-4 content-block'>

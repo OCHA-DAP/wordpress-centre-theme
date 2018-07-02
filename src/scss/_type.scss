@@ -17,6 +17,13 @@ h3 {
 		font-family: $font-serif-book;
 	}
 }
+h6 {	
+	color: $gray88;
+	font-family: $font-serif-book;
+	font-size: 12px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+}
 p {
 	font-size: 20px;
 	line-height: 1.5;

@@ -16,6 +16,7 @@ get_header();
 /**
 /* LATEST POSTS
 **/
+
 // $latest_args = array (
 // 	//'cat' => array(3, 23), //blog, dataviz
 // 	'posts_per_page' => 3, 
@@ -60,17 +61,38 @@ if ($latest_posts->have_posts()) :
 			$media = $page_header->poster_id;
 		}
 	}
-	echo '<script type="text/javascript">UNCODE.initHeader();</script>'; ?>
 
-	<section class='latest-stories-module'>
+	
+	// $navigation_items = wp_get_nav_menu_items('header-menu');
+	// $menu_list .= '<ul id="menu-primary">';
+	// 	foreach( $navigation_items as $navigation_item ) {
+	// 	$menu_list .= '<li><a href="' . $navigation_item->url . '">' . $navigation_item->title . '</a></li>';
+	// }
+	// $menu_list .= '</ul>';
+	//echo '<script type="text/javascript">UNCODE.initHeader();</script>'; ?>
+
+	<!-- <section class='latest-stories-module'>
 		<div class='header'><h3>Latest Stories</h3></div>
-
 		<div class='latest-carousel' data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
 			<?php while ($latest_posts->have_posts()) : $latest_posts->the_post();
 				get_template_part( 'content', 'latest' );
 			endwhile; ?>
 		</div>
+	</section> -->
+
+	<section class='latest-stories-module'>
+		<h3>Latest Stories</h3>
+		<div class='row-container'>
+			<div class='row'>
+				<div class='row-inner'>
+					<?php while ($latest_posts->have_posts()) : $latest_posts->the_post();
+						get_template_part( 'content', 'latest-stories' );
+					endwhile; ?>
+				</div>
+			</div>
+		</div>
 	</section>
+
 <?php endif;
 
 
@@ -85,12 +107,12 @@ $press_args = array (
 $latest_press = new WP_query($press_args);
 if ($latest_press->have_posts()) : ?>
 	<section class='latest-press-module'>
-		<h3>Press</h3>
+		<h3>Latest Press</h3>
 		<div class='row-container'>
 			<div class='row'>
 				<div class='row-inner'>
 					<?php while ($latest_press->have_posts()) : $latest_press->the_post();
-						get_template_part( 'content', 'front' );
+						get_template_part( 'content', 'latest-press' );
 					endwhile; ?>
 				</div>
 			</div>

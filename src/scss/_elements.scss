@@ -43,6 +43,7 @@
 			}
 			.uncoltable {
 				display: inline-block;
+				padding-top: 200px !important;
 				width: auto;
 			}
 		}
@@ -56,7 +57,7 @@
 	}
 	#particles-js {
 		bottom: 0;
-		top: -127px;
+		top: -72px;
 	}
 	.header-wrapper {
 		background-color: $green;
@@ -245,6 +246,13 @@ input{
 	.header-wrapper {
 		.row-inner {
 			padding: 0 20px;
+		}
+		.row-container {
+			.row {
+				.uncoltable {
+					padding-top: 100px !important;
+				}
+			}
 		}
 	}
 }

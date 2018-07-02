@@ -213,7 +213,7 @@ function video($att, $content = null)
     'id' => ''
   ), $att));
   $uniqid = 'video-' . uniqid();
-  $str = '<iframe id="'.$uniqid.'" src="'.$src.'?rel=0&showinfo=0&controls=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
+  $str = '<iframe id="'.$uniqid.'" src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
   return $str;
 }
 add_shortcode('video', 'video');

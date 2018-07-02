@@ -56,33 +56,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
             for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
         mixpanel.init("<?php echo get_option('hdx-mixpanel-token'); ?>");</script>
     <!-- end Mixpanel -->
-<?php endif; ?>
-
-<!-- start Drift -->
-<!-- <script>
-	!function() {
-	  var t;
-	  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
-	  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-	  t.factory = function(e) {
-	    return function() {
-	      var n;
-	      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
-	    };
-	  }, t.methods.forEach(function(e) {
-	    t[e] = t.factory(e);
-	  }), t.load = function(t) {
-	    var e, n, o, i;
-	    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
-	    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
-	    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
-	  });
-	}();
-	drift.SNIPPET_VERSION = '0.3.1';
-	drift.load('78e66wr87xr8');
-</script> -->
-<!-- end Drift -->
-<script async src="https://www.youtube.com/iframe_api"></script>
+<?php endif; ?>	
 
 <?php wp_head(); ?>
 </head>
@@ -143,66 +117,60 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 	}
 
 ?>
+
 <body <?php body_class($background_color_css); echo $body_attr; ?>>
-	<?php echo uncode_remove_wpautop( $background_div ) ; ?>
-	<?php do_action( 'before' );
 
-	$body_border = ot_get_option('_uncode_body_border');
-	if ($body_border !== '' && $body_border !== 0) {
-		$general_style = ot_get_option('_uncode_general_style');
-		$body_border_color = ot_get_option('_uncode_body_border_color');
-		if ($body_border_color === '') $body_border_color = ' style-' . $general_style . '-bg';
-		else $body_border_color = ' style-' . $body_border_color . '-bg';
-		$body_border_frame ='<div class="body-borders" data-border="'.$body_border.'"><div class="top-border body-border-shadow"></div><div class="right-border body-border-shadow"></div><div class="bottom-border body-border-shadow"></div><div class="left-border body-border-shadow"></div><div class="top-border'.$body_border_color.'"></div><div class="right-border'.$body_border_color.'"></div><div class="bottom-border'.$body_border_color.'"></div><div class="left-border'.$body_border_color.'"></div></div>';
-		echo $body_border_frame;
-	}
+	<div class="box-wrapper">
+		<div class="box-container">
 
-	?>
-	<div class="box-wrapper<?php echo esc_html($back_class); ?>"<?php echo wp_kses_post($background_style); ?>>
-		<div class="box-container<?php echo esc_attr($boxed_width); ?>">
-		<script type="text/javascript">UNCODE.initBox();</script>
-		<?php
-			if ($is_redirect !== true) {
-				if ($menutype === 'vmenu-offcanvas' || $menutype === 'menu-overlay' || $menutype === 'menu-overlay-center') {
-					$mainmenu = new unmenu('offcanvas_head', $menutype);
-					echo uncode_remove_wpautop( $mainmenu->html );
-				}
-				$mainmenu = new unmenu($menutype, $menutype);
-				echo uncode_remove_wpautop( $mainmenu->html );
-			}
-			?>
-			<script type="text/javascript">UNCODE.fixMenuHeight();</script>
+			<!-- CUSTOM NAV -->
+			<?php $menuitems = wp_get_nav_menu_items( 'header-menu' ); ?>
 
-			<!-- build expand menu -->
-			<div class="hdc-overlay-menu">
-				<?php 
-					$menu_items = wp_get_nav_menu_items( 'expand-menu' );
-					$menu_list .= '<ul class="expand-menu">';
-					foreach( $menu_items as $menu_item ) {
-						$menu_list .= '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
-					}
-					$menu_list .= '</ul>';
+			<nav>
+				<a href="#"><img class="logo" src="https://centre.humdata.org/wp-content/uploads/2017/03/centre-logo-white.svg" /></a>
+				<ul class="main-nav">
+				    <?php
+				    $count = 0;
+				    $submenu = false;
+				    foreach( $menuitems as $item ):
+				        $link = $item->url;
+				        $title = $item->title;
+				        if ( !$item->menu_item_parent ):
+				        	$parent_id = $item->ID;
+				    ?>
 
-					$product_sites = wp_get_nav_menu_items( 'product-sites-menu' );
-					$product_list .= '<h6>Our Product Sites:</h6><ul class="product-sites">';
-					foreach( $product_sites as $product_site  ) {
-						$product_title = strtolower($product_site->title);
-						$product_list .= '<li><a href="' . $product_site->url . '" target="_blank"><img src="' . get_stylesheet_directory_uri() . '/assets/' . $product_title . '-white.svg" height="25"></a></li>';
-					}
-					$product_list .= '</ul>';
+				    <li class="item">
+				        <a href="<?php echo $link; ?>" class="title">
+				            <?php echo $title; ?>
+				        </a>
+				    <?php endif; ?>
 
-					$expand_menu_content = '<div>' . $menu_list . $product_list . '</div>';
-					echo $expand_menu_content ;
+				        <?php if ( $parent_id == $item->menu_item_parent ): ?>
 
-					//show search if control is set to ON in WP
-					$search_active = ot_get_option( '_uncode_menu_search' );
-					if ($search_active === 'on') {
-				?>
-					<div class="search-container"><?php get_search_form( true ); ?></div>
-				<?php } ?>
-			</div>
+				            <?php if ( !$submenu ): $submenu = true; ?>
+				            <ul class="sub-menu">
+				            <?php endif; ?>
 
-			<!--  -->
+				                <li class="item">
+				                    <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+				                </li>
+
+				            <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
+				            </ul>
+				            <?php $submenu = false; endif; ?>
+
+				        <?php endif; ?>
+
+				    <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
+				    </li>                           
+				    <?php $submenu = false; endif; ?>
+
+				<?php $count++; endforeach; ?>
+
+				</ul>
+			</nav>
+
+			<button type="button" class="mobile-nav-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
 			<div class="main-wrapper">
 				<div class="main-container">
