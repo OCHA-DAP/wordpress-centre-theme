@@ -5,7 +5,6 @@ nav {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 2;
 	&.active {
 		background-color: rgba(0,0,0,0.9);
 		.main-nav {
@@ -43,6 +42,10 @@ nav {
 			a.title {
 				color: $green;
 			}
+			> .item {
+				line-height: 16px;
+				padding: 7px 0;
+			}
 		}
 	}
 }
@@ -54,7 +57,6 @@ nav {
 	position: absolute;
 	right: 30px;
 	top: 52px;
-	z-index: 3;
 	.icon-bar {
 		background-color: $white;
 		display: block;

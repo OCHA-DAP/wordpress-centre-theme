@@ -3,12 +3,13 @@
 	$('#particles-js').prependTo('.header-wrapper .uncol');
 
 	//inject hamburger menu to navigation
-	$('.menu-wrapper').append('<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button>');
+	//$('.menu-wrapper').append('<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button>');
 
 	//override parent theme forcing z-index
 	$('.slideshow-modal-overlay').css('z-index', 3001);
-	$('.menu-wrapper .navbar-toggle').css('z-index', 2001);
-	$('.hdc-overlay-menu').css('z-index', 1001);
+	//$('.menu-wrapper .navbar-toggle').css('z-index', 2001);
+	$('nav').css('z-index', 1001);
+	$('.mobile-nav-toggle').css('z-index', 1002);
 
 	//initiate homepage carousel
 	$('.latest-carousel').slick({

@@ -124,10 +124,13 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 		<div class="box-container">
 
 			<!-- CUSTOM NAV -->
-			<?php $menuitems = wp_get_nav_menu_items( 'header-menu' ); ?>
+			<?php 
+				$menuitems = wp_get_nav_menu_items( 'header-menu' ); 
+				$homeURL = esc_url( home_url( get_current_blog_id(), '/' ) );
+			?>
 
 			<nav>
-				<a href="#"><img class="logo" src="https://centre.humdata.org/wp-content/uploads/2017/03/centre-logo-white.svg" /></a>
+				<a href="<?php echo $homeURL ?>"><img class="logo" src="https://centre.humdata.org/wp-content/uploads/2017/03/centre-logo-white.svg" /></a>
 				<ul class="main-nav">
 				    <?php
 				    $count = 0;
