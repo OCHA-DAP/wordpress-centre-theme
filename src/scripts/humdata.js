@@ -12,13 +12,13 @@
 	$('.mobile-nav-toggle').css('z-index', 1002);
 
 	//initiate homepage carousel
-	$('.latest-carousel').slick({
-	 	dots: true,
-	  	speed: 500,
-	  	infinite: true,
- 		autoplay: true,
-  		autoplaySpeed: 4000,
-	});
+	// $('.latest-carousel').slick({
+	//  	dots: true,
+	//   	speed: 500,
+	//   	infinite: true,
+ // 		autoplay: true,
+ //  		autoplaySpeed: 4000,
+	// });
 
 	//handle hamburger menu events
 	$('.menu-wrapper .navbar-toggle').on('click', function() {
@@ -53,6 +53,16 @@
 		var block = $('.latest-stories-module').find('.content-block--inner');
 		block.css('height', block.width());
 	}
+
+	$(window).on('scroll', function() {
+		console.log($(window).scrollTop())
+		if ($(this).scrollTop() > $('nav').height()) {
+			$('nav').addClass('sticky');
+		}
+		else {
+			$('nav').removeClass('sticky');
+		}
+	});
 
 	//reset search placeholder text
 	//$('.search-container input').attr('placeholder', 'Press enter to search');

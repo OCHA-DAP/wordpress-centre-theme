@@ -1,14 +1,34 @@
 nav {	
 	background-color: rgba(0,0,0,0);
 	display: flex;
-	padding: 50px;
-	position: absolute;
+	padding: 50px 50px 30px;
+	position: fixed;
 	top: 0;
+	transition: all 0.4s ease;
 	width: 100%;
-	&.active {
-		background-color: rgba(0,0,0,0.9);
+	&.sticky {
+		background-color: $white;
+		.logo {
+			* {
+				fill: $green;
+			}
+		}
 		.main-nav {
 			a.title {
+				color: $black;
+			}
+		}
+	}
+	&.active {
+		background-color: rgba(0,0,0,0.9);
+		.logo {
+			* {
+				fill: $white;
+			}
+		}
+		.main-nav {
+			a.title {
+				color: $white;
 				opacity: 0.6;
 				&:hover {
 					opacity: 1;
@@ -23,6 +43,9 @@ nav {
 	.logo {
 		padding-top: 7px;
 		width: 225px;
+		* {
+			fill: $white;
+		}
 	}
 	.main-nav {
 		display: flex;
@@ -68,7 +91,7 @@ nav {
 		margin-top: 12px;
 	}
 	&.expanded {
-		right: 60px;
+		//right: 60px;
 		.icon-bar {		
 			&:nth-child(1) {
 	    		position: absolute;
@@ -79,6 +102,18 @@ nav {
 	    		transform: rotate(-45deg);
 	    		position: absolute;
 	    	}
+		}
+	}
+}
+
+nav.sticky + .mobile-nav-toggle {
+	position: fixed;
+	.icon-bar {
+		background-color: $green;
+	}
+	&.expanded {
+		.icon-bar {
+			background-color: $white;
 		}
 	}
 }
