@@ -28,7 +28,7 @@ $the_link = ($post_format==='link') ? get_url_in_content( $custom_post ) : get_t
 $item_media = catch_that_image($post_id);
 
 //format post media
-$post_media = ($category_name==='Video' || $category_name==='Slideshow') ? $custom_post : '<img src="' . $item_media . '" />';
+$post_media = ($category_name==='Video' || $category_name==='Slideshow') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
 
 //get author
 $author = get_the_author();
@@ -41,7 +41,13 @@ $author = get_the_author();
 	</div>
 	<div class='content-block--content dark'>
 		<h6><?= $category_name ?></h6>
-		<p><span class='label'><?= the_title(); ?></span></p>
+		<?php if ($category_name!=='Video') { ?>
+			<a href='<?= $the_link ?>' class='<?= $category_class ?>-title'>
+		<?php } ?>
+			<p><span class='label'><?= the_title(); ?></span></p>
+		<?php if ($category_name!=='Video') { ?>
+			</a>
+		<?php } ?>
 		<span class='source'>by <?= $author ?></span>
 	</div>
 </div>

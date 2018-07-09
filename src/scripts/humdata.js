@@ -43,6 +43,17 @@
 		$('.header-main-container .search-container .search-field').val(decodeURIComponent(searchTerm));
 	}
 
+	//set height of content blocks on homepage
+	setContentBlockHeight();
+	$(window).resize(function() {
+		setContentBlockHeight();
+	});
+
+	function setContentBlockHeight() {
+		var block = $('.latest-stories-module').find('.content-block--inner');
+		block.css('height', block.width());
+	}
+
 	//reset search placeholder text
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
@@ -111,6 +122,7 @@
         });
     }, TWITTER_DURATION);
 
+
 	//*********** MAIN NAVIGATION EVENTS ***********//
     $('.main-nav > .item a').on('mouseover', function() {
 		$('nav').addClass('active');
@@ -169,10 +181,11 @@
 		});
 
 		//handle slideshow click, launch modal
-		$('.slideshow').unbind('click').click(function(e) {
+		$('.slideshow, .slideshow-title').unbind('click').click(function(e) {
 			slideshowClicked = true;
-			var slideshowID = $(this).find('.slideshow-container').attr('id');
-			createSlideshowModal($(this).find('.slideshow-container').children(), slideshowID);
+			var slideshowContainer = ($(this).context.classList.value.indexOf('slideshow-title')>-1) ? $(this).parent().parent().find('.slideshow-container') : $(this).find('.slideshow-container');
+			var slideshowID = slideshowContainer.attr('id');
+			createSlideshowModal(slideshowContainer.children(), slideshowID);
 			e.preventDefault();
 		});
 		$('.search .slideshow + .t-entry-text').unbind('click').click(function(e) {
