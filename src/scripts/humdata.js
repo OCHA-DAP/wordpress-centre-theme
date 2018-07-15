@@ -21,18 +21,18 @@
 	// });
 
 	//handle hamburger menu events
-	$('.menu-wrapper .navbar-toggle').on('click', function() {
-		if ($(this).hasClass('collapsed')) {
-			$(this).removeClass('collapsed').addClass('expanded');
-			$('.hdc-overlay-menu').fadeIn();
-			$('.search-container input').focus();
-		}
-		else {
-			$(this).removeClass('expanded').addClass('collapsed');
-			$('.hdc-overlay-menu').fadeOut();
-		}
-		return false;
-	});
+	// $('.menu-wrapper .navbar-toggle').on('click', function() {
+	// 	if ($(this).hasClass('collapsed')) {
+	// 		$(this).removeClass('collapsed').addClass('expanded');
+	// 		$('.hdc-overlay-menu').fadeIn();
+	// 		$('.search-container input').focus();
+	// 	}
+	// 	else {
+	// 		$(this).removeClass('expanded').addClass('collapsed');
+	// 		$('.hdc-overlay-menu').fadeOut();
+	// 	}
+	// 	return false;
+	// });
 
 	//capture search term
 	var searchTerm = window.location.href.split('s=')[1];
@@ -52,10 +52,13 @@
 	function setContentBlockHeight() {
 		var block = $('.latest-stories-module').find('.content-block--inner');
 		block.css('height', block.width());
+
+		var archiveBlock = $('.category-articles, .category-case-study').find('.t-inside');
+		var archiveBlockWidth = archiveBlock.width() + 'px';
+		archiveBlock.css('height', archiveBlockWidth);
 	}
 
 	$(window).on('scroll', function() {
-		console.log($(window).scrollTop())
 		if ($(this).scrollTop() > $('nav').height()) {
 			$('nav').addClass('sticky');
 		}

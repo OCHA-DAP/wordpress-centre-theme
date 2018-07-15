@@ -800,7 +800,7 @@
                         columnWidth = ($('html.firefox').length) ? Math.floor(widthAvailable / columnNum) : widthAvailable / columnNum;
                     }
                     $items = $(isotopeContainersArray[index]).find('.tmb:not(.tmb-carousel)');
-                    itemMargin = parseInt($(isotopeContainersArray[index]).find('.t-inside').css("margin-top"));
+                    itemMargin = parseInt($(isotopeContainersArray[index]).find('.t-inside:not(.t-inside-custom)').css("margin-top"));
                     for (var i = 0, len = $items.length; i < len; i++) {
                         var $item = $($items[i]),
                             multiplier_w = $item.attr('class').match(/tmb-iso-w(\d{0,2})/),
