@@ -827,9 +827,9 @@ if (!function_exists('uncode_create_single_block')) {
 									if ($post_category==='articles' || $post_category==='casestudy') {
 										$inner_entry = '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
 									}
-									// else if ($post_category==='video') {
-									// 	$inner_entry = '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3>';
-									// }
+									else if ($post_category==='video') {
+										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+									}
 									else {
 										$target = ($post_category === 'dataviz') ? 'blank' : '_self';
 										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3>';

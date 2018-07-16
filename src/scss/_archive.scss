@@ -84,6 +84,13 @@
 		&.slideshow {
 			cursor: pointer;
 		}
+		&.video {
+			.t-entry-visual-cont {
+				> a {
+					display: none;
+				}
+			}
+		}
 		&.articles,
 		&.casestudy {
 			@include bg-gradient-solid(#3100be, #9239dd);
