@@ -144,10 +144,12 @@
 		if ($('nav').hasClass('active')) {
 			$('nav').removeClass('active');
 			$('.mobile-nav-toggle').removeClass('expanded');
+  			$('body').removeClass('mobile-nav-open');
 		}
 		else {
 			$('nav').addClass('active');
 			$('.mobile-nav-toggle').addClass('expanded');
+  			$('body').addClass('mobile-nav-open');
 		}
 	});
 

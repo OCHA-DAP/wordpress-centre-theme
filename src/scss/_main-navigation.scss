@@ -77,11 +77,11 @@ nav {
 	background-color: transparent;
 	display: none;
 	padding: 0;
-	position: absolute;
+	position: fixed;
 	right: 30px;
 	top: 52px;
 	.icon-bar {
-		background-color: $white;
+		background-color: $green;
 		display: block;
 		height: 5px;
 		transition: all 0.2s ease;
@@ -105,23 +105,32 @@ nav {
 	}
 }
 
-nav.sticky + .mobile-nav-toggle {
-	position: fixed;
-	.icon-bar {
-		background-color: $green;
-	}
-	&.expanded {
-		.icon-bar {
-			background-color: $white;
-		}
-	}
+body.mobile-nav-open {
+    overflow: hidden !important;
 }
+
+// nav.sticky + .mobile-nav-toggle {
+// 	position: fixed;
+// 	.icon-bar {
+// 		background-color: $green;
+// 	}
+// 	&.expanded {
+// 		.icon-bar {
+// 			background-color: $white;
+// 		}
+// 	}
+// }
 
 @media (max-width: $screen-md) {
 	nav {
+		background-color: $white;
 		flex-flow: column;
-		padding: 40px 30px;
+		padding: 40px 30px 20px;
+		position: fixed;
 		&.active {
+			position: absolute;
+			height: 100vh;
+			overflow: scroll;
 			.main-nav {
 				display: block;
 				a.title {
@@ -131,6 +140,9 @@ nav.sticky + .mobile-nav-toggle {
 		}
 		.logo {
 			padding-top: 0;
+			* {
+				fill: $green;
+			}
 		}
 		.main-nav {
 			display: none;
@@ -149,5 +161,10 @@ nav.sticky + .mobile-nav-toggle {
 	}
 	.mobile-nav-toggle {
 		display: block;
+		&.expanded {
+			.icon-bar {
+				background-color: $white;
+			}
+		}
 	}
 }

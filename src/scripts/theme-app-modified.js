@@ -149,7 +149,7 @@
                         }
 
                         var calc_scroll = scrollSection.offset().top;
-                        calc_scroll -= UNCODE.get_scroll_offset() + $('nav').height();
+                        calc_scroll -= UNCODE.get_scroll_offset() + $('nav').height() + 40;
 
                         var bodyTop = document.documentElement['scrollTop'] || document.body['scrollTop'],
                             delta = bodyTop - calc_scroll,
