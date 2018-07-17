@@ -161,6 +161,20 @@
 			padding-top: 110px;
 		}
 	}
+	h2:not([class*="fontsize-"]) {
+		font-family: $font-serif-book;
+		font-size: 28px;
+	}
+	p {
+		margin: 10px 0;
+		a {
+			color: $coral;
+			text-decoration: underline;
+		}
+	}
+}
+
+#mc_embed_signup {
 	input[type="email"] {
 		background-color: $white;
 		border-radius: 0;
@@ -182,16 +196,8 @@
 		&:-moz-placeholder { /* Firefox 18- */
 		  color: #CCC !important;
 		}
-	}
-	h2:not([class*="fontsize-"]) {
-		font-family: $font-serif-book;
-		font-size: 28px;
-	}
-	p {
-		margin: 10px 0;
-		a {
-			color: $coral;
-			text-decoration: underline;
+		&.light {
+			border: 1px solid $green;
 		}
 	}
 	.btn.submit-btn {

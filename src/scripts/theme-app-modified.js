@@ -87,7 +87,7 @@
                     $('a[href="#tab-reviews"]').trigger('click');
                 }
                 var calc_scroll = $('.wootabs .tab-content').offset().top;
-                calc_scroll -= UNCODE.get_scroll_offset();
+                calc_scroll -= UNCODE.get_scroll_offset();//+ $('nav').height();
 
                 var bodyTop = document.documentElement['scrollTop'] || document.body['scrollTop'],
                     delta = bodyTop - calc_scroll,
@@ -149,7 +149,7 @@
                         }
 
                         var calc_scroll = scrollSection.offset().top;
-                        calc_scroll -= UNCODE.get_scroll_offset();
+                        calc_scroll -= UNCODE.get_scroll_offset() + $('nav').height();
 
                         var bodyTop = document.documentElement['scrollTop'] || document.body['scrollTop'],
                             delta = bodyTop - calc_scroll,

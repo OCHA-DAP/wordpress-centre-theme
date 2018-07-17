@@ -156,6 +156,8 @@ if (!class_exists('unheader')) {
 							if ($header_title_custom !== 'on') {
 								if ($page_title==='Case Study') $page_title = 'Case Studies';
 								if ($page_title==='Impact Story') $page_title = 'Impact Stories';
+								if ($page_title==='Slideshow') $page_title = 'Slideshows';
+								if ($page_title==='Video') $page_title = 'Videos';
 								$content_html .= '<h1 class="header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1><div class="search-container">' . get_search_form(false) . '</div>';
 							} else {
 								if (isset($args['_uncode_header_text'][0]))
