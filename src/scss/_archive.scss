@@ -120,6 +120,7 @@
 		margin-top: 0 !important;
 	}
 	.header-main-container {
+		padding-top: 100px;
 		.header-content {
 			background-color: transparent;
 			.header-content-inner {
@@ -244,6 +245,9 @@
 			z-index: 1;
 		}
 	}
+	.particle-js {
+		max-height: 300px;
+	}
 }
 
 .search {
@@ -269,8 +273,8 @@
 			padding: 0;
 		}
 		.header-wrapper {
-			min-height: 150px !important;
-			padding-top: 50px;
+			min-height: 200px !important;
+			padding-top: 110px;
 		}
 		.post-wrapper {
 			margin-top: 75px;

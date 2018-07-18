@@ -43,7 +43,7 @@
 			}
 			.uncoltable {
 				display: inline-block;
-				padding-top: 200px !important;
+				padding-top: 95px !important;
 				width: auto;
 			}
 		}
@@ -226,13 +226,6 @@ input{
     text-transform: capitalize;
 }
 
-// .footer-scroll-top {
-// 	bottom: 4px;
-// 	right: 4px;
-// 	&.footer-scroll-higher {
-// 		bottom: 4px;
-// 	}
-// }
 
 @media (max-width: $screen-md) {
 	.single {
@@ -250,7 +243,7 @@ input{
 		.row-container {
 			.row {
 				.uncoltable {
-					padding-top: 100px !important;
+					padding-top: 220px !important;
 				}
 			}
 		}

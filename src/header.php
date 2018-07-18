@@ -177,9 +177,9 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 				    ?>
 
 				    <li class="item">
-				        <a href="<?php echo $link; ?>" class="title">
+				        
 				            <?php echo $title; ?>
-				        </a>
+				        
 				    <?php endif; ?>
 
 				        <?php if ( $parent_id == $item->menu_item_parent ): ?>

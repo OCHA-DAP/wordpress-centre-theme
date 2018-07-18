@@ -184,12 +184,14 @@
 					}
 					.TweetAuthor-name,
 					.TweetAuthor-screenname {
-						line-height: 6px;
+						line-height: 8px;
 					}
 				}
 				&.tweet-text {
 					color: $white;
 					display: block;
+					max-height: 184px;
+					overflow: hidden;
 					text-align: left;
 					@include break-word();
 					span {

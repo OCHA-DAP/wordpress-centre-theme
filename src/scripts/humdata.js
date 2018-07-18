@@ -53,7 +53,7 @@
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
-    var TWITTER_DURATION = 10000;
+    var TWITTER_DURATION = 1000000;
 
 	function twitterDataReady(data){
 		//console.log(data);
@@ -130,7 +130,7 @@
 	});
 
 	//show nav drawer
-    $('.main-nav > .item a').on('mouseover', function() {
+    $('.main-nav > .item').on('mouseover', function() {
 		$('nav').addClass('active');
 	});
 
