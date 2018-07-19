@@ -25,6 +25,7 @@
   "main": "gulpfile.js",
   "private": true,
   "devDependencies": {
+    "bootstrap": "^4.1.1",
     "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.14.3",
     "del": "^2.2.2",
@@ -48,6 +49,7 @@
     "normalize.css": "^4.2.0",
     "require-dir": "^0.3.0",
     "scut": "^1.4.0",
+    "slick-carousel": "^1.8.1",
     "spin.js": "^2.3.2",
     "svg4everybody": "^2.1.0",
     "timeago": "^1.5.3",

@@ -1,9 +1,9 @@
 //post header
 .header-main-container {
-	padding-top: 120px;
+	padding-top: 144px;
 	.header-content {
 		background-color: $white;
-		padding-top: 0 !important;
+		//padding-top: 0 !important;
 		.header-content-inner {
 			max-width: $post-content-inner-width;
 			padding: 54px 0 12px !important;
@@ -288,6 +288,10 @@ blockquote p {
 		img {
 			max-width: 100px;
 		}
+	}
+	.header-main-container .header-content .header-content-inner {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
 	}
 }
 

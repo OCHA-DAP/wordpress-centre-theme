@@ -59,7 +59,8 @@ module.exports = {
         src+'scripts/util.js',
         src+'scripts/twitterFetcher_min.js',
         src+'scripts/theme-app-modified.js',
-        src+'scripts/humdata.js'
+        src+'scripts/slick.min.js',
+        src+'scripts/humdata.js',
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
       ],
@@ -119,6 +120,8 @@ module.exports = {
         modules+'scut/dist',
         modules+'bootstrap-sass/assets/stylesheets',
         modules+'font-awesome/scss',
+        modules+'slick-carousel/slick/slick-theme.scss',
+        modules+'slick-carousel/slick/slick.scss',
         modules,
         bower,
       ],

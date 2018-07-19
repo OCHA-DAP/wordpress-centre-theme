@@ -820,8 +820,21 @@ if (!function_exists('uncode_create_single_block')) {
 								$custom_post = uncode_custom_just_post($block_data['id']);
 								$post_format = get_post_format($block_data['id']);
 								$the_link = ($post_format === 'link') ? get_url_in_content( $custom_post ) : $title_link;
-								if ($post_category === 'impactstory') $post_category = 'Impact Story';
-								if ($post_category !== '') $inner_entry .= '<h6 class="archive-category">'.$post_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'">'.$print_title.'</a></h3>';
+								$the_category = $post_category;
+								if ($post_category==='impactstory') $the_category = 'Impact Story';
+								if ($post_category==='casestudy') $the_category = 'Case Study';
+								if ($post_category!=='') {
+									if ($post_category==='articles' || $post_category==='casestudy') {
+										$inner_entry = '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
+									}
+									else if ($post_category==='video') {
+										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+									}
+									else {
+										$target = ($post_category === 'dataviz') ? 'blank' : '_self';
+										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3>';
+									}
+								}
 							}
 						}
 					}
@@ -921,6 +934,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 						if ($single_text === 'under') { //if this is archive page
 							if ($category==='impactstory') $category = 'Impact Story';
+							if ($category==='casestudy') $category = 'Case Study';
 							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
 						}
 						else {
@@ -1115,7 +1129,7 @@ if (!function_exists('uncode_create_single_block')) {
 			if ($single_text === 'under')
 			{
 				$entry.= '<div class="t-entry-text">
-							<div class="t-entry-text-tc '.$block_data['text_padding'].'">';
+							<div class="t-entry-text-tc '.$block_data['text_padding'].' ' . $post_category . '-title">';
 			}
 
 			$entry.= '<div class="t-entry">';
@@ -1203,8 +1217,9 @@ if (!function_exists('uncode_create_single_block')) {
 
 		$div_data_attributes = array_map(function ($v, $k) { return $k . '="' . $v . '"'; }, $tmb_data, array_keys($tmb_data));
 
+		$custom_class = ($post_category==='articles' || $post_category==='casestudy') ? 't-inside t-inside-custom' : 't-inside';
 		$output = 	'<div class="'.implode(' ', $block_classes).'">
-						<div class="' . (($nested !== 'yes') ? 't-inside' : '').$single_back_color . $single_animation . '" '.implode(' ', $div_data_attributes) .'>';
+						<div class="' . (($nested !== 'yes') ? $custom_class : '').$single_back_color . $single_animation . '" '.implode(' ', $div_data_attributes) .'>';
 
 		if ($single_text === 'under' && $layoutLast === 'media') {
 			$output .= $entry;
@@ -1341,15 +1356,15 @@ if (!function_exists('uncode_create_single_block')) {
 								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 							else if (($post_category === 'impactstory') && ($single_text === 'under')) {
-								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+								$output .= '<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							}
 							else {
-								$output .= 		'<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 
 						else:
 
-							if ($post_category === 'slideshow')
+							if ($post_category === 'slideshow' || $post_category === 'video')
 								$output .= $custom_post;
 							else
 								//print background image for 'other' media_types as well

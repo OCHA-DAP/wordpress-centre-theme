@@ -1,0 +1,170 @@
+nav {	
+	background-color: rgba(0,0,0,0);
+	display: flex;
+	padding: 25px 45px 10px;
+	position: fixed;
+	top: 0;
+	transition: all 0.4s ease;
+	width: 100%;
+	&.sticky {
+		background-color: $white;
+		.logo {
+			* {
+				fill: $green;
+			}
+		}
+		.main-nav {
+			> .item,
+			a.title {
+				color: $black;
+			}
+		}
+	}
+	&.active {
+		background-color: rgba(0,0,0,0.9);
+		.logo {
+			* {
+				fill: $white;
+			}
+		}
+		.main-nav {
+			> .item,
+			a.title {
+				color: $white;
+				opacity: 0.6;
+				&:hover {
+					opacity: 1;
+				}
+			}
+			.sub-menu {
+				display: block;
+			}
+		}
+		transition: all 0.4s ease;
+	}
+	> a,
+	logo {
+		width: 225px;
+	}
+	.logo {
+		padding-top: 7px;
+		* {
+			fill: $white;
+		}
+	}
+	.main-nav {
+		display: flex;
+		margin-left: auto;
+		> .item,
+		a.title {
+			color: $white;
+			font-family: $font-serif-medium;
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+		> .item {
+			width: 150px;
+		}
+		.sub-menu {
+			display: none;
+			margin-left: 0;
+			a.title {
+				color: $green;
+			}
+			> .item {
+				line-height: 16px;
+				padding: 7px 0;
+			}
+		}
+	}
+}
+
+.mobile-nav-toggle {
+	background-color: transparent;
+	display: none;
+	padding: 0;
+	position: fixed;
+	right: 30px;
+	top: 52px;
+	.icon-bar {
+		background-color: $green;
+		display: block;
+		height: 5px;
+		transition: all 0.2s ease;
+		width: 36px;
+	}
+	.icon-bar+.icon-bar {
+		margin-top: 12px;
+	}
+	&.expanded {
+		.icon-bar {		
+			&:nth-child(1) {
+	    		position: absolute;
+	    		top: 12px;
+	    		transform: rotate(45deg);
+	    	}
+			&:nth-child(2) {
+	    		transform: rotate(-45deg);
+	    		position: absolute;
+	    	}
+		}
+	}
+}
+
+body.mobile-nav-open {
+    overflow: hidden !important;
+}
+
+
+@media (max-width: $screen-md) {
+	nav {
+		background-color: $white;
+		flex-flow: column;
+		padding: 40px 30px 20px;
+		position: fixed;
+		&.active {
+			position: absolute;
+			height: 100vh;
+			overflow: scroll;
+			.main-nav {
+				display: block;
+				a.title {
+					opacity: 1;
+				}
+			}
+		}
+		.logo {
+			padding-top: 0;
+			* {
+				fill: $green;
+			}
+		}
+		.main-nav {
+			display: none;
+			flex-flow: column;
+			margin-left: 0;
+			> .item {
+				padding-bottom: 30px;
+			}
+			.sub-menu {
+				display: block;
+				a.title {
+					color: $green;
+				}
+			}
+		}
+	}
+	.mobile-nav-toggle {
+		display: block;
+		&.expanded {
+			.icon-bar {
+				background-color: $white;
+			}
+		}
+	}
+	.header-wrapper {
+		height: auto !important;
+		min-height: 0 !important;
+		margin-top: 80px;
+	}
+}

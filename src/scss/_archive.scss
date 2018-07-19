@@ -1,5 +1,68 @@
 .search,
 .archive {
+	&.category-articles,
+	&.category-case-study {
+		.style-light a:not(.btn-text-skin):hover {
+			color: inherit !important;
+		}
+		.t-inside {		    
+			display: table;
+			position: relative;
+		    table-layout: fixed;
+		    width: 100%;
+		    .t-entry-visual {
+		    	height: 100%;
+		    }
+		    .t-entry-visual-cont,
+		    .t-overlay-inner {
+		    	> a {
+		    		display: none;
+		    	}
+		    }
+		    .t-entry-meta {
+		    	margin-top: 0;
+		    }
+			.t-entry-text {
+				bottom: 34px;
+				height: auto !important;
+				padding: 0 24px;
+				position: absolute;
+				.archive-category {
+					color: $white;
+					font-size: 12px;
+    				line-height: 14px;
+    				text-transform: uppercase;
+				}
+				.t-entry-title {
+					a,
+					a:hover {
+						text-decoration: none;
+					}
+					p {
+						color: $white;
+			    		font-size: 18px;
+			    		line-height: 22px;
+						margin-top: 0;
+						span {
+		 					border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+						}
+					}
+					.source {
+						color: $white;
+						display: inline-block;
+						font-size: 14px;
+						line-height: 16px;
+						margin-top: 6px;
+					}
+				}
+			}
+		}
+	}
+	&.category-slideshow {
+		.t-background-cover {
+			display: none;
+		}
+	}
 	.t-entry-visual {
 		&.dataviz,
 		&.impact {
@@ -21,6 +84,33 @@
 		&.slideshow {
 			cursor: pointer;
 		}
+		&.video {
+			.t-entry-visual-cont {
+				> a {
+					display: none;
+				}
+			}
+		}
+		&.articles,
+		&.casestudy {
+			@include bg-gradient-solid(#3100be, #9239dd);
+			.t-background-cover  {
+				display: none;
+			}
+		}
+		&.casestudy {
+			@include bg-gradient-solid(#0008c4, #007be0);
+		}
+	}
+	.t-entry-title {
+		a {
+			span {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+			}
+			&:hover {
+				color: $black !important;
+			}
+		}
 	}
 	.main-container .row-inner > div {
 		padding-left: 0;
@@ -30,6 +120,7 @@
 		margin-top: 0 !important;
 	}
 	.header-main-container {
+		padding-top: 100px;
 		.header-content {
 			background-color: transparent;
 			.header-content-inner {
@@ -67,11 +158,6 @@
 	.t-entry-type {
 		margin-bottom: 0;
 		padding-bottom: 0;
-	}
-	.t-entry-title {
-		a {
-			text-decoration: underline;
-		}
 	}
 	.single-gutter {
 		.tmb {
@@ -159,6 +245,9 @@
 			z-index: 1;
 		}
 	}
+	.particle-js {
+		max-height: 300px;
+	}
 }
 
 .search {
@@ -184,8 +273,8 @@
 			padding: 0;
 		}
 		.header-wrapper {
-			min-height: 150px !important;
-			padding-top: 50px;
+			min-height: 200px !important;
+			padding-top: 110px;
 		}
 		.post-wrapper {
 			margin-top: 75px;
