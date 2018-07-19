@@ -42,7 +42,7 @@ if (is_front_page()) { ?>
 */
 $secondary_list = uncode_get_menu_list('secondary');
 
-$menu_items = wp_get_nav_menu_items('expand-menu');
+$menu_items = wp_get_nav_menu_items('footer-list-menu');
 $menu_list .= '<ul id="menu-primary">';
 foreach( $menu_items as $menu_item ) {
 	$menu_list .= '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';

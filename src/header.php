@@ -125,7 +125,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 
 			<!-- CUSTOM NAV -->
 			<?php 
-				$menuitems = wp_get_nav_menu_items( 'header-menu' ); 
+				$menuitems = wp_get_nav_menu_items( 'main-menu' ); 
 				$homeURL = esc_url( home_url( get_current_blog_id(), '/' ) );
 			?>
 
@@ -177,9 +177,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 				    ?>
 
 				    <li class="item">
-				        
-				            <?php echo $title; ?>
-				        
+				        <?php echo $title; ?>
 				    <?php endif; ?>
 
 				        <?php if ( $parent_id == $item->menu_item_parent ): ?>

@@ -154,6 +154,7 @@ if (!class_exists('unheader')) {
 
 						   	//show header title
 							if ($header_title_custom !== 'on') {
+								if ($page_title==='Blog') $page_title = 'Blogs';
 								if ($page_title==='Case Study') $page_title = 'Case Studies';
 								if ($page_title==='Impact Story') $page_title = 'Impact Stories';
 								if ($page_title==='Slideshow') $page_title = 'Slideshows';
