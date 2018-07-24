@@ -1,6 +1,6 @@
 .search,
 .archive {
-	&.category-articles,
+	&.category-article,
 	&.category-case-study {
 		.style-light a:not(.btn-text-skin):hover {
 			color: inherit !important;
@@ -91,7 +91,7 @@
 				}
 			}
 		}
-		&.articles,
+		&.article,
 		&.casestudy {
 			@include bg-gradient-solid(#3100be, #9239dd);
 			.t-background-cover  {

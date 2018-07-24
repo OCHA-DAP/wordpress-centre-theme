@@ -22,12 +22,16 @@
 		setContentBlockHeight();
 	});
 
+	$(document).on('onLayout', function() {
+		setContentBlockHeight();
+	});
+
 	function setContentBlockHeight() {
 		var block = $('.home').find('.content-block--inner');
 		var blockSize = block.width();
 		block.css('height', blockSize);
 
-		var archiveBlock = $('.category-articles, .category-case-study').find('.t-inside');
+		var archiveBlock = $('.category-article, .category-case-study').find('.t-inside');
 		var archiveBlockWidth = archiveBlock.width() + 'px';
 		archiveBlock.css('height', archiveBlockWidth);
 	}
