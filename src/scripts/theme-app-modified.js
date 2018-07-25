@@ -87,7 +87,7 @@
                     $('a[href="#tab-reviews"]').trigger('click');
                 }
                 var calc_scroll = $('.wootabs .tab-content').offset().top;
-                calc_scroll -= UNCODE.get_scroll_offset();
+                calc_scroll -= UNCODE.get_scroll_offset();//+ $('nav').height();
 
                 var bodyTop = document.documentElement['scrollTop'] || document.body['scrollTop'],
                     delta = bodyTop - calc_scroll,
@@ -149,7 +149,7 @@
                         }
 
                         var calc_scroll = scrollSection.offset().top;
-                        calc_scroll -= UNCODE.get_scroll_offset();
+                        calc_scroll -= UNCODE.get_scroll_offset() + $('nav').height() + 40;
 
                         var bodyTop = document.documentElement['scrollTop'] || document.body['scrollTop'],
                             delta = bodyTop - calc_scroll,
@@ -800,7 +800,7 @@
                         columnWidth = ($('html.firefox').length) ? Math.floor(widthAvailable / columnNum) : widthAvailable / columnNum;
                     }
                     $items = $(isotopeContainersArray[index]).find('.tmb:not(.tmb-carousel)');
-                    itemMargin = parseInt($(isotopeContainersArray[index]).find('.t-inside').css("margin-top"));
+                    itemMargin = parseInt($(isotopeContainersArray[index]).find('.t-inside:not(.t-inside-custom)').css("margin-top"));
                     for (var i = 0, len = $items.length; i < len; i++) {
                         var $item = $($items[i]),
                             multiplier_w = $item.attr('class').match(/tmb-iso-w(\d{0,2})/),
