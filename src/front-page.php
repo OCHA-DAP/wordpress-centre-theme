@@ -17,32 +17,32 @@ get_header();
 /* LATEST POSTS
 **/
 
-// $latest_args = array (
-// 	//'cat' => array(3, 23), //blog, dataviz
-// 	'posts_per_page' => 3, 
-// 	'orderby' => 'date'  
-// );
+$latest_stories_args = array (
+	'cat' => array(3, 105, 98, 110, 145), //blog, dataviz, video, slideshow, impact story
+	'posts_per_page' => 3, 
+	'orderby' => 'date'  
+);
 
-// set the number of posts per page
-$posts_per_page = 3;
+// // set the number of posts per page
+// $posts_per_page = 3;
 
-// get sticky posts array
-$sticky_posts = get_option( 'sticky_posts' );
-if (is_array($sticky_posts)) {
-    $sticky_count = count($sticky_posts);
+// // get sticky posts array
+// $sticky_posts = get_option( 'sticky_posts' );
+// if (is_array($sticky_posts)) {
+//     $sticky_count = count($sticky_posts);
 
-    if ($sticky_count < $posts_per_page) {
-    	$latest_args = array (
-			'posts_per_page' => $posts_per_page - $sticky_count
-		);
-    } else {
-        $latest_args = array (
-			'posts_per_page' => 1  
-		);
-    }
-}
+//     if ($sticky_count < $posts_per_page) {
+//     	$latest_stories_args = array (
+// 			'posts_per_page' => $posts_per_page - $sticky_count
+// 		);
+//     } else {
+//         $latest_stories_args = array (
+// 			'posts_per_page' => 1  
+// 		);
+//     }
+// }
 
-$latest_posts = new WP_query($latest_args);
+$latest_posts = new WP_query($latest_stories_args);
 
 
 if ($latest_posts->have_posts()) :
@@ -100,7 +100,7 @@ if ($latest_posts->have_posts()) :
 /* LATEST PRESS
 **/
 $press_args = array (
-	'cat' => array(2,13,101,106), //article, case study, media 
+	'cat' => array(2,101), //article, case study
 	'posts_per_page' => 3
 );
 

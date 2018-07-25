@@ -824,7 +824,7 @@ if (!function_exists('uncode_create_single_block')) {
 								if ($post_category==='impactstory') $the_category = 'Impact Story';
 								if ($post_category==='casestudy') $the_category = 'Case Study';
 								if ($post_category!=='') {
-									if ($post_category==='articles' || $post_category==='casestudy') {
+									if ($post_category==='article' || $post_category==='casestudy') {
 										$inner_entry = '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
 									}
 									else if ($post_category==='video') {
@@ -1217,7 +1217,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 		$div_data_attributes = array_map(function ($v, $k) { return $k . '="' . $v . '"'; }, $tmb_data, array_keys($tmb_data));
 
-		$custom_class = ($post_category==='articles' || $post_category==='casestudy') ? 't-inside t-inside-custom' : 't-inside';
+		$custom_class = ($post_category==='article' || $post_category==='casestudy') ? 't-inside t-inside-custom' : 't-inside';
 		$output = 	'<div class="'.implode(' ', $block_classes).'">
 						<div class="' . (($nested !== 'yes') ? $custom_class : '').$single_back_color . $single_animation . '" '.implode(' ', $div_data_attributes) .'>';
 

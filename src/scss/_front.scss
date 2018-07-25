@@ -19,8 +19,11 @@
 		position: relative;
 		overflow: hidden;
 		text-align: left;
-		&.articles {
+		&.article {
 			@include bg-gradient-solid(#3100be, #9239dd);
+			.img-container > img {
+				display: none;
+			}
 		}
 	}
 	.category-tag {
