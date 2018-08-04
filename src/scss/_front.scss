@@ -3,6 +3,7 @@
 		font-size: 30px;
 	}
 }
+
 .box-container {
 	margin-left: 0 !important;
 }
@@ -89,6 +90,10 @@
 	h3 {
 		margin: 0 auto 60px;
 	}
+	.row-container {
+		max-width: 1176px;
+		margin: 0 auto;
+	}
 }
 
 .latest-stories-module {
@@ -144,6 +149,10 @@
 	background-color: $blue;
 	height: 480px;
 	padding: 80px;
+	> .row {
+		max-width: 1176px;
+		margin: 0 auto;
+	}
 	.tweet {
 		position: relative;	
 		text-align: center;	
