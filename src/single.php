@@ -9,7 +9,6 @@
 get_header();
 
 $post_category = strtolower(uncode_custom_just_category($block_data['id']));
-$body_classes = get_body_class(); ?>
 ?>
 
 <script>
