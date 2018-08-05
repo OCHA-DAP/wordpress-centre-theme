@@ -8,8 +8,8 @@
 				'page title': pageTitle,
 				'page type': pageType
 			};
-			mixpanel.track('page view', mixpanelTrackData);
-			//console.log(mixpanelTrackData);
+			//mixpanel.track('page view', mixpanelTrackData);
+			console.log(mixpanelTrackData);
 		}
 	}
 

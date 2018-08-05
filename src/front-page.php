@@ -12,7 +12,16 @@
  */
 
 get_header();
+?>
 
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, 'home');
+	}
+</script>
+
+<?php
 /**
 /* LATEST POSTS
 **/

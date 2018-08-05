@@ -120,7 +120,12 @@
 			    > img {
 			    	height: 100%;
 			    	max-width: none;
-			    	width: auto;
+					opacity: 0;
+			    	width: auto;		    	
+	    			transition: opacity 1s; 
+	    			&.fadeIn {
+	    				opacity: 1;
+	    			}
 			    }
 			}
 		}
