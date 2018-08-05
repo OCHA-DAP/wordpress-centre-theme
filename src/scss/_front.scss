@@ -113,13 +113,14 @@
 		&.slideshow {
 			.slideshow-container {
 			    height: 100%;
-			    left: 50%;
-				position: absolute;
-			    top: 0;
-			    transform: translateX(-50%);
-			    > img {
+			    img {
 			    	height: 100%;
 			    	max-width: none;
+			    	position: absolute;
+				    left: 50%;
+					position: absolute;
+				    top: 0;
+				    transform: translateX(-50%);
 					opacity: 0;
 			    	width: auto;		    	
 	    			transition: opacity 1s; 
