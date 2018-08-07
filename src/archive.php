@@ -13,6 +13,17 @@
 
 get_header();
 
+$body_classes = get_body_class(); ?>
+?>
+
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, '<?php echo $body_classes[1] ?>');
+	}
+</script>
+
+<?php
 /**
  * DATA COLLECTION - START
  *

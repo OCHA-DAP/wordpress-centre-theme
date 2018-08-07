@@ -6,17 +6,27 @@ function uncode_language_setup()
 add_action('after_setup_theme', 'uncode_language_setup');
 
 function uncode_hdx_api_init(){
-  add_settings_field('hdx-mixpanel-token', 'HDX Mixpanel Token', 'render_hdx_mixpanel_token', 'general');
+  add_settings_field('hdx-mixpanel-token-prod', 'HDX Mixpanel Token Production', 'render_hdx_mixpanel_token_prod', 'general');
+  add_settings_field('hdx-mixpanel-token-stage', 'HDX Mixpanel Token Stage', 'render_hdx_mixpanel_token_stage', 'general');
+  add_settings_field('hdx-mixpanel-token-local', 'HDX Mixpanel Token Local', 'render_hdx_mixpanel_token_local', 'general');
   add_settings_field('hdx-google-analytics-token', 'HDX Google Analytics Token', 'render_hdx_google_analytics_token', 'general');
   // Register our setting so that $_POST handling is done for us and
   // our callback function just has to echo the <input>
-  register_setting( 'general', 'hdx-mixpanel-token' );
+  register_setting( 'general', 'hdx-mixpanel-token-prod' );
+  register_setting( 'general', 'hdx-mixpanel-token-stage' );
+  register_setting( 'general', 'hdx-mixpanel-token-local' );
   register_setting( 'general', 'hdx-google-analytics-token' );
 }
 add_action( 'admin_init', 'uncode_hdx_api_init' );
 
-function render_hdx_mixpanel_token() {
-    echo '<input name="hdx-mixpanel-token" id="hdx-mixpanel-token" type="text" value="' . get_option('hdx-mixpanel-token') . '" class="code" />';
+function render_hdx_mixpanel_token_prod() {
+    echo '<input name="hdx-mixpanel-token-prod" id="hdx-mixpanel-token-prod" type="text" value="' . get_option('hdx-mixpanel-token-prod') . '" class="code" />';
+}
+function render_hdx_mixpanel_token_stage() {
+    echo '<input name="hdx-mixpanel-token-stage" id="hdx-mixpanel-token-stage" type="text" value="' . get_option('hdx-mixpanel-token-stage') . '" class="code" />';
+}
+function render_hdx_mixpanel_token_local() {
+    echo '<input name="hdx-mixpanel-token-local" id="hdx-mixpanel-token-local" type="text" value="' . get_option('hdx-mixpanel-token-local') . '" class="code" />';
 }
 function render_hdx_google_analytics_token() {
     echo '<input name="hdx-google-analytics-token" id="hdx-google-analytics-token" type="text" value="' . get_option('hdx-google-analytics-token') . '" class="code" />';
@@ -213,7 +223,7 @@ function video($att, $content = null)
     'id' => ''
   ), $att));
   $uniqid = 'video-' . uniqid();
-  $str = '<iframe id="'.$uniqid.'" src="'.$src.'?rel=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>';
+  $str = '<iframe id="'.$uniqid.'" src="'.$src.'?rel=0&showinfo=0&controls=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
   return $str;
 }
 add_shortcode('video', 'video');

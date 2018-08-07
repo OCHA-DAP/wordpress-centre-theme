@@ -28,7 +28,7 @@ $the_link = ($post_format==='link') ? get_url_in_content( $custom_post ) : get_t
 $item_media = catch_that_image($post_id);
 
 //format post media
-$post_media = ($category_name==='Video' || $category_name==='Slideshow') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
+$post_media = ($category_name==='Video' || $category_name==='Slideshow' || $category_name==='Dataviz') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
 
 //get author
 $author = get_the_author();
