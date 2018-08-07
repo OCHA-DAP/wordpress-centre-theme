@@ -130,6 +130,15 @@
 			    }
 			}
 		}
+		&.dataviz {
+			@include bg-gradient($teal);
+			align-items: center;
+			padding: 20px;
+			.title,
+			.author {
+				display: none;
+			}
+		}
 		.category-tag {
 			z-index: 2;
 		}

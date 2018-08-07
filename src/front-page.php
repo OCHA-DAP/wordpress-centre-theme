@@ -70,24 +70,7 @@ if ($latest_posts->have_posts()) :
 			$media = $page_header->poster_id;
 		}
 	}
-
-	
-	// $navigation_items = wp_get_nav_menu_items('header-menu');
-	// $menu_list .= '<ul id="menu-primary">';
-	// 	foreach( $navigation_items as $navigation_item ) {
-	// 	$menu_list .= '<li><a href="' . $navigation_item->url . '">' . $navigation_item->title . '</a></li>';
-	// }
-	// $menu_list .= '</ul>';
-	//echo '<script type="text/javascript">UNCODE.initHeader();</script>'; ?>
-
-	<!-- <section class='latest-stories-module'>
-		<div class='header'><h3>Latest Stories</h3></div>
-		<div class='latest-carousel' data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
-			<?php while ($latest_posts->have_posts()) : $latest_posts->the_post();
-				get_template_part( 'content', 'latest' );
-			endwhile; ?>
-		</div>
-	</section> -->
+?>
 
 	<section class='latest-stories-module'>
 		<h3>Latest Stories</h3>
