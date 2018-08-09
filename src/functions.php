@@ -183,7 +183,7 @@ function dataviz($att, $content = null)
   ), $att));
   if ($author != '') $auth_str = '<p class="author">'.$author.'</p>';
   else $auth_str = '';
-  $str = '<a href="'.$link.'"><p class="title">'.$title.'</p>'.$auth_str.'</a>';
+  $str = '<a href="'.$link.'" target="_blank"><p class="title">'.$title.'</p>'.$auth_str.'</a>';
   return $str;
 }
 add_shortcode('dataviz', 'dataviz');
