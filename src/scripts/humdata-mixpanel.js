@@ -56,6 +56,18 @@
 		mpTrack.pageView(title, 'dataviz');
     });
 
+    //track article views on category page
+    $('.category .article-title a').on('click', function() {
+    	var title = $(this).find('.label').text();
+		mpTrack.pageView(title, 'article');
+    });
+
+    //track article views on category page
+    $('.category .casestudy-title a').on('click', function() {
+    	var title = $(this).find('.label').text();
+		mpTrack.pageView(title, 'casestudy');
+    });
+
     //track video views on category page
     var playerDivs = document.querySelectorAll('.video');
 	var playerDivsArr = [].slice.call(playerDivs);
