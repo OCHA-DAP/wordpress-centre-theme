@@ -13,7 +13,16 @@
  */
 
 get_header();
+?>
 
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, 'impact story');
+	}
+</script>
+
+<?php
 	/**
 	 * DATA COLLECTION - START
 	 **/

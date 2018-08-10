@@ -1841,7 +1841,7 @@ if (!function_exists('uncode_get_menu_list')) {
 		        $id = $menu_item->attr_title;
 		        $logo = '<img src="'.get_stylesheet_directory_uri().'/assets/'.$id.'.svg">';
 		        $content = ($menu_name==='secondary') ? $logo : $title;
-		        $menu_list .= '<li><a href="' . $url . '" id="'.$id.'">' . $content . '</a></li>';
+		        $menu_list .= '<li><a href="' . $url . '" id="'.$id.'" target="_blank">' . $content . '</a></li>';
 		    }
 		    $menu_list .= '</ul>';
 		} else {

@@ -8,6 +8,17 @@
 
 get_header();
 
+$post_category = strtolower(uncode_custom_just_category($block_data['id']));
+?>
+
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, '<?php echo $post_category ?>');
+	}
+</script>
+
+<?php
 /**
  * DATA COLLECTION - START
  *

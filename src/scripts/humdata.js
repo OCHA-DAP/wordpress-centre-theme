@@ -57,7 +57,7 @@
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
 	//*********** TWITTER CONTENT BLOCK ***********//
-    var TWITTER_DURATION = 1000000;
+    var TWITTER_DURATION = 5000;
 
 	function twitterDataReady(data){
 		//console.log(data);
@@ -250,9 +250,9 @@
 	}
 	function addSlideshowID(id) {
 		if (history.pushState && id!=undefined) {
-			var cat = (window.location.href.indexOf('ucat') > -1) ? '' : '&ucat=110';
+			//var cat = (window.location.href.indexOf('ucat') > -1) ? '' : '&ucat=110';
 			var urlAppend = (window.location.href.indexOf('?') > -1) ? '&' : '?';
-			var newurl = window.location.href + urlAppend + 'slideshow=' + id + cat;
+			var newurl = window.location.href + urlAppend + 'slideshow=' + id;// + cat;
 			window.history.pushState({path:newurl},'',newurl);
 		}
 	}
@@ -265,7 +265,7 @@
 		if (history.pushState && window.location.href.indexOf('?slideshow=') > -1) {
 			var newurl = window.location.href;
 			newurl = newurl.substring(0, newurl.indexOf('?slideshow='));
-			if (!slideshowClicked) newurl = newurl + '?ucat=110';
+			//if (!slideshowClicked) newurl = newurl + '?ucat=110';
 			window.history.pushState({path:newurl},'',newurl);
 		}
 	}

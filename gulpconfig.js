@@ -61,6 +61,7 @@ module.exports = {
         src+'scripts/theme-app-modified.js',
         src+'scripts/slick.min.js',
         src+'scripts/humdata.js',
+        src+'scripts/humdata-mixpanel.js',
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
       ],

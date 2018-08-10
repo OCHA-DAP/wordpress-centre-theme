@@ -3,6 +3,7 @@
 		font-size: 30px;
 	}
 }
+
 .box-container {
 	margin-left: 0 !important;
 }
@@ -89,6 +90,10 @@
 	h3 {
 		margin: 0 auto 60px;
 	}
+	.row-container {
+		max-width: 1176px;
+		margin: 0 auto;
+	}
 }
 
 .latest-stories-module {
@@ -108,15 +113,30 @@
 		&.slideshow {
 			.slideshow-container {
 			    height: 100%;
-			    left: 50%;
-				position: absolute;
-			    top: 0;
-			    transform: translateX(-50%);
-			    > img {
+			    img {
 			    	height: 100%;
 			    	max-width: none;
-			    	width: auto;
+			    	position: absolute;
+				    left: 50%;
+					position: absolute;
+				    top: 0;
+				    transform: translateX(-50%);
+					opacity: 0;
+			    	width: auto;		    	
+	    			transition: opacity 1s; 
+	    			&.fadeIn {
+	    				opacity: 1;
+	    			}
 			    }
+			}
+		}
+		&.dataviz {
+			@include bg-gradient($teal);
+			align-items: center;
+			padding: 20px;
+			.title,
+			.author {
+				display: none;
 			}
 		}
 		.category-tag {
@@ -144,6 +164,10 @@
 	background-color: $blue;
 	height: 480px;
 	padding: 80px;
+	> .row {
+		max-width: 1176px;
+		margin: 0 auto;
+	}
 	.tweet {
 		position: relative;	
 		text-align: center;	
