@@ -137,30 +137,34 @@ body.mobile-nav-open {
 			position: absolute;
 			height: 100vh;
 			overflow: scroll;
-			.main-nav {
-				display: block;
-				a.title {
-					opacity: 1;
+			.nav-container {
+				.main-nav {
+					display: block;
+					a.title {
+						opacity: 1;
+					}
 				}
 			}
 		}
-		.logo {
-			padding-top: 0;
-			* {
-				fill: $green;
-			}
-		}
-		.main-nav {
-			display: none;
+		.nav-container {
 			flex-flow: column;
-			margin-left: 0;
-			> .item {
-				padding-bottom: 30px;
+			.logo {
+				padding-top: 0;
+				* {
+					fill: $green;
+				}
 			}
-			.sub-menu {
-				display: block;
-				a.title {
-					color: $green;
+			.main-nav {
+				display: none;
+				margin-left: 0;
+				> .item {
+					padding-bottom: 30px;
+				}
+				.sub-menu {
+					display: block;
+					a.title {
+						color: $green;
+					}
 				}
 			}
 		}
