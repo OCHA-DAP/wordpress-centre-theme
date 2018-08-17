@@ -96,7 +96,7 @@ nav {
 	padding: 0;
 	position: fixed;
 	right: 30px;
-	top: 52px;
+	top: 35px;
 	.icon-bar {
 		background-color: $green;
 		display: block;
@@ -131,7 +131,7 @@ body.mobile-nav-open {
 	nav {
 		background-color: $white;
 		flex-flow: column;
-		padding: 40px 30px 20px;
+		padding: 20px 30px 10px;
 		position: fixed;
 		&.active {
 			position: absolute;
