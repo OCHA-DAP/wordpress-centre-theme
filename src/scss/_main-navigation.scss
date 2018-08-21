@@ -96,7 +96,7 @@ nav {
 	padding: 0;
 	position: fixed;
 	right: 30px;
-	top: 52px;
+	top: 35px;
 	.icon-bar {
 		background-color: $green;
 		display: block;
@@ -131,36 +131,40 @@ body.mobile-nav-open {
 	nav {
 		background-color: $white;
 		flex-flow: column;
-		padding: 40px 30px 20px;
+		padding: 20px 30px 10px;
 		position: fixed;
 		&.active {
 			position: absolute;
 			height: 100vh;
 			overflow: scroll;
-			.main-nav {
-				display: block;
-				a.title {
-					opacity: 1;
+			.nav-container {
+				.main-nav {
+					display: block;
+					a.title {
+						opacity: 1;
+					}
 				}
 			}
 		}
-		.logo {
-			padding-top: 0;
-			* {
-				fill: $green;
-			}
-		}
-		.main-nav {
-			display: none;
+		.nav-container {
 			flex-flow: column;
-			margin-left: 0;
-			> .item {
-				padding-bottom: 30px;
+			.logo {
+				padding-top: 0;
+				* {
+					fill: $green;
+				}
 			}
-			.sub-menu {
-				display: block;
-				a.title {
-					color: $green;
+			.main-nav {
+				display: none;
+				margin-left: 0;
+				> .item {
+					padding-bottom: 30px;
+				}
+				.sub-menu {
+					display: block;
+					a.title {
+						color: $green;
+					}
 				}
 			}
 		}
