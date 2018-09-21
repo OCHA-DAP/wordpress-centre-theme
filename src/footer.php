@@ -97,7 +97,8 @@ $menu_list .= '</ul>';
 	<div class="slideshow-modal">
 		<a class="slideshow-btn prev" data-dir="prev">&#10094;</a>
 		<a class="slideshow-btn next" data-dir="next">&#10095;</a>
-		<div class="slides"></div>
+		<div class="slides">
+		</div>
 	</div>
 </div>
 
