@@ -199,15 +199,30 @@
 			slideshowClicked = true;
 			var slideshowContainer = '';
 			var slideshowCaption = {};
-			if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
-				slideshowContainer = $(this).parent().parent().find('.slideshow-container');
-				slideshowCaption.title = $(this).find('.label').text();
-				slideshowCaption.author = $(this).parent().find('.source').text();
+
+			if ($(this).context.classList.value.indexOf('t-entry')>-1) { //from category page
+				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
+					slideshowCaption.title = $(this).find('.t-entry-title span').text();
+					slideshowCaption.author = $(this).find('.author').text();
+				}
+				else {
+					slideshowContainer = $(this).find('.slideshow-container');
+					slideshowCaption.title = $(this).parent().find('.t-entry-text .t-entry-title span').text();
+					slideshowCaption.author = $(this).parent().find('.t-entry-text .author').text();
+				}
 			}
-			else {
-				slideshowContainer = $(this).find('.slideshow-container');
-				slideshowCaption.title = $(this).parent().find('.content-block--content .slideshow-title .label').text();
-				slideshowCaption.author = $(this).parent().find('.content-block--content .source').text();
+			else { //from homepage
+				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
+					slideshowCaption.title = $(this).find('.label').text();
+					slideshowCaption.author = $(this).parent().find('.source').text();
+				}
+				else {
+					slideshowContainer = $(this).find('.slideshow-container');
+					slideshowCaption.title = $(this).parent().find('.content-block--content .slideshow-title .label').text();
+					slideshowCaption.author = $(this).parent().find('.content-block--content .source').text();
+				}
 			}
 			var slideshowID = slideshowContainer.attr('id');
 			createSlideshowModal(slideshowContainer.children(), slideshowID, slideshowCaption);
@@ -234,8 +249,16 @@
 		id = id.split('&')[0];
 		var slideshowContainer = $('#'+id);
 		var slides = $(slideshowContainer).children();
-		var slideshowContent = $(slideshowContainer).closest('.slideshow').parent().find('.content-block--content');
-		var slideshowCaption = {title: $(slideshowContent).find('.label').text(), author: $(slideshowContent).find('.source').text()};
+		var slideshowContent = '';
+		var slideshowCaption = {};
+		if (url.indexOf('category') != -1) { //on category page
+			slideshowContent = $(slideshowContainer).closest('.slideshow').parent().find('.t-entry-text');
+			slideshowCaption = {title: $(slideshowContent).find('.t-entry-title').text(), author: $(slideshowContent).find('.author').text()};
+		}
+		else { //on homepage
+			slideshowContent = $(slideshowContainer).closest('.slideshow').parent().find('.content-block--content');
+			slideshowCaption = {title: $(slideshowContent).find('.label').text(), author: $(slideshowContent).find('.source').text()};
+		}
 
 		if (slides.length>0) {
 			createSlideshowModal($('#'+id).children(), null, slideshowCaption);
