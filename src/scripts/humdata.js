@@ -270,7 +270,7 @@
 	var slideIndex = 1;
 	function createSlideshowModal(slides, id, caption) {
 		$('.slideshow-modal-overlay').show();
-		$('<div class="slideshow-caption">'+caption.title+'<br><span>'+caption.author+'</span><div class="counter">1/'+slides.length+'</div></div>').prependTo('.slides');
+		$('<div class="slideshow-caption"><div class="title">'+caption.title+'</div><div class="author">'+caption.author+'</div><div class="counter">1/'+slides.length+'</div></div>').prependTo('.slides');
 		slides.clone().prependTo('.slides');
 		
 		$('.slides').find('img:nth-child(1)').show();
