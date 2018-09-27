@@ -411,7 +411,13 @@
 		padding-top: 5px;
 		position: relative;
 		text-align: left;
-		span {
+		.title {
+    		overflow: hidden;
+  			text-overflow: ellipsis;
+    		white-space: nowrap;
+			width: 90%;
+		}
+		.author {
 			font-size: 16px;
 		}
 		.counter {
