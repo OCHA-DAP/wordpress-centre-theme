@@ -831,8 +831,11 @@ if (!function_exists('uncode_create_single_block')) {
 										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
 									}
 									else {
+										$author = get_post_field( 'post_author', $block_data['id'] );
+										$author_name = get_the_author_meta( 'display_name', $author );
 										$target = ($post_category === 'dataviz') ? 'blank' : '_self';
-										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3>';
+										$author_info = ($post_category === 'slideshow') ? 'by ' . $author_name : '';
+										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
 									}
 								}
 							}
@@ -848,7 +851,7 @@ if (!function_exists('uncode_create_single_block')) {
 					}
 					$get_the_post_type = ucfirst($get_the_post_type);
 					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
-					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title 6 '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
