@@ -197,9 +197,35 @@
 		//handle slideshow click, launch modal
 		$('.slideshow, .slideshow-title').unbind('click').click(function(e) {
 			slideshowClicked = true;
-			var slideshowContainer = ($(this).context.classList.value.indexOf('slideshow-title')>-1) ? $(this).parent().parent().find('.slideshow-container') : $(this).find('.slideshow-container');
+			var slideshowContainer = '';
+			var slideshowCaption = {};
+
+			if ($(this).context.classList.value.indexOf('t-entry')>-1) { //from category page
+				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
+					slideshowCaption.title = $(this).find('.t-entry-title span').text();
+					slideshowCaption.author = $(this).find('.author').text();
+				}
+				else {
+					slideshowContainer = $(this).find('.slideshow-container');
+					slideshowCaption.title = $(this).parent().find('.t-entry-text .t-entry-title span').text();
+					slideshowCaption.author = $(this).parent().find('.t-entry-text .author').text();
+				}
+			}
+			else { //from homepage
+				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
+					slideshowCaption.title = $(this).find('.label').text();
+					slideshowCaption.author = $(this).parent().find('.source').text();
+				}
+				else {
+					slideshowContainer = $(this).find('.slideshow-container');
+					slideshowCaption.title = $(this).parent().find('.content-block--content .slideshow-title .label').text();
+					slideshowCaption.author = $(this).parent().find('.content-block--content .source').text();
+				}
+			}
 			var slideshowID = slideshowContainer.attr('id');
-			createSlideshowModal(slideshowContainer.children(), slideshowID);
+			createSlideshowModal(slideshowContainer.children(), slideshowID, slideshowCaption);
 			e.preventDefault();
 		});
 		$('.search .slideshow + .t-entry-text').unbind('click').click(function(e) {
@@ -221,18 +247,32 @@
 		var url = window.location.href;
 		var id = url.split('slideshow=')[1];
 		id = id.split('&')[0];
-		var slides = $('#'+id).children();
+		var slideshowContainer = $('#'+id);
+		var slides = $(slideshowContainer).children();
+		var slideshowContent = '';
+		var slideshowCaption = {};
+		if (url.indexOf('category') != -1) { //on category page
+			slideshowContent = $(slideshowContainer).closest('.slideshow').parent().find('.t-entry-text');
+			slideshowCaption = {title: $(slideshowContent).find('.t-entry-title').text(), author: $(slideshowContent).find('.author').text()};
+		}
+		else { //on homepage
+			slideshowContent = $(slideshowContainer).closest('.slideshow').parent().find('.content-block--content');
+			slideshowCaption = {title: $(slideshowContent).find('.label').text(), author: $(slideshowContent).find('.source').text()};
+		}
+
 		if (slides.length>0) {
-			createSlideshowModal($('#'+id).children());
+			createSlideshowModal($('#'+id).children(), null, slideshowCaption);
 		}
 	}
 
 
 	//*********** SLIDESHOW MODAL ***********//
 	var slideIndex = 1;
-	function createSlideshowModal(slides, id) {
+	function createSlideshowModal(slides, id, caption) {
 		$('.slideshow-modal-overlay').show();
-		slides.clone().appendTo('.slides');
+		$('<div class="slideshow-caption">'+caption.title+'<br><span>'+caption.author+'</span><div class="counter">1/'+slides.length+'</div></div>').prependTo('.slides');
+		slides.clone().prependTo('.slides');
+		
 		$('.slides').find('img:nth-child(1)').show();
 		slideIndex = 1;
 
@@ -240,13 +280,14 @@
 		addSlideshowID(id);
 	}
 	function showSlideModal(dir) {
-		var slides = $('.slides').children();
+		var slides = $('.slides > img');
 		if (dir=='next')
 			slideIndex = (slideIndex < slides.length) ? slideIndex+1 : 1;
 		else
 			slideIndex = (slideIndex <= 1) ? slides.length : slideIndex-1;
 		$('.slides').find('img').hide();
 		$('.slides').find('img:nth-child('+slideIndex+')').show();
+		$('.slides').find('.counter').text(slideIndex+'/'+slides.length)
 	}
 	function addSlideshowID(id) {
 		if (history.pushState && id!=undefined) {

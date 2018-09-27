@@ -59,7 +59,8 @@
 		}
 	}
 	&.category-slideshow {
-		.t-background-cover {
+		.t-background-cover,
+		.t-entry .author {
 			display: none;
 		}
 	}

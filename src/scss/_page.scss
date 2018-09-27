@@ -387,17 +387,38 @@
 		position: relative;
 		width: 90%;
 		.slides {
+			height: 85%;
 			left: 50%;
 			position: absolute;
 			text-align: center;
-			top: 50%;
-			width: 100%;
-			transform: translate(-50%,-50%);
-    		-ms-transform: translate(-50%,-50%);
-			-webkit-transform: translate(-50%,-50%);
+			top: 15px;
+			width: auto;
+			transform: translateX(-50%);
+    		-ms-transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
 			img {
 				display: none;
+				height: 100%;
+				max-width: none;
+				width: auto;
 			}
+		}
+	}
+	.slideshow-caption {
+		color: $white;
+		font-family: $font-serif-book;
+		font-size: 20px;
+		padding-top: 5px;
+		position: relative;
+		text-align: left;
+		span {
+			font-size: 16px;
+		}
+		.counter {
+			font-size: 16px;
+			position: absolute;
+			right: 0;
+			top: 5px;
 		}
 	}
 	.prev,
@@ -432,7 +453,7 @@
 		font-weight: bold;
 		position: absolute;
 		right: 52px;
-		top: 14px;
+		top: -7px;
 		z-index: 2;
 	  	&:hover {
 	  		color: $green;
