@@ -56,6 +56,11 @@
 	//reset search placeholder text
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
+	//click event got latest press blocks on homepage
+	$('.latest-press-module .content-block--inner').on('click', function() {
+		window.open($(this).find('a').attr('href'), '_blank');
+	})
+
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;
 
