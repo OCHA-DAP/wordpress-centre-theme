@@ -158,6 +158,9 @@
 }
 .latest-press-module {
 	background: transparent url('assets/bg-pattern-grey.png') repeat 0 0;
+	.content-block--inner {
+		cursor: pointer;
+	}
 }
 
 .twitter-module {
