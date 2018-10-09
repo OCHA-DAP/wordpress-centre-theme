@@ -12,6 +12,7 @@ $category_name = $category[0]->cat_name;
 $category_class = strtolower(str_replace(' ','',$category_name));
 $the_link = get_the_permalink();
 ?>
+
 <div class='col-lg-4 content-block'>
 	<div class='content-block--inner <?= $category_class ?>'>
 		<div class='category-tag'><?= $category_name ?></div>
