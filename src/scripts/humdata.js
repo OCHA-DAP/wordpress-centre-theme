@@ -36,30 +36,22 @@
 		archiveBlock.css('height', archiveBlockWidth);
 	}
 
-	//handle anchor links
-	// $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
-	// 	// On-page links
-	// 	if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-	// 		//find element to scroll to
-	// 		var target = $(this.hash);
-	// 		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-	// 		//make sure target exists
-	// 		if (target.length) {
-	// 			event.preventDefault();
-	// 			$('html, body').animate({
-	// 				scrollTop: target.offset().top - $('nav').height()
-	// 			}, 500);
-	// 		}
-	// 	}
-	// });
-
 	//reset search placeholder text
 	//$('.search-container input').attr('placeholder', 'Press enter to search');
 
-	//click event got latest press blocks on homepage
+	//click event for latest press blocks on homepage
 	$('.latest-press-module .content-block--inner').on('click', function() {
 		window.open($(this).find('a').attr('href'), '_blank');
 	})
+
+	//click event for video blocks on homepage
+	$('.latest-stories-module .video-title').on('click', function() {
+		var vid = $(this).closest('.content-block').find('iframe').attr('src');
+		vid = vid.replace('embed', 'watch');
+		if (vid!=undefined) window.open(vid, '_blank');
+		return false;
+	})
+
 
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;
