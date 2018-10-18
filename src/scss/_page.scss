@@ -243,6 +243,17 @@
 	color: $black;
 }
 
+.column-layout-3 {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+	> div {
+		margin-bottom: 20px;
+		padding-right: 20px;
+		width: 33%;
+	}
+}
+
 // .isotope-filters {
 // 	background-color: $white;
 // 	.menu-horizontal {
@@ -553,6 +564,11 @@
 			right: 20px;
 		}
 		.slideshow-modal {
+			width: 100%;
+		}
+	}
+	.column-layout-3 {
+		> div {
 			width: 100%;
 		}
 	}

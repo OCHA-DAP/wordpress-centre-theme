@@ -40,13 +40,9 @@ $author = get_the_author();
 	</div>
 	<div class='content-block--content dark'>
 		<h6><?= $category_name ?></h6>
-		<?php if ($category_name!=='Video') { ?>
-			<a href='<?= $the_link ?>' class='title <?= $category_class ?>-title' target='<?= $link_target ?>'>
-		<?php } ?>
+		<a href='<?= $the_link ?>' class='title <?= $category_class ?>-title' target='<?= $link_target ?>'>
 			<p><span class='label'><?= the_title(); ?></span></p>
-		<?php if ($category_name!=='Video') { ?>
-			</a>
-		<?php } ?>
+		</a>
 		<span class='source'>by <?= $author ?></span>
 	</div>
 </div>
