@@ -58,71 +58,6 @@
 			}
 		}
 	}
-	// &.tweet {
-	// 	@include bg-gradient($blue);
-	// 	.t-background-cover,
-	// 	.t-entry-visual-overlay,
-	// 	.t-entry-author,
-	// 	.t-entry-title {
-	// 		display: none;
-	// 	}
-	// 	.t-overlay-content {
-	// 		bottom: auto;
-	// 		height: 100%;
-	// 		top: 18px;
-	// 		.t-overlay-text {
-	// 			height: 100%;
-	// 		}
-	// 	}
-	// 	.t-entry {
-	// 		max-height: 85%;
-	// 		overflow: hidden;
-	// 		p {
-	// 			display: none;
-	// 			font-family: $font-serif-book;
-	// 			font-size: 24px;
-	// 			line-height: 30px;
-	// 			margin-bottom: 36px !important;
-	// 			&.author {
-	// 				display: block;
-	// 				font-size: 18px;
-	// 				margin-bottom: 0 !important;
-	// 				position: absolute;
-	// 				bottom: 50px;
-	// 				width: 100%;
-	// 				.TweetAuthor-avatar .Avatar {
-	// 					border-radius: 50%;
-	// 					float: left;
-	// 					height: auto;
-	// 					margin-right: 8px;
-	// 					width: 50px;
-	// 				}
-	// 				.TweetAuthor-verifiedBadge {
-	// 					display: none;
-	// 				}
-	// 				.TweetAuthor-name {
-	// 					margin-top: 8px;
-	// 				}
-	// 				.TweetAuthor-name,
-	// 				.TweetAuthor-screenname {
-	// 					float: left;
-	// 					line-height: 16px;
-	// 					width: 75%;
-	// 				}
-	// 			}
-	// 			&.tweet-text {
-	// 				display: block;
-	// 				@include break-word();
-	// 			}
-	// 		}
-	// 		.fa-twitter {
-	// 			font-size: 24px;
-	// 			position: absolute;
-	// 		    bottom: 55px;
-	// 		    right: 0px;
-	// 		}
-	// 	}
-	// }
 	&.dataviz,
 	&.impact {
 		@include bg-gradient($teal);
@@ -253,52 +188,6 @@
 		width: 33%;
 	}
 }
-
-// .isotope-filters {
-// 	background-color: $white;
-// 	.menu-horizontal {
-// 		padding-top: 60px;
-// 		h3 {
-// 			font-size: 30px;
-// 			margin-bottom: 45px;
-// 		}
-// 	}
-// 	ul {
-// 		&.menu-smart {
-// 			padding-top: 0;
-// 			padding-bottom: 45px;
-// 			> li {
-// 				> span {
-// 					padding: 0 4px 15px;
-// 					> a {
-// 						background-color: $white;
-// 						border: 2px solid $yellow;
-// 						border-radius: 10em;
-// 						font-family: $font-serif-book;
-// 						font-size: 15px;
-// 						padding: 6px 30px !important;
-// 						&.active {
-// 							background-color: $yellow;
-// 							color: $black !important;
-// 						}
-// 						&:hover {
-// 							background-color: $yellow;
-// 							color: $black !important;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-// .isotope-footer {
-// 	background: transparent url('assets/bg-pattern-grey.png') repeat 0 0;
-// }
-
-// .loadmore-button {
-// 	margin: 50px 18px;
-// }
 
 .style-light .btn.btn-default.btn-outline {
 	background-color: $white !important;
@@ -479,79 +368,17 @@
 	}
 }
 
-// .home {
-// 	.opening-announcement {
-// 		.uncode_text_column {
-// 			margin: 0;
-// 		}
-// 		h3 {
-// 			font-family: $font-serif-book;
-// 		    margin: 0 auto;
-// 		    width: 70%; 
-// 		    &.h2 {
-// 		    	width: 100%;
-// 		    }
-// 		}
-// 		.mc-field-group input[type=email] {
-// 		    background-color: $white;
-// 		    color: $gray33;
-// 		    font-size: 14px;
-// 			height: 40px;
-// 		    line-height: 40px;
-// 		    max-width: 250px;
-// 		    padding-left: 20px;
-// 			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-// 			  color: #ccc !important;
-// 			}
-// 			&::-moz-placeholder { /* Firefox 19+ */
-// 			  color: #ccc !important;
-// 			}
-// 			&:-ms-input-placeholder { /* IE 10+ */
-// 			  color: #ccc !important;
-// 			}
-// 			&:-moz-placeholder { /* Firefox 18- */
-// 			  color: #ccc !important;
-// 			}
-// 		}
-// 		#mc_embed_signup div.mce_inline_error {
-// 			background-color: transparent;
-// 			color: #6B0505;
-// 		}
-// 		.mce_inline_error,
-// 		#mce-responses {
-// 			font-size: 18px;
-// 		}
-// 		.btn.submit-btn {
-// 		    font-size: 14px;
-// 			height: 40px;
-// 		    line-height: 40px;
-// 		    padding: 0 20px !important;
-// 		}
-// 	}
-// }
+//related posts styles
+.post-body .post-after {
+	.heading-text h5 {
+		font-family: Stag-Medium;
+    	font-size: 20px;
+    	text-transform: none;
+	}
+}
 
 
 @media (max-width: $screen-md) {
-	// .isotope-filters ul.menu-smart > li > span {
- //    	padding: 0 4px 15px !important;
-	// }	
-	// :not(.with-bg).isotope-filters ul.menu-smart > li > span > a {
-	// 	padding: 6px 30px!important;
-	// }
-	// .sections-container {
-	// 	padding: 0 20px;
-	// }
-	// .home {
-	// 	.sections-container {
-	// 		padding: 0;
-	// 	}
-	// 	.opening-announcement {
-	// 		padding-top: 40px;
-	// 		h3 {
-	// 			width: 100%;
-	// 		}
-	// 	}
-	// }
 	.post-content {
 		padding: 0 20px;
 	}
@@ -572,14 +399,4 @@
 			width: 100%;
 		}
 	}
-	// .home {
-	// 	.opening-announcement {
-	// 		h3 {
-	// 	    	font-size: 18px;
-	// 		}
-	// 		.mc-field-group input[type=email] {
-	// 			max-width: 150px;
-	// 		}
-	// 	}
-	// }
 }
