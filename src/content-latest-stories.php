@@ -26,9 +26,6 @@ $item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : 
 //format post media
 $post_media = ($category_name==='Video' || $category_name==='Slideshow' || $category_name==='Dataviz') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
 
-//$post_media = ($category_name==='Impact Story') ? '<div class="img-container"><img src="' . $featured_image . '" /></div>' : $post_media;
-
-
 //configure link target
 $link_target = ($category_name==='Dataviz') ? '_blank' : '_self';
 
