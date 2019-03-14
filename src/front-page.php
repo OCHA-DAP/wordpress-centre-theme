@@ -27,7 +27,7 @@ get_header();
 **/
 
 $latest_stories_args = array (
-	'cat' => array(3, 105, 98, 110, 145), //blog, dataviz, video, slideshow, impact story
+	'cat' => array(3, 105, 98, 110, 145, 200), //blog, dataviz, video, slideshow, impact story
 	'posts_per_page' => 3, 
 	'orderby' => 'date'  
 );
