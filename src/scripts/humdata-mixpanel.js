@@ -23,6 +23,13 @@
 		trackLink($(this), 'footer');
     });
 
+    //track blog links to pdf files
+	$('.single-post a').on('click', function(event) {
+		var destURL = $(this).attr('href');
+		var fileType = destURL.substr(destURL.lastIndexOf(".")+1)
+		if (fileType=='pdf') trackLink($(this), 'blog');
+    });
+
     function trackLink(link, type) {
     	var destURL = $(link).attr('href');
         var cb = generate_callback($(link));
