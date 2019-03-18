@@ -27,7 +27,7 @@ $item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : 
 $post_media = ($category_name==='Video' || $category_name==='Slideshow' || $category_name==='Dataviz') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
 
 //configure link target
-$link_target = ($category_name==='Dataviz') ? '_blank' : '_self';
+$link_target = ($category_name==='Dataviz' || $category_name==='Announcement') ? '_blank' : '_self';
 
 //get author
 $author = get_the_author();

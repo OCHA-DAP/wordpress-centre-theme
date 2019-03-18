@@ -800,7 +800,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = $print_title;
 						}
-						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'impact') {
+						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'announcement' || $post_category === 'impact') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 						}
 						else {
@@ -833,7 +833,7 @@ if (!function_exists('uncode_create_single_block')) {
 									else {
 										$author = get_post_field( 'post_author', $block_data['id'] );
 										$author_name = get_the_author_meta( 'display_name', $author );
-										$target = ($post_category === 'dataviz') ? 'blank' : '_self';
+										$target = ($post_category === 'dataviz' || $post_category === 'announcement') ? 'blank' : '_self';
 										$author_info = ($post_category === 'slideshow') ? 'by ' . $author_name : '';
 										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
 									}
