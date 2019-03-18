@@ -30,7 +30,6 @@
 }
 
 .header-wrapper {
-	display: block;
 	.row-container {
 		.row-inner {
 			margin-left: 0;
@@ -47,6 +46,14 @@
 				padding-top: 95px !important;
 				width: auto;
 			}
+		}
+	}
+}
+
+.main-container {
+	.post-wrapper {
+		.row-container {
+			background-color: white;
 		}
 	}
 }
