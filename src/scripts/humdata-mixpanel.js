@@ -63,6 +63,12 @@
 		mpTrack.pageView(title, 'dataviz');
     });
 
+    //track dataviz views on category page
+    $('.category .announcement a, .announcement-title a').on('click', function() {
+    	var title = ($(this).parent().hasClass('t-entry-title')) ? $(this).find('span').text() : $(this).closest('.announcement').parent().find('.t-entry .t-entry-title span').text();
+		mpTrack.pageView(title, 'announcement');
+    });
+
     //track article views on category page
     $('.category .article-title a').on('click', function() {
     	var title = $(this).find('.label').text();

@@ -188,6 +188,19 @@ function dataviz($att, $content = null)
 }
 add_shortcode('dataviz', 'dataviz');
 
+function announcement($att, $content = null) 
+{
+  extract(shortcode_atts(array(
+    'title' => '',
+    'author' => '',
+    'link' => ''
+  ), $att));
+  if ($author != '') $auth_str = '<p class="author">'.$author.'</p>';
+  else $auth_str = '';
+  $str = '<a href="'.$link.'" target="_blank"><p class="title">'.$title.'</p>'.$auth_str.'</a>';
+  return $str;
+}
+add_shortcode('announcement', 'announcement');
 
 function impact($att, $content = null) 
 {
