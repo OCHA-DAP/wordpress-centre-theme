@@ -13,7 +13,7 @@
 
 get_header();
 
-$body_classes = get_body_class(); ?>
+$body_classes = get_body_class();
 ?>
 
 <script>
