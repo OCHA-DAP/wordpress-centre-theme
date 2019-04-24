@@ -825,7 +825,7 @@ if (!function_exists('uncode_create_single_block')) {
 								if ($post_category==='casestudy') $the_category = 'Case Study';
 								if ($post_category!=='') {
 									if ($post_category==='article' || $post_category==='casestudy') {
-										$inner_entry = '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
+										$inner_entry = '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
 									}
 									else if ($post_category==='video') {
 										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
