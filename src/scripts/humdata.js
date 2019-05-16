@@ -1,11 +1,17 @@
 (function($) {
+
+	$('.ocha-services').on('click', function() {
+		$('.ocha-header .dropdown-menu').toggle();
+	});
+
 	//inject particle background to header
 	$('#particles-js').prependTo('.header-wrapper .uncol');
 
 	//override parent theme forcing z-index
 	$('.slideshow-modal-overlay').css('z-index', 3001);
-	$('.mobile-nav-toggle').css('z-index', 1002);
 	$('nav').css('z-index', 1001);
+	$('.mobile-nav-toggle').css('z-index', 1002);
+	$('.ocha-header .dropdown-menu').css('z-index', 1003);
 
 	//capture search term
 	var searchTerm = window.location.href.split('s=')[1];
@@ -122,8 +128,9 @@
 	//*********** MAIN NAVIGATION EVENTS ***********//
 	//sticky nav
 	$(window).on('scroll', function() {
-		if ($(this).scrollTop() > $('nav').height()) {
+		if ($(this).scrollTop() > $('.ocha-header').height()) {
 			$('nav').addClass('sticky');
+			$('.ocha-header .dropdown-menu').css('display', 'none');
 		}
 		else {
 			$('nav').removeClass('sticky');
