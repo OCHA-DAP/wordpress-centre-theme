@@ -202,7 +202,7 @@ nav {
 	padding: 0;
 	position: fixed;
 	right: 30px;
-	top: 35px;
+	top: 70px;
 	.icon-bar {
 		background-color: $green;
 		display: block;
@@ -214,6 +214,7 @@ nav {
 		margin-top: 12px;
 	}
 	&.expanded {
+		top: 35px;
 		.icon-bar {		
 			&:nth-child(1) {
 	    		position: absolute;
@@ -226,6 +227,10 @@ nav {
 	    	}
 		}
 	}
+}
+
+nav.sticky + .mobile-nav-toggle {
+	top: 35px;
 }
 
 body.mobile-nav-open {
@@ -286,10 +291,20 @@ body.mobile-nav-open {
 	}
 	.ocha-header {
 		padding: 0 30px;
-	}
-	.ocha-services-menu {
-		flex-flow: column;
-		padding-left: 30px;
+		.ocha-services-menu-container {
+			.ocha-services-menu {
+				flex-flow: column;
+				padding: 0 30px;
+			}
+		}
+		.dropdown-menu {
+			.list-title {
+				margin-top: 20px;
+				&.list-title-empty {
+					display: none;
+				}
+			}
+		}
 	}
 	.header-wrapper {
 		height: auto !important;
