@@ -147,6 +147,62 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 				$homeURL = esc_url( home_url( get_current_blog_id(), '/' ) );
 			?>
 
+			<div class='ocha-header'>
+				<div class="ocha-header-container">
+					<a href="#" data-toggle="dropdown" class="ocha-services" aria-label="OCHA services">
+		                <span class="ocha-logo"></span>
+		                <span class="ocha-services-text">OCHA Services</span>
+
+		                <svg class="icon-o-arrow-up" viewBox="0 0 48 48"><path d="M0,34a4,4,0,0,1,1.17-2.83l20-20a4,4,0,0,1,5.66,0l20,20a4,4,0,1,1-5.66,5.66L24,19.66,6.83,36.83A4,4,0,0,1,0,34Z"></path></svg>
+		                <svg class="icon-o-arrow-down" viewBox="0 0 48 48"><path d="M48,14a4,4,0,0,1-1.17,2.83l-20,20a4,4,0,0,1-5.66,0l-20-20a4,4,0,0,1,5.66-5.66L24,28.34,41.17,11.17A4,4,0,0,1,48,14Z"></path></svg>
+		            </a>
+		            <div class="dropdown-menu ocha-services-menu-container" role="menu">
+		            	<div class="ocha-services-menu">
+							<div>
+								<p class="list-title">Related Platforms</p>
+								<ul class="ocha-links-list">
+									<li><a href="https://humdata.org/" target="_blank">Humanitarian Data Exchange (HDX)</a></li>
+									<li><a href="https://tools.humdata.org/" target="_blank">HDX Tools</a></li>
+									<li><a href="http://hxlstandard.org/" target="_blank">Humanitarian Exchange Language (HXL)</a></li>
+								</ul>
+							</div>
+							<div>
+							  	<p class="list-title">Other OCHA Services</p>
+								<ul class="ocha-links-list">
+									<li>
+										<a href="https://fts.unocha.org/" target="_blank">Financial Tracking Service</a>
+									</li>
+									<li>
+										<a href="https://data.humdata.org/" target="_blank">Humanitarian Data Exchange</a>
+									</li>
+									<li>
+										<a href="https://humanitarian.id/" target="_blank">Humanitarian ID</a>
+									</li>
+									<li>
+										<a href="https://hum-insight.info/" target="_blank">Humanitarian InSight</a>
+									</li>
+									<li>
+										<a href="https://www.humanitarianresponse.info" target="_blank">Humanitarian Response</a>
+									</li>
+								</ul>
+							</div>
+							<div>
+								<p class="list-title list-title-empty">&nbsp;</p>
+								<ul class="ocha-links-list">
+									<li><a href="https://interagencystandingcommittee.org/" target="_blank">Inter-Agency Standing Committee</a></li>
+									<li><a href="https://www.unocha.org" target="_blank">OCHA Website</a></li>
+									<li><a href="https://reliefweb.int" target="_blank">Relief Web</a></li>
+									<li><a href="https://vosocc.unocha.org/" target="_blank">Virtual OSOCC</a></li>
+								</ul>
+							</div>
+							<div>
+								<a href="https://www.unocha.org/ocha-digital-services" target="_blank" class="btn ocha-see-all">See all</a>
+							</div>
+						</div>
+	                </div>
+				</div>
+			</div>
+
 			<nav>
 				<div class='nav-container'>
 					<a href="<?php echo $homeURL ?>">
