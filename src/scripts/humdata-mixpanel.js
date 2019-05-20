@@ -13,6 +13,11 @@
 		}
 	}
 
+	//track ocha header link clicks
+	$('.ocha-services-menu a').on('click', function(event) {
+		trackLink($(this), 'ocha-header', 'blank');
+    });
+
 	//track main nav link clicks
 	$('.main-nav a').on('click', function(event) {
 		trackLink($(this), 'main-nav');
@@ -30,17 +35,20 @@
 		if (fileType=='pdf') trackLink($(this), 'blog');
     });
 
-    function trackLink(link, type) {
+    function trackLink(link, type, target) {
     	var destURL = $(link).attr('href');
-        var cb = generate_callback($(link));
+        var cb = generate_callback($(link), target);
         event.preventDefault();
         mixpanel.track('link click', { 'destionation url': destURL, 'link type': type, 'page title': document.title }, cb);
         setTimeout(cb, 500);
     }
 
-    function generate_callback(a) {
+    function generate_callback(a, target) {
         return function() {
-            window.location = a.attr('href');
+        	if (target=='blank')
+        		window.open(a.attr('href'));
+        	else
+           		window.location = a.attr('href');
         }
     }
 
