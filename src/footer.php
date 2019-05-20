@@ -119,9 +119,9 @@ $menu_list .= '</ul>';
 							<div class="site-info uncell col-lg-4">
 		            <div class="social-footer">
 		              <div class="terms">
-		                <a href="<?php echo get_site_url() . '/category/blog/' ?>">Blogs <i class="fa fa-external-link"></i></a>
-		                <a href="<?php echo get_site_url() . '/volunteer/' ?>">Volunteer <i class="fa fa-external-link"></i></a>
-		                <a href="<?php echo get_site_url() . '/contact-us' ?>">Contact Us <i class="fa fa-external-link"></i></a>
+		                <a href="<?php echo get_site_url() . '/category/blog/' ?>">Blogs</a>
+		                <a href="<?php echo get_site_url() . '/volunteer/' ?>">Volunteer</a>
+		                <a href="<?php echo get_site_url() . '/contact-us' ?>">Contact Us</a>
 		                <div class="social-actions">
 		                  <a href="http://www.twitter.com/humdata" title="Twitter"><i class="fa fa-twitter"></i></a>
 		                  <a href="https://github.com/OCHA-DAP" title="GitHub"><i class="fa fa-github"></i></a>
@@ -133,7 +133,9 @@ $menu_list .= '</ul>';
 		                </div>
 		                <div class="service-details">
 		                  <div class="ocha-service">
-		                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo-ocha-lockup-white.png' ?>">
+		                  	<figure>
+		                  		<img class="ocha-logo" src="<?php echo get_stylesheet_directory_uri() . '/assets/logo-ocha-lockup-white.png' ?>">
+		                  	</figure>
 		                    <div class="ocha-text">
 		                      OCHA coordinates the global emergency response to save lives and protect people in humanitarian
 		                      crises. We advocate for effective and principled humanitarian action by all, for all.

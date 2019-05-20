@@ -153,6 +153,11 @@
 						height: 39px;
 					}
 				}
+				&#hdx {
+					img {
+						height: 34px;
+					}
+				}
 			}
 		}
 	}
@@ -162,7 +167,7 @@
 			max-width: $footer-max-width;
 		}
 		.uncell {
-			padding: 40px 0;
+			padding: 54px 0;
 			vertical-align: middle;
 		}
 		.logo {
@@ -192,6 +197,11 @@
 				align-items: flex-start;
 				display: flex;
 				padding-right: 20px;
+				.ocha-logo {
+					height: 40px;
+					max-width: none;
+					width: auto;
+				}
 			}
 			.ocha-text {
 				border-left: 1px solid $white;
@@ -220,7 +230,7 @@
 					a {
 						i {
 							color: $white;
-							font-size: 14px;
+							font-size: 16px;
 						}
 						&:hover {
 							i {
@@ -232,11 +242,8 @@
 			}
 			a {
 				color: $white;
+				padding: 0 22px 0 2px;
 				text-transform: uppercase;
-				i {
-					color: #8d8d8d;
-					padding: 0 22px 0 2px;
-				}
 			}
 		}
 	}
