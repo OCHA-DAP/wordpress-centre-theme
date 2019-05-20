@@ -1,13 +1,15 @@
 nav {	
 	background-color: rgba(0,0,0,0);
 	display: flex;
-	padding: 25px 45px 40px;
-	position: fixed;
-	top: 0;
-	transition: all 0.4s ease;
+	padding: 25px 45px;
+	position: absolute;
+	top: 35px;
+	transition: background-color 0.4s ease;
 	width: 100%;
 	&.sticky {
 		background-color: $white;
+		position: fixed;
+		top: 0;
 		.nav-container {
 			.logo {
 				* {
@@ -90,13 +92,117 @@ nav {
 	}
 }
 
+.ocha-header {
+	background-color: #252525;
+	color: $white;
+	line-height: 35px;
+	padding: 0 45px;
+    .ocha-header-container {
+    	height: 35px;
+		margin: 0 auto;
+	    max-width: 1176px;
+	    width: 100%;
+	    .ocha-services {
+	    	align-items: center;
+		    color: #EEE;
+	    	display: inline-flex;
+	    	font-family: helvetica, arial, sans-serif;
+		    font-size: 12px;
+		    font-weight: 400;
+		    .ocha-logo {
+			    background: url('assets/logo-ocha-white.svg') 50% no-repeat;
+			    background-size: contain;
+			    display: inline-block;
+			    flex-shrink: 0;
+			    height: 18px;
+			    margin-right: 4px;
+			    width: 21px;
+			}
+	    	.icon-o-arrow-up {
+			    display: none;
+			}
+			.icon-o-arrow-up,
+	    	.icon-o-arrow-down {
+			    margin-left: 10px;
+			    height: 9px;
+			    fill: #EEE;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+    }
+    .ocha-services-menu-container {
+	    .ocha-services-menu {
+		    color: #EEE;
+		    display: flex;
+		    font-family: helvetica, arial, sans-serif;
+		    font-size: 12px;
+		    font-weight: 600;
+		    justify-content: space-between;
+		    margin: 0 auto;
+	    	max-width: 1176px;
+		    padding: 22px 0;
+	    	width: 100%;
+		    .btn.ocha-see-all {
+		    	background-color: $graycc;
+		    	border: 0;
+		    	color: $dark-blue;
+		    	font-family: 'Gotham-Bold';
+		    	font-size: 12px;
+		    	height: 43px;
+		    	padding: 4px !important;
+		    	text-align: center;
+		    	width: 210px;
+		    	&:hover {
+		    		background-color: $gray88;
+		    	}
+		    }
+		}
+    }
+	.dropdown-menu {
+	    background-color: $gray33;
+	    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	    display: none;
+	    left: 0;
+	    list-style: none;
+	    position: absolute;
+	    text-align: left;
+	    top: 35px;
+	    width: 100%;
+	    z-index: 1002;
+	    .ocha-links-list {
+	    	margin-top: 0;
+	    	li {
+		    	font-size: 12px;
+		    	margin-top: 6px;
+		    	a {
+		    		color: $white;
+		    		&:hover {
+		    			color: $coral;
+		    		}
+		    	}
+		    }
+	    }
+	    .list-title {
+	    	color: #EEE;
+	    	font-size: 12px;
+		    font-weight: 400;
+	    	margin-top: 0;
+	    }
+	}
+}
+
+
+
 .mobile-nav-toggle {
 	background-color: transparent;
 	display: none;
 	padding: 0;
 	position: fixed;
 	right: 30px;
-	top: 35px;
+	top: 70px;
 	.icon-bar {
 		background-color: $green;
 		display: block;
@@ -108,6 +214,7 @@ nav {
 		margin-top: 12px;
 	}
 	&.expanded {
+		top: 35px;
 		.icon-bar {		
 			&:nth-child(1) {
 	    		position: absolute;
@@ -120,6 +227,10 @@ nav {
 	    	}
 		}
 	}
+}
+
+nav.sticky + .mobile-nav-toggle {
+	top: 35px;
 }
 
 body.mobile-nav-open {
@@ -137,6 +248,7 @@ body.mobile-nav-open {
 			position: absolute;
 			height: 100vh;
 			overflow: scroll;
+			top: 0;
 			.nav-container {
 				.main-nav {
 					display: block;
@@ -174,6 +286,23 @@ body.mobile-nav-open {
 		&.expanded {
 			.icon-bar {
 				background-color: $white;
+			}
+		}
+	}
+	.ocha-header {
+		padding: 0 30px;
+		.ocha-services-menu-container {
+			.ocha-services-menu {
+				flex-flow: column;
+				padding: 0 30px;
+			}
+		}
+		.dropdown-menu {
+			.list-title {
+				margin-top: 20px;
+				&.list-title-empty {
+					display: none;
+				}
 			}
 		}
 	}
