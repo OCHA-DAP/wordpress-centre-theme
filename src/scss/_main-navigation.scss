@@ -199,10 +199,12 @@ nav {
 .mobile-nav-toggle {
 	background-color: transparent;
 	display: none;
+	height: 40px;
 	padding: 0;
 	position: fixed;
 	right: 30px;
-	top: 70px;
+	top: 60px;
+	width: 40px;
 	.icon-bar {
 		background-color: $green;
 		display: block;
@@ -214,7 +216,8 @@ nav {
 		margin-top: 12px;
 	}
 	&.expanded {
-		top: 35px;
+		right: 30px;
+		top: 30px;
 		.icon-bar {		
 			&:nth-child(1) {
 	    		position: absolute;
@@ -222,8 +225,9 @@ nav {
 	    		transform: rotate(45deg);
 	    	}
 			&:nth-child(2) {
-	    		transform: rotate(-45deg);
 	    		position: absolute;
+	    		top: 0;
+	    		transform: rotate(-45deg);
 	    	}
 		}
 	}
@@ -245,9 +249,9 @@ body.mobile-nav-open {
 		padding: 20px 30px 10px;
 		position: fixed;
 		&.active {
-			position: absolute;
-			height: 100vh;
-			overflow: scroll;
+			position: fixed;
+			height: 100%;
+			overflow-y: scroll;
 			top: 0;
 			.nav-container {
 				.main-nav {
