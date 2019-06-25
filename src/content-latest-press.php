@@ -17,7 +17,6 @@ $the_link = get_the_permalink();
 	<div class='content-block--inner <?= $category_class ?>'>
 		<div class='category-tag'><?= $category_name ?></div>
 		<div class='content-block--content'>
-			<div class='category'><?= $category_name ?></div>
 			<?= the_content(); ?>
 			<span class='source'>by <?= the_title(); ?></span>
 		</div>

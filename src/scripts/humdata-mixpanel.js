@@ -13,6 +13,11 @@
 		}
 	}
 
+	//track ocha header link clicks
+	$('.ocha-services-menu a').on('click', function(event) {
+		trackLink($(this), 'ocha-header', 'blank');
+    });
+
 	//track main nav link clicks
 	$('.main-nav a').on('click', function(event) {
 		trackLink($(this), 'main-nav');
@@ -23,17 +28,27 @@
 		trackLink($(this), 'footer');
     });
 
-    function trackLink(link, type) {
+    //track blog links to pdf files
+	$('.single-post a').on('click', function(event) {
+		var destURL = $(this).attr('href');
+		var fileType = destURL.substr(destURL.lastIndexOf(".")+1)
+		if (fileType=='pdf') trackLink($(this), 'blog');
+    });
+
+    function trackLink(link, type, target) {
     	var destURL = $(link).attr('href');
-        var cb = generate_callback($(link));
+        var cb = generate_callback($(link), target);
         event.preventDefault();
         mixpanel.track('link click', { 'destionation url': destURL, 'link type': type, 'page title': document.title }, cb);
         setTimeout(cb, 500);
     }
 
-    function generate_callback(a) {
+    function generate_callback(a, target) {
         return function() {
-            window.location = a.attr('href');
+        	if (target=='blank')
+        		window.open(a.attr('href'));
+        	else
+           		window.location = a.attr('href');
         }
     }
 
@@ -54,6 +69,12 @@
     $('.category .dataviz a, .dataviz-title a').on('click', function() {
     	var title = ($(this).parent().hasClass('t-entry-title')) ? $(this).find('span').text() : $(this).closest('.dataviz').parent().find('.t-entry .t-entry-title span').text();
 		mpTrack.pageView(title, 'dataviz');
+    });
+
+    //track dataviz views on category page
+    $('.category .announcement a, .announcement-title a').on('click', function() {
+    	var title = ($(this).parent().hasClass('t-entry-title')) ? $(this).find('span').text() : $(this).closest('.announcement').parent().find('.t-entry .t-entry-title span').text();
+		mpTrack.pageView(title, 'announcement');
     });
 
     //track article views on category page
