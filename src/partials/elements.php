@@ -1282,7 +1282,8 @@ if (!function_exists('uncode_create_single_block')) {
 			}
 
 			//anchor tag moved here to only link the t-overlay-content elements
-			$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			//$output .= '<a name="tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			$output .= '<a name="tabindex="-1" href="'.$create_link.'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
 
 			$output .= '<div class="t-overlay-content">
 							<div class="t-overlay-text '.$block_data['text_padding'].'">';
@@ -1339,7 +1340,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 
 						$output .= 			'<a href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>
-												<div class="t-background-cover'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>
+												<div class="t-background-cover 1'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>
 											</a>';
 
 					else:
@@ -1356,13 +1357,13 @@ if (!function_exists('uncode_create_single_block')) {
 							}
 							else if ($post_format === 'image') {
 								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $block_data['id'] ), 'single-post-thumbnail' ); 
-								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+								$output .= '<div class="t-background-cover 2 '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 							else if (($post_category === 'impactstory') && ($single_text === 'under')) {
-								$output .= '<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+								$output .= '<a href="'.$title_link.'"><div class="t-background-cover 3 default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							}
 							else {
-								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+								$output .= '<div class="t-background-cover 4 '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 
 						else:
@@ -1374,7 +1375,7 @@ if (!function_exists('uncode_create_single_block')) {
 								if (strpos($item_media, 'docs.hdx.rwlabs.org')!== false)
 									$item_media = get_stylesheet_directory_uri() . '/assets/default.svg';
 					
-								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover 5 default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 								//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;

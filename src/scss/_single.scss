@@ -200,6 +200,39 @@
 	.single-block-padding {
 		padding: 20px 0;
 	}
+	.t-entry-meta {
+		display: none;
+	}
+	.tmb .t-entry .t-entry-title {
+		color: #FFF;
+    font-size: 16px;
+		padding-left: 15px;
+    text-decoration: underline;
+	}
+	.single-block-padding {
+		padding: 0;
+	}
+	.t-entry-visual {
+		&.dataviz {
+			.t-overlay-content {
+				padding: 0 20px;
+				top: 0;
+			}
+			.t-overlay-text {
+				padding-right: 0px !important;
+			}
+			.t-entry {
+				p {
+					&.author,
+					&.title {
+						font-size: 16px;
+						line-height: 19px;
+    				text-decoration: underline;
+    			}
+				}
+			}
+		}
+	}
 }
 
 div[class*=sharer-].share-button .social ul li {

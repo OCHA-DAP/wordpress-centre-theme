@@ -368,12 +368,23 @@
 	}
 }
 
+.sticky-sidebar {
+	margin-left: 1px;
+}
+
 //related posts styles
 .post-body .post-after {
 	.heading-text h5 {
 		font-family: Stag-Medium;
     	font-size: 20px;
     	text-transform: none;
+	}
+	.t-overlay-content {
+		bottom: 10px;
+		width: 100%;
+	}
+	.tmb .t-entry .t-entry-title {
+		padding-bottom: 5px;
 	}
 }
 
