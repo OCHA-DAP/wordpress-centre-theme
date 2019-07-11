@@ -30,12 +30,14 @@
 
     //track blog links to pdf files
 	$('.single-post a').on('click', function(event) {
+		// var fileType = destURL.substr(destURL.lastIndexOf(".")+1)
+		// if (fileType=='pdf') trackLink($(this), 'blog', target);
 		var destURL = $(this).attr('href');
-		var fileType = destURL.substr(destURL.lastIndexOf(".")+1)
-		if (fileType=='pdf') trackLink($(this), 'blog');
+		mixpanel.track('link click', { 'destionation url': destURL, 'link type': 'blog', 'page title': document.title });
     });
 
     function trackLink(link, type, target) {
+    	console.log('trackLink', target)
     	var destURL = $(link).attr('href');
         var cb = generate_callback($(link), target);
         event.preventDefault();

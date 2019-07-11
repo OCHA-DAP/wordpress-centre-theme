@@ -1,5 +1,4 @@
 (function($) {
-
 	$('.ocha-services').on('click', function() {
 		$('.ocha-header .dropdown-menu').toggle();
 	});
