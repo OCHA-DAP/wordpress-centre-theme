@@ -806,7 +806,7 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
                 </p>
               </div>
             <?php else: ?>
-              <div class="tmb tmb-iso-w12 tmb-iso-h1"><p class="t-entry-title"><?php esc_html_e( "Nothing found.", "uncode" ) ?></p></div>
+              <div class="tmb tmb-iso-w12 tmb-iso-h1"><p class="t-entry-title"><?php esc_html_e( "No related links.", "uncode" ) ?></p></div>
             <?php endif; ?>
         <?php endif; ?>
       </div>

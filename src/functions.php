@@ -61,17 +61,23 @@ require_once( get_stylesheet_directory(). '/partials/headers.php' );
 
 //get first image in post content
 function catch_that_image($postid) {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_post_field('post_content', $postid), $matches);
-  $first_img = $matches [1] [0];
+  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postid ), 'single-post-thumbnail' )[0];
+  if ($image == '') {
+    global $post, $posts;
+    $first_img = '';
+    ob_start();
+    ob_end_clean();
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_post_field('post_content', $postid), $matches);
+    $first_img = $matches [1] [0];
 
-  if(empty($first_img)){ //Defines a default image
-    $first_img = get_stylesheet_directory_uri() . '/assets/default.svg';
+    if(empty($first_img)){ //Defines a default image
+      $first_img = get_stylesheet_directory_uri() . '/assets/default.svg';
+    }
+    return $first_img;
   }
-  return $first_img;
+  else {
+    return $image;
+  }
 }
 
 

@@ -11,6 +11,8 @@
 	$('nav').css('z-index', 1001);
 	$('.mobile-nav-toggle').css('z-index', 1002);
 	$('.ocha-header .dropdown-menu').css('z-index', 1003);
+	$('.post-body .post-after .tmb .t-entry-visual .t-entry-visual-overlay').css('z-index', 4);
+	$('.post-body .post-after .tmb .t-entry-visual .t-overlay-wrap').css('z-index', 5);
 
 	//capture search term
 	var searchTerm = window.location.href.split('s=')[1];
