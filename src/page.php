@@ -331,7 +331,7 @@ get_header();
 				$vc = new Vc_Base();
 				$vc->addShortcodesCustomCss($content_block_after);
 			}
-			if (has_shortcode($content_after_body, 'vc_row')) $content_after_body = '<div class="post-after row-container">' . $content_after_body . '</div>';
+			if (has_shortcode($content_after_body, 'vc_row')) $content_after_body = '<div class="post-after row-container"'.$page_custom_width.'>' . $content_after_body . '</div>';
 			else $content_after_body = '<div class="post-after row-container">' . uncode_get_row_template($content_after_body, $limit_width, $limit_content_width, $style, '', false, true, 'double', $page_custom_width) . '</div>';
 			if (class_exists('RP4WP_Post_Link_Manager')) {
 				$automatic_linking_post_amount = RP4WP::get()->settings->get_option( 'automatic_linking_post_amount' );

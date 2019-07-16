@@ -200,6 +200,71 @@
 	.single-block-padding {
 		padding: 20px 0;
 	}
+	.t-entry-meta {
+		display: none;
+	}
+	.tmb .t-entry .t-entry-title {
+		color: #FFF;
+    font-size: 16px;
+		padding-left: 15px;
+    text-decoration: underline;
+	}
+	.single-block-padding {
+		padding: 0;
+	}
+	.t-entry-visual {
+		&.dataviz {
+			.t-overlay-content {
+				padding: 0 20px;
+				top: 0;
+			}
+			.t-overlay-text {
+				padding-right: 0px !important;
+			}
+			.t-entry {
+				img {
+					margin-bottom: 0;
+				}
+				p {
+					&.title {
+						font-size: 16px;
+						line-height: 19px;
+						margin-top: 7px;
+    				text-decoration: underline;
+						display: -webkit-box;
+				    -webkit-line-clamp: 2;
+				    -webkit-box-orient: vertical;
+				    overflow: hidden;
+    			}
+					&.author {
+						display: none;
+					}
+				}
+			}
+		}
+		&.video {
+			iframe {
+				width: 100%;
+			}
+		}
+		&.casestudy {
+			.t-overlay-content {
+				top: auto;
+			}
+			.t-entry {
+				p {
+					font-size: 16px;
+					line-height: 19px;
+					margin-bottom: 0 !important;
+					margin-left: 15px;
+					display: -webkit-box;
+			    -webkit-line-clamp: 5;
+			    -webkit-box-orient: vertical;
+			    overflow: hidden;
+				}
+			}
+		}
+	}
 }
 
 div[class*=sharer-].share-button .social ul li {
