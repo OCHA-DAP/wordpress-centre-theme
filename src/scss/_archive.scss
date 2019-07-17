@@ -103,6 +103,13 @@
 			@include bg-gradient-solid(#0008c4, #007be0);
 		}
 	}
+	.t-entry-text {
+		.dataviz-title {				
+			.archive-category {
+				margin-top: 0;
+			}
+		}
+	}
 	.t-entry-title {
 		a {
 			span {
