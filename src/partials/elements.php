@@ -851,7 +851,7 @@ if (!function_exists('uncode_create_single_block')) {
 					}
 					$get_the_post_type = ucfirst($get_the_post_type);
 					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
-					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title 6 '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
@@ -1282,8 +1282,10 @@ if (!function_exists('uncode_create_single_block')) {
 			}
 
 			//anchor tag moved here to only link the t-overlay-content elements
-			//$output .= '<a name="tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
-			$output .= '<a name="tabindex="-1" href="'.$create_link.'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			//$output .= '<a tabindex="-1" href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			
+			if ($post_category!=='dataviz') $output .= '<a name="" tabindex="-1" href="'.$create_link.'"'.((count($a_classes) > 0 ) ? ' class="2 '.' ' .trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>';
+			
 
 			$output .= '<div class="t-overlay-content">
 							<div class="t-overlay-text '.$block_data['text_padding'].'">';
@@ -1310,7 +1312,8 @@ if (!function_exists('uncode_create_single_block')) {
 
 			endif;
 
-			$output .= 						'</div></div></a></div></div>';
+			if ($post_category!=='dataviz') $output .= 						'</div></div></a></div></div>';
+			else $output .= 						'</div></div></div></div>';
 
 			endif;
 
