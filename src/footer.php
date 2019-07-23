@@ -120,7 +120,6 @@ $menu_list .= '</ul>';
 		            <div class="social-footer">
 		              <div class="terms">
 		                <a href="<?php echo get_site_url() . '/category/blog/' ?>">Blogs</a>
-		                <a href="<?php echo get_site_url() . '/volunteer/' ?>">Volunteer</a>
 		                <a href="<?php echo get_site_url() . '/contact-us' ?>">Contact Us</a>
 		                <div class="social-actions">
 		                  <a href="http://www.twitter.com/humdata" title="Twitter"><i class="fa fa-twitter"></i></a>
