@@ -833,9 +833,10 @@ if (!function_exists('uncode_create_single_block')) {
 									else {
 										$author = get_post_field( 'post_author', $block_data['id'] );
 										$author_name = get_the_author_meta( 'display_name', $author );
+										$date = get_the_date( '', $block_data['id'] );
 										$target = ($post_category === 'dataviz' || $post_category === 'announcement') ? 'blank' : '_self';
 										$author_info = ($post_category === 'slideshow') ? 'by ' . $author_name : '';
-										$inner_entry .= '<h6 class="archive-category">'.$the_category.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
+										$inner_entry .= '<h6 class="archive-category">'.$the_category.' | ' .$date.'</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
 									}
 								}
 							}
