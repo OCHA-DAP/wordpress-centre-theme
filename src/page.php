@@ -366,7 +366,7 @@ get_header();
 							$parse_query = uncode_parse_loop_data($archive_query);
 							$parse_query['by_id'] = implode(',', $related_posts_ids);
 							if (!isset($parse_query['order'])) $parse_query['order'] = 'none';
-							$parse_query['post_type'] = $post->post_type;
+							//$parse_query['post_type'] = $post->post_type;
 							$archive_query = ' loop="' . uncode_unparse_loop_data($parse_query) . '"';
 						}
 						$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
