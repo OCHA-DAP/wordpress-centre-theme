@@ -321,12 +321,15 @@ get_header();
 			$generic_content_block_after = ot_get_option('_uncode_' . $post_type . '_content_block_after');
 			$content_block_after = $generic_content_block_after !== '' ? $generic_content_block_after : false;
 		} else {
+			echo "<script> console.log('PHP: 2');</script>";
 			$content_block_after = $page_content_block_after !== 'none' ? $page_content_block_after : false;
 		}
 
 		if ($content_block_after !== false) {
 			$content_block_after = apply_filters( 'wpml_object_id', $content_block_after, 'post' );
+
 			$content_after_body = get_post_field('post_content', $content_block_after);
+			
 			if (class_exists('Vc_Base')) {
 				$vc = new Vc_Base();
 				$vc->addShortcodesCustomCss($content_block_after);
@@ -341,6 +344,7 @@ get_header();
 				foreach ($related_posts as $key => $value) {
 					if (isset($value->ID)) $related_posts_ids[] = $value->ID;
 				}
+
 				$archive_query = '';
 				$regex = '/\[uncode_index(.*?)\]/';
 				$regex_attr = '/(.*?)=\"(.*?)\"/';
@@ -366,7 +370,7 @@ get_header();
 							$parse_query = uncode_parse_loop_data($archive_query);
 							$parse_query['by_id'] = implode(',', $related_posts_ids);
 							if (!isset($parse_query['order'])) $parse_query['order'] = 'none';
-							$parse_query['post_type'] = $post->post_type;
+							//$parse_query['post_type'] = $post->post_type;
 							$archive_query = ' loop="' . uncode_unparse_loop_data($parse_query) . '"';
 						}
 						$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
