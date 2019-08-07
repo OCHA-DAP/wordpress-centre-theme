@@ -358,6 +358,27 @@
 	});
 
 
+	//*********** SLICK SLIDESHOWS ***********//
+	function initSlickSlideshow() {
+	    $('.slick-slideshow').slick({
+  			dots: true,
+  			slidesToShow: 3,
+  			slidesToScroll: 3,
+			responsive: [
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						dots: true
+					}
+				}
+			]
+	    });
+	 }
+	 initSlickSlideshow();
+
+
 	//*********** CAROUSEL YOUTUBE PLAYERS ***********//
 	// var playerDivs = document.querySelectorAll('.video');
 	// var playerDivsArr = [].slice.call(playerDivs);
