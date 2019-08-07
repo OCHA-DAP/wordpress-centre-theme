@@ -37,6 +37,10 @@
 		var block = $('.home').find('.content-block--inner');
 		var blockSize = block.width();
 		block.css('height', blockSize);
+		setTimeout(function() {
+ 			$('.slick-slideshow').css('opacity', 1);
+		}, 1500);
+		
 
 		var archiveBlock = $('.category-article, .category-case-study').find('.t-inside');
 		var archiveBlockWidth = archiveBlock.width() + 'px';

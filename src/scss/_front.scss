@@ -52,6 +52,9 @@
 		h6 {
 			margin-top: 20px;
 		}
+		a {
+			color: $white;
+		}
 		a > p,
 		p {
 			color: $white;
@@ -255,6 +258,14 @@
 
 
 .latest-carousel {
+	.content-block--inner {
+		&.video {
+			p {
+				height: 100%;
+				margin: 0;
+			}
+		}
+	}
 	.slick-slideshow {
 		margin-left: -36px;
 		.slick-list {
@@ -288,6 +299,11 @@
 			}
 		} 
 	}
+}
+
+.slick-slideshow {
+	opacity: 0;
+	transition: all 0.3s;
 }
 
 
