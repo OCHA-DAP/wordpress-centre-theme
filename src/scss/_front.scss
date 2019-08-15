@@ -279,15 +279,18 @@
 	.slick-dots {
 		bottom: -40px;
 		left: 50%;
+		margin-left: 18px;
 		position: absolute;
 		transform: translateX(-50%);
 		li {
-			margin: 0 7px;
+			height: 10px;
+			margin: 0 5px;    
+   			width: 10px;
 			button {
 				background-color: #acacac;
 				border-radius: 50%;
-				height: 15px;
-				width: 15px;
+				height: 10px;
+				width: 10px;
 				&:before {
 					color: transparent;
 				}
@@ -298,6 +301,15 @@
 				}
 			}
 		} 
+	}
+	.slide-overlay {
+		display: none;
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	    background-color: rgba(0,0,0,0);
+	    bottom: 0;
+	    right: 0;
 	}
 }
 
@@ -341,8 +353,12 @@ a.underline {
 	}
 }
 
-
 @media (max-width: $screen-sm) {
+	.latest-carousel {
+		.slide-overlay {
+			display: block;
+		}
+	}
 	.latest-stories-module,
 	.latest-press-module {
 		padding: 40px 0;
