@@ -24,6 +24,9 @@ nav {
 			}
 		}
 	}
+	&.sticky + .mobile-nav-toggle {
+		top: 25px;
+	}
 	&.active {
 		background-color: rgba(0,0,0,0.9);
 		.nav-container {
@@ -231,10 +234,6 @@ nav {
 	    	}
 		}
 	}
-}
-
-nav.sticky + .mobile-nav-toggle {
-	top: 35px;
 }
 
 body.mobile-nav-open {

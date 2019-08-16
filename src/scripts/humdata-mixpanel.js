@@ -97,7 +97,15 @@
 	var players = new Array(playerDivsArr.length);
 
 	// create yt players
-	onYouTubeIframeAPIReady();
+	readyYoutube()
+	function readyYoutube(){
+	    if ((typeof YT !== "undefined") && YT && YT.Player){
+	        onYouTubeIframeAPIReady();
+	    }
+	    else {
+	        setTimeout(readyYoutube, 100);
+	    }
+	}
 	function onYouTubeIframeAPIReady() {
 	  playerDivsArr.forEach(function(e, i) { 
 	  	var iframeID = $(e).find('iframe').attr('id');

@@ -28,7 +28,7 @@ get_header();
 
 $latest_stories_args = array (
 	'cat' => array(3, 105, 98, 110, 145, 200, 268), //blog, dataviz, video, slideshow, impact story, announcement
-	'posts_per_page' => 3, 
+	'posts_per_page' => 6, 
 	'orderby' => 'date'  
 );
 
@@ -72,16 +72,12 @@ if ($latest_posts->have_posts()) :
 	}
 ?>
 
-	<section class='latest-stories-module'>
+	<section class='latest-stories-module latest-carousel'>
 		<h3>Latest Stories</h3>
-		<div class='row-container'>
-			<div class='row'>
-				<div class='row-inner'>
-					<?php while ($latest_posts->have_posts()) : $latest_posts->the_post();
-						get_template_part( 'content', 'latest-stories' );
-					endwhile; ?>
-				</div>
-			</div>
+		<div class='slick-slideshow'>
+			<?php while ($latest_posts->have_posts()) : $latest_posts->the_post();
+				get_template_part( 'content', 'latest-stories' );
+			endwhile; ?>
 		</div>
 	</section>
 
@@ -93,21 +89,17 @@ if ($latest_posts->have_posts()) :
 **/
 $press_args = array (
 	'cat' => array(2,101), //article, case study
-	'posts_per_page' => 3
+	'posts_per_page' => 6
 );
 
 $latest_press = new WP_query($press_args);
 if ($latest_press->have_posts()) : ?>
-	<section class='latest-press-module'>
+	<section class='latest-press-module latest-carousel'>
 		<h3>Latest Press</h3>
-		<div class='row-container'>
-			<div class='row'>
-				<div class='row-inner'>
-					<?php while ($latest_press->have_posts()) : $latest_press->the_post();
-						get_template_part( 'content', 'latest-press' );
-					endwhile; ?>
-				</div>
-			</div>
+		<div class='slick-slideshow''>
+			<?php while ($latest_press->have_posts()) : $latest_press->the_post();
+				get_template_part( 'content', 'latest-press' );
+			endwhile; ?>
 		</div>
 	</section>
 <?php endif;
