@@ -28,6 +28,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 <html class="<?php echo esc_attr($html_class); ?>" <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>">
+<meta property="og:image" content="https://centre.humdata.org/wp-content/themes/uncode-child/assets/centreforHumdata_OG.png">
 <?php if (wp_is_mobile()): ?>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <?php else: ?>

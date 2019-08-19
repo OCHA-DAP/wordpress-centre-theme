@@ -26,6 +26,9 @@ $item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : 
 //format post media
 $post_media = ($category_name==='Video' || $category_name==='Slideshow' || $category_name==='Dataviz') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
 
+if ($category_name==='Video')
+	$post_media = '<div class="slide-overlay"></div>' . $post_media;	
+
 //configure link target
 $link_target = ($category_name==='Dataviz' || $category_name==='Announcement') ? '_blank' : '_self';
 
