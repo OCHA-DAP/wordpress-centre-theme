@@ -368,8 +368,11 @@ a.underline {
 			padding: 0 24px;
 		}
 	}
-	.main-container .row-inner .content-block {
-		margin: 0;
+	.main-container .row-inner {
+		width: 100%;
+		.content-block {
+			margin: 0;
+		}
 	}
 	.twitter-module {
 		padding: 20px;

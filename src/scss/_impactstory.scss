@@ -252,6 +252,12 @@
 
 
 @media (max-width: $screen-md) { 
+	.page-template-impactstory {
+		.header-title {
+		    font-size: 32px;
+		    line-height: 36px;
+		}
+	}
 	.impact-story {
 		.post-content {
 			.conclusion {
@@ -266,14 +272,19 @@
 }
 
 @media (max-width: $screen-sm) { 
+	.page-template-impactstory {
+		.header-title {
+			bottom: 30px;
+		    font-size: 26px;
+		    line-height: 28px;
+		    padding: 0 20px;
+		}
+	}
 	.impact-story {
 		.post-content {
 			#mc_embed_signup {
 				padding: 0;
 			}
-		}
-		.visuals-gallery {
-			height: 350px;
 		}
 	}
 }
