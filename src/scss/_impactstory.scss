@@ -1,16 +1,31 @@
 .page-template-impactstory {
-	.header-content-inner {
-		position: relative;
-		.header-subtitle {
-			margin-bottom: 30px;
+	.header-main-container {
+		.header-content {
+			.header-content-inner {
+				position: relative;
+				.header-subtitle {
+					margin-bottom: 30px;
+				}
+				.header-title {
+					margin-top: 10px;
+				}
+			}
 		}
 	}
-	.header-title {
+	.header-container {
 		bottom: 55px;
-		color: white;
-		font-size: 54px;
 		padding: 0 40px;
 		position: absolute;
+		.header-category,
+		.header-title {
+			color: white;
+		}
+		.header-category {
+			font-size: 18px;
+		}
+		.header-title {
+			font-size: 54px;
+		}
 	}
 }
 
