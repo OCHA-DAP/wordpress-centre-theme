@@ -268,9 +268,11 @@
 
 @media (max-width: $screen-md) { 
 	.page-template-impactstory {
-		.header-title {
-		    font-size: 32px;
-		    line-height: 36px;
+		.header-container {
+			.header-title {
+			    font-size: 32px;
+			    line-height: 36px;
+			}
 		}
 	}
 	.impact-story {
@@ -288,11 +290,16 @@
 
 @media (max-width: $screen-sm) { 
 	.page-template-impactstory {
-		.header-title {
+		.header-container {
 			bottom: 30px;
-		    font-size: 26px;
-		    line-height: 28px;
 		    padding: 0 20px;
+		    .header-category {
+		    	font-size: 14px;
+		    }
+			.header-title {
+			    font-size: 20px;
+			    line-height: 24px;
+			}
 		}
 	}
 	.impact-story {
@@ -300,6 +307,11 @@
 			#mc_embed_signup {
 				padding: 0;
 			}
+		}
+		.author-info {
+			h5 {
+				font-size: 14px;
+			}	
 		}
 	}
 }
