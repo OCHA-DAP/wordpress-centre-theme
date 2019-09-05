@@ -115,7 +115,7 @@ if (is_front_page()) { ?>
 				<div class='col-lg-2'></div>
 				<div class='col-lg-7'>
 					<div class='tweet'>
-						<div class='fa fa-twitter twhite' aria-hidden='true'></div>
+						<a href='http://www.twitter.com/humdata' target='_blank'><div class='fa fa-twitter twhite' aria-hidden='true'></div></a>
 						<div class='tweet-content'>
 							<p class='tweet-text'><span></span></p>
 							<p class='author'></p>

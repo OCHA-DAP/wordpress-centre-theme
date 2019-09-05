@@ -1,101 +1,137 @@
-.impact-story {
-	.post-content {
-		margin-bottom: 60px;
-		.row-inner:first-child {
-			p:first-child {
-				font-family: $font-serif-medium;
-				font-size: 24px;
-			}
-		}
-		.conclusion {
-			background-color: $lightteal;
-			padding: 0 0 20px;
-			margin: 70px -36px 35px;
-		}
-	}
-	.sidebar,
-	.sidebar-related {
-		> div {
-			border-top: 1px solid $graycc;
-			margin-top: 18px;
-			padding-top: 12px;
-			padding-left: 12px;
-			position: relative;
-			text-align: right;
-		}
-		h5 {
-			font-size: 14px;
-			margin-top: 0;
-		}
-		a {
-			font-size: 14px;
-			font-weight: 700;
-		}
-		.fa {
-			margin-left: 2px;
-			vertical-align: -1px;
-		}
-		.label {
-			position: absolute;
-			top: 20px;
-			left: 12px;
-		}
-		.services {
-			margin-left: 100px;
-		}
-		.tags {
-			list-style-type: none;
-			margin-top: 0;
-			a {
-				background-color: $coral;
-				color: $white;
-				padding: 5px 10px;
-				text-transform: uppercase;
-				&:hover {
-					background-color: darken($coral, 20%);
+.page-template-impactstory {
+	.header-main-container {
+		.header-content {
+			.header-content-inner {
+				position: relative;
+				.header-subtitle {
+					margin-bottom: 30px;
+				}
+				.header-title {
+					margin-top: 10px;
 				}
 			}
 		}
-		.links {
+	}
+	.header-container {
+		bottom: 55px;
+		padding: 0 40px;
+		position: absolute;
+		.header-category,
+		.header-title {
+			color: white;
+		}
+		.header-category {
+			font-size: 18px;
+		}
+		.header-title {
+			font-size: 54px;
+		}
+	}
+}
+
+.impact-story {
+	.post-content {
+		margin-bottom: 60px;
+	}
+	.summary {
+		font-weight: bold;
+		font-size: 20px;
+	}
+	.tags {
+		display: inline-block;
+		margin-bottom: 5px;
+		ul {
+			display: flex;
 			list-style-type: none;
 			margin-top: 0;
 			padding-left: 0;
-			a {
-				color: $black;
-				display: block;
-				font-family: $font-serif-book;
-				font-size: 18px;
-				font-weight: 400;
-				line-height: 22px;
-				text-decoration: underline;
+			li {
+				line-height: inherit;
+				&::after {
+    				color: #666;
+					content: '|';
+					font-size: 16px;
+					padding: 0 8px;
+				}
+				&:last-child {
+					&::after {
+						content: '';
+					}
+				}
 			}
-			h6 {
-				color: $gray88;
-				font-size: 12px;
-				text-transform: uppercase;
+		}
+		a {
+			text-transform: uppercase;
+		}
+	}
+	h5 {
+		font-size: 14px;
+		margin-top: 0;
+		&.label {
+			display: inline-block;
+		}
+	}
+	p {
+		margin-top: 18px;
+	}
+	.story-info a {
+		font-size: 14px;
+		font-weight: 700;
+	}
+	.fa {
+		margin-left: 2px;
+		vertical-align: -1px;
+	}
+	.wp-caption {
+		margin-bottom: 36px;
+	}
+	.wp-caption-text {
+		color: #777;
+		font-size: 12px;
+		.media-credit {
+			color: inherit;
+			display: inline-block;
+			font-size: inherit;
+			font-style: italic;
+			margin: 0;
+			&::before {
+				content: '(Photo Credit: ';
+			}
+			&::after {
+				content: ')';
 			}
 		}
 	}
-	.sidebar {
-		top: 60px;
-	}
-	.sidebar-related {
-		> div {
-			border-bottom: 1px solid $graycc;
-			padding-bottom: 36px;
-			text-align: left;
+	.links {
+		list-style-type: none;
+		margin-top: 0;
+		padding-left: 0;
+		a {
+			color: $black;
+			display: block;
+			font-family: $font-serif-book;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 22px;
+			text-decoration: underline;
 		}
-	}
-	.partner-log {
-		max-width: 84px;
+		h6 {
+			color: $gray88;
+			font-size: 12px;
+			text-transform: uppercase;
+		}
 	}
 	blockquote {
 		background-position: right 100%;
-		margin-top: 40px;
+		margin-top: 0;
+		margin-bottom: 45px;
 		text-align: left;
 	}
 	.author-info {
-		margin-bottom: 20px;		
+		margin: 10px 0 20px;	
+		h5 {
+			font-size: 18px;
+		}	
 		a {
 			color: $black;
 			&:hover {
@@ -106,7 +142,7 @@
 			margin-top: 0;
 		}
 		.social-links {
-			margin-top: 5px;
+			margin-top: 10px;
 			a {
 				color: $blue;
 				&:hover {
@@ -115,15 +151,24 @@
 			}
 		}
 		&.default {
-			margin-bottom: 50px;
+			margin-bottom: 18px;
+		}
+	}
+	.sidebar {
+		top: 60px;
+		> div {
+			padding-left: 15px;
 		}
 	}
 	.volunteer-signup {
-		padding-top: 94px;
+		background-color: $lightteal;
+		margin-bottom: 90px;
+		padding: 15px 20px;
 		> p {
 			font-family: $font-serif-medium;
 			font-size: 16px;
 			line-height: 20px;
+			margin-top: 0;
 			margin-bottom: 8px;
 		}
 		input[type="email"] {
@@ -222,6 +267,14 @@
 
 
 @media (max-width: $screen-md) { 
+	.page-template-impactstory {
+		.header-container {
+			.header-title {
+			    font-size: 32px;
+			    line-height: 36px;
+			}
+		}
+	}
 	.impact-story {
 		.post-content {
 			.conclusion {
@@ -236,14 +289,29 @@
 }
 
 @media (max-width: $screen-sm) { 
+	.page-template-impactstory {
+		.header-container {
+			bottom: 30px;
+		    padding: 0 20px;
+		    .header-category {
+		    	font-size: 14px;
+		    }
+			.header-title {
+			    font-size: 20px;
+			    line-height: 24px;
+			}
+		}
+	}
 	.impact-story {
 		.post-content {
 			#mc_embed_signup {
 				padding: 0;
 			}
 		}
-		.visuals-gallery {
-			height: 350px;
+		.author-info {
+			h5 {
+				font-size: 14px;
+			}	
 		}
 	}
 }

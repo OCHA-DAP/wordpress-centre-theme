@@ -89,12 +89,12 @@ get_header();
 
 	/** Collect header data **/
 	if (isset($metabox_data['_uncode_header_type'][0]) && $metabox_data['_uncode_header_type'][0] !== '') {
-		$page_header_type = $metabox_data['_uncode_header_type'][0];
-		if ($page_header_type !== 'none') {
-			$meta_data = uncode_get_specific_header_data($metabox_data, $post_type, $featured_image);
-			$metabox_data = $meta_data['meta'];
-			$show_title = $meta_data['show_title'];
-		}
+		// $page_header_type = $metabox_data['_uncode_header_type'][0];
+		// if ($page_header_type !== 'none') {
+		// 	$meta_data = uncode_get_specific_header_data($metabox_data, $post_type, $featured_image);
+		// 	$metabox_data = $meta_data['meta'];
+		// 	$show_title = $meta_data['show_title'];
+		// }
 	} else {
 		$page_header_type = ot_get_option('_uncode_'.$post_type.'_header');
 		if ($page_header_type !== '' && $page_header_type !== 'none') {
@@ -147,11 +147,52 @@ get_header();
 											<h5 class="author">By Centre Team</h5>
 										</div>
 									<?php endif; ?>
-								
 
-									<?php if( get_field('summary') ): ?>
-										<?php the_field('summary'); ?>
+									<?php $partners = get_field('partners');
+										if( $partners ): ?>
+											<div class="story-info">
+												<h5 class="label">Partners:</h5>
+												<?php if( $partners['partner_url'] ): ?>
+													<a href="<?php echo $partners['partner_url']; ?>" target="_blank">
+												<?php endif;
+													echo $partners['partner_name'];
+												if( $partners['partner_url'] ): ?>
+													</a>
+												<?php endif; ?>
+											</div>
 									<?php endif; ?>
+
+									<?php $services = get_field('centre_service');
+										if( $services ): ?>
+											<div class="story-info">
+												<h5 class="label">Centre Service:</h5>
+												<span class="services">
+												<?php foreach( $services as $key=>$service ): ?>
+													<a href="<?php echo $service['value']; ?>"><?php echo $service['label']; ?></a><?php if ($key<count($services)-1) echo ', ';
+												endforeach; ?>
+												</span>
+											</div>
+									<?php endif; ?>
+									
+									<?php $terms = get_field('tags');
+										if( $terms ): ?>
+											<div class="story-info">
+												<h5 class="label">Tags:</h5>
+												<div class="tags">
+													<ul>
+														<?php foreach( $terms as $term ): ?>
+															<li><a href="<?php echo get_term_link( $term ); ?>"><?php echo $term->name; ?></a></li>
+														<?php endforeach; ?>
+													</ul>
+												</div>
+											</div>
+									<?php endif; ?>
+
+									<div class='summary'>
+										<?php if( get_field('summary') ): ?>
+											<?php the_field('summary'); ?>
+										<?php endif; ?>
+									</div>
 
 									<?php if( get_field('challenge') ): ?>
 										<h3>Challenge:</h3>
@@ -167,89 +208,21 @@ get_header();
 										<h3>Outcome:</h3>
 										<?php the_field('outcome'); ?>
 									<?php endif; ?>
+
+									<?php if( get_field('conclusion') ): ?>
+										<h3>Conclusion:</h3>
+										<?php the_field('conclusion'); ?>
+									<?php endif; ?>
 								</div>
 								
 								<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar">
-									<?php $partners = get_field('partners');
-										if( $partners ): ?>
-											<div>
-												<h5 class="label">Partners:</h5>
-												<?php if( $partners['partner_url'] ): ?>
-													<a href="<?php echo $partners['partner_url']; ?>" target="_blank">
-												<?php endif; ?>
-
-													<?php if( $partners['partner_logo']['url'] ): ?>
-														<img class="partner-logo" src="<?php echo $partners['partner_logo']['url']; ?>" />
-													<?php else: 
-														echo $partners['partner_name'];
-													endif; ?>
-												<?php if( $partners['partner_url'] ): ?>
-													</a>
-												<?php endif; ?>
-											</div>
-									<?php endif; ?>
-
-									<?php $story_type = get_field('impact_story_type');
-										if( $story_type ): ?>
-											<div>
-												<h5 class="label"><?php echo $story_type['type']; ?>:</h5>
-												<a href="<?php echo $story_type['name']['url']; ?>" target="_blank"><?php echo $story_type['name']['title']; ?><i class="fa fa-external-link" aria-hidden="true"></i></a>
-											</div>
-									<?php endif; ?>
-
-									<?php $services = get_field('centre_service');
-										if( $services ): ?>
-											<div>
-												<h5 class="label">Centre Service:</h5>
-												<div class="services">
-												<?php foreach( $services as $key=>$service ): ?>
-													<a href="<?php echo $service['value']; ?>"><?php echo $service['label']; ?></a><?php if ($key<count($services)-1) echo ', ';
-												endforeach; ?>
-												</div>
-											</div>
-									<?php endif; ?>
-
-									<!-- <div>
-										<h5 class="label">Tags:</h5>
-										<?php the_tags( '<ul class="tags"><li>', '</li><li>', '</li></ul>' ); ?>
-									</div> -->
-
-									
-									<?php $terms = get_field('tags');
-
-										if( $terms ): ?>
-											<div>
-												<h5 class="label">Tags:</h5>
-												<ul class="tags">
-
-													<?php foreach( $terms as $term ): ?>
-
-														<li><a href="<?php echo get_term_link( $term ); ?>"><?php echo $term->name; ?></a></li>
-
-													<?php endforeach; ?>
-
-												</ul>
-											</div>
-									<?php endif; ?>
-
-									<?php $quote = get_field('quote');
-										if( $quote['quote_text'] ): ?>
-											<div>
+									<div>
+										<?php $quote = get_field('quote');
+											if( $quote['quote_text'] ): ?>
 												<blockquote>“<?php echo $quote['quote_text']; ?>”<br><span>- <?php echo $quote['quote_author']; ?>, <?php echo $quote['quote_author_organization']; ?></span></blockquote>
-											</div>
-									<?php endif; ?>
-								</div>
-							</div>
-							<div class="row-inner">
-								<div class="pos-top pos-center align_left column_parent col-lg-12 boomapps_vccolumn single-internal-gutter">
-									<div class="row conclusion">
-										<div class="col-lg-8">
-											<?php if( get_field('conclusion') ): ?>
-												<h3>Conclusion:</h3>
-												<?php the_field('conclusion'); ?>
-											<?php endif; ?>
-										</div>
-										<div class="col-lg-4 volunteer-signup">
+										<?php endif; ?>
+
+										<div class="volunteer-signup">
 											<p>Want to know the latest about the Centre and HDX?<br>Sign up for our newsletter.</p>
 											<div id="mc_embed_signup">
 												<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -267,34 +240,8 @@ get_header();
 												</form>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row-inner">
-								<?php $images = get_field('visuals');
-									if( $images ): ?>
-										<div class="visuals-gallery">
-										    <ul class="visuals">
-										        <?php foreach( $images as $id=>$image ): ?>
-										            <li class="visual<?php if ($id==0) echo ' active' ?>">
-										                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-										                <p class="photo-credit"><?php echo $image['caption']; ?></p>
-										            </li>
-										        <?php endforeach; ?>
-										    </ul>
-											<ul class="dot-indicator">
-										        <?php foreach( $images as $id=>$image ): ?>
-													<li class="dot<?php if ($id==0) echo ' active' ?>"></li>
-										        <?php endforeach; ?>
-											</ul>
-											<div class="gallery-btn next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-											<div class="gallery-btn prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-									    </div>
-								<?php endif; ?>
 
-								<?php if( have_rows('related_content') ): ?>
-									<div class="pos-top pos-center align_left column_parent col-lg-4 boomapps_vccolumn single-internal-gutter sidebar-related">
-										<div>
+										<?php if( have_rows('related_content') ): ?>	
 											<h6>Related content:</h6>
 											<ul class="links">
 												<?php while( have_rows('related_content') ): the_row(); 
@@ -310,9 +257,10 @@ get_header();
 													</li>
 												<?php endwhile; ?>
 											</ul>
-										</div>
+										<?php endif; ?>
 									</div>
-								<?php endif; ?>
+
+								</div>
 							</div>
 						</div>
 					</div>
