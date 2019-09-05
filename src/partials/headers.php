@@ -143,8 +143,10 @@ if (!class_exists('unheader')) {
 							//show featured image if post type is page
 							if ( has_post_thumbnail() && $get_post_type==='page' ) {
 							    if (basename(get_page_template()) === 'impactstory.php') {
-							        $country_id = get_field('map_id');
-                                    $content_html .= '<iframe height="350" width="1024" frameborder="0" src="https://data.humdata.org/worldmap?id='.$country_id. '" style="height: 350px; width: 1024px; border: none;" class="featured-image"></iframe>';
+
+							    	$content_html .= '<img src="' . get_stylesheet_directory_uri() . '/assets/impactstory-pattern.jpg" />';
+							        // $country_id = get_field('map_id');
+               //                      $content_html .= '<iframe height="350" width="1024" frameborder="0" src="https://data.humdata.org/worldmap?id='.$country_id. '" style="height: 350px; width: 1024px; border: none;" class="featured-image"></iframe>';
                                 } else {
                                     $feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() );
                                     $image_credit = get_media_credit( get_post_thumbnail_id() );
@@ -160,7 +162,14 @@ if (!class_exists('unheader')) {
 								if ($page_title==='Impact Story') $page_title = 'Impact Stories';
 								if ($page_title==='Slideshow') $page_title = 'Slideshows';
 								if ($page_title==='Video') $page_title = 'Videos';
+
+							    if (basename(get_page_template()) === 'impactstory.php') {
+							    	$content_html .= '<div class="header-container"><h5 class="header-category">Impact Story</h5>';
+							    }
 								$content_html .= '<h1 class="header-title '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1><div class="search-container">' . get_search_form(false) . '</div>';
+								if (basename(get_page_template()) === 'impactstory.php') {
+							    	$content_html .= '</div>';
+							    }
 							} else {
 								if (isset($args['_uncode_header_text'][0]))
 								{

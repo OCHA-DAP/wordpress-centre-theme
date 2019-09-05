@@ -296,8 +296,15 @@
 }
 
 
-@media (max-width: $screen-sm) {
+@media (max-width: $screen-md) {
 	.site-footer {
+		.footer-last {
+			.site-info {
+				p.signup-text {
+					margin: 10px auto;
+				}
+			}
+		}
 		#menu-secondary {
 			margin-top: 0;
 			li {
@@ -317,6 +324,9 @@
 				}
 			}
 			.social-footer {
+				a {
+					padding: 0;
+				}
 				.terms {
 					flex-flow: column;
 					* {
@@ -327,10 +337,14 @@
 					}
 					.social-actions {
 						margin: 30px 0 0;
+						a {
+							padding: 0 5px;
+						}
 					}
 				}
 			}
 			.service-details {
+				align-items: center;
 				flex-flow: column;
 				.ocha-service {
 					align-items: center;
@@ -344,6 +358,10 @@
 				}
 				.license-group {
 					margin-top: 20px;
+					.license {
+						margin: 10px 10px 10px auto;
+						padding: 0;
+					}
 				}
 			}
 		}
