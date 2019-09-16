@@ -111,7 +111,7 @@
 	        $('.tweet .tweet-text span').html(val.tweet);
 	        //console.log(val.tweet, val.tweet.length)
 	        $('.tweet .author').html(val.author);
-	        $('.tweet a').attr('href',val.link);
+	        $('.tweet a:not(.twitter-logo)').attr('href',val.link);
         }
     }
 
