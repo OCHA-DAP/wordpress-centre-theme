@@ -190,6 +190,7 @@ get_header();
 
 									<div class='summary'>
 										<?php if( get_field('summary') ): ?>
+											<h3>Summary:</h3>
 											<?php the_field('summary'); ?>
 										<?php endif; ?>
 									</div>
