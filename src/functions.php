@@ -259,7 +259,7 @@ function gallery($att, $content = null)
   $str = '<div class="slideshow-container" id="'.$name.'">';
   $count = 0;
   foreach ($image_ids as $id) {
-    $str = $str .  '<img data-index="' . $count . '" src="' . wp_get_attachment_image_src( $id, 'slideshow-img')[0] . '">';
+    $str = $str .  '<img data-index="' . $count . '" src="' . wp_get_attachment_image_src( $id, 'large')[0] . '">';
     $count++;
   }
   $str = $str . '</div>';
@@ -294,8 +294,10 @@ function get_custom_templates(){
   add_post_type_support( 'post', 'page-attributes' );
 }
 
+/** Add custom size to support larger size images for slideshows **/
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'slideshow-img', 1600 );
+
 
 /**
  * Select target _blank by default.
