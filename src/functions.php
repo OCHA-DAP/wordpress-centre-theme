@@ -294,7 +294,6 @@ function get_custom_templates(){
   add_post_type_support( 'post', 'page-attributes' );
 }
 
-
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'slideshow-img', 1600 );
 
