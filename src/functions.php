@@ -260,9 +260,9 @@ function gallery($att, $content = null)
   $count = 0;
   foreach ($image_ids as $id) {
     $img = image_downsize( $id, 'slideshow-img');
-    
-    // if returned image is larger than 1600px wide, default to large size image
-    $img = ($img[1] > 1600) ? wp_get_attachment_image_src( $id, 'large')[0] : $img[0];
+
+    // if returned image is not an intermediate size (ie full size), default to large size image
+    $img = (!$img[3]) ? wp_get_attachment_image_src( $id, 'large')[0] : $img[0];
     $str = $str .  '<img data-index="' . $count . '" src="' . $img . '">';
     $count++;
   }
