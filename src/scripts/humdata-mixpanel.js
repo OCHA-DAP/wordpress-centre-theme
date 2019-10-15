@@ -20,7 +20,7 @@
 
 	//track main nav link clicks
 	$('.main-nav a').on('click', function(event) {
-		trackLink($(this), 'main-nav');
+		trackLink($(this), 'main nav');
     });
 
 	//track footer link clicks
