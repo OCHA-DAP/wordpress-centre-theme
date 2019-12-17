@@ -373,6 +373,10 @@ blockquote p {
 	.widget-container {
 		margin-left: 20px;
 		margin-right: 20px;
+		&.post-tag-container {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 	.post-wrapper .post-share {
 		padding-left: 20px;
@@ -387,6 +391,13 @@ blockquote p {
 	.comments-area {
 		padding-left: 20px;
 		padding-right: 20px;
+	}
+	blockquote,
+	blockquote p {
+		background-position: right bottom;
+	}
+	.box-container {
+		width: 100% !important;
 	}
 }
 
