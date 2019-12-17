@@ -324,3 +324,14 @@ function default_target_blank() {
 add_action( 'admin_footer-post-new.php', 'default_target_blank', 10, 0 );
 add_action( 'admin_footer-post.php', 'default_target_blank', 10, 0 );
 
+
+/**
+ * Exclude posts of category video from search engines
+ **/
+function wpse_filter() {
+  if ((is_singular() && in_category('video'))) {
+    print '<meta name="robots" content="noindex">';
+  }
+}
+add_action( 'wp_head', 'wpse_filter' );
+
