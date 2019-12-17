@@ -364,8 +364,29 @@ blockquote p {
 }
 
 @media (max-width: $screen-sm) {
-	.post-author img {
-		max-width: 72px;
+	.post-author {
+		padding: 0 20px;
+		img {
+			max-width: 72px;
+		}
+	}
+	.widget-container {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.post-wrapper .post-share {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.post-after {
+		.heading-text {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+	.comments-area {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
 
