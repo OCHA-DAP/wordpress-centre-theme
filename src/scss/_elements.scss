@@ -251,10 +251,12 @@ button.wdt-clear-filters-button {
 	label .wdt-checkbox-label {
 		font-size: 14px;
 	}
-	.dataTables_length,
-	.dataTables_filter {
-		label {
-			font-size: 15px;
+	.wpDataTablesWrapper {
+		.dataTables_length,
+		.dataTables_filter {
+			label {
+				font-size: 15px;
+			}
 		}
 	}
 	.bootstrap-select.btn-group .dropdown-toggle {
