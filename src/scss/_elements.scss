@@ -247,16 +247,23 @@ button.wdt-clear-filters-button {
 
 
 //wpdatatables styles
-.wpDataTable {
-	.wdt-checkbox-label {
+.wpDataTables {
+	label .wdt-checkbox-label {
 		font-size: 14px;
 	}
 	.dataTables_length,
 	.dataTables_filter {
-		font-size: 15px;
+		label {
+			font-size: 15px;
+		}
 	}
-	.bootstrap-select.btn-group .dropdown-toggle .filter-option {
-		text-align: center;
+	.bootstrap-select.btn-group .dropdown-toggle {
+		padding: 6px !important;
+		.filter-option {
+			margin: 0;
+			text-align: center;
+			width: 60px;
+		}
 	}
 	.bs-caret {
 		color: #000;
