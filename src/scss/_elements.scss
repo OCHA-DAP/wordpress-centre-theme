@@ -261,8 +261,15 @@ button.wdt-clear-filters-button {
 	.bs-caret {
 		color: #000;
 	}
-	.row-detail ul {
-		padding: 10px 18px 18px 18px;
+	.row-detail {
+		font-size: 14px;
+		ul {
+			padding: 10px 18px 18px 18px;
+			li {
+				font-size: 14px;
+				line-height: 18px;
+			}
+		}
 	}
 }
 
