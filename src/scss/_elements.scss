@@ -234,6 +234,37 @@ input{
     text-transform: capitalize;
 }
 
+button.wdt-clear-filters-button {
+	background-color: #F3F5F6;;
+	font-weight: normal !important;
+	&:hover {
+		background-color: #F1F1F1;
+	}
+	&:before {
+		padding-right: 6px;
+	}
+}
+
+
+//wpdatatables styles
+.wpDataTable {
+	.wdt-checkbox-label {
+		font-size: 14px;
+	}
+	.dataTables_length,
+	.dataTables_filter {
+		font-size: 15px;
+	}
+	.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+		text-align: center;
+	}
+	.bs-caret {
+		color: #000;
+	}
+	.row-detail ul {
+		padding: 10px 18px 18px 18px;
+	}
+}
 
 @media (max-width: $screen-md) {
 	.single {
