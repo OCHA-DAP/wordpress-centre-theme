@@ -272,14 +272,28 @@ button.wdt-clear-filters-button {
 			}
 		}
 	}
+	.wpDataTableFilterSection {
+		.wpdt-c .bootstrap-select .bs-searchbox:before {
+			top: 5px;
+		}
+		.type-post .post-content li {
+			margin-bottom: 0;
+		}
+		.bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
+			font-size: 14px;
+		}
+	}
 }
 
 .wpDataTablesWrapper {
 	.dataTables_length,
 	.dataTables_filter {
 		label {
-			font-size: 15px;
+			font-size: 15px !important;
 		}
+	}
+	table.wpDataTable td.column-model-name {
+		font-weight: 700;
 	}
 }
 
