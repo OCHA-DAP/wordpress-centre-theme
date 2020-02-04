@@ -276,6 +276,9 @@ button.wdt-clear-filters-button {
 			}
 		}
 		.wpDataTableFilterSection {
+			&:first-child {
+				padding-left: 0;
+			}
 			.bootstrap-select.btn-group .dropdown-menu {
 				li {
 					margin-bottom: 0;
@@ -314,6 +317,7 @@ button.wdt-clear-filters-button {
 	}
 
 	.wpDataTablesWrapper {
+		margin: 0;
 		.dataTables_length,
 		.dataTables_filter {
 			label {
@@ -344,6 +348,33 @@ button.wdt-clear-filters-button {
 			.row {
 				.uncoltable {
 					padding-top: 150px !important;
+				}
+			}
+		}
+	}
+
+	.centre-table {
+		.wpDataTablesFilter .wpDataTableFilterSection {
+			&#wdt-clear-filters-button-block {
+				padding-top: 0;
+			}
+			&:not(#wdt-clear-filters-button-block):not(#wdt-pf-search-filters-button-block) {
+				margin-bottom: 0;
+				min-height: 0;
+				width: 100%;
+			}
+		}
+		.wpDataTablesWrapper .wpDataTableFilterSection {
+			padding-left: 0;
+		}
+		.bootstrap-select.btn-group .dropdown-menu {
+			width: 100%;
+		}
+		.wpDataTables {
+			.wpDataTableFilterSection {
+				.bootstrap-select.btn-group .dropdown-menu li a span.text {
+					text-align: left;
+					white-space: normal;
 				}
 			}
 		}
