@@ -247,56 +247,85 @@ button.wdt-clear-filters-button {
 
 
 //wpdatatables styles
-.wpDataTables {
-	label .wdt-checkbox-label {
-		font-size: 14px;
-	}
-	.bootstrap-select.btn-group .dropdown-toggle {
-		padding: 6px !important;
-		.filter-option {
-			margin: 0;
-			text-align: center;
-			width: 60px;
+.centre-table {
+	.wpDataTables {
+		label .wdt-checkbox-label {
+			font-size: 14px;
 		}
-	}
-	.bs-caret {
-		color: #000;
-	}
-	.row-detail {
-		font-size: 14px;
-		ul {
-			padding: 10px 18px 18px 18px;
-			li {
-				font-size: 14px;
-				line-height: 18px;
+		.bootstrap-select.btn-group .dropdown-toggle {
+			padding: 0px !important;
+			.filter-option {
+				color: #000;
+				font-weight: normal;
+				margin: 0;
+				text-align: left;
+				width: 90%;
+			}
+		}
+		.bs-caret {
+			color: #000;
+		}
+		.row-detail {
+			font-size: 14px;
+			ul {
+				padding: 10px 18px 18px 18px;
+				li {
+					font-size: 14px;
+					line-height: 18px;
+				}
+			}
+		}
+		.wpDataTableFilterSection {
+			.bootstrap-select.btn-group .dropdown-menu {
+				li {
+					margin-bottom: 0;
+					a span.text {
+						font-size: 14px;
+					}
+				}
 			}
 		}
 	}
-	.wpDataTableFilterSection {
-		.bootstrap-select.btn-group.show-tick .dropdown-menu li {
-			margin-bottom: 0;
-			a span.text {
-				font-size: 14px;
+
+	.wpdt-c {
+		input {
+			font-weight: normal;
+		}
+		.dropdown-menu .divider {
+		   background-color: rgba(0, 0, 0, 0.2);
+		   margin-top: 0px;
+		   padding: 0;
+		}
+		.btn-group.bootstrap-select .inner .text {
+			font-size: 15px;
+		}
+		.bootstrap-select {
+			.check-mark {
+	   			top: 16px;
 			}
+			.bs-searchbox:before {
+	   			top: 3px;
+			}
+		}
+	}
+
+	.wpDataTablesFilter .wpDataTableFilterSection:not(#wdt-clear-filters-button-block):not(#wdt-pf-search-filters-button-block) {
+		width: 33%;
+	}
+
+	.wpDataTablesWrapper {
+		.dataTables_length,
+		.dataTables_filter {
+			label {
+				font-size: 15px;
+			}
+		}
+		table.wpDataTable td.column-model-name {
+			font-weight: 700;
 		}
 	}
 }
 
-.wpdt-c .bootstrap-select .bs-searchbox:before {
-	top: 3px;
-}
-
-.wpDataTablesWrapper {
-	.dataTables_length,
-	.dataTables_filter {
-		label {
-			font-size: 15px !important;
-		}
-	}
-	table.wpDataTable td.column-model-name {
-		font-weight: 700;
-	}
-}
 
 @media (max-width: $screen-md) {
 	.single {
