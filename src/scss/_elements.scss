@@ -234,6 +234,102 @@ input{
     text-transform: capitalize;
 }
 
+button.wdt-clear-filters-button {
+	background-color: #F3F5F6;;
+	font-weight: normal !important;
+	&:hover {
+		background-color: #F1F1F1;
+	}
+	&:before {
+		padding-right: 6px;
+	}
+}
+
+
+//wpdatatables styles
+.centre-table {
+	.wpDataTables {
+		label .wdt-checkbox-label {
+			font-size: 14px;
+		}
+		.bootstrap-select.btn-group .dropdown-toggle {
+			padding: 0px !important;
+			.filter-option {
+				color: #000;
+				font-weight: normal;
+				margin: 0;
+				text-align: left;
+				width: 90%;
+			}
+		}
+		.bs-caret {
+			color: #000;
+		}
+		.row-detail {
+			font-size: 14px;
+			ul {
+				padding: 10px 18px 18px 18px;
+				li {
+					font-size: 14px;
+					line-height: 18px;
+				}
+			}
+		}
+		.wpDataTableFilterSection {
+			&:first-child {
+				padding-left: 0;
+			}
+			.bootstrap-select.btn-group .dropdown-menu {
+				li {
+					margin-bottom: 0;
+					a span.text {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+
+	.wpdt-c {
+		input {
+			font-weight: normal;
+		}
+		.dropdown-menu .divider {
+		   background-color: rgba(0, 0, 0, 0.2);
+		   margin-top: 0px;
+		   padding: 0;
+		}
+		.btn-group.bootstrap-select .inner .text {
+			font-size: 15px;
+		}
+		.bootstrap-select {
+			.check-mark {
+	   			top: 16px;
+			}
+			.bs-searchbox:before {
+	   			top: 3px;
+			}
+		}
+	}
+
+	.wpDataTablesFilter .wpDataTableFilterSection:not(#wdt-clear-filters-button-block):not(#wdt-pf-search-filters-button-block) {
+		width: 33%;
+	}
+
+	.wpDataTablesWrapper {
+		margin: 0;
+		.dataTables_length,
+		.dataTables_filter {
+			label {
+				font-size: 15px;
+			}
+		}
+		table.wpDataTable td.column-model-name {
+			font-weight: 700;
+		}
+	}
+}
+
 
 @media (max-width: $screen-md) {
 	.single {
@@ -252,6 +348,33 @@ input{
 			.row {
 				.uncoltable {
 					padding-top: 150px !important;
+				}
+			}
+		}
+	}
+
+	.centre-table {
+		.wpDataTablesFilter .wpDataTableFilterSection {
+			&#wdt-clear-filters-button-block {
+				padding-top: 0;
+			}
+			&:not(#wdt-clear-filters-button-block):not(#wdt-pf-search-filters-button-block) {
+				margin-bottom: 0;
+				min-height: 0;
+				width: 100%;
+			}
+		}
+		.wpDataTablesWrapper .wpDataTableFilterSection {
+			padding-left: 0;
+		}
+		.bootstrap-select.btn-group .dropdown-menu {
+			width: 100%;
+		}
+		.wpDataTables {
+			.wpDataTableFilterSection {
+				.bootstrap-select.btn-group .dropdown-menu li a span.text {
+					text-align: left;
+					white-space: normal;
 				}
 			}
 		}
