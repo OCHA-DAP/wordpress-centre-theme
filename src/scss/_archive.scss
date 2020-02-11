@@ -1,11 +1,12 @@
 .search,
 .archive {
+	&.tag,
 	&.category-article,
 	&.category-case-study {
 		.style-light a:not(.btn-text-skin):hover {
 			color: inherit !important;
 		}
-		.t-inside {		    
+		.t-inside-custom {		    
 			display: table;
 			position: relative;
 		    table-layout: fixed;
