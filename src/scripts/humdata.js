@@ -42,7 +42,7 @@
 		}, 1500);
 		
 
-		var archiveBlock = $('.category-article, .category-case-study').find('.t-inside');
+		var archiveBlock = $('.category-article, .category-case-study, .tag').find('.t-inside');
 		var archiveBlockWidth = archiveBlock.width() + 'px';
 		archiveBlock.css('height', archiveBlockWidth);
 	}
