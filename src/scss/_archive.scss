@@ -60,7 +60,11 @@
 		}
 	}
 	&.tag {
-	&.category-slideshow,
+		.t-entry .author {
+			display: none;
+		}
+	}
+	&.category-slideshow {
 		.t-background-cover,
 		.t-entry .author {
 			display: none;
