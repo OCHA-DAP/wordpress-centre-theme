@@ -63,6 +63,10 @@
 		return false;
 	})
 
+	//wpDataTables -- clicking on entire table row triggers row expand
+	$('.wpDataTable tr').on('click', function() {
+		$(this).find('.responsiveExpander').click();
+	})
 
 	//*********** TWITTER CONTENT BLOCK ***********//
     var TWITTER_DURATION = 5000;
