@@ -113,7 +113,6 @@
         if (val!==undefined) {
 	        tweetID = (tweetID==tweetArray.length-1) ? 0 : tweetID+1;
 	        $('.tweet .tweet-text span').html(val.tweet);
-	        //console.log(val.tweet, val.tweet.length)
 	        $('.tweet .author').html(val.author);
 	        $('.tweet a:not(.twitter-logo)').attr('href',val.link);
         }

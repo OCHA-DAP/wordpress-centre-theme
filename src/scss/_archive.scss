@@ -148,6 +148,9 @@
 	}
 	.header-wrapper {
 		display: block;
+		.header-content {
+			vertical-align: middle;
+		}
 	}
 	.post-wrapper {
 		margin-top: 128px;

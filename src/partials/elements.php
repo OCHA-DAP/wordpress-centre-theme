@@ -307,7 +307,7 @@ if (!function_exists('uncode_get_back_html')) {
 												<div class="' . $back_mime_css . $adaptive_async_class . '"' . $header_background_video . $back_image . $adaptive_async_data . '>' . $header_background_selfvideo . $content_html . '</div>
 											</div>';
 		} else {
-			if ($overlay_html !== '' || $header_background_video !== '' || $back_image !== '' || $header_background_selfvideo !== '' || $carousel_html !== '')
+			//if ($overlay_html !== '' || $header_background_video !== '' || $back_image !== '' || $header_background_selfvideo !== '' || $carousel_html !== '')
 			// $back_html = 	'<div class="header-bg-wrapper">
 			// 								<div class="header-bg' . $back_mime_css . $adaptive_async_class . ($carousel_html !=='' ? ' header-carousel-wrapper' : '') . '"' . $header_background_video . $back_image . $adaptive_async_data . '>' . $header_background_selfvideo . $carousel_html . '</div>
 			// 								'.$overlay_html.'
