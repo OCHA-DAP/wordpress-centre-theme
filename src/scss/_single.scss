@@ -3,7 +3,7 @@
 	padding-top: 144px;
 	.header-content {
 		background-color: $white;
-		//padding-top: 0 !important;
+		vertical-align: top;
 		.header-content-inner {
 			max-width: $post-content-inner-width;
 			padding: 54px 0 12px !important;
