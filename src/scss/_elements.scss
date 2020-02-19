@@ -248,6 +248,7 @@ button.wdt-clear-filters-button {
 
 //wpdatatables styles
 .centre-table {
+	margin-top: 40px;
 	.wpDataTables {
 		label .wdt-checkbox-label {
 			font-size: 14px;
@@ -313,11 +314,17 @@ button.wdt-clear-filters-button {
 	}
 
 	.wpDataTablesFilter .wpDataTableFilterSection:not(#wdt-clear-filters-button-block):not(#wdt-pf-search-filters-button-block) {
+		margin-bottom: 0;
+		min-height: 0;
+		padding-bottom: 0;
 		width: 33%;
 	}
 
 	.wpDataTablesWrapper {
 		margin: 0;
+		div.dt-buttons {
+			margin-bottom: 0;
+		}
 		.dataTables_length,
 		.dataTables_filter {
 			label {

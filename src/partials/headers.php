@@ -56,7 +56,7 @@ if (!class_exists('unheader')) {
 				if ($height[1] == 'px')
 				{
 					$data_height = ' data-height="fixed"';
-					$height_style .= 'height: ' . $height[0] . $height[1] . ';';
+					//$height_style .= 'height: ' . $height[0] . $height[1] . ';';
 				}
 			}
 
