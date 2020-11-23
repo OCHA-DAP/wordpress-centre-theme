@@ -120,6 +120,17 @@ get_header();
 	?>
 
 	<article class="learning-module">
+		<div class="learning-module-navigation">
+			<div class="navigation-inner content-width">
+				<div class="breadcrumbs">
+					<span class="text-green">Learning with the Centre</span><a href="#" class="active">/DISCLOSURE RISK ASSESSMENT</a>
+				</div>
+				<div class="sub-navigation">
+					<a href="<?php echo get_site_url() . '/learning-module-methodology/' ?>">See how it works</a>
+					<a href="#">Request support</a>
+				</div>
+			</div>
+		</div>
 
 		<div class="feature-content">
 			<div class="content-width">
@@ -130,6 +141,12 @@ get_header();
 			</div>
 		</div>
 		<div class="feature-media content-width">
+			<!-- <div class='video-container'>
+        <video controls>
+          <source src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/video/overview.mp4' ?>" type='video/mp4'>
+          Your browser does not support the video tag.
+        </video>
+      </div> -->
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
@@ -194,6 +211,7 @@ get_header();
 
 		<section class="section-faq content-width">
 			<h2 class="section-header">General Questions</h2>
+			<?php the_content(); ?>
 		</section>
 
 		<section class="section-methodology background-gray-medium">

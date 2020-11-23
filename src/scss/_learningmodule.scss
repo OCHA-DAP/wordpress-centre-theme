@@ -40,7 +40,7 @@
 			margin: 0;
 		}
 		a {
-			color: #FFF;
+			//color: #FFF;
 			text-decoration: underline;
 		}
 		p {
@@ -55,6 +55,31 @@
 				  display: block;
 				  padding-bottom: 20px;
 				  width: 66px;
+				}
+			}
+		}
+		.learning-module-navigation {
+			background-color: #000;
+			color: #FFF;
+			font-family: 'Stag-Book';
+			font-size: 13px;
+			line-height: 13px;
+			.navigation-inner {
+				align-items: center;
+				display: flex;
+				height: 60px;
+			}
+			.sub-navigation {
+				margin-left: auto;
+				a {
+					margin-left: 40px;
+				}
+			}
+			a {
+				color: #FFF;
+				text-decoration: none;
+				&.active {
+					font-weight: 700;
 				}
 			}
 		}
@@ -179,6 +204,9 @@
 		.text-blue {
 			color: #0072E5;
 		}
+		.text-green {
+			color: #1BB580;
+		}
 		.align-center {
 			text-align: center;
 		}
@@ -245,6 +273,11 @@
 					margin-bottom: 25px;
 				}
 			}
+			&.section-faq {
+				a {
+
+				}
+			}
 		}
 		.section-card {
 			background-color: #FFF;
@@ -271,17 +304,63 @@
 		}
 		&.methodology {
 			counter-reset: heading;
-			h2:before {
+			h2.numbered:before {
 				content: counter(heading)" ";
 				counter-increment: heading;
 				padding-right: 12px;
 			}
-			h2 {
+			h2.numbered {
 				counter-reset: subheading;
+			}
+			.section-faq {
+				margin-top: 90px;
+				p {
+					width: 100%;
+				}
 			}
 		}
 	}
+}
 
+/////////////////////////
+//
+//  FAQ STYLES
+//
+/////////////////////////
+.section-faq {
+	.ufaq-faq-list {
+		margin-top: 70px;
+		width: 66%;
+		.ufaq-faq-title h4 {
+			color: #333;
+			font-family: 'Stag-Book';
+			font-size: 24px;
+			font-weight: normal;
+			line-height: 33px;
+			margin: 0 !important;
+		}
+		.ewd-ufaq-post-margin {
+			display: flex;
+    	flex-direction: row-reverse;
+		}
+		.ufaq-faq-div {
+			border-bottom: 1px solid #E3E3E3;
+			margin: 20px 0;
+			padding-bottom: 20px;
+		}
+		.ufaq-faq-title-text {
+			width: 100% !important;
+		}
+		.ewd-ufaq-post-margin-symbol span {
+			color: #8F91A3;
+		}
+		.ufaq-faq-body {
+			padding-left: 0;
+			p {
+				margin-bottom: 20px;
+			}
+		}
+	}
 }
 
 @media (max-width: $screen-md) { 

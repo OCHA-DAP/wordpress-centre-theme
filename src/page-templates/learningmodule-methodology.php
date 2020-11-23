@@ -120,6 +120,17 @@ get_header();
 	?>
 
 	<article class="learning-module methodology">
+		<div class="learning-module-navigation">
+			<div class="navigation-inner content-width">
+				<div class="breadcrumbs">
+					<span class="text-green">Learning with the Centre</span><a href="<?php echo get_site_url() . '/learning-module/' ?>">/DISCLOSURE RISK ASSESSMENT</a>
+				</div>
+				<div class="sub-navigation">
+					<a href="#" class="active">See how it works</a>
+					<a href="#">Request support</a>
+				</div>
+			</div>
+		</div>
 
 		<div class="feature-header">
 			<div class="content-width">
@@ -130,7 +141,7 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="text-blue">Before you get started</h2>
+					<h2 class="numbered text-blue">Before you get started</h2>
 					<p>Before we start the risk assessment, it is important to explore the data you have and make sure you know how it was collected.</p>
 					<p>This could involve reviewing the original questionnaire and the sample methodology, assessing the data environment and doing some initial exploratory analysis to understand the relationships between variables.</p>
 					<div class="button-read-more">Read More</div>
@@ -174,6 +185,11 @@ get_header();
 						<p class="border-top">It is important to gather information about the survey methodology, such as strata, sampling methods, survey design and sample weights. This will be important throughout the statistical disclosure control process.</p>
 					</div>
 				</div>
+
+				<div class='section-faq'>
+					<h2>Related Questions</h2>
+					<?php the_content(); ?>
+				</div>
 			</div>
 		</section>
 
@@ -184,7 +200,7 @@ get_header();
 						<div class="placeholder-media"></div>
 					</div>
 					<div class="column column-5">
-						<h2 class="text-blue">Setting Your Key Variables</h2>
+						<h2 class="numbered text-blue">Setting Your Key Variables</h2>
 						<p>The first step in the risk assessment is the selection of your key variables. These are the columns in your dataset that could lead to the risk of re-identification of individuals or groups.</p>
 						<p>Watch the video to learn more about different types of variables and considerations to make when selecting key variables.</p>
 						<a href="#" class="button-read-more">Read More</a>
@@ -196,7 +212,7 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="text-blue">Run the assessment</h2>
+					<h2 class="numbered text-blue">Run the assessment</h2>
 					<p>There are a number of different methods that can be used to evaluate the probability of individuals within our dataset being correctly re-identified.</p>
 					<p>Watch the video to learn more about these different measures and how to apply them in sdcMicro.</p>
 					<a href="#" class="button-read-more">Read More</a>
@@ -214,7 +230,7 @@ get_header();
 						<div class="placeholder-media"></div>
 					</div>
 					<div class="column column-5">
-						<h2 class="text-blue">Read the assessment result</h2>
+						<h2 class="numbered text-blue">Read the assessment result</h2>
 						<p>Once you have run the assessment it is important to understand how to read and interpret the results. Remember, the disclosure risk measures that we have discussed provide you with a probability of an event occurring, they do not provide certainty. Our own judgement remains important when deciding how to proceed.</p>
 						<p>Watch the video and click below to learn more about what the risk probability means and the actions you might take to lower the risk.</p>
 						<a href="#" class="button-read-more">Read More</a>
@@ -226,7 +242,7 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="text-blue">Handle data responsibly</h2>
+					<h2 class="numbered text-blue">Handle data responsibly</h2>
 					<p>Knowing the risk of re-identification helps you make informed decisions about whether and how best to share your microdata.</p>
 					<p>If the dataset contains sensitive information, you could learn more on how to anonymise and try the assessment again or explore other options for sharing the data safely.</p>
 					<a href="#" class="button-read-more">Read More</a>
