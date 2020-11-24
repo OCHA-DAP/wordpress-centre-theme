@@ -134,7 +134,7 @@ get_header();
 
 		<div class="feature-header">
 			<div class="content-width">
-				<h1>How it works</h1>
+				<h1>How it is Done</h1>
 			</div>
 		</div>
 
