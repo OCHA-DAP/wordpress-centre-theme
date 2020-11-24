@@ -126,7 +126,7 @@ get_header();
 					<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / Disclosure Risk Assessetment</a>
 				</div>
 				<div class="sub-navigation">
-					<a href="<?php echo get_site_url() . '/learning-path-methodology/' ?>">How it is Done</a>
+					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">How it is Done</a>
 					<a href="#">Request Support</a>
 				</div>
 			</div>
