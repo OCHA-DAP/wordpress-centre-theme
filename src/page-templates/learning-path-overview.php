@@ -123,7 +123,7 @@ get_header();
 		<div class="learning-path-navigation">
 			<div class="navigation-inner content-width">
 				<div class="breadcrumbs">
-					<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / Disclosure Risk Assessetment</a>
+					<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / Disclosure Risk Assessement</a>
 				</div>
 				<div class="sub-navigation">
 					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">How it is Done</a>
