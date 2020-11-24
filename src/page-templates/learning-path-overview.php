@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Learning Module Overview */
+/* Template Name: Learning Path Overview */
 
 /**
- * The template for Learning Module Overview pages.
+ * The template for Learning Path Overview pages.
  *
  * @package uncode
  */
@@ -119,15 +119,15 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-module">
-		<div class="learning-module-navigation">
+	<article class="learning-path">
+		<div class="learning-path-navigation">
 			<div class="navigation-inner content-width">
 				<div class="breadcrumbs">
-					<span class="text-green">Learning with the Centre</span><a href="#" class="active">/DISCLOSURE RISK ASSESSMENT</a>
+					<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / Disclosure Risk Assessetment</a>
 				</div>
 				<div class="sub-navigation">
-					<a href="<?php echo get_site_url() . '/learning-module-methodology/' ?>">See how it works</a>
-					<a href="#">Request support</a>
+					<a href="<?php echo get_site_url() . '/learning-path-methodology/' ?>">How it is Done</a>
+					<a href="#">Request Support</a>
 				</div>
 			</div>
 		</div>
@@ -135,18 +135,18 @@ get_header();
 		<div class="feature-content">
 			<div class="content-width">
 				<div class="feature-inner">
-					<h1>We offer step-by-step guidance to support the safe, ethical and effective use of (micro)data in humanitarian response.</h1>
-					<h3 class="text-blue">Data is a very important asset for all humanitarian organisations, but can also contain risks: here you can learn more about data responsibility and how to apply a Disclosure Risk assessment methodology based on Statistical Disclosure Control (SDC) to detect potential sensitive information in your datasets, before transferring them to your collaborators inside or outside your organization.</h3>
+					<h1>In this learning path, we offer a step-by-step introduction to Statistical Disclosure Control, with a focus on conducting a disclosure risk assessment on humanitarian microdata.</h1>
+					<h3 class="text-blue">Data from household surveys, needs assessments and other forms of microdata make up an increasingly significant volume of data in the humanitarian sector. This type of data is critical to determining the needs and perspectives of people affected by crises but it also presents unique risks. Understanding how to assess and manage the sensitivity of this data is essential to ensuring its safe, ethical and effective use in different response contexts.</h3>
 				</div>
 			</div>
 		</div>
 		<div class="feature-media content-width">
-			<!-- <div class='video-container'>
+			<div class='video-container'>
         <video controls>
-          <source src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/video/overview.mp4' ?>" type='video/mp4'>
+          <source src="https://www.youtube.com/watch?v=DEozMdkjPPM">
           Your browser does not support the video tag.
         </video>
-      </div> -->
+      </div>
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
@@ -154,39 +154,39 @@ get_header();
 		</div>
 
 		<section class="section-importance content-width">
-			<h2 class="section-header">Why it is important</h2>
+			<h2 class="section-header">Why It's Important</h2>
 			<div class="column-container has-icons">
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/icon-funnel.png' ?>" />
-						<h3>Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometrics, or ID numbers.</h3>
+						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
+						<h3>Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometric data, or ID numbers.</h3>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/icon-eye.png' ?>" />
-						<h3>By combining different data points, it may be possible to re-identify individuals or groups and put them at risk.</h3>
+						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
+						<h3>By combining different data points, it may be possible to re-identify individuals or disclose confidential information.</h3>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/icon-book.png' ?>" />
+						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
 						<h3>During emergencies, survey data, and other forms of microdata, need to be shared with partners as fast as possible.</h3>
 					</div>
 				</div>
 			</div>
 			<div class="column-container">
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner no-pad-top">
-						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may be possible to re-identify respondents.</p>
+						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may still be possible to re-identify respondents.</p>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner no-pad-top">
-						<p class="border-top">Humanitarians can apply statistical disclosure control to humanitarian datasets to help detect this type of risk and make informed decisions about how best to minimise it. This would make it possible for humanitarians to share microdata more widely without harming affected people.</p>
+						<p class="border-top">Humanitarians can apply Statistical Disclosure Control to microdata to help detect and reduce this type of risk.</p>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
+				<div class="column column-4 background-gray-medium">
 					<div class="column-inner no-pad-top">
 						<p class="border-top">Having tools, policies and procedures in place to assess and minimise the risk of re-identification in microdata can help humanitarians share data quickly and safely.</p>
 					</div>
@@ -194,16 +194,15 @@ get_header();
 			</div>
 		</section>
 
-		<section class="section-stages background-gray">
+		<section class="section-stages background-gray-medium">
 			<div class="content-width">
 				<h2 class="section-header">The Stages of Statistical Disclosure Control</h3>
 				<div class="column-container">
 					<div class="column column-4">
-						<h3>Limiting the risk of re-identification through statistical disclosure control has three distinct phases:</h3>
-						<p>Description of the three phases > Assessment is the Disclosure Risk measurement to understand how sensitive and risky data is, Application is the phase where we can apply anonymization techniques while the Re-assessment and data loss quantification is a way to measure again the sensitivity and also to understand how was the compromise  between anonymization and information loss.</p>
+						<h3>Limiting the risk of disclosure using statistical disclosure control techniques has three distinct stages:</h3>
 					</div>
 					<div class="column column-8 align-right">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/stages-statistical-disclosure.png' ?>" />
+						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
 					</div>
 				</div>
 			</div>
@@ -216,20 +215,20 @@ get_header();
 
 		<section class="section-methodology background-gray-medium">
 			<div class="content-width align-center">
-				<h2 class="text-blue">Try this methodology in your workflow</h2>
-				<p>You will learn how to run SDCmicro to assess the sensititivity of your microdata and take action to reduce the risk of re-identification.</p>
-				<a href="#" class="button-primary">How it works</a>
+				<h2 class="text-blue">Learn more about conducting a disclosure risk assessment</h2>
+				<p>On the next page, we offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
+				<a href="<?php echo get_site_url() . '/learning-path-methodology/' ?>" class="button-primary">See How It's Done</a>
 			</div>
 		</section>
 
-		<section class="section-learnmore background-gray-dark">
+<!-- 		<section class="section-learnmore background-gray-dark">
 			<div class="content-width align-center">
 				<h2 class="text-blue">Learn more with us</h2>
 				<p>We offer assistance and training for anyone who wants to find more</p>
 				<a href="#" class="button-primary button-dark">Book a training</a>
 				<a href="#">Or watch our tutorial</a>
 			</div>
-		</section>
+		</section> -->
 
 
 	</article>	

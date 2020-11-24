@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Learning Module Methodology */
+/* Template Name: Learning Path Methodology */
 
 /**
- * The template for Learning Module Methodology pages.
+ * The template for Learning Path Methodology pages.
  *
  * @package uncode
  */
@@ -119,15 +119,15 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-module methodology">
-		<div class="learning-module-navigation">
+	<article class="learning-path methodology">
+		<div class="learning-path-navigation">
 			<div class="navigation-inner content-width">
 				<div class="breadcrumbs">
-					<span class="text-green">Learning with the Centre</span><a href="<?php echo get_site_url() . '/learning-module/' ?>">/DISCLOSURE RISK ASSESSMENT</a>
+					<span class="text-green">Learning with the Centre</span><a href="<?php echo get_site_url() . '/learning-path-overview/' ?>"> / Disclosure Risk Assessetment</a>
 				</div>
 				<div class="sub-navigation">
-					<a href="#" class="active">See how it works</a>
-					<a href="#">Request support</a>
+					<a href="#" class="active">How it is Done</a>
+					<a href="#">Request Support</a>
 				</div>
 			</div>
 		</div>
@@ -259,7 +259,7 @@ get_header();
 				<div class="column-container">
 					<div class="column column-6 align-right">
 						<div class="section-card">
-							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/icon-guideline.png' ?>" />
+							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-guideline.png' ?>" />
 							<h3>Data Responsibility Guidelines</h3>
 							<p class="attribution">OCHA</p>
 							<p>The Guidelines offer a set of key actions, outputs, and tools for data responsibility at each step in the data management, from collecting and storing to disseminating and destroying.</p>
@@ -267,7 +267,7 @@ get_header();
 					</div>
 					<div class="column column-6 align-left">
 						<div class="section-card">
-							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-module/icon-documentation.png' ?>" />
+							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-documentation.png' ?>" />
 							<h3>Statistical Disclosure Control Documentation</h3>
 							<p class="attribution">World Bank</p>
 							<p>SDCMicro is free, R-based open-source package for the generation of protected microdata for researchers and public use. This package can be used for the generation of anonymized (micro)data</p>

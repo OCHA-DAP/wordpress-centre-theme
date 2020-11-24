@@ -1,5 +1,5 @@
-.page-template-learningmodule-overview,
-.page-template-learningmodule-methodology {
+.page-template-learning-path-overview,
+.page-template-learning-path-methodology {
 	.header-wrapper {
 		min-height: 0 !important;
 	}
@@ -10,7 +10,7 @@
 		}
 	}
 
-	.learning-module {
+	.learning-path {
 		h1 {
 			color: #333;
 			font-size: 40px;
@@ -25,7 +25,7 @@
 			&.section-header {
 				margin: 14px 0 18px;
 				&:after {
-				  border-bottom: 3px solid #0072E5;
+				  border-bottom: 3px solid #007CE1;
 				  content: "";
 				  display: block;
 				  padding-top: 32px;
@@ -50,7 +50,7 @@
 			&.border-top {
 				 margin-top: 0;
 				&:before {
-				  border-top: 1px solid #0072E5;
+				  border-top: 1px solid #007CE1;
 				  content: "";
 				  display: block;
 				  padding-bottom: 20px;
@@ -58,7 +58,7 @@
 				}
 			}
 		}
-		.learning-module-navigation {
+		.learning-path-navigation {
 			background-color: #000;
 			color: #FFF;
 			font-family: 'Stag-Book';
@@ -78,6 +78,7 @@
 			a {
 				color: #FFF;
 				text-decoration: none;
+				&:hover,
 				&.active {
 					font-weight: 700;
 				}
@@ -85,7 +86,7 @@
 		}
 		.feature-content,
 		.feature-header {
-			background-image: linear-gradient(rgba(231, 239, 248, 1), rgba(255, 255, 255, 1));
+			background-image: linear-gradient(rgba(216, 216, 216, 1), rgba(255, 255, 255, 1));
 			padding: 90px 0 60px;
 			.feature-inner {
 				width: 64%;
@@ -140,6 +141,7 @@
 		}
 		.button-primary {
 			background-color: #333;
+			border: 1px solid #333;
 			color: #FFF;
 			display: block;
 			font-family: 'Stag-Book';
@@ -148,9 +150,17 @@
 			margin: 0 auto 12px;
 			text-decoration: none;
 			width: 472px;
+			&:hover {
+				background-color: transparent;
+				color: #333;
+			}
 			&.button-dark {
 				background-color: none;
 				border: 1px solid #FFF;
+				&:hover {
+					background-color: #FFF;
+					color: #333;
+				}
 			}
 		}
 		.button-read-more {
@@ -170,6 +180,14 @@
 				content: "\e94b";
 				margin-right: 24px;
     		padding: 13px;
+			}
+			&.expand {
+				&:before {
+					content: "\ea2a";
+				}
+			}
+			&:hover {
+				font-weight: 700;
 			}
 		}
 		.no-pad-top {
@@ -192,7 +210,7 @@
 			background-color: #F5F8FC;
 		}
 		.background-gray-medium {
-			background-color: #E7EFF8;
+			background-color: #F1F1F1;
 		}
 		.background-gray-dark {
 			background-color: #333;
@@ -202,7 +220,7 @@
 			background-image: linear-gradient(to left, #E7EFF8 , #F5F8FC);
 		}
 		.text-blue {
-			color: #0072E5;
+			color: #007CE1;
 		}
 		.text-green {
 			color: #1BB580;
@@ -331,17 +349,19 @@
 	.ufaq-faq-list {
 		margin-top: 70px;
 		width: 66%;
-		.ufaq-faq-title h4 {
-			color: #333;
-			font-family: 'Stag-Book';
-			font-size: 24px;
-			font-weight: normal;
-			line-height: 33px;
-			margin: 0 !important;
-		}
-		.ewd-ufaq-post-margin {
-			display: flex;
-    	flex-direction: row-reverse;
+		.ufaq-faq-title {
+			h4 {
+				color: #333;
+				font-family: 'Stag-Book';
+				font-size: 24px;
+				font-weight: normal;
+				line-height: 33px;
+				margin: 0 !important;
+			}
+			.ewd-ufaq-post-margin {
+				display: flex;
+	    	flex-direction: row-reverse;
+			}
 		}
 		.ufaq-faq-div {
 			border-bottom: 1px solid #E3E3E3;
