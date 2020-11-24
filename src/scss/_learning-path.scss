@@ -349,6 +349,9 @@
 	.ufaq-faq-list {
 		margin-top: 70px;
 		width: 66%;
+		.ufaq-faq-category-title {
+			display: none;
+		}
 		.ufaq-faq-title {
 			h4 {
 				color: #333;

@@ -141,12 +141,12 @@ get_header();
 			</div>
 		</div>
 		<div class="feature-media content-width">
-			<div class='video-container'>
+			<!-- <div class='video-container'>
         <video controls>
           <source src="https://www.youtube.com/watch?v=DEozMdkjPPM">
           Your browser does not support the video tag.
         </video>
-      </div>
+      </div> -->
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
