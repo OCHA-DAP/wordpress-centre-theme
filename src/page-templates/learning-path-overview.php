@@ -141,12 +141,7 @@ get_header();
 			</div>
 		</div>
 		<div class="feature-media content-width">
-			<!-- <div class='video-container'>
-        <video controls>
-          <source src="https://www.youtube.com/watch?v=DEozMdkjPPM">
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
+      <iframe class="video-container" src="https://www.youtube.com/embed/DEozMdkjPPM?modestbranding=1&rel=0"></iframe>
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
@@ -217,7 +212,7 @@ get_header();
 			<div class="content-width align-center">
 				<h2 class="text-blue">Learn more about conducting a disclosure risk assessment</h2>
 				<p>On the next page, we offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
-				<a href="<?php echo get_site_url() . '/learning-path-methodology/' ?>" class="button-primary">See How It's Done</a>
+				<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>" class="button-primary">See How It's Done</a>
 			</div>
 		</section>
 
