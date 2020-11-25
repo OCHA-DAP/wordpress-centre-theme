@@ -126,7 +126,7 @@ get_header();
 					<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / Disclosure Risk Assessment</a>
 				</div>
 				<div class="sub-navigation">
-					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">How it is Done</a>
+					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">See How It's Done</a>
 					<a href="#">Request Support</a>
 				</div>
 			</div>
@@ -135,13 +135,13 @@ get_header();
 		<div class="feature-content">
 			<div class="content-width">
 				<div class="feature-inner">
-					<h1>In this learning path, we offer a step-by-step introduction to Statistical Disclosure Control, with a focus on conducting a disclosure risk assessment on humanitarian microdata.</h1>
+					<h1>An Introduction to Disclosure Risk Assessment</h1>
 					<h3 class="text-blue">Data from household surveys, needs assessments and other forms of microdata make up an increasingly significant volume of data in the humanitarian sector. This type of data is critical to determining the needs and perspectives of people affected by crises but it also presents unique risks. Understanding how to assess and manage the sensitivity of this data is essential to ensuring its safe, ethical and effective use in different response contexts.</h3>
 				</div>
 			</div>
 		</div>
 		<div class="feature-media content-width">
-      <iframe class="video-container" src="https://www.youtube.com/embed/DEozMdkjPPM?modestbranding=1&rel=0"></iframe>
+      <iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/mcuXSXDGnlk?modestbranding=1&rel=0&enablejsapi=1"></iframe>
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
@@ -151,50 +151,51 @@ get_header();
 		<section class="section-importance content-width">
 			<h2 class="section-header">Why It's Important</h2>
 			<div class="column-container has-icons">
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
 						<h3>Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometric data, or ID numbers.</h3>
 					</div>
 				</div>
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
 						<h3>By combining different data points, it may be possible to re-identify individuals or disclose confidential information.</h3>
 					</div>
 				</div>
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
-						<h3>During emergencies, survey data, and other forms of microdata, need to be shared with partners as fast as possible.</h3>
+						<h3>During emergencies, microdata needs to be shared with partners as quickly and safely as possible.</h3>
 					</div>
 				</div>
 			</div>
 			<div class="column-container">
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner no-pad-top">
 						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may still be possible to re-identify respondents.</p>
 					</div>
 				</div>
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner no-pad-top">
 						<p class="border-top">Humanitarians can apply Statistical Disclosure Control to microdata to help detect and reduce this type of risk.</p>
 					</div>
 				</div>
-				<div class="column column-4 background-gray-medium">
+				<div class="column column-4 background-gray">
 					<div class="column-inner no-pad-top">
-						<p class="border-top">Having tools, policies and procedures in place to assess and minimise the risk of re-identification in microdata can help humanitarians share data quickly and safely.</p>
+						<p class="border-top">Having processes and tools in place to consistently assess and reduce the disclosure risk of this data enables organizations to share data in a safe, ethical and effective way.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="section-stages background-gray-medium">
+		<section class="section-stages background-gray">
 			<div class="content-width">
 				<h2 class="section-header">The Stages of Statistical Disclosure Control</h3>
 				<div class="column-container">
 					<div class="column column-4">
 						<h3>Limiting the risk of disclosure using statistical disclosure control techniques has three distinct stages:</h3>
+						<p>Through these three stages of statistical disclosure control, you assess the disclosure risk in your data and then take steps to limit that risk. Because applying disclosure control techniques will result in information loss, the final stage of the process involves quantifying that loss in order to strike a balance between utility and risk in your data.</p>
 					</div>
 					<div class="column column-8 align-right">
 						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
@@ -205,10 +206,10 @@ get_header();
 
 		<section class="section-faq content-width">
 			<h2 class="section-header">General Questions</h2>
-			<?php the_content(); ?>
+			<?php echo do_shortcode("[ultimate-faqs include_category='disclosure-risk-assessment-overview']"); ?>
 		</section>
 
-		<section class="section-methodology background-gray-medium">
+		<section class="section-methodology background-gray">
 			<div class="content-width align-center">
 				<h2 class="text-blue">Learn more about conducting a disclosure risk assessment</h2>
 				<p>On the next page, we offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>

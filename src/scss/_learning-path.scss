@@ -174,7 +174,7 @@
 			position: absolute;
 			text-decoration: none;
 			&:before {
-    		border: 1px solid #0072E5;
+    		border: 2px solid #0072E5;
 				border-radius: 50%;
 				font-family: 'Humanitarian-Icons-v02';
 				content: "\e94b";
@@ -187,7 +187,10 @@
 				}
 			}
 			&:hover {
-				font-weight: 700;
+				&:before {
+	    		background-color: #0072E5;
+	    		color: #FFF;
+				}
 			}
 		}
 		.no-pad-top {
@@ -203,13 +206,7 @@
 		.pad-bottom {
 			padding-bottom: 30px;
 		}
-		.background-gray-light {
-			background-color: rgba(231, 239, 248, 0.42);
-		}
 		.background-gray {
-			background-color: #F5F8FC;
-		}
-		.background-gray-medium {
 			background-color: #F1F1F1;
 		}
 		.background-gray-dark {
@@ -217,7 +214,7 @@
 			color: #FFF;
 		}
 		.background-horizontal-gradient {
-			background-image: linear-gradient(to left, #E7EFF8 , #F5F8FC);
+			background-image: linear-gradient(to left, #F1F1F1 , #FFF);
 		}
 		.text-blue {
 			color: #007CE1;
@@ -289,6 +286,9 @@
 				p {
 					width: 80%;
 				}
+				.video-container {
+					height: 348px;
+				}
 			}
 			&.section-documentation {
 				img {
@@ -304,10 +304,16 @@
 		.section-card {
 			background-color: #FFF;
 			box-shadow: 0 45px 79px 0 rgba(198, 206, 215, 0.5);
+			cursor: pointer;
 			margin: 30px 15px;
 			padding: 40px 50px 60px;
 			text-align: left;
 			width: 400px;
+			&:hover {
+				h3 {
+				font-weight: 700;
+				}
+			}
 		}
 		.attribution {
 			color: #888;
@@ -322,7 +328,7 @@
 			width: 608px;
 		}
 		.content-drawer {
-			margin-top: 150px;
+			margin-top: 70px;
 		}
 		&.methodology {
 			counter-reset: heading;
