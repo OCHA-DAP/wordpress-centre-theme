@@ -127,7 +127,7 @@ get_header();
 				</div>
 				<div class="sub-navigation">
 					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">See How It's Done</a>
-					<a href="#">Request Support</a>
+					<!-- <a href="#">Request Support</a> -->
 				</div>
 			</div>
 		</div>
@@ -136,12 +136,13 @@ get_header();
 			<div class="content-width">
 				<div class="feature-inner">
 					<h1>An Introduction to Disclosure Risk Assessment</h1>
-					<h3 class="text-blue">Data from household surveys, needs assessments and other forms of microdata make up an increasingly significant volume of data in the humanitarian sector. This type of data is critical to determining the needs and perspectives of people affected by crises but it also presents unique risks. Understanding how to assess and manage the sensitivity of this data is essential to ensuring its safe, ethical and effective use in different response contexts.</h3>
+					<h3>Data from household surveys, needs assessments and other forms of microdata make up an increasingly significant volume of data in the humanitarian sector. This type of data is critical to determining the needs and perspectives of people affected by crises but it also presents unique risks. Understanding how to assess and manage the sensitivity of this data is essential to ensuring its safe, ethical and effective use in different response contexts.</h3>
 				</div>
 			</div>
 		</div>
 		<div class="feature-media content-width">
-      <iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/mcuXSXDGnlk?modestbranding=1&rel=0&enablejsapi=1"></iframe>
+      <iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/Wp9o-Y_u6y4
+?modestbranding=1&rel=0&enablejsapi=1"></iframe>
 			<div class="feature-media-caption">
 				<h3>Disclosure risk assessment at work</h3>
 				<p class="attribution">Tutorial by OCHA</p>
@@ -198,7 +199,7 @@ get_header();
 						<p>Through these three stages of statistical disclosure control, you assess the disclosure risk in your data and then take steps to limit that risk. Because applying disclosure control techniques will result in information loss, the final stage of the process involves quantifying that loss in order to strike a balance between utility and risk in your data.</p>
 					</div>
 					<div class="column column-8 align-right">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
+						<img width="647" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
 					</div>
 				</div>
 			</div>
@@ -211,8 +212,8 @@ get_header();
 
 		<section class="section-methodology background-gray">
 			<div class="content-width align-center">
-				<h2 class="text-blue">Learn more about conducting a disclosure risk assessment</h2>
-				<p>On the next page, we offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
+				<h2 class="text-green">Learn more about conducting a disclosure risk assessment</h2>
+				<p>We offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
 				<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>" class="button-primary">See How It's Done</a>
 			</div>
 		</section>

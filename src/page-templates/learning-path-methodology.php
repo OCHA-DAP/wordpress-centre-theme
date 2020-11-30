@@ -127,7 +127,7 @@ get_header();
 				</div>
 				<div class="sub-navigation">
 					<a href="#" class="active">See How It's Done</a>
-					<a href="#">Request Support</a>
+					<!-- <a href="#">Request Support</a> -->
 				</div>
 			</div>
 		</div>
@@ -136,7 +136,7 @@ get_header();
 			<div class="content-width">
 				<div class="feature-inner">
 					<h1>See How It's Done</h1>
-					<h3 class="text-blue">Conducting a Disclosure Risk Assessment requires you to use statistical methods to estimate the likelihood of a disclosure taking place. The following instructional videos and guidance explain these methods and how they can be applied to humanitarian microdata.</h3>
+					<h3>Conducting a Disclosure Risk Assessment requires you to use statistical methods to estimate the likelihood of a disclosure taking place. The following instructional videos and guidance explain these methods and how they can be applied to humanitarian microdata.</h3>
 				</div>
 			</div>
 		</div>
@@ -144,12 +144,12 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="numbered text-blue">Before You Get Started</h2>
+					<h2 class="numbered">Prepare the Disclosure Risk Assessment</h2>
 					<p>Before you start the risk assessment, it is important to explore your data. This could involve reviewing the original questionnaire and the sample methodology, assessing the data environment and conducting exploratory analysis to understand the relationships between variables.</p>
 					<div class="button-read-more">Read More</div>
 				</div>
 				<div class="column column-7 align-right">
-					<iframe class="video-container" src="https://www.youtube.com/embed/VTfykEKUUM8?modestbranding=1&rel=0"></iframe>
+					<iframe class="video-container" src="https://www.youtube.com/embed/QPRw9knMy1c?modestbranding=1&rel=0"></iframe>
 				</div>
 			</div>
 
@@ -207,10 +207,10 @@ get_header();
 			<div class="content-width">
 				<div class="column-container">
 					<div class="column column-7">
-						<iframe class="video-container" src="https://www.youtube.com/embed/28RwnNQYfyY?modestbranding=1&rel=0"></iframe>
+						<iframe class="video-container" src="https://www.youtube.com/embed/2iUZyMmUFbI?modestbranding=1&rel=0"></iframe>
 					</div>
 					<div class="column column-5">
-						<h2 class="numbered text-blue">Selecting Your Key Variables</h2>
+						<h2 class="numbered">Selecting Your Key Variables</h2>
 						<p>The first step in a disclosure risk assessment is the selection of key variables. These are the variables, or the columns in your dataset, that are most likely to lead to the disclosure of confidential information, including an individual’s identity.  Watch this video to learn more about different types of variables and how to select your key variables.</p>
 						<a href="#" class="button-read-more">Read More</a>
 					</div>
@@ -271,12 +271,12 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="numbered text-blue">Run the Assessment</h2>
+					<h2 class="numbered">Run the Assessment</h2>
 					<p>There are a number of different methods that can be used to evaluate the probability of individuals within a dataset being correctly re-identified. Watch the video to learn more about these different methods and how they are applied.</p>
 					<a href="#" class="button-read-more">Read More</a>
 				</div>
 				<div class="column column-7 align-right">
-					<div class="placeholder-media"></div>
+					<iframe class="video-container" src="https://www.youtube.com/embed/ZRyyZo76fVo?modestbranding=1&rel=0"></iframe>
 				</div>
 			</div>
 
@@ -339,10 +339,10 @@ get_header();
 			<div class="content-width">
 				<div class="column-container">
 					<div class="column column-7">
-						<div class="placeholder-media"></div>
+						<iframe class="video-container" src="https://www.youtube.com/embed/vOK9owB5uYI?modestbranding=1&rel=0"></iframe>
 					</div>
 					<div class="column column-5">
-						<h2 class="numbered text-blue">Read the Assessment Result</h2>
+						<h2 class="numbered">Read the Assessment Result</h2>
 						<p>Once you have run the assessment, it is important to understand how to interpret the results. Because the disclosure risk measures discussed above provide you with a probability of a disclosure taking place, your own judgement remains important when deciding how to proceed. Watch this video to learn more about what the risk probability means and the actions you might take to lower the risk.</p>
 						<a href="#" class="button-read-more">Read More</a>
 					</div>
@@ -383,12 +383,12 @@ get_header();
 		<section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
-					<h2 class="numbered text-blue">Manage Data Responsibly</h2>
+					<h2 class="numbered">Manage Data Responsibly</h2>
 					<p>Knowing the disclosure risk helps you make informed decisions about whether and how to share the data. Because we want to bias toward sharing data responsibly, it is important to consider options that will allow for you to share the data in a way that protects the individuals in the dataset as opposed to simply not sharing the data at all. Watch the video to learn more about your options for managing microdata responsibly.</p>
 					<a href="#" class="button-read-more">Read More</a>
 				</div>
 				<div class="column column-7 align-right">
-					<div class="placeholder-media"></div>
+					<iframe class="video-container" src="https://www.youtube.com/embed/fI3h4MymDPk?modestbranding=1&rel=0"></iframe>
 				</div>
 			</div>
 
@@ -430,9 +430,9 @@ get_header();
 					<div class="column column-6 align-right">
 						<div class="section-card">
 							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-guideline.png' ?>" />
-							<h3>Data Responsibility Guidelines</h3>
+							<h3>Guidance Note on Statistical Disclosure Control</h3>
 							<p class="attribution">OCHA</p>
-							<p>The Guidelines offer a set of key actions, outputs, and tools for data responsibility at each step in the data management, from collecting and storing to disseminating and destroying.</p>
+							<p>This guidance note outlines the steps involved in the SDC process, potential applications for its use, case studies and key actions for humanitarian data practitioners to take when managing sensitive microdata.</p>
 						</div>
 					</div>
 					<div class="column column-6 align-left">
@@ -440,7 +440,7 @@ get_header();
 							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-documentation.png' ?>" />
 							<h3>Statistical Disclosure Control Documentation</h3>
 							<p class="attribution">World Bank</p>
-							<p>SDCMicro is free, R-based open-source package for the generation of protected microdata for researchers and public use. This package can be used for the generation of anonymized (micro)data</p>
+							<p>SDCMicro is a free, R-based open-source package for the generation of protected microdata for researchers and public use. This package can be used for the generation of anonymized (micro)data</p>
 						</div>
 					</div>
 				</div>
