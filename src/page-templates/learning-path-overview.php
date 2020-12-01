@@ -199,7 +199,7 @@ get_header();
 						<p>Through these three stages of statistical disclosure control, you assess the disclosure risk in your data and then take steps to limit that risk. Because applying disclosure control techniques will result in information loss, the final stage of the process involves quantifying that loss in order to strike a balance between utility and risk in your data.</p>
 					</div>
 					<div class="column column-8 align-right">
-						<img width="647" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
+						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
 					</div>
 				</div>
 			</div>
