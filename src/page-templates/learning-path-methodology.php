@@ -432,7 +432,7 @@ get_header();
 							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-guideline.png' ?>" />
 							<h3>Guidance Note on Statistical Disclosure Control</h3>
 							<p class="attribution">OCHA</p>
-							<p>This guidance note outlines the steps involved in the SDC process, potential applications for its use, case studies and key actions for humanitarian data practitioners to take when managing sensitive microdata.</p>
+							<p class="body">This guidance note outlines the steps involved in the SDC process, potential applications for its use, case studies and key actions for humanitarian data practitioners to take when managing sensitive microdata.</p>
 						</a>
 					</div>
 					<div class="column column-6 align-left">
@@ -440,7 +440,7 @@ get_header();
 							<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-documentation.png' ?>" />
 							<h3>Statistical Disclosure Control Documentation</h3>
 							<p class="attribution">World Bank</p>
-							<p>SDCMicro is a free, R-based open-source package for the generation of protected microdata for researchers and public use. This package can be used for the generation of anonymized (micro)data</p>
+							<p class="body">SDCMicro is a free, R-based open-source package for the generation of protected microdata for researchers and public use. This package can be used for the generation of anonymized (micro)data</p>
 						</a>
 					</div>
 				</div>
