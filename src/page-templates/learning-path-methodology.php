@@ -423,7 +423,7 @@ get_header();
 			</div>
 		</section>
 
-		<section class="section-documentation background-horizontal-gradient">
+		<section class="section-documentation background-gray">
 			<div class="content-width">
 				<h2 class="section-header">Full documentation</h2>
 				<div class="column-container">

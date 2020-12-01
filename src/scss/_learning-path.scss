@@ -304,16 +304,13 @@
 		}
 		.section-card {
 			background-color: #FFF;
-			box-shadow: 0 45px 79px 0 rgba(198, 206, 215, 0.5);
 			cursor: pointer;
 			margin: 30px 15px;
 			padding: 40px 50px 60px;
 			text-align: left;
 			width: 400px;
 			&:hover {
-				h3 {
-				font-weight: 700;
-				}
+				box-shadow: 0 45px 79px 0 rgba(200, 200, 200, 0.5);
 			}
 		}
 		.attribution {
