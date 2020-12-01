@@ -306,9 +306,13 @@
 			background-color: #FFF;
 			cursor: pointer;
 			margin: 30px 15px;
-			padding: 40px 50px 60px;
+			padding: 40px 45px 60px;
 			text-align: left;
+			text-decoration: none;
 			width: 400px;
+			p {
+				color: #000;
+			}
 			&:hover {
 				box-shadow: 0 45px 79px 0 rgba(200, 200, 200, 0.5);
 			}
