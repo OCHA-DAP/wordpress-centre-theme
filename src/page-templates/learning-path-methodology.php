@@ -388,7 +388,7 @@ get_header();
 					<a href="#" class="button-read-more">Read More</a>
 				</div>
 				<div class="column column-7 align-right">
-					<iframe class="video-container" src="https://www.youtube.com/embed/fI3h4MymDPk?modestbranding=1&rel=0"></iframe>
+					<iframe class="video-container" src="https://www.youtube.com/embed/MjjqrX8fJvQ?modestbranding=1&rel=0"></iframe>
 				</div>
 			</div>
 
