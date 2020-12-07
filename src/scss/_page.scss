@@ -244,6 +244,17 @@
 	margin-top: 0;
 }
 
+.heading-text {
+	h2 {
+		&.fontsize-838002 {
+			font-size: 42px;
+		}
+		&.h2 {
+			font-size: 36px;
+		}
+	}
+}
+
 .page-body {
 	.post-content {
 		.row-container {
