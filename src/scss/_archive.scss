@@ -67,9 +67,15 @@
 		.t-entry-visual-tc {
 			min-height: 170px;
 		}
+		.t-entry-title {
+			height: 42px;
+			overflow: hidden;
+		}
 		.resource-description {
 			color: $black;
 			font-size: 13px;
+			height: 96px;
+			overflow: hidden;
 			padding: 15px 0 5px;
 		}
 		.resource-link {
