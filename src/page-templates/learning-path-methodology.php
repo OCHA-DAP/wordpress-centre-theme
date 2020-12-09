@@ -268,7 +268,7 @@ get_header();
 						<p class="border-top">The Individual Disclosure Risk is the <b>probability</b> that an individual within a dataset could be correctly re-identified. The main factors influencing the individual risk calculation are the sample frequencies (the number of individuals that share a combination of key variables in the sample) and the sample weights. When individuals with rare combinations of key variables also have small sample weights, they will have a high relative individual disclosure risk. In other words, if the number of individuals with this specific combination of key variables is expected to be low in the population, this increases the risk that they can be correctly re-identified.</p>
 					</div>
 					<div class="column column-4">
-						<h3 class="fixed-height">Calculate the Individual Disclosure Risk.</h3>
+						<h3 class="fixed-height">Calculate the Global Disclosure Risk.</h3>
 						<p class="border-top">Individual disclosure risk measures are useful for identifying high-risk records. These individual risk measures can also be aggregated to obtain a global disclosure risk measure for the entire file. A straightforward way of calculating global risk is to take the average (mean) of the individual risks.</p>
 					</div>
 				</div>
