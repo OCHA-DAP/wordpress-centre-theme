@@ -154,46 +154,28 @@ get_header();
 			</div>
 
 			<div class="content-drawer">
-				<div class="column-container">
+				<div class="column-container column-flow">
 					<div class="column column-4">
-						<h3 class="pad-bottom">Start by reviewing the questionnaire.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Have the sampling weights on hand.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Explore your data.</h3>
-					</div>
-				</div>
-				<div class="column-container pad-bottom">
-					<div class="column column-4 no-pad-top">
+						<h3 class="fixed-height">Start by reviewing the questionnaire.</h3>
 						<p class="border-top">In case of survey data, you should review the questionnaire before starting the assessment. This will help you to understand the different variables represented in the dataset.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Have the sampling weights on hand.</h3>
 						<p class="border-top">Sampling weights are used to correct for the systematic differences in the selection probabilities of different respondents. If you are working with data collected through sampling, you will need the sample weights to perform a disclosure risk assessment.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Explore your data.</h3>
 						<p class="border-top">The first step in the risk assessment is to get to know the data you have. Applying Statistical Disclosure Control requires you to understand relationships between variables. Before jumping into the assessment, take the time to dig into those relationships.</p>
 					</div>
-				</div>
-
-				<div class="column-container">
 					<div class="column column-4">
-						<h3 class="pad-bottom">Remove all direct identifiers from the dataset.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Set up your tool of choice.</h3>
-					</div>
-					<div class="column column-4"></div>
-				</div>
-				<div class="column-container">
-					<div class="column column-4 no-pad-top">
+						<h3 class="fixed-height">Remove all direct identifiers from the dataset.</h3>
 						<p class="border-top">It is important to gather information about the survey methodology, such as strata, sampling methods, survey design and sample weights. This will be important throughout the statistical disclosure control process.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Set up your tool of choice.</h3>
 						<p class="border-top">At the Centre for Humanitarian Data, we use sdcMicro to perform the disclosure risk assessment. This is one of a few open source tools that can be used to apply Statistical Disclosure Control.  If this is your first time using sdcMicro, you can download the package from the Comprehensive R Archive Network.</p>
 					</div>
-					<div class="column column-4 no-pad-top"></div> 
+					<div class="column column-4"></div>
 				</div>
 
 				<div class='section-faq'>
@@ -217,47 +199,29 @@ get_header();
 				</div>
 
 				<div class="content-drawer">
-					<div class="column-container">
+					<div class="column-container column-flow">
 						<div class="column column-4">
-							<h3 class="pad-bottom">Start by classifying the variables in your microdata as identifying and non-identifying.</h3>
-						</div>
-						<div class="column column-4">
-							<h3 class="pad-bottom">Select your key variables.</h3>
-						</div>
-						<div class="column column-4">
-							<h3 class="pad-bottom">While direct identifiers are always considered sensitive, the sensitivity of indirect identifiers and non-identifying variables may depend on the context.</h3>
-						</div>
-					</div>
-					<div class="column-container pad-bottom">
-						<div class="column column-4 no-pad-top">
+							<h3 class="fixed-height">Start by classifying the variables in your microdata as identifying and non-identifying.</h3>
 							<p class="border-top">Identifying variables contain information that can lead to the identification of respondents in the dataset. These can be further categorised as either direct identifiers or indirect identifiers (also referred to as quasi-identifiers). Remember, direct identifiers such as full names, addresses, phone numbers and GPS coordinates should always be removed from the microdata before starting the risk assessment.</p>
 							<p>Non-identifying variables cannot be used to re-identify individuals but could lead to the disclosure of confidential information.</p>
 						</div>
-						<div class="column column-4 no-pad-top">
+						<div class="column column-4">
+							<h3 class="fixed-height">Select your key variables.</h3>
 							<p class="border-top">A key variable is typically an indirect identifier that could be used to re-identify individuals within a datasets or to link records between different datasets. Common examples of key variables are age, material status, geographical variables, gender and religion. Removing all indirect identifiers from a dataset is likely to severely limit the analytical value of the dataset. The SDC process is intended to assess the disclosure risk presented by the indirect identifiers and to take steps to limit that risk, when possible, while maintaining the analytic power of the data.</p>
 						</div>
-						<div class="column column-4 no-pad-top">
+						<div class="column column-4">
+							<h3 class="fixed-height">While direct identifiers are always considered sensitive, the sensitivity of indirect identifiers and non-identifying variables may depend on the context.</h3>
 							<p class="border-top">Because the sensitivity of variables is context specific, it is important to understand both the data environment and the real life situation when selecting your key variables. Remember that even when indirect identifiers are not themselves sensitive in nature, it may still be possible to combine them with other variables and lead to the <b>disclosure of sensitive information</b>.</p>
 						</div>
-					</div>
-
-					<div class="column-container">
 						<div class="column column-4">
-							<h3 class="pad-bottom">Note whether your key variables are continuous or categorical.</h3>
-						</div>
-						<div class="column column-4">
-							<h3 class="pad-bottom">Pay close attention to exclusive or partial variables.</h3>
-						</div>
-						<div class="column column-4"></div>
-					</div>
-					<div class="column-container">
-						<div class="column column-4 no-pad-top">
+							<h3 class="fixed-height">Note whether your key variables are continuous or categorical.</h3>
 							<p class="border-top">You will use different techniques to assess the disclosure risk of continuous and categorical variables. Categorical variables take values from a finite set (i.e. gender) whereas continuous variables are numeric variables that can take an infinite number of values (i.e. income). Continuous variables can be transformed into categorical variables by creating intervals (i.e. income brackets).</p>
 						</div>
-						<div class="column column-4 no-pad-top">
+						<div class="column column-4">
+							<h3 class="fixed-height">Pay close attention to exclusive or partial variables.</h3>
 							<p class="border-top">While you do not want to remove all indirect identifiers, it may be important to remove some. For example, you may want to consider removing variables with many missing values, such as a variable recorded only for a select group.</p>
 						</div>
-						<div class="column column-4 no-pad-top"></div> 
+						<div class="column column-4"></div>
 					</div>
 
 					<div class='section-faq'>
@@ -281,51 +245,32 @@ get_header();
 			</div>
 
 			<div class="content-drawer">
-				<div class="column-container">
+				<div class="column-container column-flow">
 					<div class="column column-4">
-						<h3 class="pad-bottom">Apply the appropriate risk assessment method depending on the nature of your key variables.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Don’t forget continuous key variables.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Calculate the sample and population frequency of keys.</h3>
-					</div>
-				</div>
-				<div class="column-container pad-bottom">
-					<div class="column column-4 no-pad-top">
+						<h3 class="fixed-height">Apply the appropriate risk assessment method depending on the nature of your key variables.</h3>
 						<p class="border-top">There are different disclosure risk assessment methods for continuous and categorical key variables. Assessing the disclosure risk for categorical key variables is based on the concept of uniqueness with more unique combinations of key variables (15, female, widowed) having a higher risk of disclosure. For continuous variables, variables that can take an infinite number of values, the concept of uniqueness of a key is not helpful because every respondent could have a unique value for these variables. Most disclosure risk measures for continuous variables are a posteriori measures. For this reason, they are not useful for assessing the initial disclosure risk but can instead be used to evaluate disclosure risk after the data has been treated.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Don’t forget continuous key variables.</h3>
 						<p class="border-top">We focus on categorical variables because they are more prevalent in humanitarian datasets but that doesn’t mean that you should ignore continuous key variables. One way to work with these variables in a disclosure risk assessment is to transform your continuous variable into categorical variables by creating intervals (income brackets, age ranges etc). If you don’t want to do this, outlier detection is one way to assess the disclosure risk of continuous key variables. You can apply Statistical Disclosure Control methods for continuous variables and then use risk assessment techniques like record linkage to evaluate the difference between the original and treated data.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Calculate the sample and population frequency of keys.</h3>
 						<p class="border-top">The unique combinations of key variable values are called keys. One way to assess disclosure risk is to calculate the frequency of different keys within the dataset and, if working with a sample, within the population. As a general rule, the more individual respondents that share a key, the lower the risk of a disclosure taking place.</p>
 					</div>
-				</div>
-
-				<div class="column-container">
 					<div class="column column-4">
-						<h3 class="pad-bottom">Review k-anonymity, a common risk measure for categorical data.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Calculate the Individual Disclosure Risk.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Calculate the Individual Disclosure Risk.</h3>
-					</div>
-				</div>
-				<div class="column-container">
-					<div class="column column-4 no-pad-top">
+						<h3 class="fixed-height">Review k-anonymity, a common risk measure for categorical data.</h3>
 						<p class="border-top">To achieve k-anonymity there needs to be at least k individuals in the dataset that share a combination of values for the selected key variables. A record that has the same key as two other individuals in the dataset would satisfy 3-anonymity because there are at least three (k) individuals in the dataset with that key. A record that violates 2-anonymity is said to be a unique record because it is the only record in the dataset with that specific key.</p>
 						<p>Remember that k-anonymity does not take into account sample weights. While there may only be three individuals in the sample that share a key, depending on the sample weights, this may correspond to many thousands of people in the population.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Calculate the Individual Disclosure Risk.</h3>
 						<p class="border-top">The Individual Disclosure Risk is the <b>probability</b> that an individual within a dataset could be correctly re-identified. The main factors influencing the individual risk calculation are the sample frequencies (the number of individuals that share a combination of key variables in the sample) and the sample weights. When individuals with rare combinations of key variables also have small sample weights, they will have a high relative individual disclosure risk. In other words, if the number of individuals with this specific combination of key variables is expected to be low in the population, this increases the risk that they can be correctly re-identified.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Calculate the Individual Disclosure Risk.</h3>
 						<p class="border-top">Individual disclosure risk measures are useful for identifying high-risk records. These individual risk measures can also be aggregated to obtain a global disclosure risk measure for the entire file. A straightforward way of calculating global risk is to take the average (mean) of the individual risks.</p>
-					</div>  
+					</div>
 				</div>
 
 				<div class='section-faq'>
@@ -349,25 +294,17 @@ get_header();
 				</div>
 
 				<div class="content-drawer">
-					<div class="column-container">
+					<div class="column-container column-flow">
 						<div class="column column-4">
-							<h3 class="pad-bottom">Consider different risk measures when interpreting the results of the assessment.</h3>
-						</div>
-						<div class="column column-4">
-							<h3 class="pad-bottom">Set a risk threshold that is right for your organization and context.</h3>
-						</div>
-						<div class="column column-4">
-							<h3 class="pad-bottom">Approach the global risk measure with caution.</h3>
-						</div>
-					</div>
-					<div class="column-container pad-bottom">
-						<div class="column column-4 no-pad-top">
+							<h3 class="fixed-height">Consider different risk measures when interpreting the results of the assessment.</h3>
 							<p class="border-top">Calculating these different disclosure risk measures helps you decide whether and how to share your data. On HDX, we calculate the global risk and review k-anonymity for all microdata shared on the platform.</p>
 						</div>
-						<div class="column column-4 no-pad-top">
+						<div class="column column-4">
+							<h3 class="fixed-height">Set a risk threshold that is right for your organization and context.</h3>
 							<p class="border-top">The risk threshold will vary according to who you are sharing the data with and the and the sensitivity of data in your context. When setting your risk threshold, consider existing institutional policies, guidelines, and applicable regulations in the country of operation. On HDX, our threshold for Global Risk of microdata is 3%.</p>
 						</div>
-						<div class="column column-4 no-pad-top">
+						<div class="column column-4">
+							<h3 class="fixed-height">Approach the global risk measure with caution.</h3>
 							<p class="border-top">A common way to calculate the Global Risk is to take the average of the individual disclosure risk scores. Even if the global risk is below the agreed risk threshold, there could still be a small number of individuals in the dataset with high individual risk.</p>
 						</div>
 					</div>
@@ -393,25 +330,17 @@ get_header();
 			</div>
 
 			<div class="content-drawer">
-				<div class="column-container">
+				<div class="column-container column-flow">
 					<div class="column column-4">
-						<h3 class="pad-bottom">Use disclosure control techniques to reduce the risk of disclosure.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Navigate the trade off between disclosure risk and data utility.</h3>
-					</div>
-					<div class="column column-4">
-						<h3 class="pad-bottom">Find other ways to share your data responsibly.</h3>
-					</div>
-				</div>
-				<div class="column-container pad-bottom">
-					<div class="column column-4 no-pad-top">
+						<h3 class="fixed-height">Use disclosure control techniques to reduce the risk of disclosure.</h3>
 						<p class="border-top">Disclosure control techniques are either non-perturbative or perturbative. Non-perturbative methods preserve the integrity of the data but limit the disclosure risk by reducing the detail in the microdata. These methods include local suppression, recoding, and eliminating variables. Through local suppression individual values are suppressed and replaced with missing values (NA) whereas, with global recoding, the number of distinct values for a given variable is reduced by creating intervals. Perturbative methods, on the other hand, alter values and as a result limit disclosure risk by creating uncertainty around what the true values are.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Navigate the trade off between disclosure risk and data utility.</h3>
 						<p class="border-top">The optimum trade-off between risk and utility in the statistical disclosure process depends greatly on who the users are and the conditions under which the microdata is shared. The application of disclosure control techniques will always result in the loss of information. After applying SDC, you need to quantify the information loss in order to determine if there is still value in sharing the data. Otherwise, it may be necessary to reverse course and find other methods for sharing the data.</p>
 					</div>
-					<div class="column column-4 no-pad-top">
+					<div class="column column-4">
+						<h3 class="fixed-height">Find other ways to share your data responsibly.</h3>
 						<p class="border-top">If the disclosure risk or information loss after applying SDC is too high, there are still options for sharing the data. For example, you share only the metadata on HDX via HDXConnect. This option allows you to let users know that the data exists and is available ‘by request’. Once users request access, you decide whether and how to share it. Alternatively, you could decide to share the data with trusted partners under strict terms and conditions defined in a data sharing agreement or information sharing protocol.</p>
 					</div>
 				</div>

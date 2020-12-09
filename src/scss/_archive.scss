@@ -357,5 +357,14 @@
 				}
 			}
 		}
+		&.category-resource-library {
+			.t-entry-visual-tc {
+				min-height: 0;
+			}
+			.t-entry-title,
+			.resource-description {
+				height: auto;
+			}
+		}
 	}
 }

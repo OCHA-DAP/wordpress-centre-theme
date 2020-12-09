@@ -138,6 +138,16 @@
 					padding: 0 30px 30px;
 				}
 			}
+			&.column-flow {
+				flex-flow: row wrap;
+				.column {
+					padding-right: 30px;
+					margin-right: 0;
+					&:last-child {
+						padding-right: 0;
+					}
+				}
+			}
 		}
 		.button-primary {
 			background-color: #333;
@@ -239,9 +249,6 @@
 			margin: 0 auto;
 			max-width: 1176px;
 		}
-		.content-drawer {
-			display: none;
-		}
 		.video-container {
 			border: none;
 			height: 100%;
@@ -249,19 +256,20 @@
 		}
 		section {
 			padding: 70px 0;
-			&.section-importance {
-				.icon {    
-					position: absolute;
-			    left: 50%;
-			    top: -70px;
-			    transform: translate(-50%);
-				}
-				.column-container {
-					&.has-icons {
-						margin-top: 90px;
-						.column-4 {
-							padding-top: 115px;
-						}
+			.column-container {
+				&.has-icons {
+					margin-top: 90px;
+					.icon {    
+						position: absolute;
+				    left: 50%;
+				    top: -70px;
+				    transform: translate(-50%);
+					}
+					.column-4 {
+						padding-top: 115px;
+					}
+					.fixed-height {
+						height: 230px;
 					}
 				}
 			}
@@ -330,7 +338,14 @@
 			width: 608px;
 		}
 		.content-drawer {
+			display: none;
 			margin-top: 70px;
+			.fixed-height {
+				height: 130px;
+			}
+			.column {
+				padding-bottom: 32px;
+			}
 		}
 		&.methodology {
 			counter-reset: heading;
@@ -409,6 +424,9 @@
 			}
 			.column-container {
 				flex-flow: column;
+				.column {
+					padding: 0;
+				}
 				.column[class*="column-"] {
 					width: 100%;
 				}
@@ -429,18 +447,22 @@
 				position: relative;
 			}
 			section {
-				&.section-importance {
-					.column-container {
-						&.has-icons {
-							.column {
-								margin-bottom: 90px;
-							}
+				.column-container {
+					&.has-icons {
+						.column {
+							margin-bottom: 90px;
+						}
+						.fixed-height {
+							height: auto;
+							padding-bottom: 30px;
 						}
 					}
 				}
 				&.section-stages {
 					img {
+						height: auto;
 						margin-top: 40px;
+						width: 100%;
 					}
 				}
 				&.section-step {
@@ -461,6 +483,12 @@
 					.align-right {
 						justify-content: center;
 					}
+				}
+			}
+			.content-drawer {
+				.fixed-height {
+					height: auto;
+					padding-bottom: 30px;
 				}
 			}
 			.section-faq {
@@ -487,13 +515,10 @@
 				.navigation-inner {
     			align-items: flex-start;
 					flex-flow: column;
-    			padding: 14px 20px 0;
+					height: auto;
+    			padding: 15px 20px 12px;
     			.sub-navigation {
-    				margin-left: 0;
-    				margin-top: 5px;
-    				a {
-    					margin-left: 0;
-    				}
+    				display: none;
     			}
 				}
 			}

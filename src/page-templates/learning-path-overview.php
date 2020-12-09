@@ -155,35 +155,21 @@ get_header();
 				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
-						<h3>Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometric data, or ID numbers.</h3>
+						<h3 class="fixed-height">Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometric data, or ID numbers.</h3>
+						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may still be possible to re-identify respondents.</p>
 					</div>
 				</div>
 				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
-						<h3>By combining different data points, it may be possible to re-identify individuals or disclose confidential information.</h3>
+						<h3 class="fixed-height">By combining different data points, it may be possible to re-identify individuals or disclose confidential information.</h3>
+						<p class="border-top">Humanitarians can apply Statistical Disclosure Control to microdata to help detect and reduce this type of risk.</p>
 					</div>
 				</div>
 				<div class="column column-4 background-gray">
 					<div class="column-inner">
 						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
-						<h3>During emergencies, microdata needs to be shared with partners as quickly and safely as possible.</h3>
-					</div>
-				</div>
-			</div>
-			<div class="column-container">
-				<div class="column column-4 background-gray">
-					<div class="column-inner no-pad-top">
-						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may still be possible to re-identify respondents.</p>
-					</div>
-				</div>
-				<div class="column column-4 background-gray">
-					<div class="column-inner no-pad-top">
-						<p class="border-top">Humanitarians can apply Statistical Disclosure Control to microdata to help detect and reduce this type of risk.</p>
-					</div>
-				</div>
-				<div class="column column-4 background-gray">
-					<div class="column-inner no-pad-top">
+						<h3 class="fixed-height">During emergencies, microdata needs to be shared with partners as quickly and safely as possible.</h3>
 						<p class="border-top">Having processes and tools in place to consistently assess and reduce the disclosure risk of this data enables organizations to share data in a safe, ethical and effective way.</p>
 					</div>
 				</div>
@@ -199,7 +185,7 @@ get_header();
 						<p>Through these three stages of statistical disclosure control, you assess the disclosure risk in your data and then take steps to limit that risk. Because applying disclosure control techniques will result in information loss, the final stage of the process involves quantifying that loss in order to strike a balance between utility and risk in your data.</p>
 					</div>
 					<div class="column column-8 align-right">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
+						<img width="647" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
 					</div>
 				</div>
 			</div>
