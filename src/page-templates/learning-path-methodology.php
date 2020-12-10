@@ -210,8 +210,8 @@ get_header();
 							<p class="border-top">A key variable is typically an indirect identifier that could be used to re-identify individuals within a datasets or to link records between different datasets. Common examples of key variables are age, material status, geographical variables, gender and religion. Removing all indirect identifiers from a dataset is likely to severely limit the analytical value of the dataset. The SDC process is intended to assess the disclosure risk presented by the indirect identifiers and to take steps to limit that risk, when possible, while maintaining the analytic power of the data.</p>
 						</div>
 						<div class="column column-4">
-							<h3 class="fixed-height">While direct identifiers are always considered sensitive, the sensitivity of indirect identifiers and non-identifying variables may depend on the context.</h3>
-							<p class="border-top">Because the sensitivity of variables is context specific, it is important to understand both the data environment and the real life situation when selecting your key variables. Remember that even when indirect identifiers are not themselves sensitive in nature, it may still be possible to combine them with other variables and lead to the <b>disclosure of sensitive information</b>.</p>
+							<h3 class="fixed-height">Remember that the sensitivity of indirect identifiers depends on the context.</h3>
+							<p class="border-top">Direct identifiers are always considered sensitive while the sensitivity of indirect identifiers is often context specific. This is why it is important to understand both the data environment and the real life situation when selecting your key variables. Keep in mind that even when indirect identifiers are not themselves sensitive, it may be possible to combine them with other variables to lead to the disclosure of sensitive information.</p>
 						</div>
 						<div class="column column-4">
 							<h3 class="fixed-height">Note whether your key variables are continuous or categorical.</h3>
@@ -247,7 +247,7 @@ get_header();
 			<div class="content-drawer">
 				<div class="column-container column-flow">
 					<div class="column column-4">
-						<h3 class="fixed-height">Apply the appropriate risk assessment method depending on the nature of your key variables.</h3>
+						<h3 class="fixed-height">Use different risk assessment methods for continuous and categorical variables.</h3>
 						<p class="border-top">There are different disclosure risk assessment methods for continuous and categorical key variables. Assessing the disclosure risk for categorical key variables is based on the concept of uniqueness with more unique combinations of key variables (15, female, widowed) having a higher risk of disclosure. For continuous variables, variables that can take an infinite number of values, the concept of uniqueness of a key is not helpful because every respondent could have a unique value for these variables. Most disclosure risk measures for continuous variables are a posteriori measures. For this reason, they are not useful for assessing the initial disclosure risk but can instead be used to evaluate disclosure risk after the data has been treated.</p>
 					</div>
 					<div class="column column-4">
