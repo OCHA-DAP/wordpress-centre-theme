@@ -783,6 +783,11 @@ if (!function_exists('uncode_create_single_block')) {
 				// break;
 
 				case 'title':
+					$category_array = get_the_category($block_data['id']);
+					$isResource = false;
+					foreach ($category_array as $cat) {
+						if ($cat->slug==='resource-library') $isResource = true;
+					}
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 					$post_category = str_replace(' ','',$post_category);
 
@@ -822,9 +827,10 @@ if (!function_exists('uncode_create_single_block')) {
 								$the_link = ($post_format === 'link') ? get_url_in_content( $custom_post ) : $title_link;
 								$the_category = $post_category;
 								$date = get_the_date( '', $block_data['id'] );
-								$inner_entry .= '<h6 class="archive-category">'.$the_category.' | ' .$date.'</h6>';
 								if ($post_category==='impactstory') $the_category = 'Impact Story';
 								if ($post_category==='casestudy') $the_category = 'Case Study';
+								if ($post_category==='resourcelibrary') $the_category = 'Resource';
+								$inner_entry .= '<h6 class="archive-category">'.$the_category.' | ' .$date.'</h6>';
 								if ($post_category!=='') {
 									if ($post_category==='article' || $post_category==='casestudy') {
 										$inner_entry = '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><div class="source">' . $date . '</div>' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
@@ -837,7 +843,21 @@ if (!function_exists('uncode_create_single_block')) {
 										$author_name = get_the_author_meta( 'display_name', $author );
 										$target = ($post_category === 'dataviz' || $post_category === 'announcement') ? 'blank' : '_self';
 										$author_info = ($post_category === 'slideshow') ? 'by ' . $author_name : '';
-										$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$the_link.'" target="'.$target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
+										$resource_description = get_field('resource_description', $block_data['id']);
+										$resource_link = get_field('resource_link', $block_data['id']);
+										$title_link = ($isResource) ? $resource_link['url'] : $the_link;
+										$title_target = ($isResource) ? $resource_link['target'] : $target;
+										if ($isResource) $print_title = strlen($print_title) > 50 ? substr($print_title,0,50)."..." : $print_title;
+										$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'" target="'.$title_target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
+
+										if ($isResource) {
+											if ($resource_description) {
+												$inner_entry .= '<p class="resource-description">'.$resource_description.'</p>';
+											}
+											if ($resource_link) {
+											    $inner_entry .= '<a class="resource-link" href="'.$resource_link['url'].'" target="'.$resource_link['target'].'">'.$resource_link['title'].'</a>';
+											}
+										}
 									}
 								}
 							}
@@ -940,6 +960,7 @@ if (!function_exists('uncode_create_single_block')) {
 						if ($single_text === 'under') { //if this is archive page
 							if ($category==='impactstory') $category = 'Impact Story';
 							if ($category==='casestudy') $category = 'Case Study';
+							if ($category==='resourcelibrary') $category = 'Resource';
 							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
 						}
 						else {
@@ -1345,7 +1366,7 @@ if (!function_exists('uncode_create_single_block')) {
 
 
 						$output .= 			'<a href="'. (($media_type === 'image') ? $create_link : '').'"'.((count($a_classes) > 0 ) ? ' class="'.trim(implode(' ', $a_classes)).'"' : '').$lightbox_data.$data_values.'>
-												<div class="t-background-cover 1'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>
+												<div class="t-background-cover'.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>
 											</a>';
 
 					else:
@@ -1362,13 +1383,13 @@ if (!function_exists('uncode_create_single_block')) {
 							}
 							else if ($post_format === 'image') {
 								$image = wp_get_attachment_image_src( get_post_thumbnail_id( $block_data['id'] ), 'single-post-thumbnail' ); 
-								$output .= '<div class="t-background-cover 2 '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$image[0].'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 							else if (($post_category === 'impactstory') && ($single_text === 'under')) {
-								$output .= '<a href="'.$title_link.'"><div class="t-background-cover 3 default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+								$output .= '<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							}
 							else {
-								$output .= '<div class="t-background-cover 4 '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
+								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 
 						else:
@@ -1377,10 +1398,17 @@ if (!function_exists('uncode_create_single_block')) {
 								$output .= $custom_post;
 							else
 								//print background image for 'other' media_types as well
-								if (strpos($item_media, 'docs.hdx.rwlabs.org')!== false)
-									$item_media = get_stylesheet_directory_uri() . '/assets/default.svg';
+								if ($isResource) {
+									$resource_media = get_field('resource_thumbnail', $block_data['id']);
+									$item_media = ($resource_media!='') ? $resource_media : get_stylesheet_directory_uri() . '/assets/default.svg';
+								}
+								else {
+									if (strpos($item_media, 'docs.hdx.rwlabs.org')!== false)
+										$item_media = get_stylesheet_directory_uri() . '/assets/default.svg';
+								}
 					
-								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover 5 default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
+
+								$output .= 		'<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 								//$output .= 		'<div class="fluid-object '. trim(implode(' ', $title_classes)) . ' '.$object_class.'"'.$dummy_oembed.'>'.$media_code.'</div>';
 
 						endif;

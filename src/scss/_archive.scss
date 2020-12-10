@@ -2,7 +2,8 @@
 .archive {
 	&.tag,
 	&.category-article,
-	&.category-case-study {
+	&.category-case-study,
+	&.category-resource-library {
 		.style-light a:not(.btn-text-skin):hover {
 			color: inherit !important;
 		}
@@ -57,6 +58,29 @@
 					}
 				}
 			}
+		}
+	}
+	&.category-resource-library {
+		.style-metro .tmb .t-inside .t-entry-text {
+			height: auto;
+		}
+		.t-entry-visual-tc {
+			min-height: 170px;
+		}
+		.t-entry-title {
+			height: 42px;
+			overflow: hidden;
+		}
+		.resource-description {
+			color: $black;
+			font-size: 13px;
+			height: 96px;
+			overflow: hidden;
+			padding: 15px 0 5px;
+		}
+		.resource-link {
+			font-family: $font-serif-book;
+			font-size: 13px;
 		}
 	}
 	&.tag {
@@ -331,6 +355,15 @@
 						margin-top: -4px;
 					}
 				}
+			}
+		}
+		&.category-resource-library {
+			.t-entry-visual-tc {
+				min-height: 0;
+			}
+			.t-entry-title,
+			.resource-description {
+				height: auto;
 			}
 		}
 	}

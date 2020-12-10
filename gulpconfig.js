@@ -62,6 +62,7 @@ module.exports = {
         src+'scripts/slick.min.js',
         src+'scripts/humdata.js',
         src+'scripts/humdata-mixpanel.js',
+        src+'scripts/learning-path.js',
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
       ],
