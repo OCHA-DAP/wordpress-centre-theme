@@ -277,6 +277,9 @@
 				.section-header {
 					padding-bottom: 30px;
 				}
+				img {
+					height: 412px;
+				}
 			}
 			&.section-methodology,
 			&.section-learnmore {
@@ -460,9 +463,11 @@
 				}
 				&.section-stages {
 					img {
-						height: 100%;
+						height: auto;
 						margin-top: 40px;
-						width: 100%;
+					}
+					.align-right {
+						align-items: center;
 					}
 				}
 				&.section-step {
