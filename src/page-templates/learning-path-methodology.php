@@ -146,7 +146,7 @@ get_header();
 		<?php $steps = get_field('methodology_step');
 			if( $steps ): 
 				foreach( $steps as $key=>$step ): 
-					$read_more_item = $step['read_more_item']; 
+					$read_more = $step['read_more']; 
 					$faq = $step['faq_category_slug']; ?>
 					<section class="section-step <?php if($key%2!=0) echo 'background-gray'; ?>">
 						<div class="content-width">
@@ -154,17 +154,17 @@ get_header();
 								<div class="column column-5">
 									<h2 class="numbered"><?php echo $step['step_title']; ?></h2>
 									<p><?php echo $step['step_description']; ?></p>
-									<?php if( $read_more_item ): ?><div class="button-read-more">Read More</div><?php endif; ?>
+									<?php if( $read_more ): ?><div class="button-read-more">Read More</div><?php endif; ?>
 								</div>
 								<div class="column column-7 align-right">
 									<iframe class="video-container" src="https://www.youtube.com/embed/<?php echo $step['step_video_id'] ?>?modestbranding=1&rel=0"></iframe>
 								</div>
 							</div>
 
-							<?php if( $read_more_item ): ?>
+							<?php if( $read_more ): ?>
 								<div class="content-drawer">
 									<div class="column-container column-flow">
-										<?php foreach( $read_more_item as $key=>$item ): ?>
+										<?php foreach( $read_more as $key=>$item ): ?>
 											<div class="column column-4">
 												<h3 class="fixed-height"><?php echo $item['item_title']; ?></h3>
 												<p class="border-top"><?php echo $item['item_description']; ?></p>
