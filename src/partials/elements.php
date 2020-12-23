@@ -786,7 +786,7 @@ if (!function_exists('uncode_create_single_block')) {
 					$category_array = get_the_category($block_data['id']);
 					$isResource = false;
 					foreach ($category_array as $cat) {
-						if ($cat->slug==='resource-library') $isResource = true;
+						if ($cat->slug==='resource-library' && get_queried_object()->name==='Resource Library') $isResource = true;
 					}
 					$post_category = strtolower(uncode_custom_just_category($block_data['id']));
 					$post_category = str_replace(' ','',$post_category);
