@@ -136,12 +136,58 @@ get_header();
 			<div class="content-width">
 				<div class="feature-inner">
 					<h1>See How It's Done</h1>
-					<h3>Conducting a Disclosure Risk Assessment requires you to use statistical methods to estimate the likelihood of a disclosure taking place. The following instructional videos and guidance explain these methods and how they can be applied to humanitarian microdata.</h3>
+					<?php if( get_field('methodology_introduction') ): ?>
+						<h3><?php the_field('methodology_introduction'); ?></h3>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 
-		<section class="section-step content-width">
+		<?php $steps = get_field('methodology_step');
+			if( $steps ): 
+				foreach( $steps as $key=>$step ): 
+					$read_more_item = $step['read_more_item']; 
+					$faq = $step['faq_category_slug']; ?>
+					<section class="section-step <?php if($key%2!=0) echo 'background-gray'; ?>">
+						<div class="content-width">
+							<div class="column-container">
+								<div class="column column-5">
+									<h2 class="numbered"><?php echo $step['step_title']; ?></h2>
+									<p><?php echo $step['step_description']; ?></p>
+									<?php if( $read_more_item ): ?><div class="button-read-more">Read More</div><?php endif; ?>
+								</div>
+								<div class="column column-7 align-right">
+									<iframe class="video-container" src="https://www.youtube.com/embed/<?php echo $step['step_video_id'] ?>?modestbranding=1&rel=0"></iframe>
+								</div>
+							</div>
+
+							<?php if( $read_more_item ): ?>
+								<div class="content-drawer">
+									<div class="column-container column-flow">
+										<?php foreach( $read_more_item as $key=>$item ): ?>
+											<div class="column column-4">
+												<h3 class="fixed-height"><?php echo $item['item_title']; ?></h3>
+												<p class="border-top"><?php echo $item['item_description']; ?></p>
+											</div>
+										<?php endforeach; ?>
+									</div>
+
+									<?php if( $faq ): ?>
+										<div class='section-faq'>
+											<h2>General Questions</h2>
+											<?php echo do_shortcode("[ultimate-faqs include_category='". $faq . "']"); ?>
+										</div>
+									<?php endif; ?>
+								</div>
+							<?php endif; ?>
+
+						</div>
+					</section>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		<?php ?>
+
+		<!-- <section class="section-step content-width">
 			<div class="column-container">
 				<div class="column column-5">
 					<h2 class="numbered">Prepare the Disclosure Risk Assessment</h2>
@@ -350,7 +396,7 @@ get_header();
 					<?php echo do_shortcode("[ultimate-faqs include_category='disclosure-risk-assessment-step-5']"); ?>
 				</div>
 			</div>
-		</section>
+		</section> -->
 
 		<section class="section-documentation background-gray">
 			<div class="content-width">
