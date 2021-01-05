@@ -1,5 +1,9 @@
 .page-template-learning-path-overview,
-.page-template-learning-path-methodology {
+.page-template-learning-path-methodology,
+.page-template-learning-path-tutorial {
+	.box-wrapper {
+		overflow: auto;
+	}
 	.header-wrapper {
 		min-height: 0 !important;
 	}
@@ -39,6 +43,14 @@
 			line-height: 33px;
 			margin: 0;
 		}
+		h4 {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			margin-top: 40px;
+			text-transform: uppercase;
+		}
 		a {
 			//color: #FFF;
 			text-decoration: underline;
@@ -56,6 +68,23 @@
 				  padding-bottom: 20px;
 				  width: 66px;
 				}
+			}
+		}
+		code {
+			font-size: 14px;
+			font-weight: 600;
+			line-height: inherit;
+			margin: inherit;
+			padding: inherit;
+		}
+		pre {
+			background-color: #333;
+			border: 2px solid #1BB580;
+			margin: 25px 0 85px;
+			padding: 0 20px;
+			code {
+				color: #FFF;
+				font-size: 12px;
 			}
 		}
 		.learning-path-navigation {
@@ -281,17 +310,11 @@
 					height: 412px;
 				}
 			}
-			&.section-methodology,
-			&.section-learnmore {
+			&.section-call-to-action {
 				padding-bottom: 100px;
 				p {
 					width: 44%;
     			margin: 30px auto 50px;
-				}
-			}
-			&.section-learnmore {
-				p {
-					width: 20%;
 				}
 			}
 			&.section-step {
@@ -302,30 +325,33 @@
 					height: 348px;
 				}
 			}
-			&.section-documentation {
-				img {
-					margin-bottom: 25px;
-				}
-			}
 			&.section-faq {
 				a {
 
 				}
 			}
 		}
-		.section-card {
-			background-color: #FFF;
-			cursor: pointer;
-			margin: 30px 15px;
-			padding: 40px 45px 60px;
-			text-align: left;
-			text-decoration: none;
-			width: 400px;
-			p.body {
-				color: #000;
+		.section-card-container {
+			img {
+				margin-bottom: 25px;
 			}
-			&:hover {
-				box-shadow: 0 45px 79px 0 rgba(200, 200, 200, 0.5);
+			.section-card {
+				background-color: #FFF;
+				cursor: pointer;
+				margin: 30px 15px;
+				padding: 40px 45px 60px;
+				text-align: left;
+				text-decoration: none;
+				width: 400px;
+				h3 {
+					min-height: 66px;
+				}
+				p.body {
+					color: #000;
+				}
+				&:hover {
+					box-shadow: 0 45px 79px 0 rgba(200, 200, 200, 0.5);
+				}
 			}
 		}
 		.attribution {
@@ -364,6 +390,39 @@
 				margin-top: 90px;
 				p {
 					width: 100%;
+				}
+			}
+		}
+		.quick-tip-container {
+			h5 {
+				color: #18B580;
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 14px;
+				font-weight: 600;
+				letter-spacing: 0.75px;
+				text-transform: uppercase;
+			}
+			p {
+				border: 2px solid #18B580;
+				color: #18B580;
+				line-height: 21px;
+				margin-top: 12px;
+				padding: 20px;
+			}
+		}
+		.jump-menu {
+			margin: 0;
+			padding-top: 70px;
+			position: -webkit-sticky;
+  		position: sticky;
+ 		 	top: 136px; //main nav height
+			li a {
+				color: #1BB580;
+				font-family: 'Stag-Book';
+				font-size: 18px;
+				text-decoration: none;
+				&:hover {
+					color: #F2645A;
 				}
 			}
 		}
@@ -418,7 +477,8 @@
 
 @media (max-width: $screen-md) { 
 	.page-template-learning-path-overview,
-	.page-template-learning-path-methodology {
+	.page-template-learning-path-methodology,
+	.page-template-learning-path-tutorial {
 		.learning-path {
 			margin-top: 25px;
 			.content-width {
@@ -519,7 +579,8 @@
 
 @media (max-width: $screen-sm) { 
 	.page-template-learning-path-overview,
-	.page-template-learning-path-methodology {
+	.page-template-learning-path-methodology,
+	.page-template-learning-path-tutorial {
 		.learning-path {
 			.learning-path-navigation {
 				.navigation-inner {
@@ -536,7 +597,7 @@
 				width: 100%;
 			}
 			section {
-				&.section-methodology {
+				&.section-call-to-action {
 					p {
 						width: 100%;
 					}

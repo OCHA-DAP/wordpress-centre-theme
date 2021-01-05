@@ -13,7 +13,7 @@ get_header();
 <script>
 	//mixpanel tracking
 	window.onload = function(e) {
-		//mpTrack.pageView(document.title, 'learning module');
+		mpTrack.pageView(document.title, 'learning module');
 	}
 </script>
 
@@ -127,6 +127,7 @@ get_header();
 				</div>
 				<div class="sub-navigation">
 					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">See How It's Done</a>
+					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-tutorial/' ?>">Try It On Your Own</a>
 					<!-- <a href="#">Request Support</a> -->
 				</div>
 			</div>
@@ -196,7 +197,7 @@ get_header();
 			<?php echo do_shortcode("[ultimate-faqs include_category='disclosure-risk-assessment-overview']"); ?>
 		</section>
 
-		<section class="section-methodology background-gray">
+		<section class="section-call-to-action background-gray">
 			<div class="content-width align-center">
 				<h2 class="text-green">Learn more about conducting a disclosure risk assessment</h2>
 				<p>We offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
@@ -204,7 +205,7 @@ get_header();
 			</div>
 		</section>
 
-<!-- 		<section class="section-learnmore background-gray-dark">
+<!-- 		<section class="section-call-to-action background-gray-dark">
 			<div class="content-width align-center">
 				<h2 class="text-blue">Learn more with us</h2>
 				<p>We offer assistance and training for anyone who wants to find more</p>

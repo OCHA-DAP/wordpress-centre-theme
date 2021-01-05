@@ -34,6 +34,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 <?php else: ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php endif; ?>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <script src="https://www.youtube.com/player_api"></script>
