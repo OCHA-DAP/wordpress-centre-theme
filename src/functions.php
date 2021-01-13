@@ -301,16 +301,17 @@ function quicktip($att, $content = null)
 add_shortcode('quicktip', 'quicktip');
 
 
-function code($att, $content = null)
+function coder($att, $content = null)
 {
   extract(shortcode_atts(array(
     'lang' => ''
   ), $att));
   $content = str_replace('<br>', '', $content);
+  $content = preg_replace("#<br />#", "", $content);
   $str = '<pre><code>'.$content.'</code></pre>';
   return $str;
 }
-add_shortcode('code', 'code');
+add_shortcode('coder', 'coder');
 
 
 function searchfilter($query) {

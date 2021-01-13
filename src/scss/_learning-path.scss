@@ -76,8 +76,18 @@
 			font-weight: bold;
 			padding: 0;
 		}
-		pre,
+		pre {
+			background-color: #333;
+			border: 2px solid #1BB580 !important;
+			color: #FFF;
+			margin: 25px 0 35px !important;
+			padding: 0 20px 20px !important;
+			code {
+				font-size: 12px;
+			}
+		}
 		.syntaxhighlighter {
+			background-color: #333;
 			border: 2px solid #1BB580 !important;
 			font-size: 12px;
 			margin: 25px 0 35px !important;
