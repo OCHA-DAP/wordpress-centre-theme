@@ -170,13 +170,14 @@ get_header();
 
 
 		<?php $cta = get_field('call_to_action'); 
-			if( $cta ): 
+			$ctaTitle = $cta['title'];
+			if( $ctaTitle ): 
 				$bg_color = ($cta['style']=='Light') ? 'background-gray' : 'background-gray-dark'; 
 				$text_color = ($cta['style']=='Light') ? 'text-green' : 'text-blue';  
 				$btn_style = ($cta['style']=='light') ? '' : 'button-dark'; ?>
 				<section class="section-call-to-action <?php echo $bg_color; ?>">
 					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<h2 class="<?php echo $text_color; ?>"><?php echo $ctaTitle; ?></h2>
 						<p><?php echo $cta['text']; ?></p>
 						<?php 
 							$link =  $cta['link'];

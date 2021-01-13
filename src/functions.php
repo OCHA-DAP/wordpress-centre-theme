@@ -210,6 +210,7 @@ function dataviz($att, $content = null)
 }
 add_shortcode('dataviz', 'dataviz');
 
+
 function announcement($att, $content = null) 
 {
   extract(shortcode_atts(array(
@@ -223,6 +224,7 @@ function announcement($att, $content = null)
   return $str;
 }
 add_shortcode('announcement', 'announcement');
+
 
 function impact($att, $content = null) 
 {
@@ -297,6 +299,17 @@ function quicktip($att, $content = null)
   return $str;
 }
 add_shortcode('quicktip', 'quicktip');
+
+
+function code($att, $content = null)
+{
+  extract(shortcode_atts(array(
+    'lang' => ''
+  ), $att));
+  $str = '<pre><code>'.$content.'</code></pre>';
+  return $str;
+}
+add_shortcode('code', 'code');
 
 
 function searchfilter($query) {
