@@ -306,6 +306,7 @@ function code($att, $content = null)
   extract(shortcode_atts(array(
     'lang' => ''
   ), $att));
+  $content = str_replace('<br>', '', $content);
   $str = '<pre><code>'.$content.'</code></pre>';
   return $str;
 }
