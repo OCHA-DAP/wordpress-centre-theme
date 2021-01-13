@@ -301,7 +301,7 @@ function quicktip($att, $content = null)
 add_shortcode('quicktip', 'quicktip');
 
 
-function coder($att, $content = null)
+function code($att, $content = null)
 {
   extract(shortcode_atts(array(
     'lang' => ''
@@ -311,7 +311,7 @@ function coder($att, $content = null)
   $str = '<pre><code>'.$content.'</code></pre>';
   return $str;
 }
-add_shortcode('coder', 'coder');
+add_shortcode('code', 'code');
 
 
 function searchfilter($query) {
