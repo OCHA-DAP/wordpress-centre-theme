@@ -1,6 +1,4 @@
-.page-template-learning-path-overview,
-.page-template-learning-path-methodology,
-.page-template-learning-path-tutorial {
+[class*='page-template-learning-path'] {
 	.box-wrapper {
 		overflow: auto;
 	}
@@ -48,8 +46,11 @@
 			font-size: 18px;
 			font-weight: 600;
 			letter-spacing: 1px;
-			margin-top: 40px;
+			margin-top: 80px;
 			text-transform: uppercase;
+		}
+		h2 + h4 {
+			margin-top: 40px;
 		}
 		a {
 			//color: #FFF;
@@ -57,7 +58,7 @@
 		}
 		p {
 			font-size: 15px;
-			line-height: 19px;
+			line-height: 21px;
 			margin-top: 32px;
 			&.border-top {
 				 margin-top: 0;
@@ -71,21 +72,15 @@
 			}
 		}
 		code {
-			font-size: 14px;
-			font-weight: 600;
-			line-height: inherit;
-			margin: inherit;
-			padding: inherit;
+			font-size: 13px;
+			font-weight: bold;
+			padding: 0;
 		}
-		pre {
-			background-color: #333;
-			border: 2px solid #1BB580;
-			margin: 25px 0 85px;
-			padding: 0 20px;
-			code {
-				color: #FFF;
-				font-size: 12px;
-			}
+		.syntaxhighlighter {
+			border: 2px solid #1BB580 !important;
+			font-size: 12px;
+			margin: 25px 0 35px !important;
+			padding: 20px !important;
 		}
 		.learning-path-navigation {
 			background-color: #000;
@@ -447,8 +442,10 @@
 				font-family: 'Stag-Book';
 				font-size: 24px;
 				font-weight: normal;
+				letter-spacing: 0;
 				line-height: 33px;
 				margin: 0 !important;
+				text-transform: none;
 			}
 			.ewd-ufaq-post-margin {
 				display: flex;
@@ -476,9 +473,7 @@
 }
 
 @media (max-width: $screen-md) { 
-	.page-template-learning-path-overview,
-	.page-template-learning-path-methodology,
-	.page-template-learning-path-tutorial {
+	[class*='page-template-learning-path'] {
 		.learning-path {
 			margin-top: 25px;
 			.content-width {

@@ -152,14 +152,25 @@ get_header();
 					<section class="section-step <?php if($key%2!=0) echo 'background-gray'; ?>">
 						<div class="content-width">
 							<div class="column-container">
-								<div class="column column-5">
-									<h2 class="numbered"><?php echo $step['step_title']; ?></h2>
-									<p><?php echo $step['step_description']; ?></p>
-									<?php if( $read_more ): ?><div class="button-read-more">Read More</div><?php endif; ?>
-								</div>
-								<div class="column column-7 align-right">
-									<iframe class="video-container" src="https://www.youtube.com/embed/<?php echo $step['step_video_id'] ?>?modestbranding=1&rel=0"></iframe>
-								</div>
+								<?php if($key%2!=0): ?>
+									<div class="column column-7">
+										<iframe class="video-container" src="https://www.youtube.com/embed/<?php echo $step['step_video_id'] ?>?modestbranding=1&rel=0"></iframe>
+									</div>
+									<div class="column column-5">
+										<h2 class="numbered"><?php echo $step['step_title']; ?></h2>
+										<p><?php echo $step['step_description']; ?></p>
+										<?php if( $read_more ): ?><div class="button-read-more">Read More</div><?php endif; ?>
+									</div>
+								<?php else: ?>
+									<div class="column column-5">
+										<h2 class="numbered"><?php echo $step['step_title']; ?></h2>
+										<p><?php echo $step['step_description']; ?></p>
+										<?php if( $read_more ): ?><div class="button-read-more">Read More</div><?php endif; ?>
+									</div>
+									<div class="column column-7 align-right">
+										<iframe class="video-container" src="https://www.youtube.com/embed/<?php echo $step['step_video_id'] ?>?modestbranding=1&rel=0"></iframe>
+									</div>
+								<?php endif; ?>
 							</div>
 
 							<?php if( $read_more ): ?>

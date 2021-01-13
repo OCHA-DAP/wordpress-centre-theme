@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Learning Path Tutorial */
+/* Template Name: Learning Path Support */
 
 /**
- * The template for Learning Path Tutorial pages.
+ * The template for Learning Path Support pages.
  *
  * @package uncode
  */
@@ -119,7 +119,7 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-path tutorial">
+	<article class="learning-path support">
 		<div class="learning-path-navigation">
 			<div class="navigation-inner content-width">
 				<div class="breadcrumbs">
@@ -127,68 +127,15 @@ get_header();
 				</div>
 				<div class="sub-navigation">
 					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">See How It's Done</a>
-					<a href="#" class="active">Try It On Your Own</a>
-					<!-- <a href="#">Request Support</a> -->
+					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-tutorial/' ?>">Try It On Your Own</a>
+					<a href="#" class="active">Request Support</a>
 				</div>
 			</div>
 		</div>
 
-		<div class="feature-content">
-			<div class="content-width">
-				<div class="feature-inner">
-					<h1>Try It On Your Own</h1>
-					<?php if( get_field('tutorial_introduction') ): ?>
-						<h3><?php the_field('tutorial_introduction'); ?></h3>
-					<?php endif; ?>
-				</div>
-			</div>
-		</div>
-
-		<div class="content-width column-container">
-			<div class="column column-4">
-				<ul class="jump-menu">
-					<?php
-						$sections = get_content_sections();
-						foreach( $sections as $section ) {
-							$id = $section->getAttribute('id');
-							$h2 = $section->getElementsByTagName('h2');
-							$title = $h2[0]->textContent;
-					?>
-						<li><a href="#<?php echo $id ?>"><?php echo $title ?></a></li>
-					<?php } ?>
-				</ul>
-			</div>
-
-			<div class="column column-8">
-				<?php 
-					$the_content = get_the_content();
-					$the_content = apply_filters('the_content', $the_content);
-					echo $the_content;
-				?>
-			</div>
-		</div>
-
-
-		<?php $cta = get_field('call_to_action'); 
-			if( $cta ): 
-				$bg_color = ($cta['style']=='Light') ? 'background-gray' : 'background-gray-dark'; 
-				$text_color = ($cta['style']=='Light') ? 'text-green' : 'text-blue';  
-				$btn_style = ($cta['style']=='light') ? '' : 'button-dark'; ?>
-				<section class="section-call-to-action <?php echo $bg_color; ?>">
-					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
-						<p><?php echo $cta['text']; ?></p>
-						<?php 
-							$link =  $cta['link'];
-							if( $link ): 
-								$link_url = $link['url'];
-    							$link_title = $link['title'];
-    							$link_target = $link['target'] ? $link['target'] : '_self'; ?>
-								<a href="<?php echo esc_url($link_url); ?>" class="button-primary <?php echo $btn_style; ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-							<?php endif; ?>
-					</div>
-				</section>
-		<?php endif; ?>
+		<section class="content-width">
+			<h2 class="section-header">OCHA Support</h2>
+		</section>
 		
 	</article>	
 

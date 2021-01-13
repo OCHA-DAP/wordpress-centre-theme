@@ -132,88 +132,117 @@ get_header();
 				</div>
 			</div>
 		</div>
-
-		<div class="feature-content">
-			<div class="content-width">
-				<div class="feature-inner">
-					<h1>An Introduction to Disclosure Risk Assessment</h1>
-					<h3>Data from household surveys, needs assessments and other forms of microdata make up an increasingly significant volume of data in the humanitarian sector. This type of data is critical to determining the needs and perspectives of people affected by crises but it also presents unique risks. Understanding how to assess and manage the sensitivity of this data is essential to ensuring its safe, ethical and effective use in different response contexts.</h3>
-				</div>
-			</div>
-		</div>
-		<div class="feature-media content-width">
-      <iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/Wp9o-Y_u6y4
-?modestbranding=1&rel=0&enablejsapi=1"></iframe>
-			<div class="feature-media-caption">
-				<h3>Disclosure risk assessment at work</h3>
-				<p class="attribution">Tutorial by OCHA</p>
-			</div>
-		</div>
-
-		<section class="section-importance content-width">
-			<h2 class="section-header">Why It's Important</h2>
-			<div class="column-container has-icons">
-				<div class="column column-4 background-gray">
-					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
-						<h3 class="fixed-height">Most humanitarian organisations acknowledge the sensitivity of personal data such as names, biometric data, or ID numbers.</h3>
-						<p class="border-top">This data should be anonymised, as a matter of standard practice, before being shared. However, even after removing the direct identifiers, it may still be possible to re-identify respondents.</p>
+		
+		<?php $introduction = get_field('overview_introduction');
+			if ($introduction): ?>
+				<div class="feature-content">
+					<div class="content-width">
+						<div class="feature-inner">
+								<h1><?php echo $introduction['title']; ?></h1>
+								<h3><?php echo $introduction['text']; ?></h3>
+						</div>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
-					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
-						<h3 class="fixed-height">By combining different data points, it may be possible to re-identify individuals or disclose confidential information.</h3>
-						<p class="border-top">Humanitarians can apply Statistical Disclosure Control to microdata to help detect and reduce this type of risk.</p>
+		<?php endif; ?>
+
+		<?php $video = get_field('overview_video');
+			if ($video): ?>
+				<div class="feature-media content-width">
+		      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
+		?modestbranding=1&rel=0&enablejsapi=1"></iframe>
+					<div class="feature-media-caption">
+						<h3><?php echo $video['title']; ?></h3>
+						<p class="attribution"><?php echo $video['attribution']; ?></p>
 					</div>
 				</div>
-				<div class="column column-4 background-gray">
-					<div class="column-inner">
-						<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
-						<h3 class="fixed-height">During emergencies, microdata needs to be shared with partners as quickly and safely as possible.</h3>
-						<p class="border-top">Having processes and tools in place to consistently assess and reduce the disclosure risk of this data enables organizations to share data in a safe, ethical and effective way.</p>
+		<?php endif; ?>
+
+		<?php $threeColModule = get_field('3_column_module');
+			if ($threeColModule): ?>
+				<section class="section-importance content-width">
+					<h2 class="section-header"><?php echo $threeColModule['title']; ?></h2>
+					<div class="column-container has-icons">
+						<div class="column column-4 background-gray">
+							<div class="column-inner">
+								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
+								<h3 class="fixed-height"><?php echo $threeColModule['column_1']['title']; ?></h3>
+								<p class="border-top"><?php echo $threeColModule['column_1']['text']; ?></p>
+							</div>
+						</div>
+						<div class="column column-4 background-gray">
+							<div class="column-inner">
+								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
+								<h3 class="fixed-height"><?php echo $threeColModule['column_2']['title']; ?></h3>
+								<p class="border-top"><?php echo $threeColModule['column_2']['text']; ?></p>
+							</div>
+						</div>
+						<div class="column column-4 background-gray">
+							<div class="column-inner">
+								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
+								<h3 class="fixed-height"><?php echo $threeColModule['column_3']['title']; ?></h3>
+								<p class="border-top"><?php echo $threeColModule['column_3']['text']; ?></p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-		</section>
+				</section>
+		<?php endif; ?>
 
-		<section class="section-stages background-gray">
-			<div class="content-width">
-				<h2 class="section-header">The Stages of Statistical Disclosure Control</h3>
-				<div class="column-container">
-					<div class="column column-4">
-						<h3>Limiting the risk of disclosure using statistical disclosure control techniques has three distinct stages:</h3>
-						<p>Through these three stages of statistical disclosure control, you assess the disclosure risk in your data and then take steps to limit that risk. Because applying disclosure control techniques will result in information loss, the final stage of the process involves quantifying that loss in order to strike a balance between utility and risk in your data.</p>
+		<?php $imageModule = get_field('module_with_image');
+			if ($imageModule): ?>
+				<section class="section-stages background-gray">
+					<div class="content-width">
+						<h2 class="section-header"><?php echo $imageModule['title']; ?></h3>
+						<div class="column-container">
+							<div class="column column-4">
+								<h3><?php echo $imageModule['content']['title']; ?></h3>
+								<p><?php echo $imageModule['content']['text']; ?></p>
+							</div>
+							<div class="column column-8 align-right">
+								<?php $image = $imageModule['content']['image'];
+									if( !empty( $image ) ): ?>
+									    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+								<?php endif; ?>
+							</div>
+						</div>
 					</div>
-					<div class="column column-8 align-right">
-						<img width="647" height="412" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/stages-statistical-disclosure.png' ?>" />
+				</section>
+		<?php endif; ?>
+
+		<?php $faq = get_field('faq');
+			if ($faq): ?>
+				<section class="section-faq content-width">
+					<h2 class="section-header"><?php echo $faq['title']; ?></h2>
+					<?php echo do_shortcode("[ultimate-faqs include_category='". $faq['category_slug'] ."']"); ?>
+				</section>
+		<?php endif; ?>
+
+		<?php 
+			$the_content = get_the_content();
+			$the_content = apply_filters('the_content', $the_content);
+			echo $the_content;
+		?>
+
+		<?php $cta = get_field('call_to_action'); 
+			if ($cta):
+				$styleLight = strtolower($cta['style'])=='light' ? true : false;
+				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
+				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
+				$btn_style = ($styleLight) ? '' : 'button-dark'; ?>
+				<section class="section-call-to-action <?php echo $bg_color; ?>">
+					<div class="content-width align-center">
+						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<p><?php echo $cta['text']; ?></p>
+						<?php 
+							$link =  $cta['link'];
+							if ($link): 
+								$link_url = $link['url'];
+    							$link_title = $link['title'];
+    							$link_target = $link['target'] ? $link['target'] : '_self'; ?>
+								<a href="<?php echo esc_url($link_url); ?>" class="button-primary <?php echo $btn_style; ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+						<?php endif; ?>
 					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="section-faq content-width">
-			<h2 class="section-header">General Questions</h2>
-			<?php echo do_shortcode("[ultimate-faqs include_category='disclosure-risk-assessment-overview']"); ?>
-		</section>
-
-		<section class="section-call-to-action background-gray">
-			<div class="content-width align-center">
-				<h2 class="text-green">Learn more about conducting a disclosure risk assessment</h2>
-				<p>We offer a series of short instructional videos and guidance to help you assess the sensitivity of your microdata and take action to reduce the risk of re-identification.</p>
-				<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>" class="button-primary">See How It's Done</a>
-			</div>
-		</section>
-
-<!-- 		<section class="section-call-to-action background-gray-dark">
-			<div class="content-width align-center">
-				<h2 class="text-blue">Learn more with us</h2>
-				<p>We offer assistance and training for anyone who wants to find more</p>
-				<a href="#" class="button-primary button-dark">Book a training</a>
-				<a href="#">Or watch our tutorial</a>
-			</div>
-		</section> -->
-
+				</section>
+		<?php endif; ?>
 
 	</article>	
 

@@ -97,6 +97,22 @@ if ( ! in_the_loop() )
   return $content;
 }
 
+//get section ids in post content
+function get_content_sections( $content = false )
+{
+if ( ! in_the_loop() )
+  return;
+
+  // allows using this function also for excerpts
+  ! $content AND $content = get_the_content();
+  
+  $dom = new DOMDocument();
+  $dom->loadHTML($content);
+  $sections = $dom->getElementsByTagName('section');
+
+  return $sections;
+}
+
 add_filter('the_content', function( $content ){
     //--Remove all inline styles--
     $content = preg_replace('/ style=("|\')(.*?)("|\')/','',$content);
@@ -270,6 +286,17 @@ function gallery($att, $content = null)
   return $str;
 }
 add_shortcode('gallery', 'gallery');
+
+
+function quicktip($att, $content = null)
+{
+  extract(shortcode_atts(array(
+    'title' => ''
+  ), $att));
+  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5><p>'.$content.'</p></div>';
+  return $str;
+}
+add_shortcode('quicktip', 'quicktip');
 
 
 function searchfilter($query) {
