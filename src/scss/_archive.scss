@@ -95,6 +95,11 @@
 		}
 	}
 	.t-entry-visual {
+		&.blog {
+			.t-background-cover {
+				background-position: center top;
+			}
+		}
 		&.dataviz,
 		&.impact {
 			.t-background-cover {
