@@ -209,10 +209,11 @@ get_header();
 		<?php ?>
 
 		<?php $resources = get_field('methodology_resources');
-			if( $resources ): ?>
+			$resourcesTitle = $resources['methodology_resources_title'];
+			if( $resourcesTitle ): ?>
 				<section class="section-card-container background-gray">
 					<div class="content-width">
-						<h2 class="section-header"><?php echo $resources['methodology_resources_title']; ?></h2>
+						<h2 class="section-header"><?php echo $resourcesTitle; ?></h2>
 						<div class="column-container">
 							<div class="column column-6 align-right">
 								<a class="section-card" href="https://centre.humdata.org/guidance-note-statistical-disclosure-control" target="_blank">

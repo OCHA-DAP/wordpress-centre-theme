@@ -107,7 +107,9 @@ if ( ! in_the_loop() )
   ! $content AND $content = get_the_content();
   
   $dom = new DOMDocument();
+  libxml_use_internal_errors(true);
   $dom->loadHTML($content);
+  libxml_clear_errors();
   $sections = $dom->getElementsByTagName('section');
 
   return $sections;
