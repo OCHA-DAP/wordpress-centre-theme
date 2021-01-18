@@ -107,7 +107,8 @@ if ( ! in_the_loop() )
   ! $content AND $content = get_the_content();
   
   $dom = new DOMDocument();
-  libxml_use_internal_errors(true);
+  //suppress php dom warnings on html5 tags https://stackoverflow.com/questions/6090667/php-domdocument-errors-warnings-on-html5-tags
+  libxml_use_internal_errors(true); 
   $dom->loadHTML($content);
   $sections = $dom->getElementsByTagName('section');
   libxml_clear_errors();
