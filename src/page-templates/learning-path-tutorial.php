@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Learning Path Overview */
+/* Template Name: Learning Path Tutorial */
 
 /**
- * The template for Learning Path Overview pages.
+ * The template for Learning Path Tutorial pages.
  *
  * @package uncode
  */
@@ -119,138 +119,87 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-path">
+	<article class="learning-path tutorial">
 		<?php $menu_name = get_field('menu_name');
 			$menu_items = wp_get_nav_menu_items($menu_name);
 			if (!empty($menu_items)): ?>
 				<div class="learning-path-navigation">
 					<div class="navigation-inner content-width">
 						<div class="breadcrumbs">
-							<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / <?php echo $menu_items[0]->title ?></a>
+							<span class="text-green">Learning with the Centre</span><a href="<?php echo $menu_items[0]->url ?>" class="active"> / <?php echo $menu_items[0]->title ?></a>
 						</div>
 						<div class="sub-navigation">
-							<?php for ($i = 1; $i < count($menu_items); $i++) { ?>
-								<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
-							<?php } ?>
-						</div>
-					</div>
-				</div>
-		<?php endif; ?>
-		
-		<?php $introduction = get_field('overview_introduction');
-			if ($introduction): ?>
-				<div class="feature-content">
-					<div class="content-width">
-						<div class="feature-inner">
-								<h1><?php echo $introduction['title']; ?></h1>
-								<h3><?php echo $introduction['text']; ?></h3>
+							<?php for ($i = 1; $i < count($menu_items); $i++) { 
+								if (strpos($menu_items[$i]->url, $_SERVER['REQUEST_URI'])==true) { ?>
+									<a href="#" class="active"><?php echo $menu_items[$i]->title ?></a>
+								<?php }
+								else { ?>
+									<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
+								<?php } 
+							} ?>
 						</div>
 					</div>
 				</div>
 		<?php endif; ?>
 
-		<?php $video = get_field('overview_video');
-			$videoID = $video['id'];
-			if ($videoID): ?>
-				<div class="feature-media content-width">
-		      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
-		?modestbranding=1&rel=0&enablejsapi=1"></iframe>
-					<?php if ($video['title']): ?>
-						<div class="feature-media-caption">
-							<h3><?php echo $video['title']; ?></h3>
-							<p class="attribution"><?php echo $video['attribution']; ?></p>
-						</div>
+		<div class="feature-content">
+			<div class="content-width">
+				<div class="feature-inner">
+					<h1>Try It On Your Own</h1>
+					<?php if( get_field('tutorial_introduction') ): ?>
+						<h3><?php the_field('tutorial_introduction'); ?></h3>
 					<?php endif; ?>
 				</div>
-		<?php endif; ?>
+			</div>
+		</div>
 
-		<?php $threeColModule = get_field('3_column_module');
-			if ($threeColModule['column_1']['title'] && $threeColModule['column_2']['title'] && $threeColModule['column_3']['title']): ?>
-				<section class="section-importance content-width">
-					<h2 class="section-header"><?php echo $threeColModule['title']; ?></h2>
-					<div class="column-container has-icons">
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_1']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_1']['text']; ?></p>
-							</div>
-						</div>
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_2']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_2']['text']; ?></p>
-							</div>
-						</div>
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_3']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_3']['text']; ?></p>
-							</div>
-						</div>
-					</div>
-				</section>
-		<?php endif; ?>
+		<div class="content-width column-container">
+			<div class="column column-4">
+				<ul class="jump-menu">
+					<?php
+						$sections = get_content_sections();
+						foreach( $sections as $section ) {
+							$id = $section->getAttribute('id');
+							$h2 = $section->getElementsByTagName('h2');
+							$title = $h2[0]->textContent;
+					?>
+						<li><a href="#<?php echo $id ?>"><?php echo $title ?></a></li>
+					<?php } ?>
+				</ul>
+			</div>
 
-		<?php $imageModule = get_field('module_with_image');
-			if ($imageModule['content']['title'] && $imageModule['content']['text']): ?>
-				<section class="section-stages background-gray">
-					<div class="content-width">
-						<h2 class="section-header"><?php echo $imageModule['title']; ?></h3>
-						<div class="column-container">
-							<div class="column column-4">
-								<h3><?php echo $imageModule['content']['title']; ?></h3>
-								<p><?php echo $imageModule['content']['text']; ?></p>
-							</div>
-							<div class="column column-8 align-right">
-								<?php $image = $imageModule['content']['image'];
-									if( !empty( $image ) ): ?>
-									    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-								<?php endif; ?>
-							</div>
-						</div>
-					</div>
-				</section>
-		<?php endif; ?>
+			<div class="column column-8">
+				<?php 
+					$the_content = get_the_content();
+					$the_content = apply_filters('the_content', $the_content);
+					echo $the_content;
+				?>
+			</div>
+		</div>
 
-		<?php $faq = get_field('faq');
-			if ($faq['category_slug']): ?>
-				<section class="section-faq content-width">
-					<h2 class="section-header"><?php echo $faq['title']; ?></h2>
-					<?php echo do_shortcode("[ultimate-faqs include_category='". $faq['category_slug'] ."']"); ?>
-				</section>
-		<?php endif; ?>
-
-		<?php 
-			$the_content = get_the_content();
-			$the_content = apply_filters('the_content', $the_content);
-			echo $the_content;
-		?>
 
 		<?php $cta = get_field('call_to_action'); 
-			if ($cta['title']):
-				$styleLight = strtolower($cta['style'])=='light' ? true : false;
-				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
-				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
-				$btn_style = ($styleLight) ? '' : 'button-dark'; ?>
+			$ctaTitle = $cta['title'];
+			if( $ctaTitle ): 
+				$bg_color = ($cta['style']=='Light') ? 'background-gray' : 'background-gray-dark'; 
+				$text_color = ($cta['style']=='Light') ? 'text-green' : 'text-blue';  
+				$btn_style = ($cta['style']=='light') ? '' : 'button-dark'; ?>
 				<section class="section-call-to-action <?php echo $bg_color; ?>">
 					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<h2 class="<?php echo $text_color; ?>"><?php echo $ctaTitle; ?></h2>
 						<p><?php echo $cta['text']; ?></p>
 						<?php 
 							$link =  $cta['link'];
-							if ($link): 
+							if( $link ): 
 								$link_url = $link['url'];
     							$link_title = $link['title'];
     							$link_target = $link['target'] ? $link['target'] : '_self'; ?>
 								<a href="<?php echo esc_url($link_url); ?>" class="button-primary <?php echo $btn_style; ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-						<?php endif; ?>
+							<?php endif; ?>
 					</div>
 				</section>
 		<?php endif; ?>
-
+		
 	</article>	
 
 	<?php endwhile; // end of the loop. ?>

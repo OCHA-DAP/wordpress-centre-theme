@@ -2,22 +2,22 @@
 	// create yt players
 	readyYoutube();
 	function readyYoutube(){
-    if ((typeof YT !== "undefined") && YT && YT.Player){
-       onYouTubeIframeAPIReady();
-    }
-    else {
-      setTimeout(readyYoutube, 100);
-    }
+		if ((typeof YT !== "undefined") && YT && YT.Player){
+			onYouTubeIframeAPIReady();
+		}
+		else {
+			setTimeout(readyYoutube, 100);
+		}
 	}
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('overviewFeatureVideo', {
-      events: {
-        //'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+	var player;
+	function onYouTubeIframeAPIReady() {
+		player = new YT.Player('overviewFeatureVideo', {
+			events: {
+				//'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange
+			}
+		});
+	}
 
 	function onPlayerStateChange(e) {
 		if (e.data == YT.PlayerState.PLAYING) {
@@ -41,5 +41,19 @@
 			$(this).html('Read More');
 		}
 	});
+
+	//sticky nav
+	// $(window).on('scroll', function() {
+	// 	var h = $('.learning-path-navigation').outerHeight() + $('.feature-content').outerHeight();
+	// 	if ($(this).scrollTop() > h) {
+	// 		console.log($('.column-container').position(), $('.column-container').scrollTop(), $(this).scrollTop())
+	// 		//$('.jump-menu').addClass('sticky');
+	// 		//$('.ocha-header .dropdown-menu').css('display', 'none');
+	// 	}
+	// 	else {
+	// 		//$('.jump-menu').removeClass('sticky');
+	// 	}
+	// });
+
 })(jQuery);
 

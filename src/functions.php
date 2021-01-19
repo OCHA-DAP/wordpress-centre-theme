@@ -97,6 +97,25 @@ if ( ! in_the_loop() )
   return $content;
 }
 
+//get section ids in post content
+function get_content_sections( $content = false )
+{
+if ( ! in_the_loop() )
+  return;
+
+  // allows using this function also for excerpts
+  ! $content AND $content = get_the_content();
+  
+  $dom = new DOMDocument();
+  //suppress php dom warnings on html5 tags https://stackoverflow.com/questions/6090667/php-domdocument-errors-warnings-on-html5-tags
+  libxml_use_internal_errors(true); 
+  $dom->loadHTML($content);
+  $sections = $dom->getElementsByTagName('section');
+  libxml_clear_errors();
+
+  return $sections;
+}
+
 add_filter('the_content', function( $content ){
     //--Remove all inline styles--
     $content = preg_replace('/ style=("|\')(.*?)("|\')/','',$content);
@@ -194,6 +213,7 @@ function dataviz($att, $content = null)
 }
 add_shortcode('dataviz', 'dataviz');
 
+
 function announcement($att, $content = null) 
 {
   extract(shortcode_atts(array(
@@ -207,6 +227,7 @@ function announcement($att, $content = null)
   return $str;
 }
 add_shortcode('announcement', 'announcement');
+
 
 function impact($att, $content = null) 
 {
@@ -270,6 +291,30 @@ function gallery($att, $content = null)
   return $str;
 }
 add_shortcode('gallery', 'gallery');
+
+
+function quicktip($att, $content = null)
+{
+  extract(shortcode_atts(array(
+    'title' => ''
+  ), $att));
+  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5><p>'.$content.'</p></div>';
+  return $str;
+}
+add_shortcode('quicktip', 'quicktip');
+
+
+function code($att, $content = null)
+{
+  extract(shortcode_atts(array(
+    'lang' => ''
+  ), $att));
+  $content = str_replace('<br>', '', $content);
+  $content = preg_replace("#<br />#", "", $content);
+  $str = '<pre><code>'.$content.'</code></pre>';
+  return $str;
+}
+add_shortcode('code', 'code');
 
 
 function searchfilter($query) {
