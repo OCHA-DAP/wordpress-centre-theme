@@ -209,15 +209,15 @@ get_header();
 		<?php ?>
 
 		<?php $resources = get_field('methodology_resources');
-			$resourcesTitle = $resources['methodology_resources_title'];
-			if( $resourcesTitle ): ?>
+			if( $resources['resource_one']['resource_title'] && $resources['resource_two']['resource_title'] ): ?>
 				<section class="section-card-container background-gray">
 					<div class="content-width">
-						<h2 class="section-header"><?php echo $resourcesTitle; ?></h2>
+						<h2 class="section-header"><?php echo $resources['methodology_resources_title']; ?></h2>
 						<div class="column-container">
 							<div class="column column-6 align-right">
 								<a class="section-card" href="https://centre.humdata.org/guidance-note-statistical-disclosure-control" target="_blank">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-guideline.png' ?>" />
+									<?php $icon_one = ($resources['resource_one']['resource_type']=='technical_documentation') ? 'icon-documentation.png': 'icon-guideline.png'; ?>
+									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/' . $icon_one;  ?>" />
 									<h3><?php echo $resources['resource_one']['resource_title']; ?></h3>
 									<p class="attribution"><?php echo $resources['resource_one']['resource_attribution']; ?></p>
 									<p class="body"><?php echo $resources['resource_one']['resource_description']; ?></p>
@@ -225,7 +225,8 @@ get_header();
 							</div>
 							<div class="column column-6 align-left">
 								<a class="section-card" href="https://sdcpractice.readthedocs.io/en/latest" target="_blank">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-documentation.png' ?>" />
+									<?php $icon_two = ($resources['resource_two']['resource_type']=='technical_documentation') ? 'icon-documentation.png': 'icon-guideline.png'; ?>
+									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/' . $icon_two;  ?>" />
 									<h3><?php echo $resources['resource_two']['resource_title']; ?></h3>
 									<p class="attribution"><?php echo $resources['resource_two']['resource_attribution']; ?></p>
 									<p class="body"><?php echo $resources['resource_two']['resource_description']; ?></p>

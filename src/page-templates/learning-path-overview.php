@@ -150,19 +150,22 @@ get_header();
 		<?php endif; ?>
 
 		<?php $video = get_field('overview_video');
-			if ($video): ?>
+			$videoID = $video['id'];
+			if ($videoID): ?>
 				<div class="feature-media content-width">
 		      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
 		?modestbranding=1&rel=0&enablejsapi=1"></iframe>
-					<div class="feature-media-caption">
-						<h3><?php echo $video['title']; ?></h3>
-						<p class="attribution"><?php echo $video['attribution']; ?></p>
-					</div>
+					<?php if ($video['title']): ?>
+						<div class="feature-media-caption">
+							<h3><?php echo $video['title']; ?></h3>
+							<p class="attribution"><?php echo $video['attribution']; ?></p>
+						</div>
+					<?php endif; ?>
 				</div>
 		<?php endif; ?>
 
 		<?php $threeColModule = get_field('3_column_module');
-			if ($threeColModule): ?>
+			if ($threeColModule['column_1']['title'] && $threeColModule['column_2']['title'] && $threeColModule['column_3']['title']): ?>
 				<section class="section-importance content-width">
 					<h2 class="section-header"><?php echo $threeColModule['title']; ?></h2>
 					<div class="column-container has-icons">
@@ -192,7 +195,7 @@ get_header();
 		<?php endif; ?>
 
 		<?php $imageModule = get_field('module_with_image');
-			if ($imageModule): ?>
+			if ($imageModule['content']['title'] && $imageModule['content']['text']): ?>
 				<section class="section-stages background-gray">
 					<div class="content-width">
 						<h2 class="section-header"><?php echo $imageModule['title']; ?></h3>
@@ -213,7 +216,7 @@ get_header();
 		<?php endif; ?>
 
 		<?php $faq = get_field('faq');
-			if ($faq): ?>
+			if ($faq['category_slug']): ?>
 				<section class="section-faq content-width">
 					<h2 class="section-header"><?php echo $faq['title']; ?></h2>
 					<?php echo do_shortcode("[ultimate-faqs include_category='". $faq['category_slug'] ."']"); ?>
@@ -227,7 +230,7 @@ get_header();
 		?>
 
 		<?php $cta = get_field('call_to_action'); 
-			if ($cta):
+			if ($cta['title']):
 				$styleLight = strtolower($cta['style'])=='light' ? true : false;
 				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
 				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
