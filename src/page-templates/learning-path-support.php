@@ -120,21 +120,32 @@ get_header();
 	?>
 
 	<article class="learning-path support">
-		<div class="learning-path-navigation">
-			<div class="navigation-inner content-width">
-				<div class="breadcrumbs">
-					<span class="text-green">Learning with the Centre</span><a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-overview/' ?>"> / Disclosure Risk Assessment</a>
+		<?php $menu_name = get_field('menu_name');
+			$menu_items = wp_get_nav_menu_items($menu_name);
+			if (!empty($menu_items)): ?>
+				<div class="learning-path-navigation">
+					<div class="navigation-inner content-width">
+						<div class="breadcrumbs">
+							<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / <?php echo $menu_items[0]->title ?></a>
+						</div>
+						<div class="sub-navigation">
+							<?php for ($i = 1; $i < count($menu_items); $i++) { ?>
+								<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
+							<?php } ?>
+						</div>
+					</div>
 				</div>
-				<div class="sub-navigation">
-					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-methodology/' ?>">See How It's Done</a>
-					<a href="<?php echo get_site_url() . '/learning-path/disclosure-risk-assessment-tutorial/' ?>">Try It On Your Own</a>
-					<a href="#" class="active">Request Support</a>
-				</div>
-			</div>
-		</div>
+		<?php endif; ?>
 
 		<section class="content-width">
 			<h2 class="section-header">OCHA Support</h2>
+			<div class="form-container">
+				<?php 
+					$the_content = get_the_content();
+					$the_content = apply_filters('the_content', $the_content);
+					echo $the_content;
+				?>
+			</div>
 		</section>
 		
 	</article>	
