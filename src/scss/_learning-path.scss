@@ -472,24 +472,79 @@
 					border-color: $green;
 				}
 			}
-			.radio-issue-type {
-				width: 100%;
+			.wpcf7-form-control-wrap {
+    		display: block;
+				margin-top: 20px;
 			}
 			input[type="radio"] {
 				appearance: auto;
 				-webkit-appearance: auto;
-				-moz-appearance: auto; 
-				width: 16px;
+				-moz-appearance: auto;
+				float: left;
 				height: 16px;
+				width: 16px;
+			}
+			.radio-contact {
+				.wpcf7-list-item {
+    			margin-right: 50px;
+					width: 30px;
+				}
+				input[type="radio"] {
+					float: none;
+					margin-left: 7px;
+					margin-top: 48px;
+					&:before {
+				    content: '';
+				    display: inline-block;
+				    left: 50%;
+				    position: absolute;
+				    top: -48px;
+				    transform: translateX(-50%);
+				  }
+				  &:checked {
+				  	&:before {
+				  		border-radius: 0;
+				  		margin: 0;
+				  	}
+				  }
+				}
+				input[value="skype"]:before {		
+			    background-image: url('assets/learning-path/icon-contact-skype.png');
+			    height: 30px;
+			    width: 29px;
+				}
+				input[value="email"]:before {		
+			    background-image: url('assets/learning-path/icon-contact-email.png');
+			    height: 18px;
+			    width: 28px;
+			    top: -44px;
+				}
+				input[value="phone"]:before {		
+			    background-image: url('assets/learning-path/icon-contact-phone.png');
+			    height: 28px;
+			    width: 30px;
+				}
+				input[value="hangout"]:before {		
+			    background-image: url('assets/learning-path/icon-contact-hangout.png');
+			    height: 29px;
+			    width: 26px;
+				}
+				.wpcf7-list-item-label {
+					display: none;
+				}
 			}
 			.wpcf7-list-item {
-				// margin: 0;
-				// width: 50%;
+				margin: 0 0 25px;
+		    padding-right: 15px;
+		    width: 33%;
+		    vertical-align: top;
 			}
 			.wpcf7-list-item-label {
-				// font-family: 'Source Sans Pro', sans-serif;
-				// font-size: 15px;
+				display: block;
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 15px;
 				font-weight: normal;
+    		margin-left: 25px;
 			}
 			.wpforms-submit-container {
 				padding-top: 30px;

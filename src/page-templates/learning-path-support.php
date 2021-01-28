@@ -140,7 +140,11 @@ get_header();
 		<section class="content-width">
 			<h2 class="section-header">OCHA Support</h2>
 			<div class="form-container">
-				<?php echo do_shortcode("[contact-form-7 id='83120' title='Learning Path Request Support']"); ?>
+				<?php 
+					$the_content = get_the_content();
+					$the_content = apply_filters('the_content', $the_content);
+					echo $the_content;
+				?>
 			</div>
 		</section>
 		
