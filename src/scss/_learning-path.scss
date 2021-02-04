@@ -1,4 +1,6 @@
-[class*='page-template-learning-path'] {
+.page-template-learning-path-overview,
+.page-template-learning-path-methodology,
+.page-template-learning-path-tutorial {
 	.box-wrapper {
 		overflow: auto;
 	}
@@ -703,21 +705,29 @@
 }
 
 @media (max-width: $screen-md) { 
-	[class*='page-template-learning-path'] {
-		.learning-path {
+	.page-template-learning-path-overview,
+	.page-template-learning-path-methodology,
+	.page-template-learning-path-tutorial {
+		.learning-path-navigation {
 			margin-top: 25px;
+		}
+		.column-container {
+			flex-flow: column;
+			.column {
+				padding: 0;
+			}
+			.column[class*="column-"] {
+				width: 100%;
+			}
+		}
+		.button-read-more {
+			bottom: 0;
+			position: relative;
+		}
+		.learning-path {
 			.content-width {
 				padding-left: 20px;
 				padding-right: 20px;
-			}
-			.column-container {
-				flex-flow: column;
-				.column {
-					padding: 0;
-				}
-				.column[class*="column-"] {
-					width: 100%;
-				}
 			}
 			.feature-content {
 				.feature-inner {
@@ -730,23 +740,24 @@
 					padding-right: 0;
 				}
 			}
-			.button-read-more {
-				bottom: 0;
-				position: relative;
-			}
 			section {
-				.column-container {
-					&.has-icons {
-						.column {
-							margin-bottom: 90px;
-						}
+				&.section-3-col-module {
+					.column-container {
 						.fixed-height {
 							height: auto;
 							padding-bottom: 30px;
 						}
+						.column {
+							margin-bottom: 45px;
+						}
+						&.has-icons {
+							.column {
+								margin-bottom: 90px;
+							}
+						}
 					}
 				}
-				&.section-stages {
+				&.section-module-with-img {
 					img {
 						height: auto;
 						margin-top: 40px;
@@ -806,21 +817,21 @@
 	.page-template-learning-path-overview,
 	.page-template-learning-path-methodology,
 	.page-template-learning-path-tutorial {
+		.learning-path-navigation {
+			.navigation-inner {
+  			align-items: flex-start;
+				flex-flow: column;
+				height: auto;
+  			padding: 15px 20px 12px;
+  			.sub-navigation {
+  				display: none;
+  			}
+			}
+		}
+		.button-primary {
+			width: 100%;
+		}
 		.learning-path {
-			.learning-path-navigation {
-				.navigation-inner {
-    			align-items: flex-start;
-					flex-flow: column;
-					height: auto;
-    			padding: 15px 20px 12px;
-    			.sub-navigation {
-    				display: none;
-    			}
-				}
-			}
-			.button-primary {
-				width: 100%;
-			}
 			section {
 				&.section-call-to-action {
 					p {
