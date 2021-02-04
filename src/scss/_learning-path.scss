@@ -309,24 +309,30 @@
 		}
 		section {
 			padding: 70px 0;
-			.column-container {
-				&.has-icons {
-					margin-top: 90px;
-					.icon {    
-						position: absolute;
-				    left: 50%;
-				    top: -70px;
-				    transform: translate(-50%);
-					}
+			&.section-3-col-module {
+				.column-container {
+					margin-top: 48px;
 					.column-4 {
-						padding-top: 115px;
+						padding-top: 30px;
 					}
 					.fixed-height {
 						height: 230px;
 					}
+					&.has-icons {
+						margin-top: 90px;
+						.icon {    
+							position: absolute;
+					    left: 50%;
+					    top: -70px;
+					    transform: translate(-50%);
+						}
+						.column-4 {
+							padding-top: 115px;
+						}
+					}
 				}
 			}
-			&.section-stages {
+			&.section-module-with-img {
 				.section-header {
 					padding-bottom: 30px;
 				}

@@ -155,37 +155,28 @@ get_header();
 
 		<?php $threeColModule = get_field('3_column_module');
 			if ($threeColModule['column_1']['title'] && $threeColModule['column_2']['title'] && $threeColModule['column_3']['title']): ?>
-				<section class="section-importance content-width">
+				<section class="section-3-col-module content-width">
 					<h2 class="section-header"><?php echo $threeColModule['title']; ?></h2>
-					<div class="column-container has-icons">
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-funnel.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_1']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_1']['text']; ?></p>
+					<div class="column-container <?php if ($threeColModule['has_icons']) echo 'has-icons' ?>">
+						<?php for ($i=1; $i<4; $i++) { 
+							$column = $threeColModule['column_'.$i]; ?>
+							<div class="column column-4 background-gray">
+								<div class="column-inner">
+									<?php if ($threeColModule['has_icons']) { ?>
+										<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-'. $column['icon_type'] .'.png' ?>" />
+									<?php } ?>
+									<h3 class="fixed-height"><?php echo $column['title']; ?></h3>
+									<p class="border-top"><?php echo $column['text']; ?></p>
+								</div>
 							</div>
-						</div>
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-eye.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_2']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_2']['text']; ?></p>
-							</div>
-						</div>
-						<div class="column column-4 background-gray">
-							<div class="column-inner">
-								<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/icon-book.png' ?>" />
-								<h3 class="fixed-height"><?php echo $threeColModule['column_3']['title']; ?></h3>
-								<p class="border-top"><?php echo $threeColModule['column_3']['text']; ?></p>
-							</div>
-						</div>
+						<?php } ?>
 					</div>
 				</section>
 		<?php endif; ?>
 
 		<?php $imageModule = get_field('module_with_image');
 			if ($imageModule['content']['title'] && $imageModule['content']['text']): ?>
-				<section class="section-stages background-gray">
+				<section class="section-module-with-img background-gray">
 					<div class="content-width">
 						<h2 class="section-header"><?php echo $imageModule['title']; ?></h3>
 						<div class="column-container">
