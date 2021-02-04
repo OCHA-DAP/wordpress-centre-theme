@@ -656,18 +656,23 @@
 				position: relative;
 			}
 			section {
-				.column-container {
-					&.has-icons {
-						.column {
-							margin-bottom: 90px;
-						}
+				&.section-3-col-module {
+					.column-container {
 						.fixed-height {
 							height: auto;
 							padding-bottom: 30px;
 						}
+						.column {
+							margin-bottom: 45px;
+						}
+						&.has-icons {
+							.column {
+								margin-bottom: 90px;
+							}
+						}
 					}
 				}
-				&.section-stages {
+				&.section-module-with-img {
 					img {
 						height: auto;
 						margin-top: 40px;
