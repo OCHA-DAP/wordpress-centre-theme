@@ -120,33 +120,78 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-path page-body style-color-xsdn-bg page type-page status-publish has-post-thumbnail hentry">
-		<div class="post-wrapper">
-			<div class="post-body">
-				<div class="post-content">
-					<div data-parent="true" class="row-container boomapps_vcrow" data-section="0">
-						<div class="row limit-width row-parent" data-imgready="true">
-							<div class="row-inner">
-								<div class="pos-top pos-center align_left column_parent col-lg-8 boomapps_vccolumn single-internal-gutter">
+	<article class="learning-path landing">
+		<div class="content-width">
+			<?php 
+				$the_content = get_the_content();
+				$the_content = apply_filters('the_content', $the_content); 
+			?>
+			<div class="landing-introduction"><?php echo $the_content; ?></div>
 
-									hello
-									<?php
-										$pages = get_pages(array(
-										    'meta_key' => '_wp_page_template',
-										    'meta_value' => 'page-special.php'
-										));
-										foreach($pages as $page){
-										    echo $page->ID.'<br />';
-										}
-									?>
+			<?php
+				$pages = get_pages(array(
+					'post_type' => 'page',
+				    'meta_key' => '_wp_page_template',
+				    'hierarchical' => 0,
+				    'meta_value' => 'page-templates/learning-path-overview.php'
+				));
+				$section_pages = $pages;
+				$jump_menu_pages = $pages; 
+			?>
 
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="column-container">
+				<div class="column column-3">
+					<ul class="jump-menu">
+						<li>LEARNING PATHS</li>
+						<?php
+							foreach($jump_menu_pages as $page) {
+								$page_slug = $page->post_name;
+								$page_query = new WP_Query('page_id=' . $page->ID);
+								while ($page_query->have_posts()) : $page_query->the_post(); 
+									if (get_field('excerpt')): ?>
+										<li><a href="#<?php echo $page_slug ?>"><?php echo the_title(); ?></a></li>
+								<?php endif;
+								endwhile; 
+							}
+						?>
+					</ul>
+				</div>
+				<div class="column column-9">
+
+				<?php
+					foreach($section_pages as $page){
+						$page_slug = $page->post_name;
+						$page_query = new WP_Query('page_id=' . $page->ID);
+						while ($page_query->have_posts()) : $page_query->the_post(); 
+							if (get_field('excerpt')): ?>
+							<section id="<?php echo $page_slug; ?>">
+								<h2 class="section-header"><?php echo the_title(); ?></h2>
+								<p><?php echo get_field('excerpt'); ?></p>
+								<?php $video = get_field('overview_video');
+									$videoID = $video['id'];
+									if ($videoID): ?>
+										<div class="feature-media">
+								      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
+								?modestbranding=1&rel=0&enablejsapi=1"></iframe>
+											<?php if ($video['title']): ?>
+												<div class="feature-media-caption">
+													<h3><?php echo $video['title']; ?></h3>
+													<p class="attribution"><?php echo $video['attribution']; ?></p>
+												</div>
+											<?php endif; ?>
+										</div>
+								<?php endif; ?>
+								<a class="button-primary" href="<?php echo get_page_link(); ?>">Learn How It Works</a>
+							</section>
+						<?php endif;
+						endwhile; 
+					} 
+				?>
 				</div>
 			</div>
-		</div>
+									
+
+		</div>					
 	</article>	
 
 	<?php endwhile; // end of the loop. ?>

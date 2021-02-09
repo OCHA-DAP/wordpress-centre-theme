@@ -13,7 +13,9 @@
 			display: none;
 		}
 	}
+}
 
+[class*="page-template-learning-path"] {
 	h1 {
 		color: #333;
 		font-size: 40px;
@@ -52,9 +54,6 @@
 	}
 	h2 + h4 {
 		margin-top: 40px;
-	}
-	a {
-		text-decoration: underline;
 	}
 	p {
 		font-size: 15px;
@@ -102,6 +101,12 @@
 			&:last-child {
 				margin-right: 0;
 			}
+			&.column-2 {
+				width: 16.6666666666667%;
+			}
+			&.column-3 {
+				width: 25%;
+			}
 			&.column-4 {
 				width: 33.33333333333333%;
 			}
@@ -116,6 +121,9 @@
 			}
 			&.column-8 {
 				width: 66.66666666666667%;
+			}
+			&.column-9 {
+				width: 75%;
 			}
 			.column-inner {
 				padding: 0 30px 30px;
@@ -443,18 +451,20 @@
 			}
 		}
 		.jump-menu {
+			font-family: 'Stag-Book';
+			font-size: 18px;
 			margin: 0;
 			padding-top: 70px;
 			position: -webkit-sticky;
   		position: sticky;
  		 	top: 136px; //main nav height
-			li a {
-				color: #1BB580;
-				font-family: 'Stag-Book';
-				font-size: 18px;
-				text-decoration: none;
-				&:hover {
-					color: #F2645A;
+			li {
+				a {
+					color: #1BB580;
+					text-decoration: none;
+					&:hover {
+						color: #F2645A;
+					}
 				}
 			}
 		}
@@ -500,7 +510,8 @@
 			font-family: 'Stag-Book';
 			font-size: 18px;
 		}
-		input[type="text"] {
+		input[type="text"],
+		input[type="email"] {
 			background-color: transparent;
 			border: 0;
 			border-bottom: 1px solid $green;
@@ -537,59 +548,10 @@
 			height: 16px;
 			width: 16px;
 		}
-		.radio-contact {
-			.wpcf7-list-item {
-				margin-right: 50px;
-				width: 30px;
-			}
-			input[type="radio"] {
-				float: none;
-				margin-left: 7px;
-				margin-top: 48px;
-				&:before {
-			    content: '';
-			    display: inline-block;
-			    left: 50%;
-			    position: absolute;
-			    top: -48px;
-			    transform: translateX(-50%);
-			  }
-			  &:checked {
-			  	&:before {
-			  		border-radius: 0;
-			  		margin: 0;
-			  	}
-			  }
-			}
-			input[value="skype"]:before {		
-		    background-image: url('assets/learning-path/icon-contact-skype.png');
-		    height: 30px;
-		    width: 29px;
-			}
-			input[value="email"]:before {		
-		    background-image: url('assets/learning-path/icon-contact-email.png');
-		    height: 18px;
-		    width: 28px;
-		    top: -44px;
-			}
-			input[value="phone"]:before {		
-		    background-image: url('assets/learning-path/icon-contact-phone.png');
-		    height: 28px;
-		    width: 30px;
-			}
-			input[value="hangout"]:before {		
-		    background-image: url('assets/learning-path/icon-contact-hangout.png');
-		    height: 29px;
-		    width: 26px;
-			}
-			.wpcf7-list-item-label {
-				display: none;
-			}
-		}
 		.wpcf7-list-item {
-			margin: 0 0 25px;
+			margin: 0 0 15px;
 	    padding-right: 15px;
-	    width: 33%;
+	    width: 100%;
 	    vertical-align: top;
 		}
 		.wpcf7-list-item-label {
@@ -704,10 +666,71 @@
 	}
 }
 
+.page-template-learning-path-landing {
+	.box-wrapper {
+		overflow: auto;
+	}
+	.content-width {
+		max-width: 1024px;
+	}
+	.header-main-container .header-content .header-content-inner .header-title {
+		margin-bottom: 30px;
+		margin-top: 60px;
+		text-transform: none !important;
+	}
+	.post-content ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	.landing-introduction {
+		margin-bottom: 40px;
+		> p {
+			font-family: 'Stag-Medium';
+			font-size: 24px;
+			line-height: 36px;
+			width: 85%;
+		}
+		&:before {
+			border-top: 3px solid $coral;
+  		content: "";
+	    display: block;
+	    padding-top: 8px;
+	    width: 100px;
+		}
+	}
+	.learning-path {
+		.feature-media {
+			height: 400px;
+			margin-top: 32px;
+			.feature-media-caption {
+				bottom: 25px;
+				left: 25px;
+				padding: 15px 25px;
+			}
+		}
+		section {
+			padding: 70px 0 50px;
+			.button-primary {
+				margin-top: 30px;
+				text-align: center;
+				width: 70%;
+			}
+			&:nth-child(even) {
+				//background-color: #F1F1F1;
+			}
+		}	
+		.jump-menu {
+			padding-top: 90px;
+			top: 120px;
+			li {
+				padding-bottom: 10px;
+			}
+		}
+	}
+}
+
 @media (max-width: $screen-md) { 
-	.page-template-learning-path-overview,
-	.page-template-learning-path-methodology,
-	.page-template-learning-path-tutorial {
+	[class*="page-template-learning-path"] {
 		.learning-path-navigation {
 			margin-top: 25px;
 		}
