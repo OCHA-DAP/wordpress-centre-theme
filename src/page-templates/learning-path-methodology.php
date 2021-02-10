@@ -250,6 +250,7 @@ get_header();
 		<?php endif; ?>
 	</article>	
 
+	<?php include( locate_template( 'partials/modal-learningpathsupport.php', false, false ) ); ?>
 	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

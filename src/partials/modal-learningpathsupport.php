@@ -4,7 +4,7 @@
 			<?php
 				$page = get_posts(
 			    array(
-		        'name'      => 'learning-path-request-support',
+		        'name'      => 'request-support',
 		        'post_type' => 'page',
 						'hierarchical' => 0
 			    )
