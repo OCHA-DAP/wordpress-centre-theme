@@ -183,6 +183,14 @@ get_header();
 					</div>
 				</section>
 		<?php endif; ?>
+
+		<section class="section-call-to-action background-gray-dark">
+			<div class="content-width align-center">
+				<h2 class="text-green">Learn more with us</h2>
+				<p>We offer assistance for anyone who wants to learn more</p>
+				<a href="#" class="request-support button-primary button-dark">Request Support</a>
+			</div>
+		</section>
 		
 	</article>	
 

@@ -212,12 +212,11 @@ get_header();
 		<?php $cta = get_field('call_to_action'); 
 			if ($cta['title']):
 				$styleLight = strtolower($cta['style'])=='light' ? true : false;
-				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
-				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
+				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark';
 				$btn_style = ($styleLight) ? '' : 'button-dark'; ?>
 				<section class="section-call-to-action <?php echo $bg_color; ?>">
 					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<h2 class="text-green"><?php echo $cta['title']; ?></h2>
 						<p><?php echo $cta['text']; ?></p>
 						<?php 
 							$link =  $cta['link'];
@@ -230,6 +229,14 @@ get_header();
 					</div>
 				</section>
 		<?php endif; ?>
+
+		<section class="section-call-to-action background-gray-dark">
+			<div class="content-width align-center">
+				<h2 class="text-green">Learn more with us</h2>
+				<p>We offer assistance for anyone who wants to learn more</p>
+				<a href="#" class="request-support button-primary button-dark">Request Support</a>
+			</div>
+		</section>
 
 	</article>
 

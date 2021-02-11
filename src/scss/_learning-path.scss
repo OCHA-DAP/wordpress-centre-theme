@@ -156,7 +156,7 @@
 			color: #333;
 		}
 		&.button-dark {
-			background-color: none;
+			background-color: transparent;
 			border: 1px solid #FFF;
 			&:hover {
 				background-color: #FFF;
@@ -310,6 +310,7 @@
 			border: 2px solid #1BB580 !important;
 			font-size: 12px;
 			margin: 25px 0 35px !important;
+			overflow: auto;
 			padding: 20px !important;
 		}
 		.video-container {
@@ -454,7 +455,7 @@
 			font-family: 'Stag-Book';
 			font-size: 18px;
 			margin: 0;
-			padding-top: 70px;
+			padding: 70px 0;
 			position: -webkit-sticky;
   		position: sticky;
  		 	top: 136px; //main nav height
@@ -479,8 +480,9 @@
 		display: none;
 		background-color: rgba(231,239,249,0.97);
 		height: 100%;
+		overflow: scroll;
 		padding-top: 75px;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		width: 100%;
 	}
@@ -706,6 +708,7 @@
 				bottom: 25px;
 				left: 25px;
 				padding: 15px 25px;
+    		right: 25px;
 			}
 		}
 		section {
@@ -714,9 +717,6 @@
 				margin-top: 30px;
 				text-align: center;
 				width: 70%;
-			}
-			&:nth-child(even) {
-				//background-color: #F1F1F1;
 			}
 		}	
 		.jump-menu {
@@ -733,6 +733,12 @@
 	[class*="page-template-learning-path"] {
 		.learning-path-navigation {
 			margin-top: 25px;
+		}
+		.modal-support-form {
+			padding: 75px 20px 20px;
+		}
+		.form-container {
+			width: 100%;
 		}
 		.column-container {
 			flex-flow: column;
@@ -831,6 +837,18 @@
 		.ewd-ufaq-post-margin-symbol {
 			margin-right: 0;
 			margin-left: 15px;
+		}
+	}
+	.page-template-learning-path-landing {
+		.landing-introduction {
+			>p {
+				width: 100%;
+			}
+		}
+		.learning-path {
+			.jump-menu {
+				display: none;
+			}
 		}
 	}
 }
