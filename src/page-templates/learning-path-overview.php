@@ -124,15 +124,14 @@ get_header();
 		$menu_items = wp_get_nav_menu_items($menu_name);
 		include( locate_template( 'partials/menu-learningpath.php', false, false ) );
 	?>
-		
+
 	<article class="learning-path">
-		<?php $introduction = get_field('overview_introduction');
-			if ($introduction): ?>
+		<?php if (get_field('introduction')): ?>
 				<div class="feature-content">
 					<div class="content-width">
 						<div class="feature-inner">
-								<h1><?php echo $introduction['title']; ?></h1>
-								<h3><?php echo $introduction['text']; ?></h3>
+							<h1><?php echo get_the_title(); ?></h1>
+							<h3><?php echo get_field('introduction'); ?></h3>
 						</div>
 					</div>
 				</div>
