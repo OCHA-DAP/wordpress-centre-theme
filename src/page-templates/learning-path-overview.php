@@ -126,16 +126,16 @@ get_header();
 	?>
 
 	<article class="learning-path">
-		<?php if (get_field('introduction')): ?>
-				<div class="feature-content">
-					<div class="content-width">
-						<div class="feature-inner">
-							<h1><?php echo get_the_title(); ?></h1>
-							<h3><?php echo get_field('introduction'); ?></h3>
-						</div>
-					</div>
+		<div class="feature-content">
+			<div class="content-width">
+				<div class="feature-inner">
+					<h1><?php echo get_the_title(); ?></h1>
+					<?php if (get_field('introduction')): ?>
+						<h3><?php echo get_field('introduction'); ?></h3>
+					<?php endif; ?>
 				</div>
-		<?php endif; ?>
+			</div>
+		</div>
 
 		<?php $video = get_field('overview_video');
 			$videoID = $video['id'];
