@@ -313,6 +313,22 @@
 			overflow: auto;
 			padding: 20px !important;
 		}
+		table { 
+		  border-collapse: collapse; 
+		  font-size: 16px;
+		  text-align: left;
+		  width: 100%;
+			th { 
+			  background-color: #333;
+			  color: $white;
+			  font-weight: bold;
+			}
+			td, 
+			th { 
+		  	border: 1px solid #333; 
+		  	padding: 8px;
+		  }
+	  }
 		.video-container {
 			border: none;
 			height: 100%;
@@ -460,6 +476,8 @@
   		position: sticky;
  		 	top: 136px; //main nav height
 			li {
+				line-height: 23px;
+				padding-bottom: 12px;
 				a {
 					color: #1BB580;
 					text-decoration: none;
@@ -722,9 +740,6 @@
 		.jump-menu {
 			padding-top: 90px;
 			top: 120px;
-			li {
-				padding-bottom: 10px;
-			}
 		}
 	}
 }
