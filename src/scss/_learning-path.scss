@@ -328,6 +328,12 @@
 		  	border: 1px solid #333; 
 		  	padding: 8px;
 		  }
+		  tr.highlight {
+		  	td {
+		  		background-color: $green;
+		  		color: $white;
+		  	}
+		  }
 	  }
 		.video-container {
 			border: none;
