@@ -136,13 +136,14 @@ get_header();
 					</div>
 				</div>
 		<?php endif; ?>
-		
-		<?php if (get_field('introduction')): ?>
+
+		<?php $introduction = get_field('overview_introduction');
+			if ($introduction): ?>
 				<div class="feature-content">
 					<div class="content-width">
 						<div class="feature-inner">
-							<h1><?php echo get_the_title(); ?></h1>
-							<h3><?php echo get_field('introduction'); ?></h3>
+							<h1><?php echo $introduction['title']; ?></h1>
+							<h3><?php echo $introduction['text']; ?></h3>
 						</div>
 					</div>
 				</div>

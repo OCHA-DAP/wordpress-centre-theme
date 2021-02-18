@@ -145,9 +145,9 @@ get_header();
 		<div class="feature-content">
 			<div class="content-width">
 				<div class="feature-inner">
-					<h1><?php echo get_the_title(); ?></h1>
-					<?php if( get_field('introduction') ): ?>
-						<h3><?php the_field('introduction'); ?></h3>
+					<h1>See How It's Done</h1>
+					<?php if( get_field('methodology_introduction') ): ?>
+						<h3><?php the_field('methodology_introduction'); ?></h3>
 					<?php endif; ?>
 				</div>
 			</div>
