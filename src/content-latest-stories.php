@@ -24,12 +24,15 @@ $the_link = ($post_format==='link') ? get_url_in_content( $custom_post ) : get_t
 $item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : catch_that_image($post_id);
 
 //format post media
-$post_media = ($category_name==='Video' || $category_name==='Slideshow' || $category_name==='Dataviz') ? $custom_post : '<div class="img-container"><img src="' . $item_media . '" /></div>';
-
-if ($category_name==='Announcement') $post_media = $item_media;
-
-if ($category_name==='Video')
-	$post_media = '<div class="slide-overlay"></div>' . $post_media;	
+if ($category_name==='Announcement')
+	$post_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : '<div class="img-container"><img src="' . catch_that_image($post_id) . '" /></div>';
+else if ($category_name==='Video')
+	$post_media = '<div class="slide-overlay"></div>' . $post_media;
+else if ($category_name==='Slideshow' || $category_name==='Dataviz')
+	$post_media = $custom_post;
+else {
+	$post_media = '<div class="img-container"><img src="' . $item_media . '" /></div>';
+}
 
 //configure link target
 $link_target = ($category_name==='Dataviz' || $category_name==='Announcement') ? '_blank' : '_self';
