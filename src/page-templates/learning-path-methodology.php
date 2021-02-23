@@ -231,11 +231,10 @@ get_header();
 			if ($cta['title']):
 				$styleLight = strtolower($cta['style'])=='light' ? true : false;
 				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
-				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
 				$btn_style = ($styleLight) ? '' : 'button-dark'; ?>
 				<section class="section-call-to-action <?php echo $bg_color; ?>">
 					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<h2 class="text-green"><?php echo $cta['title']; ?></h2>
 						<p><?php echo $cta['text']; ?></p>
 						<?php 
 							$link =  $cta['link'];
