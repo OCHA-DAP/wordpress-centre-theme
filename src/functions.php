@@ -97,7 +97,7 @@ if ( ! in_the_loop() )
   return $content;
 }
 
-//get section ids in post content
+//get section elements in post content
 function get_content_sections( $content = false )
 {
 if ( ! in_the_loop() )
