@@ -129,7 +129,7 @@ get_header();
 		<div class="feature-content">
 			<div class="content-width">
 				<div class="feature-inner">
-					<h1>Try It On Your Own</h1>
+					<h1><?php echo get_the_title(); ?></h1>
 					<?php if( get_field('tutorial_introduction') ): ?>
 						<h3><?php the_field('tutorial_introduction'); ?></h3>
 					<?php endif; ?>
