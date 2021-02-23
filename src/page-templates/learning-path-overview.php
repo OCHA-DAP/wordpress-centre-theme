@@ -119,35 +119,23 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-path">
-		<?php $menu_name = get_field('menu_name');
-			$menu_items = wp_get_nav_menu_items($menu_name);
-			if (!empty($menu_items)): ?>
-				<div class="learning-path-navigation">
-					<div class="navigation-inner content-width">
-						<div class="breadcrumbs">
-							<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / <?php echo $menu_items[0]->title ?></a>
-						</div>
-						<div class="sub-navigation">
-							<?php for ($i = 1; $i < count($menu_items); $i++) { ?>
-								<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
-							<?php } ?>
-						</div>
-					</div>
-				</div>
-		<?php endif; ?>
+	<?php 
+		$menu_name = get_field('menu_name');
+		$menu_items = wp_get_nav_menu_items($menu_name);
+		include( locate_template( 'partials/menu-learningpath.php', false, false ) );
+	?>
 
-		<?php $introduction = get_field('overview_introduction');
-			if ($introduction): ?>
-				<div class="feature-content">
-					<div class="content-width">
-						<div class="feature-inner">
-							<h1><?php echo $introduction['title']; ?></h1>
-							<h3><?php echo $introduction['text']; ?></h3>
-						</div>
-					</div>
+	<article class="learning-path">
+		<div class="feature-content">
+			<div class="content-width">
+				<div class="feature-inner">
+					<h1><?php echo get_the_title(); ?></h1>
+					<?php if (get_field('introduction')): ?>
+						<h3><?php echo get_field('introduction'); ?></h3>
+					<?php endif; ?>
 				</div>
-		<?php endif; ?>
+			</div>
+		</div>
 
 		<?php $video = get_field('overview_video');
 			$videoID = $video['id'];
@@ -223,12 +211,11 @@ get_header();
 		<?php $cta = get_field('call_to_action'); 
 			if ($cta['title']):
 				$styleLight = strtolower($cta['style'])=='light' ? true : false;
-				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark'; 
-				$text_color = ($styleLight) ? 'text-green' : 'text-blue';  
+				$bg_color = ($styleLight) ? 'background-gray' : 'background-gray-dark';
 				$btn_style = ($styleLight) ? '' : 'button-dark'; ?>
 				<section class="section-call-to-action <?php echo $bg_color; ?>">
 					<div class="content-width align-center">
-						<h2 class="<?php echo $text_color; ?>"><?php echo $cta['title']; ?></h2>
+						<h2 class="text-green"><?php echo $cta['title']; ?></h2>
 						<p><?php echo $cta['text']; ?></p>
 						<?php 
 							$link =  $cta['link'];
@@ -242,8 +229,17 @@ get_header();
 				</section>
 		<?php endif; ?>
 
-	</article>	
+		<section class="section-call-to-action background-gray-dark">
+			<div class="content-width align-center">
+				<h2 class="text-green">Learn more with us</h2>
+				<p>We offer assistance for anyone who wants to learn more</p>
+				<a href="#" class="request-support button-primary button-dark">Request Support</a>
+			</div>
+		</section>
 
+	</article>
+
+	<?php include( locate_template( 'partials/modal-learningpathsupport.php', false, false ) ); ?>
 	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

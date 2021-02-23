@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Learning Path Support */
+/* Template Name: Learning Path Landing */
 
 /**
- * The template for Learning Path Support pages.
+ * The template for Learning Path Landing page.
  *
  * @package uncode
  */
@@ -101,6 +101,7 @@ get_header();
 	}
 
 	while ( have_posts() ) : the_post();
+
 		/** Build header **/
 		if ($page_header_type !== '' && $page_header_type !== 'none') {
 			$page_header = new unheader($metabox_data, $post->post_title);
@@ -119,37 +120,81 @@ get_header();
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="learning-path support">
-		<?php $menu_name = get_field('menu_name');
-			$menu_items = wp_get_nav_menu_items($menu_name);
-			if (!empty($menu_items)): ?>
-				<div class="learning-path-navigation">
-					<div class="navigation-inner content-width">
-						<div class="breadcrumbs">
-							<span class="text-green">Learning with the Centre</span><a href="#" class="active"> / <?php echo $menu_items[0]->title ?></a>
-						</div>
-						<div class="sub-navigation">
-							<?php for ($i = 1; $i < count($menu_items); $i++) { ?>
-								<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
-							<?php } ?>
-						</div>
-					</div>
-				</div>
-		<?php endif; ?>
+	<article class="learning-path landing">
+		<div class="content-width">
+			<?php 
+				$the_content = get_the_content();
+				$the_content = apply_filters('the_content', $the_content); 
+			?>
+			<div class="landing-introduction"><?php echo $the_content; ?></div>
 
-		<section class="content-width">
-			<h2 class="section-header">OCHA Support</h2>
-			<div class="form-container">
-				<?php 
-					$the_content = get_the_content();
-					$the_content = apply_filters('the_content', $the_content);
-					echo $the_content;
+			<?php
+				$pages = get_pages(array(
+					'post_type' => 'page',
+				    'meta_key' => '_wp_page_template',
+				    'hierarchical' => 0,
+				    'meta_value' => 'page-templates/learning-path-overview.php'
+				));
+				$section_pages = $pages;
+				$jump_menu_pages = $pages; 
+			?>
+
+			<div class="column-container">
+				<div class="column column-3">
+					<ul class="jump-menu">
+						<li>LEARNING PATHS</li>
+						<?php
+							foreach($jump_menu_pages as $page) {
+								$page_slug = $page->post_name;
+								$page_query = new WP_Query('page_id=' . $page->ID);
+								while ($page_query->have_posts()) : $page_query->the_post(); 
+									if (get_field('excerpt')): ?>
+										<li><a href="#<?php echo $page_slug ?>"><?php echo the_title(); ?></a></li>
+								<?php endif;
+								endwhile; 
+							}
+						?>
+					</ul>
+				</div>
+				<div class="column column-9">
+
+				<?php
+					foreach($section_pages as $page){
+						$page_slug = $page->post_name;
+						$page_query = new WP_Query('page_id=' . $page->ID);
+						while ($page_query->have_posts()) : $page_query->the_post(); 
+							if (get_field('excerpt')): ?>
+							<section id="<?php echo $page_slug; ?>">
+								<h2 class="section-header"><?php echo the_title(); ?></h2>
+								<p><?php echo get_field('excerpt'); ?></p>
+								<?php $video = get_field('overview_video');
+									$videoID = $video['id'];
+									if ($videoID): ?>
+										<div class="feature-media">
+								      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
+								?modestbranding=1&rel=0&enablejsapi=1"></iframe>
+											<?php if ($video['title']): ?>
+												<div class="feature-media-caption">
+													<h3><?php echo $video['title']; ?></h3>
+													<p class="attribution"><?php echo $video['attribution']; ?></p>
+												</div>
+											<?php endif; ?>
+										</div>
+								<?php endif; ?>
+								<a class="button-primary" href="<?php echo get_page_link(); ?>">Learn How It Works</a>
+							</section>
+						<?php endif;
+						endwhile; 
+					} 
 				?>
+				</div>
 			</div>
-		</section>
-		
+									
+
+		</div>					
 	</article>	
 
 	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>
+

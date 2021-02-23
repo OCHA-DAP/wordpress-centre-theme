@@ -120,27 +120,11 @@ get_header();
 	?>
 
 	<article class="learning-path tutorial">
-		<?php $menu_name = get_field('menu_name');
+		<?php 
+			$menu_name = get_field('menu_name');
 			$menu_items = wp_get_nav_menu_items($menu_name);
-			if (!empty($menu_items)): ?>
-				<div class="learning-path-navigation">
-					<div class="navigation-inner content-width">
-						<div class="breadcrumbs">
-							<span class="text-green">Learning with the Centre</span><a href="<?php echo $menu_items[0]->url ?>" class="active"> / <?php echo $menu_items[0]->title ?></a>
-						</div>
-						<div class="sub-navigation">
-							<?php for ($i = 1; $i < count($menu_items); $i++) { 
-								if (strpos($menu_items[$i]->url, $_SERVER['REQUEST_URI'])==true) { ?>
-									<a href="#" class="active"><?php echo $menu_items[$i]->title ?></a>
-								<?php }
-								else { ?>
-									<a href="<?php echo $menu_items[$i]->url ?>"><?php echo $menu_items[$i]->title ?></a>
-								<?php } 
-							} ?>
-						</div>
-					</div>
-				</div>
-		<?php endif; ?>
+			include( locate_template( 'partials/menu-learningpath.php', false, false ) );
+		?>
 
 		<div class="feature-content">
 			<div class="content-width">
@@ -199,9 +183,18 @@ get_header();
 					</div>
 				</section>
 		<?php endif; ?>
+
+		<section class="section-call-to-action background-gray-dark">
+			<div class="content-width align-center">
+				<h2 class="text-green">Learn more with us</h2>
+				<p>We offer assistance for anyone who wants to learn more</p>
+				<a href="#" class="request-support button-primary button-dark">Request Support</a>
+			</div>
+		</section>
 		
 	</article>	
 
+	<?php include( locate_template( 'partials/modal-learningpathsupport.php', false, false ) ); ?>
 	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>
