@@ -14,6 +14,7 @@ get_header();
 	//mixpanel tracking
 	window.onload = function(e) {
 		mpTrack.pageView(document.title, 'learning module');
+		//mixpanel.track('page view', { 'page type': 'learning module', 'learning module name': '', 'learning module template': 'overview' });
 	}
 </script>
 

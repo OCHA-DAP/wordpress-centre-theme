@@ -213,8 +213,8 @@
 			var slideshowContainer = '';
 			var slideshowCaption = {};
 
-			if ($(this).context.classList.value.indexOf('t-entry')>-1) { //from category page
-				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+			if ($(this).attr('class').indexOf('t-entry')>-1) { //from category page
+				if ($(this).attr('class').indexOf('slideshow-title')>-1) {
 					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
 					slideshowCaption.title = $(this).find('.t-entry-title span').text();
 					slideshowCaption.author = $(this).find('.author').text();
@@ -226,7 +226,7 @@
 				}
 			}
 			else { //from homepage
-				if ($(this).context.classList.value.indexOf('slideshow-title')>-1) {
+				if ($(this).attr('class').indexOf('slideshow-title')>-1) {
 					slideshowContainer = $(this).parent().parent().find('.slideshow-container');
 					slideshowCaption.title = $(this).find('.label').text();
 					slideshowCaption.author = $(this).parent().find('.source').text();
