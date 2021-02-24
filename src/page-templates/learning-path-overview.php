@@ -8,13 +8,14 @@
  */
 
 get_header();
+
+$menu_name = get_field('menu_name');
 ?>
 
 <script>
 	//mixpanel tracking
 	window.onload = function(e) {
-		mpTrack.pageView(document.title, 'learning module');
-		//mixpanel.track('page view', { 'page type': 'learning module', 'learning module name': '', 'learning module template': 'overview' });
+		mixpanel.track('page view', { 'page type': 'learning module', 'learning module name': '<?php echo $menu_name ?>', 'learning module template': 'overview' });
 	}
 </script>
 
@@ -121,7 +122,6 @@ get_header();
 	?>
 
 	<?php 
-		$menu_name = get_field('menu_name');
 		$menu_items = wp_get_nav_menu_items($menu_name);
 		include( locate_template( 'partials/menu-learningpath.php', false, false ) );
 	?>
