@@ -5,7 +5,8 @@ body {
 		}
 	}
 	&.search-results,
-	&.search-no-results {
+	&.search-no-results,
+	&.category-blog {
 		.header-content-inner {
 			.featured-image,
 			.photo-credit {
@@ -49,6 +50,7 @@ body {
 			ul {
 				border-bottom: 1px solid $coral;
 				display: inline-block;
+				display: none; //hidden for now
 				li {
 					display: inline-block;
 					font-size: 14px;

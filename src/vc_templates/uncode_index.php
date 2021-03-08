@@ -885,10 +885,15 @@ $main_container_classes[] = trim($this->getExtraClass( $el_class ));
           'add_fragment'    => ''
         );
         $paginate_links = paginate_links($pagination_args);
+        $search_term = get_query_var( 's' );
           if (is_array($paginate_links)) {
             $pageTotal = count($paginate_links)+1;
             echo "<ul class='pagination' data-total='".$pageTotal."'>";
             $prevClass = ($paged===1) ? ' disabled' : '';
+            if (is_search()) {
+              $prev_link .= '?s='.$search_term;
+              $next_link .= '?s='.$search_term;
+            }
             echo '<li class="page-prev"><a class="btn btn-link text-default-color'.$prevClass.'" href="'.$prev_link.'"><i class="fa fa-angle-left"></i> <span>Previous</span></a></li>';
             
             foreach ( $paginate_links as $page ) {

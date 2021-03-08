@@ -112,7 +112,6 @@ if (have_posts()):
 			get_template_part('content', 'search');
 			$the_content .= ob_get_clean();
 		endwhile;
-
 	} else {
 		$generic_body_content_block = apply_filters( 'wpml_object_id', $generic_body_content_block, 'post' );
 		$uncode_block = get_post_field('post_content', $generic_body_content_block);
@@ -158,7 +157,10 @@ if (have_posts()):
 						if (!isset($rebuild_array['order'])) $rebuild_array['order'] = 'order:ASC';
 						if (!isset($rebuild_array['size'])) $rebuild_array['size'] = 'size:'.get_option('posts_per_page');
 						$rebuild_array['search'] = 'search:' . get_search_query();
-						$archive_query = ' loop="'.implode('|', $rebuild_array).'"';
+						
+						//FORCE SEARCH TO LIMIT TO POSTS IN BLOG CATEGORY
+						$search_cat = '|categories:3';
+						$archive_query = ' loop="'.implode('|', $rebuild_array) . $search_cat .'"';
 					}
 					$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
 					if ($index_count === 0) {
