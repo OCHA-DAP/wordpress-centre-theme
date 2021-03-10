@@ -6,6 +6,16 @@
  */
 
 get_header();
+?>
+
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, 'search');
+	}
+</script>
+
+<?php
 
 /**
  * DATA COLLECTION - START
@@ -82,7 +92,10 @@ $posts_counter = $wp_query->post_count;
 if ($page_header_type !== '' && $page_header_type !== 'none')
 {
 	$custom_title = ot_get_option('_uncode_'.$post_type.'_header_title_text');
-	if ($custom_title === '') $custom_title = esc_html__('Results for “','uncode') . ucfirst(esc_html( get_search_query( false ))) . '”';
+
+	//get rid of the extra space inserted in searchfilter function to fix weird bug in search terms with ampersand
+	$searchterm = str_replace(' &amp; ', '&', esc_html( get_search_query( false )));
+	if ($custom_title === '') $custom_title = esc_html__('Results for “','uncode') . $searchterm . '” in Blogs';
 	$page_header = new unheader($metabox_data, $custom_title);
 
 	$header_html = $page_header->html;

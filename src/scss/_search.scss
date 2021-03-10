@@ -28,11 +28,12 @@ body {
 						font-family: $font-serif-book;
 						font-size: 18px;
 						padding: 10px 15px;
+						&::placeholder,
 						&::-webkit-input-placeholder,
 						&::-moz-placeholder,
 						&:-ms-input-placeholder,
 						&:-moz-placeholder {
-							color: $gray33;
+							color: $graycc;
 						}
 					}
 					i.fa {
@@ -40,6 +41,9 @@ body {
 						left: auto;
 						margin-top: -25px;
 						right: 15px;
+					}
+					.search-field::placeholder {
+						color: $graycc !important;
 					}
 				}
 			}
