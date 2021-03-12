@@ -27,7 +27,7 @@ $item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : 
 if ($category_name==='Announcement')
 	$post_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : '<div class="img-container"><img src="' . catch_that_image($post_id) . '" /></div>';
 else if ($category_name==='Video')
-	$post_media = '<div class="slide-overlay"></div>' . $post_media;
+	$post_media = '<div class="slide-overlay"></div>' . $custom_post;
 else if ($category_name==='Slideshow' || $category_name==='Dataviz')
 	$post_media = $custom_post;
 else {
