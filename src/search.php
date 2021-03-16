@@ -12,6 +12,14 @@ get_header();
 	//mixpanel tracking
 	window.onload = function(e) {
 		mpTrack.pageView(document.title, 'search');
+
+		//centre search event
+		var mixpanelSearchTrackData = {
+			'page title': document.title,
+			'search term': '<?php echo get_search_query() ?>',
+			'result type': 'blog'
+		};
+		mixpanel.track('centre search', mixpanelSearchTrackData);
 	}
 </script>
 
