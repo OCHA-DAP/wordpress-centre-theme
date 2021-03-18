@@ -6,6 +6,24 @@
  */
 
 get_header();
+?>
+
+<script>
+	//mixpanel tracking
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, 'search');
+
+		//centre search event
+		var mixpanelSearchTrackData = {
+			'page title': document.title,
+			'search term': '<?php echo get_search_query() ?>',
+			'result type': 'blog'
+		};
+		mixpanel.track('centre search', mixpanelSearchTrackData);
+	}
+</script>
+
+<?php
 
 /**
  * DATA COLLECTION - START
@@ -82,7 +100,10 @@ $posts_counter = $wp_query->post_count;
 if ($page_header_type !== '' && $page_header_type !== 'none')
 {
 	$custom_title = ot_get_option('_uncode_'.$post_type.'_header_title_text');
-	if ($custom_title === '') $custom_title = esc_html__('Results for “','uncode') . ucfirst(esc_html( get_search_query( false ))) . '”';
+
+	//get rid of the extra space inserted in searchfilter function to fix weird bug in search terms with ampersand
+	$searchterm = str_replace(' &amp; ', '&', esc_html( get_search_query( false )));
+	if ($custom_title === '') $custom_title = esc_html__('Results for “','uncode') . $searchterm . '” in Blogs';
 	$page_header = new unheader($metabox_data, $custom_title);
 
 	$header_html = $page_header->html;
@@ -112,7 +133,6 @@ if (have_posts()):
 			get_template_part('content', 'search');
 			$the_content .= ob_get_clean();
 		endwhile;
-
 	} else {
 		$generic_body_content_block = apply_filters( 'wpml_object_id', $generic_body_content_block, 'post' );
 		$uncode_block = get_post_field('post_content', $generic_body_content_block);
@@ -158,7 +178,10 @@ if (have_posts()):
 						if (!isset($rebuild_array['order'])) $rebuild_array['order'] = 'order:ASC';
 						if (!isset($rebuild_array['size'])) $rebuild_array['size'] = 'size:'.get_option('posts_per_page');
 						$rebuild_array['search'] = 'search:' . get_search_query();
-						$archive_query = ' loop="'.implode('|', $rebuild_array).'"';
+						
+						//FORCE SEARCH TO LIMIT TO POSTS IN BLOG CATEGORY
+						$search_cat = '|categories:3';
+						$archive_query = ' loop="'.implode('|', $rebuild_array) . $search_cat .'"';
 					}
 					$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
 					if ($index_count === 0) {

@@ -46,9 +46,9 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 function custom_javascript()
 {
-    wp_dequeue_script('uncode-app');
-    //wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
-    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), filemtime( get_stylesheet_directory() . '/js/humdata-footer.js' ), true);
+  wp_dequeue_script('uncode-app');
+  //wp_enqueue_script('uncode-app-mod', get_stylesheet_directory_uri() . '/js/theme-app-modified.js', array('jquery'), false, true);
+  wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/humdata-footer.js', array('jquery'), filemtime( get_stylesheet_directory() . '/js/humdata-footer.js' ), true);
 }
 add_action('wp_enqueue_scripts','custom_javascript', 100); //lower the priority of the script inclusion -> so our scripts and styles can override
 
@@ -316,17 +316,17 @@ function code($att, $content = null)
 }
 add_shortcode('code', 'code');
 
-
+// exclude pages from search results
 function searchfilter($query) {
+  if ($query->is_search && !is_admin()) { //&& isset($_GET['post_type'])
+      $query->set('post_type',array($_GET['post_type']));
 
-    if ($query->is_search && !is_admin() && isset($_GET['post_type'])) {
-        $query->set('post_type',array($_GET['post_type']));
-    }
-
-    return $query;
+      //fix weird bug with ampersands in search term (only works if treated as separate characters)
+      $searchterm = str_replace('&', ' & ', get_query_var('s'));
+      set_query_var('s', $searchterm);
+  }
 }
-
-add_filter('pre_get_posts','searchfilter');
+add_filter('pre_get_posts', 'searchfilter');
 
 
 function custom_template($template){

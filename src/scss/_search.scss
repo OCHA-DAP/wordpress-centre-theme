@@ -5,7 +5,8 @@ body {
 		}
 	}
 	&.search-results,
-	&.search-no-results {
+	&.search-no-results,
+	&.category-blog {
 		.header-content-inner {
 			.featured-image,
 			.photo-credit {
@@ -27,11 +28,12 @@ body {
 						font-family: $font-serif-book;
 						font-size: 18px;
 						padding: 10px 15px;
+						&::placeholder,
 						&::-webkit-input-placeholder,
 						&::-moz-placeholder,
 						&:-ms-input-placeholder,
 						&:-moz-placeholder {
-							color: $gray33;
+							color: $graycc;
 						}
 					}
 					i.fa {
@@ -39,6 +41,9 @@ body {
 						left: auto;
 						margin-top: -25px;
 						right: 15px;
+					}
+					.search-field::placeholder {
+						color: $graycc !important;
 					}
 				}
 			}
@@ -49,6 +54,7 @@ body {
 			ul {
 				border-bottom: 1px solid $coral;
 				display: inline-block;
+				display: none; //hidden for now
 				li {
 					display: inline-block;
 					font-size: 14px;
