@@ -82,6 +82,13 @@
 			font-family: $font-serif-book;
 			font-size: 13px;
 		}
+		.t-entry-meta {
+			.t-entry-category {
+				&:last-child {
+					display: none;
+				}
+			}
+		}
 	}
 	&.tag {
 		.t-entry .author {
