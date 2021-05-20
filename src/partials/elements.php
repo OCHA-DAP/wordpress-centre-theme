@@ -825,7 +825,8 @@ if (!function_exists('uncode_create_single_block')) {
 								$custom_post = uncode_custom_just_post($block_data['id']);
 								$post_format = get_post_format($block_data['id']);
 								$the_link = ($post_format === 'link') ? get_url_in_content( $custom_post ) : $title_link;
-								$the_category = $post_category;
+								$resource_category = ($isResource) ? get_field('resource_category', $block_data['id']) : '';
+								$the_category = ($isResource && $resource_category!='') ? $resource_category : $post_category;
 								$date = get_the_date( '', $block_data['id'] );
 								if ($post_category==='impactstory') $the_category = 'Impact Story';
 								if ($post_category==='casestudy') $the_category = 'Case Study';
@@ -961,10 +962,11 @@ if (!function_exists('uncode_create_single_block')) {
 							if ($category==='impactstory') $category = 'Impact Story';
 							if ($category==='casestudy') $category = 'Case Study';
 							if ($category==='resourcelibrary') $category = 'Resource';
+							if ($isResource && $resource_category!='') $category = $resource_category;
 							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
 						}
 						else {
-							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+							//$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
 						}
 
 						$cat_counter++;
