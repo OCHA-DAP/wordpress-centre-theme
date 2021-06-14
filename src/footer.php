@@ -14,7 +14,7 @@
 if (is_front_page()) { ?>
 	<section class="contact-module bg-pattern-green">
 		<h2>Stay in touch</h2>
-		<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="https://centre.humdata.org/wp-content/uploads/2019/11/Centre_handout_English_updated.pdf" target="_blank">download</a> our brochure to learn more</p>
+		<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
 
 			<!-- Begin MailChimp Signup Form -->
 			<div id="mc_embed_signup">
@@ -89,7 +89,7 @@ $menu_list .= '</ul>';
 									</svg>
 								</a>
 								<h5 class='logo-tagline'>Connecting people and data to improve lives</h5>
-								<p class='signup-text'>Sign up to our mailing list for latest updates on the Centre or <a href="https://centre.humdata.org/wp-content/uploads/2019/11/Centre_handout_English_updated.pdf" target="_blank">download</a> our brochure to learn more</p>
+								<p class='signup-text'>Sign up to our mailing list for latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
 								<div id="mc_embed_signup">
 									<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 								    <div id="mc_embed_signup_scroll">
