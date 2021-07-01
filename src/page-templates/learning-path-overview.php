@@ -195,12 +195,48 @@ $menu_name = get_field('menu_name');
 				</section>
 		<?php endif; ?>
 
-		<?php $faq = get_field('faq');
+<!-- 		<?php  $faq = get_field('faq');
 			if ($faq['category_slug']): ?>
 				<section class="section-faq content-width">
 					<h2 class="section-header"><?php echo $faq['title']; ?></h2>
 					<?php echo do_shortcode("[ultimate-faqs include_category='". $faq['category_slug'] ."']"); ?>
 				</section>
+		<?php endif; ?> -->
+
+		<?php $faq = get_field('faq');
+			if ($faq['category_id']): ?>
+			<section class="section-faq content-width">
+				<div class="column-container">
+					<div class="column column-8">
+						<h2 class="section-header"><?php echo $faq['title']; ?></h2>
+						<div class="accordion overview-accordion" id="faqAccordion">
+
+				<?php 
+				$id = $faq['category_id'];
+				$json = file_get_contents('https://centre.humdata.org/wp-json/wp/v2/ufaq?ufaq-category='.$id);
+				$items = json_decode($json);
+
+				foreach($items as $key=>$var) { ?>
+
+					<div class="card">
+						<div class="card-header" id="heading<?php echo $key ?>">
+							<h4 class="my-0">
+								<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?php echo $key ?>" aria-expanded="true" aria-controls="collapse<?php echo $key ?>">
+									<?php echo $items[$key]->title->rendered ?>
+								</button>
+							</h4>
+						</div>
+						<div id="collapse<?php echo $key ?>" class="collapse" aria-labelledby="heading<?php echo $key ?>" data-parent="#faqAccordion">
+							<div class="card-body">
+								<?php echo $items[$key]->content->rendered ?>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+							  
+					</div>
+				</div>
+			</section>
 		<?php endif; ?>
 
 		<?php 

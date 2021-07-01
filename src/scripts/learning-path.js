@@ -1,4 +1,20 @@
 (function($) {
+	//faq events
+	$('.accordion').find('.btn').on('click', function () {
+		var isOpen = ($(this).parent().hasClass('open')) ? true : false;
+		var acc = $(this).closest('.accordion');
+		acc.find('[data-toggle="collapse"]').parent().removeClass('open');
+		if (!isOpen) $(this).parent().addClass('open');
+  		var items = $('.collapse');
+
+  		for (var i=0; i<items.length; i++) {
+  			var target = $(this).attr('data-target').split('#')[1];
+  			if (items[i].id!=target) {
+  				$(items[i]).removeClass('in');
+  			}
+  		}
+  	})
+
 	// modal events
 	$('.request-support').on('click', function(e) {
 		e.preventDefault();

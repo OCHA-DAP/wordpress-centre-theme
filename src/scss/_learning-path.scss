@@ -82,12 +82,12 @@
 	.align-left {
 		text-align: left;
 		display: flex;
-  	justify-content: flex-start;
+  		justify-content: flex-start;
 	}
 	.align-right {
 		text-align: right;
 		display: flex;
-  	justify-content: flex-end;
+  		justify-content: flex-end;
 	}
 	.content-width {
 		margin: 0 auto;
@@ -124,6 +124,9 @@
 			}
 			&.column-9 {
 				width: 75%;
+			}
+			&.column-10 {
+				width: 83.3333333333333%;
 			}
 			.column-inner {
 				padding: 0 30px 30px;
@@ -388,11 +391,6 @@
 					height: 348px;
 				}
 			}
-			&.section-faq {
-				a {
-
-				}
-			}
 		}
 		.section-card-container {
 			img {
@@ -450,10 +448,7 @@
 				counter-reset: subheading;
 			}
 			.section-faq {
-				margin-top: 90px;
-				p {
-					width: 100%;
-				}
+				margin-top: 30px;
 			}
 		}
 		.quick-tip-container {
@@ -642,46 +637,96 @@
 	//
 	/////////////////////////
 	.section-faq {
-		.ufaq-faq-list {
-			margin-top: 70px;
-			width: 66%;
-			.ufaq-faq-category-title {
-				display: none;
-			}
-			.ufaq-faq-title {
-				h4 {
-					color: #333;
-					font-family: 'Stag-Book';
-					font-size: 24px;
-					font-weight: normal;
-					letter-spacing: 0;
-					line-height: 33px;
-					margin: 0 !important;
-					text-transform: none;
-				}
-				.ewd-ufaq-post-margin {
-					display: flex;
-		    	flex-direction: row-reverse;
-				}
-			}
-			.ufaq-faq-div {
-				border-bottom: 1px solid #E3E3E3;
-				margin: 20px 0;
-				padding-bottom: 20px;
-			}
-			.ufaq-faq-title-text {
-				width: 100% !important;
-			}
-			.ewd-ufaq-post-margin-symbol span {
-				color: #8F91A3;
-			}
-			.ufaq-faq-body {
-				padding-left: 0;
-				p {
-					margin-bottom: 20px;
-				}
+	 	.accordion {
+	 		margin-top: 50px;
+	 		&.overview-accordion {
+	 			margin-top: 80px;
+	 		}
+	 	}
+	 	h4 {
+	 		margin-top: 28px;
+	 		position: relative;
+	 		> .btn {
+	 			background-color: transparent;
+				color: #333;
+				font-family: 'Stag-Book';
+				font-size: 24px;
+				font-weight: normal !important;
+				letter-spacing: 0;
+				line-height: 33px;
+				margin: 0 !important;
+				text-align: left;
+				text-transform: none;
+		 		white-space: unset;
+		 		width: 90%;
+		 	}
+		 	&:after {
+		 		color: #666;
+		 		content: '\e902';
+		 		font-family: 'Humanitarian-Icons-v02';
+		 		pointer-events: none;
+		 		position: absolute;
+    			top: 5px;
+    			right: 0;
+		 	}
+		 	&.open {
+		 		&:after {
+		 			content: '\e958';
+		 		}
+		 	}
+		}
+		.card {
+			border-bottom: 1px solid #E3E3E3;
+			margin: 20px 0;
+			padding-bottom: 20px;
+		}
+		.card-body {
+			padding-top: 10px;
+			p {
+				margin: 32px 0 16px;
+				width: 95%;
 			}
 		}
+	// 	.ufaq-faq-list {
+	// 		margin-top: 70px;
+	// 		width: 66%;
+	// 		.ufaq-faq-category-title {
+	// 			//display: none;
+	// 		}
+	// 		.ufaq-faq-title {
+	// 			h4 {
+	// 				color: #333;
+	// 				font-family: 'Stag-Book';
+	// 				font-size: 24px;
+	// 				font-weight: normal;
+	// 				letter-spacing: 0;
+	// 				line-height: 33px;
+	// 				margin: 0 !important;
+	// 				text-transform: none;
+	// 			}
+	// 			.ewd-ufaq-post-margin {
+	// 				display: flex;
+	// 	    		flex-direction: row-reverse;
+	// 			}
+	// 		}
+	// 		.ufaq-faq-div {
+	// 			border-bottom: 1px solid #E3E3E3;
+	// 			margin: 20px 0;
+	// 			padding-bottom: 20px;
+	// 		}
+	// 		.ufaq-faq-title-text {
+	// 			width: 100% !important;
+	// 		}
+	// 		.ewd-ufaq-post-margin-symbol span {
+	// 			color: #8F91A3;
+	// 		}
+	// 		.ufaq-faq-body {
+	// 			padding-left: 0;
+	// 			p {
+	// 				margin-bottom: 20px;
+	// 			}
+	// 		}
+	// 	}
 	}
 }
 
@@ -845,21 +890,21 @@
 					padding-bottom: 30px;
 				}
 			}
-			.section-faq {
-				margin-top: 30px;
-				.ufaq-faq-list {
-					margin-top: 40px;
-					width: 100%;
-				}
-			}
+			// .section-faq {
+			// 	margin-top: 30px;
+			// 	.ufaq-faq-list {
+			// 		margin-top: 40px;
+			// 		width: 100%;
+			// 	}
+			// }
 		}
 	}
-	.ufaq-faq-title {
-		.ewd-ufaq-post-margin-symbol {
-			margin-right: 0;
-			margin-left: 15px;
-		}
-	}
+	// .ufaq-faq-title {
+	// 	.ewd-ufaq-post-margin-symbol {
+	// 		margin-right: 0;
+	// 		margin-left: 15px;
+	// 	}
+	// }
 	.page-template-learning-path-landing {
 		.landing-introduction {
 			>p {

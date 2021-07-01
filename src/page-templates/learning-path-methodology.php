@@ -142,7 +142,7 @@ $menu_name = get_field('menu_name');
 			if( $steps ): 
 				foreach( $steps as $key=>$step ): 
 					$read_more = $step['read_more']; 
-					$faq = $step['faq_category_slug']; ?>
+					$faq = $step['faq_category_id']; ?>
 					<section class="section-step <?php if($key%2!=0) echo 'background-gray'; ?>">
 						<div class="content-width">
 							<div class="column-container">
@@ -179,9 +179,40 @@ $menu_name = get_field('menu_name');
 									</div>
 
 									<?php if( $faq ): ?>
-										<div class='section-faq'>
+										<div class='section-faq content-width'>
 											<h2>General Questions</h2>
-											<?php echo do_shortcode("[ultimate-faqs include_category='". $faq . "']"); ?>
+											<!-- <?php echo do_shortcode("[ultimate-faqs include_category='". $faq . "']"); ?> -->
+
+											<div class="column-container">
+												<div class="column column-10">
+													<div class="accordion" id="faqAccordion<?php echo $faq ?>">
+
+												<?php 
+												$json = file_get_contents('https://centre.humdata.org/wp-json/wp/v2/ufaq?ufaq-category='.$faq);
+												$items = json_decode($json);
+
+												foreach($items as $key=>$item) { 
+													$id = $faq . $key; ?>
+
+													<div class="card">
+														<div class="card-header" id="heading<?php echo $id ?>">
+															<h4 class="my-0">
+																<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?php echo $id ?>" aria-expanded="true" aria-controls="collapse<?php echo $id ?>">
+																	<?php echo $item->title->rendered ?>
+																</button>
+															</h4>
+														</div>
+														<div id="collapse<?php echo $id ?>" class="collapse" aria-labelledby="heading<?php echo $id ?>" data-parent="#faqAccordion<?php echo $faq ?>">
+															<div class="card-body">
+																<?php echo $item->content->rendered ?>
+															</div>
+														</div>
+													</div>
+												<?php } ?>
+															  
+												</div>
+											</div>
+
 										</div>
 									<?php endif; ?>
 								</div>
