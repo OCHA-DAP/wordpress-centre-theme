@@ -181,7 +181,6 @@ $menu_name = get_field('menu_name');
 									<?php if( $faq ): ?>
 										<div class='section-faq content-width'>
 											<h2>General Questions</h2>
-											<!-- <?php echo do_shortcode("[ultimate-faqs include_category='". $faq . "']"); ?> -->
 
 											<div class="column-container">
 												<div class="column column-10">

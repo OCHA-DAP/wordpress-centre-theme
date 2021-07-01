@@ -195,13 +195,6 @@ $menu_name = get_field('menu_name');
 				</section>
 		<?php endif; ?>
 
-<!-- 		<?php  $faq = get_field('faq');
-			if ($faq['category_slug']): ?>
-				<section class="section-faq content-width">
-					<h2 class="section-header"><?php echo $faq['title']; ?></h2>
-					<?php echo do_shortcode("[ultimate-faqs include_category='". $faq['category_slug'] ."']"); ?>
-				</section>
-		<?php endif; ?> -->
 
 		<?php $faq = get_field('faq');
 			if ($faq['category_id']): ?>
