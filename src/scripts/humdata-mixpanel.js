@@ -20,9 +20,7 @@
 
 	//track main nav link clicks
 	$('.main-nav a').on('click', function(event) {
-		var target = ($(event.target).html()=='Dataviz') ? 'blank' : '';
-		trackLink($(this), 'main nav', target);
-		event.preventDefault();
+		trackLink($(this), 'main nav');
     });
 
 	//track footer link clicks
@@ -38,11 +36,12 @@
 		mixpanel.track('link click', { 'destionation url': destURL, 'link type': 'blog', 'page title': document.title });
     });
 
-    function trackLink(link, type, target) {
-    	//console.log('trackLink', link, type, target)
+    function trackLink(link, type) {
     	var destURL = $(link).attr('href');
-        var cb = generate_callback($(link), target);
-        mixpanel.track('link click', { 'destionation url': destURL, 'link type': type, 'page title': document.title }, cb);
+    	mixpanel.track('link click', { 'destionation url': destURL, 'link type': type, 'page title': document.title });
+        
+        //var cb = generate_callback($(link), target);
+        //mixpanel.track('link click', { 'destionation url': destURL, 'link type': type, 'page title': document.title }, cb);
         //setTimeout(cb, 500);
     }
 
