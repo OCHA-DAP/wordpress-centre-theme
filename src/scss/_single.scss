@@ -142,6 +142,8 @@
 	.avatar {
 		border-radius: 50%;
 		margin-top: 25px;
+		height: 150px;
+		object-fit: cover;
 	}
 	.author-info {
 		margin-top: 15px;
@@ -354,6 +356,7 @@ blockquote p {
 	.post-author {
 		text-align: left;
 		img {
+			max-height: 100px;
 			max-width: 100px;
 		}
 	}
@@ -367,6 +370,7 @@ blockquote p {
 	.post-author {
 		padding: 0 20px;
 		img {
+			max-height: 72px;
 			max-width: 72px;
 		}
 	}
