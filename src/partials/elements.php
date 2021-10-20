@@ -805,7 +805,7 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 							$print_title = $print_title;
 						}
-						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'announcement' || $post_category === 'impact') {
+						else if ($post_category === 'tweet' || $post_category === 'dataviz' || $post_category === 'impact') {
 							$custom_post = uncode_custom_just_post($block_data['id']);
 						}
 						else {
@@ -830,7 +830,6 @@ if (!function_exists('uncode_create_single_block')) {
 								$date = get_the_date( '', $block_data['id'] );
 								if ($post_category==='impactstory') $the_category = 'Impact Story';
 								if ($post_category==='casestudy') $the_category = 'Case Study';
-								if ($post_category==='resourcelibrary') $the_category = 'Resource';
 								$inner_entry .= '<h6 class="archive-category">'.$the_category.' | ' .$date.'</h6>';
 								if ($post_category!=='') {
 									if ($post_category==='article' || $post_category==='casestudy') {
@@ -963,7 +962,7 @@ if (!function_exists('uncode_create_single_block')) {
 							if ($category==='casestudy') $category = 'Case Study';
 							if ($category==='resourcelibrary') $category = 'Resource';
 							if ($isResource && $resource_category!='') $category = $resource_category;
-							$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
+							if ($category!=='') $meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
 						}
 						else {
 							//$meta_inner .= '<span class="'.$cat_classes.'">'.$category.'</span>';
@@ -1391,6 +1390,11 @@ if (!function_exists('uncode_create_single_block')) {
 								$output .= '<a href="'.$title_link.'"><div class="t-background-cover default '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div></a>';
 							}
 							else {
+								if ($isResource) {
+									$resource_media = get_field('resource_thumbnail', $block_data['id']);
+									$item_media = ($resource_media!='') ? $resource_media : get_stylesheet_directory_uri() . '/assets/default.svg';
+								}
+
 								$output .= '<div class="t-background-cover '.($adaptive_async_class !== '' ? $adaptive_async_class : '').'" style="background-image:url(\''.$item_media.'\')"'.($adaptive_async_data !== '' ? $adaptive_async_data : '').'></div>';
 							}
 
