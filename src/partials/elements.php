@@ -825,7 +825,7 @@ if (!function_exists('uncode_create_single_block')) {
 								$custom_post = uncode_custom_just_post($block_data['id']);
 								$post_format = get_post_format($block_data['id']);
 								$the_link = ($post_format === 'link') ? get_url_in_content( $custom_post ) : $title_link;
-								$resource_category = ($isResource) ? get_field('resource_category', $block_data['id']) : '';
+								$resource_category = ($isResource && get_field('resource_category', $block_data['id'])!=='') ? get_field('resource_category', $block_data['id']) : 'Resource';
 								$the_category = ($isResource && $resource_category!='') ? $resource_category : $post_category;
 								$date = get_the_date( '', $block_data['id'] );
 								if ($post_category==='impactstory') $the_category = 'Impact Story';
