@@ -188,7 +188,7 @@ $menu_name = get_field('menu_name');
 
 								<?php 
 								$id = $country_resources['faq_id'];
-								$json = file_get_contents('http://localhost:3000/humdata/wp-json/wp/v2/ufaq?ufaq-category='.$id);//https://centre.humdata.org
+								$json = file_get_contents('https://centre.humdata.org/wp-json/wp/v2/ufaq?ufaq-category='.$id);
 								$items = json_decode($json);
 
 								foreach($items as $key=>$var) { ?>
