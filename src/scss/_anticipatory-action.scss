@@ -1,0 +1,106 @@
+.page-template-anticipatory-action {
+	.box-wrapper {
+		overflow: auto;
+	}
+}
+
+.anticipatory-action {
+	h3 {
+		padding-top: 10px;
+	}
+	.jump-menu {
+		font-family: 'Stag-Book';
+		font-size: 18px;
+		margin: 0;
+		padding: 38px 0;
+		position: -webkit-sticky;
+		position: sticky;
+	 	top: 130px; //main nav height
+		li {
+			line-height: 23px;
+			list-style-type: none;
+			padding-bottom: 12px;
+			a {
+				color: #1BB580;
+				text-decoration: none;
+				&:hover {
+					color: #F2645A;
+				}
+			}
+		}
+	}
+	.row-inner {
+		margin-bottom: 50px;
+	}
+
+	/////////////////////////
+	//
+	//  FAQ STYLES
+	//
+	/////////////////////////
+	.section-faq {
+	 	.accordion {
+	 		margin-top: 50px;
+	 		&.overview-accordion {
+	 			margin-top: 40px;
+	 		}
+	 	}
+	 	h4 {
+	 		margin-top: 28px;
+	 		position: relative;
+	 		> .btn {
+	 			background-color: transparent;
+				color: #333;
+				font-family: 'Stag-Book';
+				font-size: 24px;
+				font-weight: normal !important;
+				letter-spacing: 0;
+				line-height: 33px;
+				margin: 0 !important;
+				padding-right: 40px !important;
+				text-align: left;
+				text-transform: none;
+		 		white-space: unset;
+		 		width: 100%;
+		 	}
+		 	&:after {
+		 		color: #666;
+		 		content: '\e902';
+		 		font-family: 'Humanitarian-Icons-v02';
+		 		pointer-events: none;
+		 		position: absolute;
+    			top: 5px;
+    			right: 0;
+		 	}
+		 	&.open {
+		 		&:after {
+		 			content: '\e958';
+		 		}
+		 	}
+		}
+		.card {
+			border-bottom: 1px solid #E3E3E3;
+			margin: 20px 0;
+			padding-bottom: 20px;
+		}
+		.card-body {
+			padding-top: 10px;
+			p {
+				margin: 32px 0 16px;
+				width: 95%;
+			}
+		}
+	}
+}
+
+
+
+@media (max-width: $screen-md) { 
+
+}
+
+
+@media (max-width: $screen-sm) { 
+
+}
+
