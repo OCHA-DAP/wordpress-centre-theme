@@ -163,22 +163,6 @@ $menu_name = get_field('menu_name');
 							echo $the_content;
 						?>
 
-						<!-- global resource section -->
-						<?php $global_resources = get_field('global_resources'); ?>
-							<h3><?php echo $global_resources['title']; ?></h3>
-							<?php 
-								$links = $global_resources['links']; 
-								if ( $links ):
-									foreach( $links as $link ): ?> 
-										<ul>  
-										<?php foreach( $link as $l ): ?>
-											<li><a href="<?php echo $l['link_name']; ?>" target="_blank"><?php echo $l['link_name']; ?></a></li>
-										<?php endforeach; ?>
-										</ul>
-									<?php endforeach;
-								endif;  
-							?>
-
 						<!-- country resource section -->
 						<?php $country_resources = get_field('country_resources');
 							if ($country_resources['faq_id']): ?>
@@ -210,6 +194,22 @@ $menu_name = get_field('menu_name');
 											  
 							</section>
 						<?php endif; ?>
+
+						<!-- global resource section -->
+						<?php $global_resources = get_field('global_resources'); ?>
+							<h3><?php echo $global_resources['title']; ?></h3>
+							<?php 
+								$links = $global_resources['links']; 
+								if ( $links ):
+									foreach( $links as $link ): ?> 
+										<ul>  
+										<?php foreach( $link as $l ): ?>
+											<li><a href="<?php echo $l['link_name']; ?>" target="_blank"><?php echo $l['link_name']; ?></a></li>
+										<?php endforeach; ?>
+										</ul>
+									<?php endforeach;
+								endif;  
+							?>
 					</div>
 				</div>
 			</div>
