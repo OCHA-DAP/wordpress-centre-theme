@@ -32,6 +32,9 @@
 	.row-inner {
 		margin-bottom: 50px;
 	}
+	.wp-caption-text {
+		display: none;
+	}
 
 	/////////////////////////
 	//
@@ -41,6 +44,7 @@
 	.section-faq {
 	 	.accordion {
 	 		margin-top: 50px;
+	 		width: 80%;
 	 		&.overview-accordion {
 	 			margin-top: 40px;
 	 		}
@@ -96,7 +100,13 @@
 
 
 @media (max-width: $screen-md) { 
-
+	.anticipatory-action {
+		.section-faq {
+		 	.accordion {
+		 		width: 100%;
+		 	}
+		 }
+	}
 }
 
 
