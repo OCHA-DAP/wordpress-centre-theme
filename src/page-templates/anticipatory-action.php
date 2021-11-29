@@ -175,6 +175,12 @@ $menu_name = get_field('menu_name');
 								$json = file_get_contents('https://centre.humdata.org/wp-json/wp/v2/ufaq?ufaq-category='.$id);
 								$items = json_decode($json);
 
+								//sort items by slug
+								function cmp($a, $b) {
+								   return strcmp($a->slug, $b->slug);
+								}
+								usort($items, "cmp");
+
 								foreach($items as $key=>$var) { ?>
 									<div class="card">
 										<div class="card-header" id="heading<?php echo $key ?>">
