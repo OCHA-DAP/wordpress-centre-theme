@@ -210,7 +210,7 @@ $menu_name = get_field('menu_name');
 									foreach( $links as $link ): ?> 
 										<ul>  
 										<?php foreach( $link as $l ): ?>
-											<li><a href="<?php echo $l['link_name']; ?>" target="_blank"><?php echo $l['link_name']; ?></a></li>
+											<li><a href="<?php echo $l['link_url']; ?>" target="_blank"><?php echo $l['link_name']; ?></a></li>
 										<?php endforeach; ?>
 										</ul>
 									<?php endforeach;
