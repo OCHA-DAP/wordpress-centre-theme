@@ -164,7 +164,6 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 								<p class="list-title">Related Platforms</p>
 								<ul class="ocha-links-list">
 									<li><a href="https://humdata.org/" target="_blank">Humanitarian Data Exchange (HDX)</a></li>
-									<li><a href="https://tools.humdata.org/" target="_blank">HDX Tools</a></li>
 									<li><a href="http://hxlstandard.org/" target="_blank">Humanitarian Exchange Language (HXL)</a></li>
 								</ul>
 							</div>
