@@ -247,7 +247,6 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 					    foreach( $menuitems as $item ):
 					        $link = $item->url;
 					        $title = $item->title;
-					        $target = ($title=='Dataviz') ? '_blank' : '_self';
 					        if ( !$item->menu_item_parent ):
 					        	$parent_id = $item->ID;
 					    ?>
@@ -263,7 +262,7 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 					            <?php endif; ?>
 
 					                <li class="item">
-					                    <a href="<?php echo $link; ?>" class="title" target="<?php echo $target; ?>"><?php echo $title; ?></a>
+					                    <a href="<?php echo $link; ?>" class="title" target="<?php echo $item->target; ?>"><?php echo $title; ?></a>
 					                </li>
 
 					            <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
