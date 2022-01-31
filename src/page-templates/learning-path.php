@@ -176,7 +176,7 @@ get_header();
 					$column_module = get_field('column_module');
 					$columns = $column_module['columns'];
 
-					if ($column_module): ?>
+					if ($columns): ?>
 						<section class="column-module content-width">
 							<h2 class="section-header"><?php echo $column_module['title']; ?></h2>
 							<div class="column-container column-flow">
