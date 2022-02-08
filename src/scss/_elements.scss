@@ -121,6 +121,12 @@ a {
 	}
 }
 
+.page-template,
+.page-template-default,
+.post-template-default {
+	#tt #ttcont a {  color: $coral !important; }
+} 
+
 .style-light {
 	a {
 		color: $coral;
