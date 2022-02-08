@@ -845,8 +845,8 @@ if (!function_exists('uncode_create_single_block')) {
 										$author_info = ($post_category === 'slideshow') ? 'by ' . $author_name : '';
 										$resource_description = get_field('resource_description', $block_data['id']);
 										$resource_link = get_field('resource_link', $block_data['id']);
-										$title_link = ($isResource) ? $resource_link['url'] : $the_link;
-										$title_target = ($isResource) ? $resource_link['target'] : $target;
+										$title_link = ($isResource && $resource_link) ? $resource_link['url'] : $the_link;
+										$title_target = ($isResource && $resource_link) ? $resource_link['target'] : $target;
 										if ($isResource) $print_title = strlen($print_title) > 50 ? substr($print_title,0,50)."..." : $print_title;
 										$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'" target="'.$title_target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
 
