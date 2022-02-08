@@ -111,17 +111,10 @@ get_header();
 	<div class="content-width column-container">
 		<div class='column column-12'>
 			<ol class="breadcrumb header-subtitle" vocab="http://schema.org/" typeof="BreadcrumbList">
-				<li property="itemListElement" typeof="ListItem">
-					<a href="<?php echo $homeURL ?>" itemprop="url">Home</a>
-				</li>
-				<li property="itemListElement" typeof="ListItem">
-					<a href="<?php echo $homeURL ?>" itemprop="url">Resources</a>
-				</li>
-				</li>
-				<li property="itemListElement" typeof="ListItem">
-					<a href="<?php echo $homeURL ?>/learning-path" itemprop="url">All Learning Paths</a>
-				</li>
-				<li property="itemListElement" typeof="ListItem" class="current"><?php echo get_the_title(); ?></li>
+				<li><a href="<?php echo $homeURL ?>" itemprop="url">Home</a></li>
+				<li>Resources</li>
+				<li><a href="<?php echo $homeURL ?>/learning-path" itemprop="url">All Learning Paths</a></li>
+				<li class="current"><?php echo get_the_title(); ?></li>
 			</ol>	
 		</div>
 	</div>
@@ -233,22 +226,25 @@ get_header();
 			</article>
 		</div>
 	</div>
-	<div class="content-width pagination-container">
-        <ul class="pagination">
-        	<li class="page-prev">
-        		<a class="btn btn-link <?php if ($curr_page===0) echo 'disabled'; ?>" href="<?php echo get_permalink($jump_menu_pages[$curr_page-1]->ID); ?>"><i class="fa fa-angle-left"></i> <span>Previous</span></a>
-        	</li>
-        	<?php
-				foreach($jump_menu_pages as $key=>$page) { ?>
-    				<li>
-		        		<span class="btn btn-link"><a class="page-numbers <?php echo ($curr_page===$key) ? 'current' : ''; ?>" href="<?php echo get_permalink($page->ID); ?>"><?php echo $key+1 ?></a></span>
-		        	</li>
-				<?php } ?>
-        	<li class="page-next">
-        		<a class="btn btn-link <?php if ($curr_page>=($num_pages-1)) echo 'disabled'; ?>" href="<?php echo get_permalink($jump_menu_pages[$curr_page+1]->ID); ?>"><span> Next</span> <i class="fa fa-angle-right"></i></a>
-        	</li>
-        </ul>
-    </div>
-	<?php endwhile; // end of the loop. ?>
+
+	<?php if ($num_pages > 1): ?>
+		<div class="content-width pagination-container">
+	        <ul class="pagination">
+	        	<li class="page-prev">
+	        		<a class="btn btn-link <?php if ($curr_page===0) echo 'disabled'; ?>" href="<?php echo get_permalink($jump_menu_pages[$curr_page-1]->ID); ?>"><i class="fa fa-angle-left"></i> <span>Previous</span></a>
+	        	</li>
+	        	<?php
+					foreach($jump_menu_pages as $key=>$page) { ?>
+	    				<li>
+			        		<span class="btn btn-link"><a class="page-numbers <?php echo ($curr_page===$key) ? 'current' : ''; ?>" href="<?php echo get_permalink($page->ID); ?>"><?php echo $key+1 ?></a></span>
+			        	</li>
+					<?php } ?>
+	        	<li class="page-next">
+	        		<a class="btn btn-link <?php if ($curr_page>=($num_pages-1)) echo 'disabled'; ?>" href="<?php echo get_permalink($jump_menu_pages[$curr_page+1]->ID); ?>"><span> Next</span> <i class="fa fa-angle-right"></i></a>
+	        	</li>
+	        </ul>
+	    </div>
+    <?php endif;
+	endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

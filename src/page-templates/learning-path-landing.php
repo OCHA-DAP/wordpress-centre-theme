@@ -102,12 +102,6 @@ get_header();
 
 	<article class="learning-path landing">
 		<div class="content-width">
-			<?php 
-				$the_content = get_the_content();
-				$the_content = apply_filters('the_content', $the_content); 
-			?>
-			<div class="landing-introduction"><?php echo $the_content; ?></div>
-
 			<?php
 				$pages = get_pages(array(
 					'post_type' => 'page',
@@ -124,14 +118,9 @@ get_header();
 			<div class="column-container">
 				<div class="column column-3">
 					<ol class="breadcrumb header-subtitle" vocab="http://schema.org/" typeof="BreadcrumbList">
-						<li property="itemListElement" typeof="ListItem">
-							<a href="https://centre.humdata.org/" itemprop="url">Home</a>
-						</li>
-						<li property="itemListElement" typeof="ListItem">
-							<a href="https://centre.humdata.org/" itemprop="url">Resources</a>
-						</li>
-						</li>
-						<li property="itemListElement" typeof="ListItem" class="current">All Learning Paths</li>
+						<li><a href="https://centre.humdata.org/" itemprop="url">Home</a></li>
+						<li>Resources</li>
+						<li class="current">All Learning Paths</li>
 					</ol>
 					<ul class="jump-menu">
 						<li>ALL LEARNING PATHS</li>

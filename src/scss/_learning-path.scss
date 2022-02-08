@@ -50,6 +50,9 @@
 		font-size: 24px;
 		line-height: 33px;
 		margin: 0;
+		&.fixed-height {
+			height: 170px;
+		}
 	}
 	h4 {
 		font-family: 'Source Sans Pro', sans-serif;
@@ -857,7 +860,8 @@
 		li > a {
 			color: $gray66;
 			display: block;
-			padding: 5px 0;
+			line-height: 18px;
+			padding: 6px 0;
 			&:hover,
 			&.active {
 				background-color: #E8F8F2;
@@ -1037,6 +1041,40 @@
 			}
 		}
 	}
+	//**
+	.page-template-learning-path-landing,
+	.page-template-learning-path {
+		.header-wrapper {
+			margin-top: 104px; //height of nav
+		}
+		.header-main-container {
+			.header-content {
+				.header-content-inner {
+					padding-bottom: 54px !important;
+					padding-top: 54px !important;
+				}
+			}
+		}
+		.breadcrumb {
+			margin: 30px 0;
+		}
+	}
+	.page-template-learning-path-landing {
+		.learning-path {
+			margin-top: 0;
+		}
+		.column-container.column-flow {
+			.column.landing-item {
+				border-right: 0;
+			}
+		}
+	}
+	.page-template-learning-path {
+		ul.jump-menu {
+			margin-bottom: 30px;
+			padding: 0 20px;
+		}
+	}
 }
 
 
@@ -1065,6 +1103,18 @@
 					p {
 						width: 100%;
 					}
+				}
+			}
+		}
+	}
+	//**
+	.page-template-learning-path-landing,
+	.page-template-learning-path {
+		.header-main-container {
+			.header-content {
+				.header-content-inner {
+					padding-bottom: 20px !important;
+					padding-top: 20px !important;
 				}
 			}
 		}
