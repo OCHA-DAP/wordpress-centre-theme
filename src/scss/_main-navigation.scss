@@ -286,6 +286,7 @@ body.mobile-nav-open {
 	}
 	.mobile-nav-toggle {
 		display: block;
+		right: 20px;
 		&.expanded {
 			.icon-bar {
 				background-color: $white;

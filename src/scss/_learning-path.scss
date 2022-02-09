@@ -908,6 +908,10 @@
 			}
 			li {
 				padding-right: 10px;
+				&.page-prev {
+					padding-right: 0;
+					padding-left: 10px;
+				}
 				.page-numbers {
 					&:hover {
 						border: 1px solid $coral;
@@ -1073,6 +1077,9 @@
 		ul.jump-menu {
 			margin-bottom: 30px;
 			padding: 0 20px;
+		}
+		.pagination-container {
+			padding: 0 10px;
 		}
 	}
 }

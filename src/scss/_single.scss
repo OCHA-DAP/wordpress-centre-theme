@@ -364,16 +364,6 @@ blockquote p {
 		padding-right: 20px !important;
 		padding-left: 20px !important;
 	}
-}
-
-@media (max-width: $screen-sm) {
-	.post-author {
-		padding: 0 20px;
-		img {
-			max-height: 72px;
-			max-width: 72px;
-		}
-	}
 	.widget-container {
 		margin-left: 20px;
 		margin-right: 20px;
@@ -382,9 +372,23 @@ blockquote p {
 			margin-right: 0;
 		}
 	}
+	.post-author {
+		align-items: center;
+		display: flex;
+		padding: 0 20px;
+		img {
+			margin-right: 25px;
+			max-height: 72px;
+			max-width: 72px;
+		}
+		.author-info {
+			.social-links {
+				margin-top: 0;
+			}
+		}
+	}
 	.post-wrapper .post-share {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding: 0 20px;
 	}
 	.post-after {
 		.heading-text {
@@ -392,10 +396,9 @@ blockquote p {
 			padding-right: 20px;
 		}
 	}
-	.comments-area {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
+}
+
+@media (max-width: $screen-sm) {
 	blockquote,
 	blockquote p {
 		background-position: right bottom;

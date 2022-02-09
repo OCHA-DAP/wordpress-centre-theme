@@ -331,10 +331,22 @@
 		}
 		.header-wrapper {
 			min-height: 200px !important;
-			padding-top: 110px;
+			padding-top: 90px;
 		}
 		.post-wrapper {
 			margin-top: 75px;
+		}
+		.row-parent.no-h-padding .isotope-footer-inner>.pagination {
+			padding: 0;
+		}
+	}
+	.single-gutter {
+		.tmb {
+			&:nth-child(2n+2),
+			&:last-child {
+				border: 0;
+				padding-right: 18px;
+			}
 		}
 	}
 }
@@ -351,8 +363,8 @@
 			}
 		}
 		.style-metro .tmb .t-inside .t-entry-text .t-entry-text-tc {
-			padding-left: 20px !important;
-			padding-right: 20px !important;
+			padding-left: 0px !important;
+			padding-right: 0px !important;
 		}
 		.isotope-footer .pagination {
 			> li {
