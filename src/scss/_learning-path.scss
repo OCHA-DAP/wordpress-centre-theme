@@ -19,6 +19,8 @@
 [class*="page-template-learning-path"] {
 	h1 {
 		color: #333;
+		font-size: 40px;
+		line-height: 50px;
 		margin: 0 0 48px;
 		&.header-title {
 			color: #FFF;
@@ -86,10 +88,16 @@
 		}
 		&.jump-menu {
 			list-style-type: none;
+			padding-left: 0;
 		}
 		&.breadcrumb {
 			padding-left: 0;
 		}
+	}
+	ol {
+		list-style-type: decimal;
+		margin-left: 0;
+		padding-bottom: 20px;
 	}
 	img {
 		object-fit: scale-down;
@@ -294,7 +302,7 @@
 			}
 		}
 		.feature-media {
-			height: 612px;
+			height: 483px;
 			margin: 35px auto;
 			position: relative;
 			.feature-media-caption {
@@ -945,6 +953,10 @@
 
 @media (max-width: $screen-md) { 
 	[class*="page-template-learning-path"] {
+		h1{
+			font-size: 35px;
+			line-height: 42px;
+		}
 		.learning-path-navigation {
 			margin-top: 25px;
 		}

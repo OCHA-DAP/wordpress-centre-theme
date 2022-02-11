@@ -83,7 +83,9 @@ nav {
 			}
 			.sub-menu {
 				display: none;
+				list-style-type: none;
 				margin-left: 0;
+				padding-left: 0;
 				a.title {
 					color: $green;
 				}
