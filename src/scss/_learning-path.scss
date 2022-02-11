@@ -19,8 +19,6 @@
 [class*="page-template-learning-path"] {
 	h1 {
 		color: #333;
-		font-size: 40px;
-		line-height: 50px;
 		margin: 0 0 48px;
 		&.header-title {
 			color: #FFF;
@@ -1048,11 +1046,6 @@
 				width: 100%;
 			}
 		}
-		.learning-path {
-			.jump-menu {
-				display: none;
-			}
-		}
 	}
 	//**
 	.page-template-learning-path-landing,
@@ -1070,6 +1063,9 @@
 		}
 		.breadcrumb {
 			margin: 30px 0;
+		}
+		.jump-menu {
+			display: none;
 		}
 	}
 	.page-template-learning-path-landing {
