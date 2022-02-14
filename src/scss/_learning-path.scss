@@ -865,6 +865,8 @@
 		text-transform: uppercase;
 	}
 	.jump-menu {
+		position: sticky;
+    	top: 136px;
 		h4 {
 			font-family: 'Stag-Medium';
 			font-weight: normal;
