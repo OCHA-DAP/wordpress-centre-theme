@@ -196,7 +196,7 @@ get_header();
 
 					if ($columns): ?>
 						<section class="column-module content-width">
-							<h2 class="section-header"><?php echo $column_module['title']; ?></h2>
+							<?php if ($column_module['title']!=''): ?><h2 class="section-header"><?php echo $column_module['title']; ?></h2><?php endif; ?>
 							<div class="column-container column-flow">
 								<?php foreach( $columns as $key=>$item ): ?>
 									<div class="column column-4">
@@ -211,16 +211,10 @@ get_header();
 				<?php $free_module = get_field('free_module');
 					if ($free_module): ?>
 						<section class="free-module content-width">
-							<h2 class="section-header"><?php echo $free_module['title']; ?></h2>
-							<?php echo $free_module['content']; ?>
+							<?php if ($free_module['title']!=''): ?><h2 class="section-header"><?php echo $free_module['title']; ?></h2><?php endif; ?>
+							<?php if ($free_module['content']!=''): ?><?php echo $free_module['content']; ?><?php endif; ?>
 						</section>
 				<?php endif; ?>
-
-				<?php 
-					$the_content = get_the_content();
-					$the_content = apply_filters('the_content', $the_content);
-					echo $the_content;
-				?>
 
 				<?php $faq = get_field('faq');
 					if ($faq['category_id']): ?>
