@@ -187,7 +187,9 @@ $menu_name = get_field('menu_name');
 													<div class="accordion" id="faqAccordion<?php echo $faq ?>">
 
 												<?php 
-												$json = file_get_contents('https://centre.humdata.org/wp-json/wp/v2/ufaq?ufaq-category='.$faq);
+
+												$url = get_site_url();
+												$json = file_get_contents($url.'/wp-json/wp/v2/ufaq?ufaq-category='.$faq);
 												$items = json_decode($json);
 
 												foreach($items as $key=>$item) { 
