@@ -1,6 +1,20 @@
 .page-template-learning-path-overview,
 .page-template-learning-path-methodology,
-.page-template-learning-path-tutorial,
+.page-template-learning-path-tutorial {
+	.box-wrapper {
+		overflow: auto;
+	}
+	.header-wrapper {
+		min-height: 0 !important;
+	}
+	.header-main-container {
+		max-width: none !important;
+		.header-content-inner {
+			display: none;
+		}
+	}
+}
+
 .page-template-learning-path {
 	// .box-wrapper {
 	// 	overflow: auto;
