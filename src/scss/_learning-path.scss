@@ -15,6 +15,26 @@
 	}
 }
 
+.page-template-learning-path-landing-original {
+	.breadcrumb {
+		display: none;
+	}
+	.header-main-container .header-content .header-content-inner .header-title {
+		text-align: center;
+		margin-top: 65px;
+	}
+	h2.section-header {
+		margin-top: 0 !important;
+	}
+	.button-primary {
+		text-align: center;
+	}
+	section#disclosure-risk-assessment-overview {
+		padding-top: 0;
+	}
+}
+
+
 [class*="page-template-learning-path"] {
 	h1 {
 		color: #333;
@@ -752,6 +772,7 @@
 //  LEARNING PATH TEMPLATE STYLES
 //
 /////////////////////////
+.page-template-learning-path-landing-original,
 .page-template-learning-path-landing,
 .page-template-learning-path {
 	.box-wrapper {
@@ -796,6 +817,7 @@
 //  LANDING STYLES
 //
 /////////////////////////
+.page-template-learning-path-landing-original,
 .page-template-learning-path-landing {
 	.learning-path {
 		margin-top: 100px;
@@ -1054,6 +1076,7 @@
 			}
 		}
 	}
+	.page-template-learning-path-landing-original,
 	.page-template-learning-path-landing {
 		.landing-introduction {
 			>p {
@@ -1062,6 +1085,7 @@
 		}
 	}
 	//**
+	.page-template-learning-path-landing-original,
 	.page-template-learning-path-landing,
 	.page-template-learning-path {
 		.header-wrapper {
@@ -1082,6 +1106,7 @@
 			display: none;
 		}
 	}
+	.page-template-learning-path-landing-original,
 	.page-template-learning-path-landing {
 		.learning-path {
 			margin-top: 0;
@@ -1134,6 +1159,7 @@
 		}
 	}
 	//**
+	.page-template-learning-path-landing-original,
 	.page-template-learning-path-landing,
 	.page-template-learning-path {
 		.header-main-container {

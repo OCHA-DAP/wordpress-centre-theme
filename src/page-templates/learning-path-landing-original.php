@@ -1,22 +1,20 @@
 <?php
-/* Template Name: Anticipatory Action */
+/* Template Name: Learning Path Landing Original */
 
 /**
- * The template for Anticipatory Action page.
+ * The template for Learning Path Landing Original page.
  *
  * @package uncode
  */
 
 get_header();
-
-$menu_name = get_field('menu_name');
 ?>
 
 <script>
 	//mixpanel tracking
-	// window.onload = function(e) {
-	// 	mixpanel.track('page view', { 'page type': 'learning module', 'learning module name': '<?php echo $menu_name ?>', 'learning module template': 'tutorial' });
-	// }
+	window.onload = function(e) {
+		mpTrack.pageView(document.title, 'learning module');
+	}
 </script>
 
 <?php
@@ -103,6 +101,7 @@ $menu_name = get_field('menu_name');
 	}
 
 	while ( have_posts() ) : the_post();
+
 		/** Build header **/
 		if ($page_header_type !== '' && $page_header_type !== 'none') {
 			$page_header = new unheader($metabox_data, $post->post_title);
@@ -121,108 +120,78 @@ $menu_name = get_field('menu_name');
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
 	?>
 
-	<article class="anticipatory-action page-body">
-		<?php
-			$menu_items = wp_get_nav_menu_items($menu_name);
-			include( locate_template( 'partials/menu-learningpath.php', false, false ) );
-		?>
+	<article class="learning-path landing">
+		<div class="content-width">
+			<?php 
+				$the_content = get_the_content();
+				$the_content = apply_filters('the_content', $the_content); 
+			?>
+			<div class="landing-introduction"><?php echo $the_content; ?></div>
 
-		<?php if( get_field('tutorial_introduction') ): ?>
-						<h3><?php the_field('tutorial_introduction'); ?></h3>
-					<?php endif; ?>
+			<?php
+				$pages = get_pages(array(
+					'post_type' => 'page',
+				    'meta_key' => '_wp_page_template',
+				    'hierarchical' => 0,
+				    'meta_value' => 'page-templates/learning-path-overview.php'
+				));
+				$section_pages = $pages;
+				$jump_menu_pages = $pages; 
+			?>
 
-		<div class="feature-content">
-			<div class="content-width">
-				<div class="feature-inner">
-					
-				</div>
-			</div>
-		</div>
-
-		<div class="content-width column-container post-content">
-			<div class="row limit-width">
-				<div class="row-inner">
-					<div class="col-lg-3">
-						<ul class="jump-menu">
-							<?php
-								$sections = get_content_sections();
-								foreach( $sections as $section ) {
-									$id = $section->getAttribute('id');
-									$h3 = $section->getElementsByTagName('h3');
-									$title = $h3[0]->textContent;
-							?>
-								<li><a href="#<?php echo $id ?>"><?php echo $title ?></a></li>
-							<?php } ?>
-						</ul>
-					</div>
-
-					<div class="col-lg-9">
-						<?php 
-							$the_content = get_the_content();
-							$the_content = apply_filters('the_content', $the_content);
-							echo $the_content;
+			<div class="column-container">
+				<div class="column column-3">
+					<ul class="jump-menu">
+						<li>LEARNING PATHS</li>
+						<?php
+							foreach($jump_menu_pages as $page) {
+								$page_slug = $page->post_name;
+								$page_query = new WP_Query('page_id=' . $page->ID);
+								while ($page_query->have_posts()) : $page_query->the_post(); 
+									if (get_field('excerpt')): ?>
+										<li><a href="#<?php echo $page_slug ?>"><?php echo the_title(); ?></a></li>
+								<?php endif;
+								endwhile; 
+							}
 						?>
+					</ul>
+				</div>
+				<div class="column column-9">
 
-						<!-- country resource section -->
-						<?php $country_resources = get_field('country_resources');
-							if ($country_resources['faq_id']): ?>
-							<section class="section-faq">
-								<h3><?php echo $country_resources['title']; ?></h3>
-								<div class="accordion overview-accordion" id="faqAccordion">
-
-								<?php 
-								$id = $country_resources['faq_id'];
-								$url = get_site_url();
-								$json = file_get_contents($url.'/wp-json/wp/v2/ufaq?ufaq-category='.$id);
-								$items = json_decode($json);
-
-								//sort items by slug
-								function cmp($a, $b) {
-								   return strcmp($a->slug, $b->slug);
-								}
-								usort($items, "cmp");
-
-								foreach($items as $key=>$var) { ?>
-									<div class="card">
-										<div class="card-header" id="heading<?php echo $key ?>">
-											<h4 class="my-0">
-												<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?php echo $key ?>" aria-expanded="true" aria-controls="collapse<?php echo $key ?>">
-													<?php echo $items[$key]->title->rendered ?>
-												</button>
-											</h4>
+				<?php
+					foreach($section_pages as $page){
+						$page_slug = $page->post_name;
+						$page_query = new WP_Query('page_id=' . $page->ID);
+						while ($page_query->have_posts()) : $page_query->the_post(); 
+							if (get_field('excerpt')): ?>
+							<section id="<?php echo $page_slug; ?>">
+								<h2 class="section-header"><?php echo the_title(); ?></h2>
+								<p><?php echo get_field('excerpt'); ?></p>
+								<?php $video = get_field('overview_video');
+									$videoID = $video['id'];
+									if ($videoID): ?>
+										<div class="feature-media">
+								      	<iframe id="overviewFeatureVideo" class="video-container" src="https://www.youtube.com/embed/<?php echo $video['id']; ?>
+								?modestbranding=1&rel=0&enablejsapi=1"></iframe>
+											<?php if ($video['title']): ?>
+												<div class="feature-media-caption">
+													<h3><?php echo $video['title']; ?></h3>
+													<p class="attribution"><?php echo $video['attribution']; ?></p>
+												</div>
+											<?php endif; ?>
 										</div>
-										<div id="collapse<?php echo $key ?>" class="collapse" aria-labelledby="heading<?php echo $key ?>" data-parent="#faqAccordion">
-											<div class="card-body">
-												<?php echo $items[$key]->content->rendered ?>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-											  
+								<?php endif; ?>
+								<a class="button-primary" href="<?php echo get_page_link(); ?>">Learn How It Works</a>
 							</section>
-						<?php endif; ?>
-
-						<!-- global resource section -->
-						<?php $global_resources = get_field('global_resources'); ?>
-							<h3><?php echo $global_resources['title']; ?></h3>
-							<?php 
-								$links = $global_resources['links']; 
-								if ( $links ):
-									foreach( $links as $link ): ?> 
-										<ul>  
-										<?php foreach( $link as $l ): ?>
-											<li><a href="<?php echo $l['link_url']; ?>" target="_blank"><?php echo $l['link_name']; ?></a></li>
-										<?php endforeach; ?>
-										</ul>
-									<?php endforeach;
-								endif;  
-							?>
-					</div>
+						<?php endif;
+						endwhile; 
+					} 
+				?>
 				</div>
 			</div>
-		</div>
+									
 
-		
+		</div>					
 	</article>	
 
 	<?php endwhile; // end of the loop. ?>
