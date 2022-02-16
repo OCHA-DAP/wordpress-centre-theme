@@ -26,7 +26,9 @@ get_header();
 	$index_page = get_page($index_page_id);
 
 	$pages = get_pages(array(
-	    'child_of' => $index_page_id
+	    'child_of' => $index_page_id,
+	    'sort_order' => 'ASC',
+	    'sort_column' => 'menu_order'
 	));
 	array_unshift($pages, $index_page); //add index page to pages array
 	$num_pages = count($pages);
