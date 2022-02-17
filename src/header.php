@@ -58,8 +58,11 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 	    case 'centre.humdata.org':
 	        $mixpanelToken = 'hdx-mixpanel-token-prod';
 	        break;
-	    case 'test-centre.humdata.org':
-	        $mixpanelToken = 'hdx-mixpanel-token-stage';
+	    // case 'test-centre.humdata.org':
+	    //     $mixpanelToken = 'hdx-mixpanel-token-stage';
+	    //     break;
+	    case 'hdx-centre.site.strattic.io':
+	        $mixpanelToken = 'hdx-mixpanel-token-prod';
 	        break;
 	    default:
 	        $mixpanelToken = 'hdx-mixpanel-token-local';
