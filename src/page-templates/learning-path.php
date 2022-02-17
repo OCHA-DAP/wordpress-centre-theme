@@ -126,7 +126,7 @@ get_header();
 				<?php endif; ?>
 
 				<?php $free_module = get_field('free_module');
-					if ($free_module): ?>
+					if ($free_module && ($free_module['title']!='' || $free_module['content']!='')): ?>
 						<section class="free-module content-width">
 							<?php if ($free_module['title']!=''): ?><h2 class="section-header"><?php echo $free_module['title']; ?></h2><?php endif; ?>
 							<?php if ($free_module['content']!=''): ?><?php echo $free_module['content']; ?><?php endif; ?>
