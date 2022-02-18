@@ -17,18 +17,18 @@ get_header();
 	}
 </script>
 
-<?php
 
-	while ( have_posts() ) : the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
 	<div id="page-header">
 		<div class="header-basic">
 			<div class="header-wrapper">
-			<div id="particles-js"><canvas width="1572" height="600" style="width: 100%; height: 100%;"></canvas></div>
-			<div class="header-main-container limit-width">
-				<div class="header-content">
-					<div class="header-content-inner">
-						<h1 class="header-title"><span>Learn With The Centre</span></h1>
+				<div id="particles-js"><canvas width="1572" height="600" style="width: 100%; height: 100%;"></canvas></div>
+				<div class="header-main-container limit-width">
+					<div class="header-content">
+						<div class="header-content-inner">
+							<h1 class="header-title"><span>Learn With The Centre</span></h1>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -84,9 +84,11 @@ get_header();
 						while ($page_query->have_posts()) : $page_query->the_post();
 							if ($page_order==0): ?>
 								<div class="column column-4 landing-item">
-									<div class='thumb'>
-										<div class='category-label'><?php echo get_field('category_type'); ?></div>
-									</div>
+									<a href="<?php echo get_page_link(); ?>">
+										<div class='thumb'>
+											<div class='category-label'><?php echo get_field('category_type'); ?></div>
+										</div>
+									</a>
 									<h6 class="subtitle"><?php echo get_field('category_type'); ?></h6>
 									<a href="<?php echo get_page_link(); ?>"><span class='title'><?php echo the_title(); ?></span></a>
 									<p><?php echo get_field('landing_excerpt'); ?></p>

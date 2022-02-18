@@ -380,3 +380,13 @@ function wpse_filter() {
 }
 add_action( 'wp_head', 'wpse_filter' );
 
+
+/** 
+ * Run content filter on all WYSIWIG values (fix for syntax highlighter plugin)
+ **/
+add_filter('acf/format_value/type=wysiwyg', 'format_value_wysiwyg', 10, 3);
+function format_value_wysiwyg( $value, $post_id, $field ) {
+  $value = apply_filters( 'the_content', $value );
+  return $value;
+}
+

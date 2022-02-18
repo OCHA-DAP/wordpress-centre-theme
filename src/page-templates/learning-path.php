@@ -26,7 +26,9 @@ get_header();
 	$index_page = get_page($index_page_id);
 
 	$pages = get_pages(array(
-	    'child_of' => $index_page_id
+	    'child_of' => $index_page_id,
+	    'sort_order' => 'ASC',
+	    'sort_column' => 'menu_order'
 	));
 	array_unshift($pages, $index_page); //add index page to pages array
 	$num_pages = count($pages);
@@ -77,7 +79,7 @@ get_header();
 
 		<div class="column column-9">
 
-			<article class="learning-path page-body">
+			<article class="learning-path">
 				<div class="feature-content">
 					<div class="content-width">
 						<div class="feature-inner">
@@ -111,7 +113,7 @@ get_header();
 
 					if ($columns): ?>
 						<section class="column-module content-width">
-							<h2 class="section-header"><?php echo $column_module['title']; ?></h2>
+							<?php if ($column_module['title']!=''): ?><h2 class="section-header"><?php echo $column_module['title']; ?></h2><?php endif; ?>
 							<div class="column-container column-flow">
 								<?php foreach( $columns as $key=>$item ): ?>
 									<div class="column column-4">
@@ -124,10 +126,10 @@ get_header();
 				<?php endif; ?>
 
 				<?php $free_module = get_field('free_module');
-					if ($free_module): ?>
+					if ($free_module && ($free_module['title']!='' || $free_module['content']!='')): ?>
 						<section class="free-module content-width">
-							<h2 class="section-header"><?php echo $free_module['title']; ?></h2>
-							<?php echo $free_module['content']; ?>
+							<?php if ($free_module['title']!=''): ?><h2 class="section-header"><?php echo $free_module['title']; ?></h2><?php endif; ?>
+							<?php if ($free_module['content']!=''): ?><?php echo $free_module['content']; ?><?php endif; ?>
 						</section>
 				<?php endif; ?>
 
