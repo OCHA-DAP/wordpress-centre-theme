@@ -101,7 +101,6 @@
 	}
 	ul, ol {
 		list-style: initial;
-		margin-bottom: 18px;
     	padding: 0px 0px 0px 18px;
 		li {
 			font-size: inherit;
@@ -117,6 +116,7 @@
 	ol {
 		list-style-type: decimal;
 		margin-left: 0;
+		padding-bottom: 20px;
 	}
 	img {
 		object-fit: scale-down;
@@ -496,6 +496,11 @@
 				padding-bottom: 32px;
 			}
 		}
+		.free-module {
+			h3 {
+				margin-top: 80px;
+			}
+		}
 		.content-drawer {
 			display: none;
 			margin-top: 70px;
@@ -520,11 +525,6 @@
 				margin-top: 30px;
 			}
 		}
-		.free-module {
-			h3 {
-				margin-top: 80px;
-			}
-		}
 		.quick-tip-container {
 			h5 {
 				color: #18B580;
@@ -535,7 +535,7 @@
 				text-transform: uppercase;
 			}
 			p,
-			ol,
+			ol, 
 			ul {
 				border: 2px solid #18B580;
 				color: #18B580;
@@ -1179,4 +1179,3 @@
 		}
 	}
 }
-
