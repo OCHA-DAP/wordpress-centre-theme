@@ -298,7 +298,8 @@ function quicktip($att, $content = null)
   extract(shortcode_atts(array(
     'title' => ''
   ), $att));
-  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5><p>'.$content.'</p></div>';
+  $content = ($content != strip_tags($content)) ? $content : '<p>'.$content.'</p>';
+  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5>'.$content.'</div>';
   return $str;
 }
 add_shortcode('quicktip', 'quicktip');
