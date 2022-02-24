@@ -64,6 +64,7 @@
 	}
 	ul, ol {
 		list-style: initial;
+		margin-bottom: 18px;
     	padding: 0px 0px 0px 18px;
 		li {
 			font-size: inherit;
@@ -79,7 +80,6 @@
 	ol {
 		list-style-type: decimal;
 		margin-left: 0;
-		padding-bottom: 20px;
 	}
 	img {
 		object-fit: scale-down;
@@ -466,6 +466,10 @@
 				line-height: 21px;
 				margin-top: 12px;
 				padding: 20px;
+			}
+			ol,
+			ul {
+				padding-left: 32px;
 			}
 		}
 	}
