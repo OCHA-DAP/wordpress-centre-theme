@@ -141,6 +141,10 @@
 			}
 		}
 	}
+	.header-wrapper {
+		height: 35vh;
+		max-height: 330px;
+	}
 	.header-main-container {
 		padding-top: 100px;
 		.header-content {
@@ -150,10 +154,6 @@
 				padding-top: 0 !important;
 			}
 		}
-	}
-	.header-wrapper {
-		height: 35vh;
-		max-height: 330px;
 	}
 	.breadcrumb {
 		margin: 0 0 50px;
@@ -302,54 +302,6 @@
 			}
 		}
 	}
-	.pagination-container {
-		margin: 50px auto;
-		.pagination {
-			.page-prev,
-			.page-next {
-				margin: 10px 0;
-				width: auto;
-				i {
-					font-size: 24px;
-    				margin-top: -12px;
-				}
-				a:hover {
-					color: $coral;
-				}
-			}
-			.btn {
-				font-family: 'Stag-Medium';
-				font-size: 14px;
-				font-weight: 400 !important;
-				text-transform: none;
-			}
-			li {
-				padding-right: 10px;
-				&.page-prev {
-					padding-right: 0;
-					padding-left: 10px;
-				}
-				.page-numbers {
-					&:hover {
-						border: 1px solid $coral;
-						color: $coral;
-					}
-					&.dots {
-						color: $coral;
-						&:hover {
-							border: none;
-							color: $coral;
-						}
-					}
-				}
-				.current {
-					background-color: $coral;
-    				border: 2px solid transparent;
-    				color: #FFF !important;
-				}
-			}
-		}
-	}
 	article.learning-path {
 		.feature-content {
 			padding: 12px 0 0;
@@ -473,6 +425,54 @@
 			}
 		}
 	}
+	.pagination-container {
+		margin: 50px auto;
+		.pagination {
+			.page-prev,
+			.page-next {
+				margin: 10px 0;
+				width: auto;
+				i {
+					font-size: 24px;
+    				margin-top: -12px;
+				}
+				a:hover {
+					color: $coral;
+				}
+			}
+			.btn {
+				font-family: 'Stag-Medium';
+				font-size: 14px;
+				font-weight: 400 !important;
+				text-transform: none;
+			}
+			li {
+				padding-right: 10px;
+				&.page-prev {
+					padding-right: 0;
+					padding-left: 10px;
+				}
+				.page-numbers {
+					&:hover {
+						border: 1px solid $coral;
+						color: $coral;
+					}
+					&.dots {
+						color: $coral;
+						&:hover {
+							border: none;
+							color: $coral;
+						}
+					}
+				}
+				.current {
+					background-color: $coral;
+    				border: 2px solid transparent;
+    				color: #FFF !important;
+				}
+			}
+		}
+	}
 
 	/////////////////////////
 	//
@@ -581,7 +581,6 @@
 			}
 		}
 	}
-	.page-template-learning-path-landing-original,
 	.page-template-learning-path-landing {
 		article.learning-path {
 			margin-top: 0;
