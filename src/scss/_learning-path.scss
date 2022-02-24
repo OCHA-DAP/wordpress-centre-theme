@@ -444,6 +444,11 @@
 				padding-bottom: 32px;
 			}
 		}
+		.free-module {
+			h3 {
+				margin-top: 80px;
+			}
+		}
 		.quick-tip-container {
 			h5 {
 				color: #18B580;
@@ -453,7 +458,9 @@
 				letter-spacing: 0.75px;
 				text-transform: uppercase;
 			}
-			p {
+			p,
+			ol, 
+			ul {
 				border: 2px solid #18B580;
 				color: #18B580;
 				line-height: 21px;
@@ -601,4 +608,3 @@
 		}
 	}
 }
-
