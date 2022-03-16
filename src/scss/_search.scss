@@ -1,9 +1,9 @@
 body {
-	// .header-content-inner {
-	// 	.search-container {
-	// 		display: none;
-	// 	}
-	// }
+	.header-content-inner {
+		.search-container {
+			display: none;
+		}
+	}
 	&.search-results,
 	&.search-no-results,
 	&.category-blog {
@@ -18,7 +18,7 @@ body {
 		}
 		.header-content-inner {
 			.search-container {
-				display: block;		
+				//display: block;		
 				.search-container-inner {
 					input {
 						background-color: $white;
