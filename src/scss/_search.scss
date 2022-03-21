@@ -4,7 +4,8 @@ body {
 			display: none;
 		}
 	}
-	&.category-blog {
+	&.category-blog,
+	&.search-results {
 		.header-content-inner {
 			.search-container {
 				display: block;
