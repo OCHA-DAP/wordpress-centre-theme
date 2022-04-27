@@ -4,7 +4,7 @@
 		<div class="learning-path-navigation">
 			<div class="navigation-inner content-width">
 				<div class="breadcrumbs">
-					<a href="<?php echo get_site_url() ?>/learning-path"><span class="text-green">Learn with the Centre</span></a> / <a href="<?php echo $menu_items[0]->url ?>" class="<?php echo $active ?>"><?php echo $menu_items[0]->title ?></a>
+					<span class="text-green">Learn with the Centre</span> / <a href="<?php echo $menu_items[0]->url ?>" class="<?php echo $active ?>"><?php echo $menu_items[0]->title ?></a>
 				</div>
 				<div class="sub-navigation">
 					<?php for ($i = 1; $i < count($menu_items); $i++) {

@@ -298,7 +298,8 @@ function quicktip($att, $content = null)
   extract(shortcode_atts(array(
     'title' => ''
   ), $att));
-  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5><p>'.$content.'</p></div>';
+  $content = ($content != strip_tags($content)) ? $content : '<p>'.$content.'</p>';
+  $str = '<div class="quick-tip-container"><h5>'.$title.':</h5>'.$content.'</div>';
   return $str;
 }
 add_shortcode('quicktip', 'quicktip');
@@ -379,4 +380,14 @@ function wpse_filter() {
   }
 }
 add_action( 'wp_head', 'wpse_filter' );
+
+
+/** 
+ * Run content filter on all WYSIWIG values (fix for syntax highlighter plugin)
+ **/
+add_filter('acf/format_value/type=wysiwyg', 'format_value_wysiwyg', 10, 3);
+function format_value_wysiwyg( $value, $post_id, $field ) {
+  $value = apply_filters( 'the_content', $value );
+  return $value;
+}
 
