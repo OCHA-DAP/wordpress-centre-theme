@@ -4,6 +4,14 @@ body {
 			display: none;
 		}
 	}
+	&.category-blog,
+	&.search-results {
+		.header-content-inner {
+			.search-container {
+				display: block;
+			}
+		}
+	}
 	&.search-results,
 	&.search-no-results,
 	&.category-blog {
@@ -17,8 +25,7 @@ body {
 			max-height: 350px;
 		}
 		.header-content-inner {
-			.search-container {
-				//display: block;		
+			.search-container {	
 				.search-container-inner {
 					input {
 						background-color: $white;

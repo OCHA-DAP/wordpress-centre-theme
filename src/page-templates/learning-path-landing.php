@@ -13,7 +13,7 @@ get_header();
 <script>
 	//mixpanel tracking
 	window.onload = function(e) {
-		//mpTrack.pageView(document.title, 'learning module');
+		mpTrack.pageView(document.title, 'learning module');
 	}
 </script>
 
@@ -82,11 +82,14 @@ get_header();
 						$page_order = $page->menu_order;
 						$page_query = new WP_Query('page_id=' . $page->ID);
 						while ($page_query->have_posts()) : $page_query->the_post();
-							if ($page_order==0): ?>
+							if ($page_order==0): 
+								$category_type = get_field('category_type');
+								$category_thumb = (str_replace(' ', '-', strtolower($category_type))); ?>
 								<div class="column column-4 landing-item">
 									<a href="<?php echo get_page_link(); ?>">
 										<div class='thumb'>
-											<div class='category-label'><?php echo get_field('category_type'); ?></div>
+											<img src='<?php echo get_stylesheet_directory_uri() . '/assets/learning-path/thumb-'. $category_thumb . '.png' ?>' />
+											<div class='category-label'><?php echo $category_type; ?></div>
 										</div>
 									</a>
 									<h6 class="subtitle"><?php echo get_field('category_type'); ?></h6>
