@@ -122,11 +122,6 @@ $menu_name = get_field('menu_name');
 	?>
 
 	<article class="anticipatory-action page-body">
-		<?php
-			$menu_items = wp_get_nav_menu_items($menu_name);
-			include( locate_template( 'partials/menu-learningpath.php', false, false ) );
-		?>
-
 		<?php if( get_field('tutorial_introduction') ): ?>
 						<h3><?php the_field('tutorial_introduction'); ?></h3>
 					<?php endif; ?>
