@@ -34,7 +34,7 @@ bower_components
 node_modules
 vendor
 build
-dist
+# dist
 # assets/icons
 _normalize.scss
 .idea/
