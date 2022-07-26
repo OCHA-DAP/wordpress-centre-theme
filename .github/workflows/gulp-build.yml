@@ -16,6 +16,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
       # Sets up node
       - uses: actions/setup-node@v1
         with:
@@ -28,7 +31,9 @@ jobs:
           git config --local user.name  ${{ github.actor }}
           git status
           git add -A
+          git status
           git commit -m "update gulp output files"
+          git status
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
