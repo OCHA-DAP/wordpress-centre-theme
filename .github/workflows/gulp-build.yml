@@ -26,6 +26,7 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.name  ${{ github.actor }}
+          git status
           git add -A
           git commit -m "update gulp output files"
       - name: Push changes
