@@ -38,7 +38,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git add --all
-          git diff --exit-code || git commit -m "update gulp output files"
+          git commit -m "update gulp output files"
+        # git diff --exit-code || git commit -m "update gulp output files"
         shell: bash
 
       # Push
