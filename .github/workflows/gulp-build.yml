@@ -1,6 +1,6 @@
 name: Run gulp tasks
 
-# Controls when the action will run.
+# Controls when the action will run
 on:
   push:
     # On which branch
@@ -19,21 +19,36 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
+
       # Sets up node
-      - uses: actions/setup-node@v1
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
         with:
           node-version: 16
-      - run: npm ci
-      - run: gulp dist
 
+      # Build
+      - name: Build
+        run: |
+          npm ci
+          gulp dist
+
+      # Commit
       - name: Commit files
         run: |
-          git config --local user.name  ${{ github.actor }}
-          git add -A
-          git status
-          git diff --exit-code || git commit -m "update gulp output files"
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add --all
+          if [-z "$(git status --porcelain)"]; then
+            echo "::set-output name=push::false"
+          else
+            git commit -m "Add changes" -a
+            echo "::set-output name=push::true"
+          fi
+        shell: bash
+
+      # Push
       - name: Push changes
+        if: steps.commit.outputs.push == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.REPO_GITHUB_TOKEN }}
-          # force: true
