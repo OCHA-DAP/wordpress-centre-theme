@@ -38,7 +38,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git status
-          git add build/*
+          git add --force build/*
           git status
           git commit -m "update gulp output files"
           git diff --exit-code || git commit -m "update gulp output files"
