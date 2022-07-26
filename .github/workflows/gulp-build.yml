@@ -30,20 +30,18 @@ jobs:
       - name: Build
         run: |
           npm ci
-          gulp dist
+          gulp build
 
       # Commit
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
-          ls -la
-          ls -la build/
           git status
           git add build/*
           git status
-        # git commit -m "update gulp output files"
-        # git diff --exit-code || git commit -m "update gulp output files"
+          git commit -m "update gulp output files"
+          git diff --exit-code || git commit -m "update gulp output files"
         shell: bash
 
       # Push

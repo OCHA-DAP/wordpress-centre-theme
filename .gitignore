@@ -33,8 +33,8 @@ sitemap.xml.gz
 bower_components
 node_modules
 vendor
-build
-# dist
+# build
+dist
 # assets/icons
 _normalize.scss
 .idea/
