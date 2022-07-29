@@ -5,10 +5,11 @@ var gulp        = require('gulp'),
     config      = require('../../gulpconfig').livereload;
 
 // Start the livereload server; not asynchronous
-gulp.task('livereload', ['build'], function() {
+gulp.task('livereload', function() {
+  gulp.series('build')();
   plugins.livereload.listen(config.port, function (err) {
     if (err) {
       return console.log(err);
-    };
+    }
   });
 });

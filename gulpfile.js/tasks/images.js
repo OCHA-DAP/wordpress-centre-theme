@@ -12,7 +12,8 @@ gulp.task('images', function() {
 });
 
 // Optimize images in the `dist` folder (slow)
-gulp.task('images-optimize', ['utils-dist'], function() {
+gulp.task('images-optimize', function() {
+  gulp.series('utils-dist')();
   return gulp.src(config.dist.src)
   .pipe(plugins.imagemin(config.dist.imagemin))
   .pipe(gulp.dest(config.dist.dest));

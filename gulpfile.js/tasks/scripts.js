@@ -14,7 +14,8 @@ gulp.task('scripts-lint', function() {
 
 // Generate script bundles as defined in the configuration file
 // Adapted from https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
-gulp.task('scripts-bundle', ['scripts-lint'], function(){
+gulp.task('scripts-bundle', function() {
+  gulp.series('scripts-lint')();
   var bundles = [];
 
   // Iterate through all bundles defined in the configuration
@@ -44,7 +45,8 @@ gulp.task('scripts-bundle', ['scripts-lint'], function(){
 });
 
 // Minify scripts in place
-gulp.task('scripts-minify', ['scripts-bundle'], function(){
+gulp.task('scripts-minify', function() {
+  gulp.series('scripts-bundle')();
   return gulp.src(config.minify.src)
   .pipe(plugins.sourcemaps.init())
   .pipe(plugins.uglify(config.minify.uglify))
@@ -53,4 +55,7 @@ gulp.task('scripts-minify', ['scripts-bundle'], function(){
 });
 
 // Master script task; lint -> bundle -> minify
-gulp.task('scripts', ['scripts-minify']);
+gulp.task('scripts', function(done) {
+  gulp.series('scripts-minify')();
+  done();
+});

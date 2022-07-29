@@ -19,4 +19,7 @@ gulp.task('theme-lang', function() {
 });
 
 // All the theme tasks in one
-gulp.task('theme', ['theme-lang', 'theme-php']);
+gulp.task('theme', function(done) {
+  gulp.series('theme-lang', 'theme-php')();
+  done();
+});

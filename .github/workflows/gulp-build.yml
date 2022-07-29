@@ -1,0 +1,52 @@
+name: Run gulp tasks
+
+# Controls when the action will run
+on:
+  push:
+    # On which branch
+    branches: ["gulp4"]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # Job name
+  build:
+    # Runner name
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#          ref: ${{ github.event.pull_request.head.ref }}
+
+      # Sets up node
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      # Build
+      - name: Build
+        run: |
+          npm ci
+          gulp build
+
+      # Commit
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git status
+          git add --force build/*
+          git status
+          git commit -m "update gulp output files"
+          git diff --exit-code || git commit -m "update gulp output files"
+        shell: bash
+
+      # Push
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.REPO_GITHUB_TOKEN }}
