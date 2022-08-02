@@ -96,4 +96,4 @@ jobs:
 #          RCLONE_CONFIG_HDX_USER: ${{ secrets.RCLONE_CONFIG_HDX_USER_PROD }}
 #          RCLONE_CONFIG_HDX_PASS: ${{ secrets.RCLONE_CONFIG_HDX_PASS_PROD }}
 #        with:
-#          args: copy build HDX:${{ env.dest_path }}
+#          args: copy build hdx:${{ env.dest_path }}
