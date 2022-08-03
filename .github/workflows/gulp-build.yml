@@ -45,6 +45,7 @@ jobs:
       # Commit
       - name: Commit files
         run: |
+          pwd
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git status
@@ -67,6 +68,11 @@ jobs:
     if: github.ref == 'refs/heads/gulp-4'
 
     steps:
+      # Show current dir
+      - name: Current dir
+        run: |
+          pwd
+
       # rclone
       - name: Copy files on dev
         uses: wei/rclone@v1
