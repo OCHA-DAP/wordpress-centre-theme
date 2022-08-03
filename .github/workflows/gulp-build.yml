@@ -50,7 +50,7 @@ jobs:
           git status
           git add --force build/*
           git status
-          git diff --exit-code || git commit -m "update gulp output files"
+          git commit -m "update gulp output files"
         shell: bash
 
       # Push
