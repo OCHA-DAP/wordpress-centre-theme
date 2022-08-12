@@ -13,7 +13,7 @@ get_header();
 <script>
 	//mixpanel tracking
 	window.onload = function(e) {
-		mixpanel.track('page view', { 'page type': 'learning module', 'learning module name': document.title });
+        mpTrack.pageView(document.title, 'learning module');
 	}
 </script>
 
