@@ -62,6 +62,9 @@ jobs:
 
   # Job name
   rclone-dev:
+    # Run after build
+    needs: build
+
     # Runner name
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/gulp-4'
@@ -83,11 +86,17 @@ jobs:
 
   # Job name
   rclone-prod:
+    # Run after build
+    needs: build
+
     # Runner name
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/prod'
 
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
       # rclone
       - name: Copy files on prod
         run: |
@@ -99,4 +108,4 @@ jobs:
 #          RCLONE_CONFIG_HDX_USER: ${{ secrets.RCLONE_CONFIG_HDX_USER_PROD }}
 #          RCLONE_CONFIG_HDX_PASS: ${{ secrets.RCLONE_CONFIG_HDX_PASS_PROD }}
 #        with:
-#          args: copy build hdx:${{ env.dest_path }}
+#          args: copy build HDX:${{ env.dest_path }}
