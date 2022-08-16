@@ -5,6 +5,7 @@ body {
 		}
 	}
 	&.category-blog,
+	&.category-resource-library,
 	&.search-results {
 		.header-content-inner {
 			.search-container {
@@ -14,7 +15,8 @@ body {
 	}
 	&.search-results,
 	&.search-no-results,
-	&.category-blog {
+	&.category-blog,
+	&.category-resource-library {
 		.header-content-inner {
 			.featured-image,
 			.photo-credit {
