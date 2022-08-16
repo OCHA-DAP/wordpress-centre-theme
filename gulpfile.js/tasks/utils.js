@@ -11,12 +11,14 @@ gulp.task('utils-wipe', function() {
 });
 
 // Clean out junk files after build
-gulp.task('utils-clean', ['build', 'utils-wipe'], function() {
+gulp.task('utils-clean', function() {
+  gulp.series('build', 'utils-wipe')();
   return del(config.clean);
 });
 
 // Copy files from the `build` folder to `dist/[project]`
-gulp.task('utils-dist', ['utils-clean'], function() {
+gulp.task('utils-dist', function() {
+  gulp.series('utils-clean')();
   return gulp.src(config.dist.src)
   .pipe(gulp.dest(config.dist.dest));
 });

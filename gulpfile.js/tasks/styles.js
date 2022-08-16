@@ -2,6 +2,7 @@
 
 var gulp          = require('gulp'),
     gutil         = require('gulp-util'),
+    sass          = require('gulp-sass')(require('sass')),
     plugins       = require('gulp-load-plugins')({ camelize: true }),
     config        = require('../../gulpconfig').styles;
 
@@ -18,11 +19,14 @@ gulp.task('styles-rubysass', function() {
 gulp.task('styles-libsass', function() {
   return gulp.src(config.build.src)
   .pipe(plugins.sourcemaps.init()) // Note that sourcemaps need to be initialized with libsass
-  .pipe(plugins.sass(config.libsass).on('error', plugins.sass.logError))
+  .pipe(sass().on('error', sass.logError))
   .pipe(plugins.cssnano(config.cssnano))
   .pipe(plugins.sourcemaps.write('./'))
   .pipe(gulp.dest(config.build.dest));
 });
 
 // Easily configure the Sass compiler from `/gulpconfig.js`
-gulp.task('styles', ['styles-'+config.compiler]);
+gulp.task('styles', function(done) {
+  gulp.series('styles-' + config.compiler)();
+  done();
+});
