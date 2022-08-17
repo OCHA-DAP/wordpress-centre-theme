@@ -6,10 +6,9 @@ on:
     # On which branches
     branches:
       - dev
-      - prod
-    # On which tags
-#    tags:
-#      - *
+  # On release
+  release:
+    types: [published]
 
 # Variables
 env:
@@ -66,7 +65,7 @@ jobs:
 
     # Runner name
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev'
+    if: ${{ (github.event.release.target_commitish || github.ref_name) == 'dev' }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -90,7 +89,7 @@ jobs:
 
     # Runner name
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/prod'
+    if: ${{ (github.event.release.target_commitish || github.ref_name) == 'prod' }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
