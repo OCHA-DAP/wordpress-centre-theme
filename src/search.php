@@ -31,63 +31,22 @@ get_header();
  */
 
 /** Init variables **/
-$limit_width = $limit_content_width = $the_content = $main_content = $layout = $sidebar_style = $sidebar_bg_color = $sidebar = $sidebar_size = $sidebar_sticky = $sidebar_padding = $sidebar_inner_padding = $sidebar_content = $navigation_content = $page_custom_width = $row_classes = $main_classes = $footer_classes = $generic_body_content_block = '';
+$navigation_content = $generic_body_content_block = '';
+require_once( get_stylesheet_directory(). '/partials/data-collection/init-variables.php' );
 
 $post_type = 'search_index';
 
 /** Get general datas **/
-$style = ot_get_option('_uncode_general_style');
-$bg_color = ot_get_option('_uncode_general_bg_color');
-$bg_color = ($bg_color == '') ? ' style-'.$style.'-bg' : ' style-'.$bg_color.'-bg';
+require_once( get_stylesheet_directory(). '/partials/data-collection/general-datas.php' );
 
 /** Get page width info **/
-$generic_content_full = ot_get_option('_uncode_' . $post_type . '_layout_width');
-if ($generic_content_full === '')
-{
-	$main_content_full = ot_get_option('_uncode_body_full');
-	if ($main_content_full === '' || $main_content_full === 'off') $limit_content_width = ' limit-width';
-}
-else
-{
-	if ($generic_content_full === 'limit')
-	{
-		$generic_custom_width = ot_get_option('_uncode_' . $post_type . '_layout_width_custom');
-		if (is_array($generic_custom_width) && !empty($generic_custom_width))
-		{
-			$page_custom_width = ' style="max-width: ' . implode("", $generic_custom_width) . ';"';
-		}
-	}
-}
+require_once( get_stylesheet_directory(). '/partials/data-collection/page-width.php' );
 
 /** Collect header data **/
-$page_header_type = ot_get_option('_uncode_' . $post_type . '_header');
-if ($page_header_type !== '' && $page_header_type !== 'none')
-{
-	$metabox_data['_uncode_header_type'] = array(
-		$page_header_type
-	);
-	$meta_data = uncode_get_general_header_data($metabox_data, $post_type, '');
-	$metabox_data = $meta_data['meta'];
-	$show_title = $meta_data['show_title'];
-	$media = $meta_data['media'];
-}
+require_once( get_stylesheet_directory(). '/partials/data-collection/header-data.php' );
 
 /** Get layout info **/
-$activate_sidebar = ot_get_option('_uncode_' . $post_type . '_activate_sidebar');
-if ($activate_sidebar !== 'off')
-{
-	$layout = ot_get_option('_uncode_' . $post_type . '_sidebar_position');
-	if ($layout === '') $layout = 'sidebar_right';
-	$sidebar = ot_get_option('_uncode_' . $post_type . '_sidebar');
-	$sidebar_style = ot_get_option('_uncode_' . $post_type . '_sidebar_style');
-	$sidebar_size = ot_get_option('_uncode_' . $post_type . '_sidebar_size');
-	$sidebar_sticky = ot_get_option('_uncode_' . $post_type . '_sidebar_sticky');
-	$sidebar_sticky = ($sidebar_sticky === 'on') ? ' sticky-element sticky-sidebar' : '';
-	$sidebar_fill = ot_get_option('_uncode_' . $post_type . '_sidebar_fill');
-	$sidebar_bg_color = ot_get_option('_uncode_' . $post_type . '_sidebar_bgcolor');
-	$sidebar_bg_color = ($sidebar_bg_color !== '') ? ' style-' . $sidebar_bg_color . '-bg' : '';
-	if ($sidebar_style === '') $sidebar_style = $style;
-}
+require_once( get_stylesheet_directory(). '/partials/data-collection/layout-info.php' );
 
 /**
  * DATA COLLECTION - END
@@ -178,7 +137,7 @@ if (have_posts()):
 						if (!isset($rebuild_array['order'])) $rebuild_array['order'] = 'order:ASC';
 						if (!isset($rebuild_array['size'])) $rebuild_array['size'] = 'size:'.get_option('posts_per_page');
 						$rebuild_array['search'] = 'search:' . get_search_query();
-						
+
 						//FORCE SEARCH TO LIMIT TO POSTS IN BLOG CATEGORY
 						$search_cat = '|categories:3';
 						$archive_query = ' loop="'.implode('|', $rebuild_array) . $search_cat .'"';
