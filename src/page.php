@@ -77,17 +77,6 @@ get_header();
 			}
 		}
 		echo '<script type="text/javascript">UNCODE.initHeader();</script>';
-		/** Build breadcrumb **/
-
-		if ($show_breadcrumb && !is_front_page() && !is_home())
-		{
-			if ($breadcrumb_align === '') $breadcrumb_align = 'left';
-			$breadcrumb_align = ' text-' . $breadcrumb_align;
-
-			$content_breadcrumb = uncode_breadcrumbs();
-			$breadcrumb_title = '<div class="breadcrumb-title h5 text-bold">' . get_the_title() . '</div>';
-			echo uncode_get_row_template($breadcrumb_title . $content_breadcrumb, '', $limit_content_width, $style, ' row-breadcrumb row-breadcrumb-' . $style . $breadcrumb_align, 'half', true, 'half');
-		}
 
 		/** Update tweet post date so it appears as first content block on front page **/
 		if (is_front_page())
@@ -97,84 +86,6 @@ get_header();
 			$tweetpost['ID'] = 54975; 
 			$tweetpost['post_date'] = $now->format('Y-m-d H:i:s');
 			wp_update_post($tweetpost);
-		}
-
-		/** Build media **/
-
-		if ($media !== '' && !$with_builder && $show_media && !post_password_required())
-		{
-			if ($layout === 'sidebar_right' || $layout === 'sidebar_left')
-			{
-				$media_size = 12 - $sidebar_size;
-			}
-			else $media_size = 12;
-
-			$media_array = explode(',', $media);
-			$media_counter = count($media_array);
-			$rand_id = big_rand();
-			if ($media_counter === 0) $media_array = array(
-				$media
-			);
-
-			if ($media_display === 'isotope') $media_content.= '<div id="gallery-' . $rand_id . '" class="isotope-system post-media">
-											<div class="isotope-wrapper half-gutter">
-	        										<div class="isotope-container isotope-layout style-masonry" data-type="masonry" data-layout="masonry" data-lg="1000" data-md="600" data-sm="480">';
-
-			foreach ($media_array as $key => $value)
-			{
-				if ($media_display === 'carousel') $value = $media;
-				$block_data = array();
-				$block_data['media_id'] = $value;
-				$block_data['classes'] = array(
-					'tmb'
-				);
-				$block_data['text_padding'] = 'no-block-padding';
-				if ($media_display === 'isotope')
-				{
-					$block_data['single_width'] = 4;
-					$block_data['classes'][] = 'tmb-iso-w4';
-				}
-				else $block_data['single_width'] = $media_size;
-				$block_data['single_style'] = $style;
-				$block_data['single_text'] = 'under';
-				$block_data['classes'][] = 'tmb-'.$style;
-				if ($media_display === 'isotope') {
-					$block_data['classes'][] = 'tmb-overlay-anim';
-					$block_data['classes'][] = 'tmb-overlay-text-anim';
-					$block_data['single_icon'] = 'fa fa-plus2';
-					$block_data['overlay_color'] = ($style == 'light') ? 'style-black-bg' : 'style-white-bg';
-					$block_data['overlay_opacity'] = '20';
-					$lightbox_classes = array();
-					$lightbox_classes['data-noarr'] = false;
-				} else {
-					$lightbox_classes = false;
-					$block_data['link_class'] = 'inactive-link';
-					$block_data['link'] = '#';
-				}
-				$block_data['title_classes'] = array();
-				$block_data['tmb_data'] = array();
-				$block_layout['media'] = array();
-				$block_layout['icon'] = array();
-				$media_html = uncode_create_single_block($block_data, $rand_id, 'masonry', $block_layout, $lightbox_classes, false, true);
-				if ($media_display !== 'isotope') $media_content.= '<div class="post-media">' . $media_html . '</div>';
-				else
-				{
-					$media_content.= $media_html;
-				}
-				if ($media_display === 'carousel') break;
-			}
-
-			if ($media_display === 'isotope') $media_content.= '</div>
-											</div>
-										</div>';
-		}
-
-		/** Build title **/
-
-		if ($show_title) {
-			$title_content .= apply_filters( 'uncode_before_body_title', '' );
-			$title_content .= '<div class="post-title-wrapper"><h1 class="post-title">' . get_the_title() . '</h1></div>';
-			$title_content .= apply_filters( 'uncode_after_body_title', '' );
 		}
 
 		/** Build content **/
@@ -253,7 +164,6 @@ get_header();
 							$parse_query = uncode_parse_loop_data($archive_query);
 							$parse_query['by_id'] = implode(',', $related_posts_ids);
 							if (!isset($parse_query['order'])) $parse_query['order'] = 'none';
-							//$parse_query['post_type'] = $post->post_type;
 							$archive_query = ' loop="' . uncode_unparse_loop_data($parse_query) . '"';
 						}
 						$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
@@ -383,12 +293,16 @@ get_header();
 		}
 
 		/** Display post html **/
-		echo 	'<article id="post-'. get_the_ID().'" class="'.implode(' ', get_post_class('page-body'.$bg_color)) .'">
-						<div class="post-wrapper">
-							<div class="post-body">' . uncode_remove_wpautop($the_content . $content_after_body) . '</div>
-						</div>
-					</article>';
+?>
+        <article id="post-<?= get_the_ID() ?>" class="<?= implode(' ', get_post_class('page-body'.$bg_color)) ?>">
+            <div class="post-wrapper">
+                <div class="post-body"><?= uncode_remove_wpautop($the_content.$content_after_body) ?></div>
+            </div>
+        </article>
 
-	endwhile; // end of the loop. ?>
+<?php
+endwhile;
 
-<?php get_footer(); ?>
+// end of the loop.
+
+get_footer(); ?>

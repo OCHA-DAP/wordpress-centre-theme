@@ -30,7 +30,7 @@ $body_classes = get_body_class();
  */
 
 /** Init variables **/
-$navigation_content = $generic_body_content_block = '';
+$generic_body_content_block = '';
 require_once( get_stylesheet_directory(). '/partials/data-collection/init-variables.php' );
 
 $index_has_navigation = false;
@@ -91,28 +91,6 @@ if ($page_header_type !== '' && $page_header_type !== 'none')
 	}
 }
 echo '<script type="text/javascript">UNCODE.initHeader();</script>';
-
-/** Build breadcrumb **/
-
-if ($show_breadcrumb)
-{
-	if ($breadcrumb_align === '') $breadcrumb_align = 'right';
-	$breadcrumb_align = ' text-' . $breadcrumb_align;
-
-	$content_breadcrumb = uncode_breadcrumbs();
-	$breadcrumb_title = '<div class="breadcrumb-title h5 text-bold">' . uncode_archive_title() . '</div>';
-	echo uncode_get_row_template($breadcrumb_title . $content_breadcrumb, '', ($page_custom_width !== '' ? ' limit-width' : $limit_content_width), $style, ' row-breadcrumb row-breadcrumb-' . $style . $breadcrumb_align, 'half', true, 'half');
-}
-
-/** Build title **/
-
-if ($show_title)
-{
-	$get_title = uncode_archive_title();
-	$title_content = '<div class="post-title-wrapper"><h1 class="post-title">' . $get_title . '</h1></div>';
-}
-
-$the_content .= $title_content;
 
 if (have_posts()):
 
@@ -220,121 +198,19 @@ if (have_posts()):
 
 	endif;
 
-	if ($layout === 'sidebar_right' || $layout === 'sidebar_left')
-	{
-
-		/** Build structure with sidebar **/
-
-		if ($sidebar_size === '') $sidebar_size = 4;
-		$main_size = 12 - $sidebar_size;
-		$expand_col = '';
-
-		/** Collect paddings data **/
-
-		$footer_classes = ' no-top-padding double-bottom-padding';
-
-		if ($sidebar_bg_color !== '')
-		{
-			if ($sidebar_fill === 'on')
-			{
-				$sidebar_inner_padding.= ' std-block-padding';
-				$sidebar_padding.= $sidebar_bg_color;
-				$expand_col = ' unexpand';
-				if ($limit_content_width === '')
-				{
-					$row_classes.= ' no-h-padding col-no-gutter no-top-padding';
-					$footer_classes = ' std-block-padding no-top-padding';
-					$main_classes.= ' std-block-padding';
-				}
-				else
-				{
-					$row_classes.= ' no-top-padding';
-					$main_classes.= ' double-top-padding';
-				}
-			}
-			else
-			{
-				$row_classes .= ' double-top-padding';
-  			$row_classes .= ' double-bottom-padding';
-				$sidebar_inner_padding.= $sidebar_bg_color . ' single-block-padding';
-			}
-		}
-		else
-		{
-			$row_classes.= ' col-std-gutter double-top-padding';
-			$main_classes.= ' double-bottom-padding';
-		}
-
-		$row_classes.= ' no-bottom-padding';
-		$sidebar_inner_padding.= ' double-bottom-padding';
-
-		/** Build sidebar **/
-
-		$sidebar_content = "";
-		ob_start();
-		if ($sidebar !== '')
-		{
-			dynamic_sidebar($sidebar);
-		}
-		else
-		{
-			dynamic_sidebar();
-		}
-		$sidebar_content = ob_get_clean();
-
-		/** Create html with sidebar **/
-
-		$the_content = '<div class="post-content style-' . $style . $main_classes . '">' . $the_content . '</div>';
-
-		$main_content = '<div class="col-lg-' . $main_size . '">
-											' . $the_content . '
-										</div>';
-
-		$the_content = '<div class="row-container">
-        							<div class="row row-parent' . $row_classes . $limit_content_width . '"' . $page_custom_width . '>
-												<div class="row-inner">
-													' . (($layout === 'sidebar_right') ? $main_content : '') . '
-													<div class="col-lg-' . $sidebar_size . '">
-														<div class="uncol style-' . $sidebar_style . $expand_col . $sidebar_padding . (($sidebar_fill === 'on' && $sidebar_bg_color !== '') ? '' : $sidebar_sticky) . '">
-															<div class="uncoltable' . (($sidebar_fill === 'on' && $sidebar_bg_color !== '') ? $sidebar_sticky : '') . '">
-																<div class="uncell' . $sidebar_inner_padding . '">
-																	<div class="uncont">
-																		' . $sidebar_content . '
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-													' . (($layout === 'sidebar_left') ? $main_content : '') . '
-												</div>
-											</div>
-										</div>';
-	} else {
-
-		/** Create html without sidebar **/
-		if ($generic_body_content_block === '') $the_content = '<div class="post-content"' . $page_custom_width . '>' . uncode_get_row_template($the_content, $limit_width, $limit_content_width, $style, '', 'double', true, 'double') . '</div>';
-		else $the_content = '<div class="post-content"' . $page_custom_width . '>' . $the_content . '</div>';
-
-	}
-
-	/** Build and display navigation html **/
-	if (!$index_has_navigation) {
-		$navigation_option = ot_get_option('_uncode_' . $post_type . '_navigation_activate');
-		if ($navigation_option !== 'off')
-		{
-			$navigation = uncode_posts_navigation();
-			if (!empty($navigation) && $navigation !== '') $navigation_content = uncode_get_row_template($navigation, '', $limit_content_width, $style, ' row-navigation row-navigation-' . $style, true, true, true);
-		}
-	}
+    /** Create html without sidebar **/
+    if ($generic_body_content_block === '') $the_content = '<div class="post-content"' . $page_custom_width . '>' . uncode_get_row_template($the_content, $limit_width, $limit_content_width, $style, '', 'double', true, 'double') . '</div>';
+    else $the_content = '<div class="post-content"' . $page_custom_width . '>' . $the_content . '</div>';
 
 	/** Display post html **/
-	echo '<div class="page-body' . $bg_color . '">
-          <div class="post-wrapper">
-          	<div class="post-body">' . do_shortcode($the_content) . '</div>' .
-          	$navigation_content . '
-          </div>
-        </div>';
+?>
+<div class="page-body<?= $bg_color ?>">
+    <div class="post-wrapper">
+        <div class="post-body"><?= do_shortcode($the_content) ?></div>
+    </div>
+</div>
 
+<?php
 // end of the loop.
 
 get_footer(); ?>
