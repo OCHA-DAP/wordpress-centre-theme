@@ -94,6 +94,15 @@ body {
 			}
 		}
 	}
+	// for search results in blog
+	&.search-results-blog {
+		// hide resource category, keep post category
+		.t-entry-meta {
+			&.t-entry-meta-resource-category {
+				display: none !important;
+			}
+		}
+	}
 	#strattic-search-results {
 		float: left; // fix "nothing found" text not being shown
 		margin-bottom: 60px; // some space after text
