@@ -100,6 +100,12 @@ body {
 				}
 			}
 		}
+		// hide post url, keep resource url
+		.t-entry-title {
+			&:not(.t-entry-title-resource-library) {
+				display: none !important;
+			}
+		}
 	}
 	// for search results in blog
 	&.search-results-blog {
@@ -111,6 +117,12 @@ body {
 		}
 		.t-entry {
 			&.archive-category-resource-category {
+				display: none !important;
+			}
+		}
+		// hide resource url, keep post url
+		.t-entry-title {
+			&.t-entry-title-resource-library {
 				display: none !important;
 			}
 		}
