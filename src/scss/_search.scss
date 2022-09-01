@@ -93,12 +93,24 @@ body {
 				display: none !important;
 			}
 		}
+		.t-entry {
+			.archive-category {
+				&:not(.archive-category-resource-category) {
+					display: none !important;
+				}
+			}
+		}
 	}
 	// for search results in blog
 	&.search-results-blog {
 		// hide resource category, keep post category
 		.t-entry-meta {
 			&.t-entry-meta-resource-category {
+				display: none !important;
+			}
+		}
+		.t-entry {
+			&.archive-category-resource-category {
 				display: none !important;
 			}
 		}
