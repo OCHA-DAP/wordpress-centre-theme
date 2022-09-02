@@ -68,8 +68,10 @@ jobs:
     if: ${{ (github.event.release.target_commitish || github.ref_name) == 'dev' }}
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checkout to the branch to use the last (build) commit
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ (github.event.release.target_commitish || github.ref_name) }}
 
       # rclone
       - name: Copy files on dev
@@ -92,8 +94,10 @@ jobs:
     if: ${{ (github.event.release.target_commitish || github.ref_name) == 'prod' }}
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checkout to the branch to use the last (build) commit
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ (github.event.release.target_commitish || github.ref_name) }}
 
       # rclone
       - name: Copy files on prod
