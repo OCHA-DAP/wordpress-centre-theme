@@ -116,8 +116,10 @@ body {
 			}
 		}
 		.t-entry {
-			&.archive-category-resource-category {
-				display: none !important;
+			.archive-category {
+				&.archive-category-resource-category {
+					display: none !important;
+				}
 			}
 		}
 		// hide resource url, keep post url
