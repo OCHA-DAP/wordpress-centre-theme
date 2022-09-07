@@ -109,7 +109,7 @@ body {
 	}
 	// for search results in blog
 	&.search-results-blog {
-		// hide resource category, keep post category
+		// hide resource category, resource description & resource link, keep post category
 		.t-entry-meta {
 			&.t-entry-meta-resource-category {
 				display: none !important;
@@ -120,6 +120,12 @@ body {
 				&.archive-category-resource-category {
 					display: none !important;
 				}
+			}
+			.resource-description {
+				display: none !important;
+			}
+			.resource-link {
+				display: none !important;
 			}
 		}
 		// hide resource url, keep post url
