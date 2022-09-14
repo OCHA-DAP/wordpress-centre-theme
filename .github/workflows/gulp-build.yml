@@ -6,6 +6,7 @@ on:
     # On which branches
     branches:
       - dev
+      - prod
   # On release
   release:
     types: [published]
