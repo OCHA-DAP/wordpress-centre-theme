@@ -424,3 +424,59 @@ function add_gtag_head_noscript_code()
         <!-- End Google Tag Manager (noscript) -->
 	<?php endif;
 }
+
+/**
+ * Register the filter for replacing related posts with WordPress
+ */
+add_filter('related_posts', 'add_related_posts', 10, 2);
+
+/**
+ * Add post related links
+ **/
+function add_related_posts($post_id, $content)
+{
+	if (class_exists('RP4WP_Post_Link_Manager')) {
+		$uncode_related = new RP4WP_Post_Link_Manager();
+		$related_posts = $uncode_related->get_children($post_id,false);
+		$related_posts_ids = array();
+		foreach ($related_posts as $key => $value) {
+			if (isset($value->ID)) $related_posts_ids[] = $value->ID;
+		}
+		$archive_query = '';
+		$regex = '/\[uncode_index(.*?)\]/';
+		$regex_attr = '/(.*?)=\"(.*?)\"/';
+		preg_match_all($regex, $content, $matches, PREG_SET_ORDER);
+		foreach ($matches as $key => $value) {
+			$index_found = false;
+			if (isset($value[1])) {
+				preg_match_all($regex_attr, trim($value[1]), $matches_attr, PREG_SET_ORDER);
+				foreach ($matches_attr as $key_attr => $value_attr) {
+					switch (trim($value_attr[1])) {
+						case 'auto_query':
+							if ($value_attr[2] === 'yes') $index_found = true;
+							break;
+						case 'loop':
+							$archive_query = $value_attr[2];
+							break;
+					}
+				}
+			}
+			if ($index_found) {
+				if ($archive_query === '') $archive_query = ' loop="size:10|by_id:' . implode(',', $related_posts_ids) .'|post_type:' . $post->post_type . '"';
+				else {
+					$parse_query = uncode_parse_loop_data($archive_query);
+					$parse_query['by_id'] = implode(',', $related_posts_ids);
+					if (!isset($parse_query['order'])) $parse_query['order'] = 'none';
+					$archive_query = ' loop="' . uncode_unparse_loop_data($parse_query) . '"';
+				}
+				$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
+				if ($index_count === 0) {
+					$value[1] .= $archive_query;
+				}
+				$replacement = '[uncode_index' . $value[1] . ']';
+				$content = str_replace($value[0], $replacement, $content);
+			}
+		}
+	}
+	return $content;
+}

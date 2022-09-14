@@ -84,7 +84,7 @@ if (!class_exists('unheader')) {
 			if (isset($args['_uncode_header_overlay_color_alpha'])) $header_overlay_color_alpha = $args['_uncode_header_overlay_color_alpha'][0];
 			if (isset($args['_uncode_header_scroll_opacity'])) $header_scroll_opacity = $args['_uncode_header_scroll_opacity'][0];
 			if (isset($args['_uncode_header_scrolldown'])) $header_scrolldown = $args['_uncode_header_scrolldown'][0];
-			if (isset($args['_uncode_specific_menu_no_padding'])) $header_no_padding = $args['_uncode_specific_menu_no_padding'][0];
+			$header_no_padding = 'off';
 
 			$item_style = ' style-' . $header_style;
 

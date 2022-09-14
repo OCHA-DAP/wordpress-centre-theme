@@ -89,13 +89,6 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 	$fontsizes = ot_get_option( '_uncode_heading_font_sizes');
 	$background = ot_get_option( '_uncode_body_background');
 
-	if (isset($metabox_data['_uncode_specific_body_background'])) {
-		$specific_background = unserialize($metabox_data['_uncode_specific_body_background'][0]);
-		if ($specific_background['background-color'] != '' || $specific_background['background-image'] != '') {
-			$background = $specific_background;
-		}
-	}
-
 	$back_class = '';
 	if (!empty($background) && ($background['background-color'] != '' || $background['background-image'] != '')) {
 		if ($background['background-color'] !== '') $background_color_css = ' style-'. $background['background-color'] . '-bg';
