@@ -166,14 +166,14 @@ if (!class_exists('unheader')) {
 							    if (basename(get_page_template()) === 'impactstory.php') {
 							    	$content_html .= '<div class="header-container"><h5 class="header-category">Impact Story</h5>';
 							    }
-								$content_html .= '<h1 class="header-title 1 '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1><div class="search-container">' . get_search_form(false) . '</div>';
+								$content_html .= '<h1 class="header-title entryid-'.get_the_ID().' 1 '.implode(' ', $title_classes).'"'.$data_size.'><span>' . $page_title . '</span></h1><div class="search-container">' . get_search_form(false) . '</div>';
 								if (basename(get_page_template()) === 'impactstory.php') {
 							    	$content_html .= '</div>';
 							    }
 							} else {
 								if (isset($args['_uncode_header_text'][0]))
 								{
-									$content = '<h1 class="header-title 2 '.implode(' ', $title_classes).'"'.$data_size.'><span>';
+									$content = '<h1 class="header-title entryid-'.get_the_ID().' 2 '.implode(' ', $title_classes).'"'.$data_size.'><span>';
 									$title = trim($args['_uncode_header_text'][0]);
 									$title_lines = explode("\n", $title);
 									$lines_counter = count($title_lines);

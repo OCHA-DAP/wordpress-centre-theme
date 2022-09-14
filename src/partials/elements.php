@@ -812,13 +812,13 @@ if (!function_exists('uncode_create_single_block')) {
 							$custom_post = '';
 							$print_title = $print_title;
 						}
-						if ($print_title !== '') $inner_entry .= $custom_post.'<h3 class="t-entry-title">'.$print_title.'</h3>';
+						if ($print_title !== '') $inner_entry .= $custom_post.'<h3 class="t-entry-title entryid-'.$block_data['id'].'">'.$print_title.'</h3>';
 					} else {
 						$print_title = $single_title ? $single_title : $get_title;
 
 						if ($print_title !== '') {
 							if ($title_link === '') {
-								$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+								$inner_entry .= '<h3 class="t-entry-title entryid-'.$block_data['id'].' '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
 							}
 							else {
 								//customize block link based on post format
@@ -833,10 +833,10 @@ if (!function_exists('uncode_create_single_block')) {
 								$inner_entry .= '<h6 class="archive-category">'.$the_category.' | ' .$date.'</h6>';
 								if ($post_category!=='') {
 									if ($post_category==='article' || $post_category==='casestudy') {
-										$inner_entry = '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><div class="source">' . $date . '</div>' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
+										$inner_entry = '<h3 class="t-entry-title entryid-'.$block_data['id'].' '. trim(implode(' ', $title_classes)) . '"><div class="source">' . $date . '</div>' . $custom_post . '<span class="source">by ' .$print_title.'</span>';
 									}
 									else if ($post_category==='video') {
-										$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
+										$inner_entry .= '<h3 class="t-entry-title entryid-'.$block_data['id'].' '. trim(implode(' ', $title_classes)) . '">'.$print_title.'</h3>';
 									}
 									else {
 										$author = get_post_field( 'post_author', $block_data['id'] );
@@ -848,7 +848,7 @@ if (!function_exists('uncode_create_single_block')) {
 										$title_link = ($isResource && $resource_link) ? $resource_link['url'] : $the_link;
 										$title_target = ($isResource && $resource_link) ? $resource_link['target'] : $target;
 										if ($isResource) $print_title = strlen($print_title) > 50 ? substr($print_title,0,50)."..." : $print_title;
-										$inner_entry .= '<h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'" target="'.$title_target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
+										$inner_entry .= '<h3 class="t-entry-title entryid-'.$block_data['id'].' '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'" target="'.$title_target.'"><span>'.$print_title.'</span></a></h3><span class="author">'.$author_info.'</span>';
 
 										if ($isResource) {
 											if ($resource_description) {
@@ -873,7 +873,7 @@ if (!function_exists('uncode_create_single_block')) {
 					}
 					$get_the_post_type = ucfirst($get_the_post_type);
 					//$inner_entry .= '<p class="t-entry-type"><span>' . $get_the_post_type . '</span></p>';
-					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
+					$inner_entry .= '<h6 class="archive-category">' . $get_the_post_type . '</h6><h3 class="t-entry-title entryid-'.$block_data['id'].' '. trim(implode(' ', $title_classes)) . '"><a href="'.$title_link.'">'.$print_title.'</a></h3>';
 				break;
 
 				case 'category':
