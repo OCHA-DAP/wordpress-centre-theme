@@ -6,10 +6,9 @@ on:
     # On which branches
     branches:
       - dev
-      - prod
-    # On which tags
-#    tags:
-#      - *
+  # On release
+  release:
+    types: [published]
 
 # Variables
 env:
@@ -49,14 +48,14 @@ jobs:
           git status
           git add --force build/*
           git status
-          git diff --exit-code || git commit -m "update gulp output files"
+          git commit -am "update gulp output files"
         shell: bash
 
       # Push
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.ref }}
+          branch: ${{ (github.base_ref || github.ref) }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   # Job name
@@ -66,11 +65,13 @@ jobs:
 
     # Runner name
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev'
+    if: ${{ (github.event.release.target_commitish || github.ref_name) == 'dev' }}
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checkout to the branch to use the last (build) commit
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ (github.event.release.target_commitish || github.ref_name) }}
 
       # rclone
       - name: Copy files on dev
@@ -90,11 +91,13 @@ jobs:
 
     # Runner name
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/prod'
+    if: ${{ (github.event.release.target_commitish || github.ref_name) == 'prod' }}
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checkout to the branch to use the last (build) commit
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ (github.event.release.target_commitish || github.ref_name) }}
 
       # rclone
       - name: Copy files on prod
