@@ -85,6 +85,60 @@ body {
 			}
 		}
 	}
+	// for search results in resource library
+	&.search-results-resource-library {
+		// hide post category, keep resource category
+		.t-entry-meta {
+			&:not(.t-entry-meta-resource-category) {
+				display: none !important;
+			}
+		}
+		.t-entry {
+			.archive-category {
+				&:not(.archive-category-resource-category) {
+					display: none !important;
+				}
+			}
+		}
+		// hide post url, keep resource url
+		.t-entry-title {
+			&:not(.t-entry-title-resource-library) {
+				display: none !important;
+			}
+		}
+	}
+	// for search results in blog
+	&.search-results-blog {
+		// hide resource category, resource description & resource link, keep post category
+		.t-entry-meta {
+			&.t-entry-meta-resource-category {
+				display: none !important;
+			}
+		}
+		.t-entry {
+			.archive-category {
+				&.archive-category-resource-category {
+					display: none !important;
+				}
+			}
+			.resource-description {
+				display: none !important;
+			}
+			.resource-link {
+				display: none !important;
+			}
+		}
+		// hide resource url, keep post url
+		.t-entry-title {
+			&.t-entry-title-resource-library {
+				display: none !important;
+			}
+		}
+	}
+	#strattic-search-results {
+		float: left; // fix "nothing found" text not being shown
+		margin-bottom: 60px; // some space after text
+	}
 }
 
 .no-results-container {

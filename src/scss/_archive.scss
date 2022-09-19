@@ -3,7 +3,8 @@
 	&.tag,
 	&.category-article,
 	&.category-case-study,
-	&.category-resource-library {
+	&.category-resource-library,
+	&.search-results-resource-library {
 		.style-light a:not(.btn-text-skin):hover {
 			color: inherit !important;
 		}
@@ -60,7 +61,8 @@
 			}
 		}
 	}
-	&.category-resource-library {
+	&.category-resource-library,
+	&.search-results-resource-library {
 		.style-metro .tmb .t-inside .t-entry-text {
 			height: auto;
 		}
@@ -382,7 +384,8 @@
 				}
 			}
 		}
-		&.category-resource-library {
+		&.category-resource-library,
+		&.search-results-resource-library {
 			.t-entry-visual-tc {
 				min-height: 0;
 			}

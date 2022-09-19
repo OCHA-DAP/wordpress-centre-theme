@@ -4207,33 +4207,6 @@ handleTweets(arrayTweets);inProgress=false;if(queue.length>0){twitterFetcher.fet
 		}
 	}
 
-	// get URL param
-	function getURLParam(param) {
-		let params = {};
-
-		if (location.search) {
-			let parts = location.search.substring(1).split('&');
-
-			for (let i = 0; i < parts.length; i++) {
-				let nv = parts[i].split('=');
-				if (!nv[0]) {
-					continue;
-				}
-				params[nv[0]] = nv[1] || true;
-			}
-
-			return params[param];
-		}
-
-		return undefined;
-	}
-
-	// set current category in Strattic hidden field
-	let searchTaxonomyTerm = getURLParam('terms');
-	if(searchTaxonomyTerm) {
-		$('.header-main-container .search-container input[name="terms"]').val(searchTaxonomyTerm);
-	}
-
 })(jQuery);
 
 
