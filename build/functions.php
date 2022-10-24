@@ -9,13 +9,13 @@ function uncode_hdx_api_init(){
   add_settings_field('hdx-mixpanel-token-prod', 'HDX Mixpanel Token Production', 'render_hdx_mixpanel_token_prod', 'general');
   add_settings_field('hdx-mixpanel-token-stage', 'HDX Mixpanel Token Stage', 'render_hdx_mixpanel_token_stage', 'general');
   add_settings_field('hdx-mixpanel-token-local', 'HDX Mixpanel Token Local', 'render_hdx_mixpanel_token_local', 'general');
-  add_settings_field('hdx-google-analytics-token', 'HDX Google Analytics Token', 'render_hdx_google_analytics_token', 'general');
+  add_settings_field('hdx-google-tag-manager-token', 'HDX Google Tag Manager Token', 'render_hdx_google_tag_manager_token', 'general');
   // Register our setting so that $_POST handling is done for us and
   // our callback function just has to echo the <input>
   register_setting( 'general', 'hdx-mixpanel-token-prod' );
   register_setting( 'general', 'hdx-mixpanel-token-stage' );
   register_setting( 'general', 'hdx-mixpanel-token-local' );
-  register_setting( 'general', 'hdx-google-analytics-token' );
+  register_setting( 'general', 'hdx-google-tag-manager-token' );
 }
 add_action( 'admin_init', 'uncode_hdx_api_init' );
 
@@ -28,8 +28,9 @@ function render_hdx_mixpanel_token_stage() {
 function render_hdx_mixpanel_token_local() {
     echo '<input name="hdx-mixpanel-token-local" id="hdx-mixpanel-token-local" type="text" value="' . get_option('hdx-mixpanel-token-local') . '" class="code" />';
 }
-function render_hdx_google_analytics_token() {
-    echo '<input name="hdx-google-analytics-token" id="hdx-google-analytics-token" type="text" value="' . get_option('hdx-google-analytics-token') . '" class="code" />';
+function render_hdx_google_tag_manager_token() {
+    echo '<input name="hdx-google-tag-manager-token" id="hdx-google-tag-manager-token" type="text" value="'.get_option('hdx-google-tag-manager-token').'" class="code">';
+    echo '<p class="description" id="hdx-google-tag-manager-token-description">This token should look like <code>GTM-ABCD123</code>. Leave empty to disable.</p>';
 }
 
 function theme_enqueue_styles()
@@ -391,3 +392,35 @@ function format_value_wysiwyg( $value, $post_id, $field ) {
   return $value;
 }
 
+/**
+ * Add Google Tag Manager code (if set) to the head
+ **/
+add_action('wp_head', 'add_gtag_head_code', 1);
+function add_gtag_head_code()
+{
+	$gtag_token = get_option('hdx-google-tag-manager-token');
+	if($gtag_token): ?>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','<?=$gtag_token?>');</script>
+        <!-- End Google Tag Manager -->
+	<?php endif;
+}
+
+/**
+ * Add Google Tag Manager noscript code (if set) after opening body tag
+ **/
+add_action('wp_body_open', 'add_gtag_head_noscript_code');
+function add_gtag_head_noscript_code()
+{
+	$gtag_token = get_option('hdx-google-tag-manager-token');
+	if($gtag_token): ?>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?=$gtag_token?>"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+	<?php endif;
+}
