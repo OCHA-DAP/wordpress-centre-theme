@@ -38,19 +38,6 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <script src="https://www.youtube.com/player_api"></script>
-<?php if(!empty(get_option('hdx-google-analytics-token'))): ?>
-    <!-- Start Google Analytics -->
-    <script>
-        var googleAnalyticsToken = '<?php echo get_option('hdx-google-analytics-token'); ?>';
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', googleAnalyticsToken, 'auto');
-        ga('send', 'pageview');
-    </script>
-    <!-- end Google Analytics -->
-<?php endif; ?>
 
 <?php
 	$url = $_SERVER['HTTP_HOST'];
@@ -143,6 +130,9 @@ if (is_admin_bar_showing()) $html_class .= ' admin-mode';
 
 
 <body <?php body_class($background_color_css); echo $body_attr; ?>>
+
+    <?php wp_body_open(); ?>
+
 	<div class="box-wrapper">
 		<div class="box-container">
 
