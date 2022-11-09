@@ -424,3 +424,19 @@ function add_gtag_head_noscript_code()
         <!-- End Google Tag Manager (noscript) -->
 	<?php endif;
 }
+
+function datatable_the_shortcode_func($atts)
+{
+	$attributes = shortcode_atts(array(
+		'url' => ''
+	), $atts);
+	ob_start();
+	?>
+    <div class="pa-table-container">
+        <table id="pa_table" data-url="<?=$attributes['url']?>"></table>
+    </div>
+	<?php
+	return ob_get_clean();
+}
+
+add_shortcode('datatable', 'datatable_the_shortcode_func');
