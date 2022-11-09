@@ -425,8 +425,7 @@ function add_gtag_head_noscript_code()
 	<?php endif;
 }
 
-function datatable_the_shortcode_func($atts)
-{
+function datatable_the_shortcode_func($atts) {
 	$attributes = shortcode_atts(array(
 		'url' => ''
 	), $atts);
