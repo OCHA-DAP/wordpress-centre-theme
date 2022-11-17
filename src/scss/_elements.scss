@@ -629,4 +629,26 @@ button.wdt-clear-filters-button {
 			}
 		}
 	}
+
+	#pa_table_filters {
+		margin-bottom: 10px;
+		label {
+			font-size: 14px;
+			font-weight: 700;
+		}
+		select {
+			&.column-filter {
+				width: auto;
+				max-width: 250px;
+				min-width: unset;
+				display: inline-block;
+				padding: 5px;
+				border: 0;
+				border-bottom: 1px solid #e0e0e0;
+				&:hover {
+					border-bottom-color: #b4b4b4;
+				}
+			}
+		}
+	}
 }

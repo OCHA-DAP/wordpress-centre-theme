@@ -433,6 +433,7 @@ function datatable_the_shortcode_func($atts)
 	ob_start();
 	?>
     <div class="pa-table-container">
+        <div id="pa_table_filters"></div>
         <table id="pa_table" data-url="<?=$attributes['url']?>"></table>
     </div>
 	<?php

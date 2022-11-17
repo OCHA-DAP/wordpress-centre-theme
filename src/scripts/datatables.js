@@ -80,10 +80,11 @@
                     filterValues = filterValues.sort(); // sort values
 
                     // select
-                    let select = $('<select class="column-filter"></select>');
-                    select.appendTo(column.header());
+                    let $container = $('<div class="pa-table-filter"><label>' + columnName + '<select class="column-filter"></select></label></div>');
+                    let select = $container.find('select');
+                    $container.prependTo($('#pa_table_filters'));
                     // initial value
-                    select.append('<option value="">' + columnName + ': All</option>');
+                    select.append('<option value="">All</option>');
                     // other values
                     for (let k = 0; k < filterValues.length; k++) {
                         select.append('<option value="' + filterValues[k] + '">' + filterValues[k] + '</option>');
@@ -92,10 +93,6 @@
                     select.on('change', function () {
                         let val = $.fn.dataTable.util.escapeRegex($(this).val());
                         column.search(val ? val : '', true, false).draw();
-                    });
-                    // prevent sorting
-                    select.click(function (e) {
-                        e.stopPropagation();
                     });
                 });
             },
