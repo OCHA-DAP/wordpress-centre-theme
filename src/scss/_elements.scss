@@ -642,7 +642,7 @@ button.wdt-clear-filters-button {
 				max-width: 250px;
 				min-width: unset;
 				display: inline-block;
-				padding: 5px;
+				padding: 5px 30px 5px 5px; // right arrow padding
 				border: 0;
 				border-bottom: 1px solid #e0e0e0;
 				&:hover {
