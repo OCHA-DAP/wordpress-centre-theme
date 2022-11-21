@@ -4614,7 +4614,8 @@ l.each(u,function(a,b){l.fn.DataTable[a]=b});return u});
             1: ',',
             2: ';'
         };
-        let $table = $('#pa_table');
+        let tableSelector = '#pa_table';
+        let $table = $(tableSelector);
         let dataTable = $table.DataTable({
             'searching': true,
             'pageLength': -1,
@@ -4641,6 +4642,13 @@ l.each(u,function(a,b){l.fn.DataTable[a]=b});return u});
                 {title: 'Geographical scope', data: 'Geographical scope *', width: '25%'},
             ],
             'initComplete': function () {
+                let columns = '';
+                for (let i = 1; i < dataTable.init().columns.length; i++) {
+                    columns += '<th></th>';
+                }
+                // clone thead row (to prevent sorting while using column filters)
+                $('<tr class="column-filters">' + columns + '</tr>').appendTo(tableSelector + ' thead');
+
                 this.api().columns([1, 2]).every(function (index) {
                     let filterValues = [];
                     let column = this;
@@ -4668,9 +4676,8 @@ l.each(u,function(a,b){l.fn.DataTable[a]=b});return u});
                     filterValues = filterValues.sort(); // sort values
 
                     // select
-                    let $container = $('<div class="pa-table-filter"><label>' + columnName + '<select class="column-filter"></select></label></div>');
-                    let select = $container.find('select');
-                    $container.prependTo($('#pa_table_filters'));
+                    let select = $('<select class="column-filter"></select>');
+                    select.appendTo($table.find('thead tr.column-filters th').eq(column.index()));
                     // initial value
                     select.append('<option value="">All</option>');
                     // other values
@@ -4681,6 +4688,15 @@ l.each(u,function(a,b){l.fn.DataTable[a]=b});return u});
                     select.on('change', function () {
                         let val = $.fn.dataTable.util.escapeRegex($(this).val());
                         column.search(val ? val : '', true, false).draw();
+                    });
+                    // init select2
+                    select.select2({
+                        dropdownParent: '.pa-table-container',
+                        placeholder: 'Select ' + columnName,
+                        searchInputPlaceholder: 'Search',
+                        allowClear: true
+                    }).on('select2:open', function () {
+                        $('.select2-search__field').attr('placeholder', 'Search...');
                     });
                 });
             },
