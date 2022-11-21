@@ -51,6 +51,7 @@
     "require-dir": "^0.3.0",
     "sass": "^1.53.0",
     "scut": "^1.4.0",
+    "select2": "^4.1.0-rc.0",
     "slick-carousel": "^1.8.1",
     "spin.js": "^2.3.2",
     "svg4everybody": "^2.1.0",
