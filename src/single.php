@@ -17,6 +17,7 @@ $page_header = new unheader(uncode_get_general_header_data(['_uncode_header_type
 $content_block_after = apply_filters('wpml_object_id', ot_get_option('_uncode_'.$post_type.'_content_block_after'), 'post');
 $content_after_body = '<div class="post-after row-container">'.get_post_field('post_content', $content_block_after).'</div>';
 $content_after_body = apply_filters('related_posts', $post->ID, $content_after_body);
+
 ?>
 
 	<script>
@@ -26,11 +27,9 @@ $content_after_body = apply_filters('related_posts', $post->ID, $content_after_b
 		}
 	</script>
 
-<?php
+<?php while(have_posts()): ?>
 
-while(have_posts()):
-	the_post();
-	?>
+	<?php the_post(); ?>
 
 	<div id="page-header"><?= uncode_remove_wpautop($page_header->html) ?></div>
 
