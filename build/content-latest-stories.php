@@ -20,12 +20,14 @@ $custom_post = uncode_custom_just_post( $post_id );
 $post_format = get_post_format( $post_id );
 $the_link = ($post_format==='link') ? get_url_in_content( $custom_post ) : get_the_permalink();
 
-//get first image in post
-$item_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : catch_that_image($post_id);
+//get first/custom carousel image in post
+$homepage_carousel_image = get_post_custom_values('homepage_carousel_image', $post_id);
+$homepage_carousel_image_id = ($homepage_carousel_image && isset($homepage_carousel_image[0]) && $homepage_carousel_image[0]) ? $homepage_carousel_image[0] : false;
+$item_media = $homepage_carousel_image_id ? wp_get_attachment_image_url($homepage_carousel_image_id, 'full') : (has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : catch_that_image($post_id));
 
 //format post media
 if ($category_name==='Announcement')
-	$post_media = has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : '<div class="img-container"><img src="' . catch_that_image($post_id) . '" /></div>';
+	$post_media = ($homepage_carousel_image_id) ? wp_get_attachment_image($homepage_carousel_image_id, 'full') : (has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id) : '<div class="img-container"><img src="' . catch_that_image($post_id) . '" /></div>');
 else if ($category_name==='Video')
 	$post_media = '<div class="slide-overlay"></div>' . $custom_post;
 else if ($category_name==='Slideshow' || $category_name==='Dataviz')

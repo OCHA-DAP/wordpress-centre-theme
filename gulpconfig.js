@@ -63,6 +63,8 @@ module.exports = {
         src+'scripts/humdata.js',
         src+'scripts/humdata-mixpanel.js',
         src+'scripts/learning-path.js',
+        src+'scripts/jquery.dataTables.min.js',
+        src+'scripts/datatables.js',
         // src+'js/responsive-menu.js',
         // src+'js/footer.js'
       ],

@@ -432,3 +432,271 @@ button.wdt-clear-filters-button {
 		text-transform: initial;
 	}
 }
+// remove title capitalization for specific posts (for the moment...)
+.entryid-85758,
+.entryid-85592,
+.entryid-85597,
+.entryid-85603,
+.entryid-85610,
+.entryid-85614,
+.entryid-85622,
+.entryid-85627,
+.entryid-85632,
+.entryid-85636 {
+	text-transform: initial !important;
+	span {
+		text-transform: initial !important;
+	}
+}
+
+
+//datatable container
+.pa-table-container {
+	margin-top: 18px;
+
+	// datatable
+	table.dataTable {
+		thead {
+			th {
+				position: relative;
+				font-weight: bold;
+
+				// sorting
+				&.sorting:after,
+				&.sorting_asc:after,
+				&:after {
+					position: absolute;
+					top: 12px;
+					right: 8px;
+					display: block;
+					font-family: 'uncodeicon';
+				}
+
+				&.sorting:after {
+					content: "\f0dc";
+				}
+
+				&.sorting_asc:after {
+					content: "\f0de";
+				}
+
+				&.sorting_desc:after {
+					content: "\f0dd";
+				}
+
+				// column filter
+				.column-filter {
+					padding-right: 40px; // right arrow
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				td {
+					// first column
+					&:first-child {
+						font-weight: bold;
+
+						&.dataTables_empty,
+						.extra-info {
+							font-weight: normal;
+						}
+
+						.extra-info {
+							list-style: none;
+							margin: 0;
+
+							li {
+								font-size: 14px;
+
+								.column-title {
+									font-weight: bold;
+								}
+
+								a {
+									color: #2196F3;
+								}
+							}
+						}
+
+						.collapse-button {
+							cursor: pointer;
+							vertical-align: middle;
+							color: #666;
+							margin-right: 3px;
+
+							&::before {
+								content: "\f0fe";
+							}
+						}
+					}
+				}
+
+				&.dt-hasChild.shown {
+					td {
+						&:first-child {
+							.collapse-button {
+								&::before {
+									content: "\f146";
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// colors
+		tr {
+			&.odd td {
+				background-color: #eeeeee;
+			}
+			&:hover {
+				td {
+					background-color: #e8e8e8;
+				}
+			}
+			td {
+				border-color: #e0e0e0;
+			}
+		}
+	}
+
+	// entries per page & search
+	.dataTables_length,
+	.dataTables_filter {
+		width: 50%;
+		display: inline-block;
+		vertical-align: middle;
+
+		label {
+			font-size: 14px;
+			font-weight: bold;
+		}
+	}
+
+	.dataTables_length select {
+		width: 80px;
+		max-width: unset;
+		min-width: unset;
+		display: inline-block;
+		margin-top: 0;
+		padding: 5px;
+		border: 0;
+		border-bottom: 1px solid #e0e0e0;
+
+		&:hover {
+			border-bottom-color: #b4b4b4;
+		}
+	}
+
+	.dataTables_filter {
+		text-align: right;
+
+		input {
+			padding: 5px;
+			border: 0;
+			border-bottom: 1px solid #e0e0e0;
+
+			&:focus {
+				border-bottom-color: #b4b4b4 !important;
+			}
+		}
+	}
+
+	// info & pagination
+	.dataTables_info,
+	.dataTables_paginate {
+		width: 50%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.dataTables_paginate {
+		text-align: right;
+
+		.paginate_button {
+			min-width: 1.5em;
+			padding: .5em 1.165em;
+			cursor: pointer;
+			font-size: 14px;
+			margin-top: 18px;
+			display: inline-block;
+			color: #666;
+
+			&.disabled {
+				cursor: default !important;
+				opacity: .4;
+				color: #666;
+				background: none !important;
+				box-shadow: none;
+			}
+
+			&.current {
+				color: #666;
+				background-color: #e8e8e8;
+			}
+
+			&:hover {
+				color: #f2645a;
+				background-color: #f5f5f5;
+			}
+		}
+	}
+
+	.column-filters {
+		.select2.select2-container {
+			.select2-selection {
+				border-radius: 0;
+				border: 0;
+				border-bottom: 1px solid #e0e0e0;
+				font-weight: normal;
+				&:hover {
+					border-bottom-color: #b4b4b4;
+				}
+			}
+		}
+	}
+	.select2-dropdown {
+		border: 0;
+		box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+		padding: 10px 0;
+		border-radius: 3px;
+		.select2-search {
+			padding: 0;
+			.select2-search__field {
+				font-size: 15px;
+				border: 0;
+				padding: 10px 20px;
+				box-shadow: none;
+				background-color: rgba(0,0,0,.075);
+			}
+		}
+		.select2-results {
+			ul.select2-results__options {
+				list-style-type: none;
+				padding: 0;
+
+				li.select2-results__option {
+					padding: 10px 20px;
+					font-size: 15px;
+					-webkit-transition: background-color;
+					-o-transition: background-color;
+					transition: background-color;
+					-webkit-transition-duration: 300ms;
+					transition-duration: 300ms;
+					&[aria-selected=true] {
+						background-color: rgba(0,0,0,.075);
+						color: $coral;
+					}
+					&.select2-results__option--highlighted {
+						background-color: rgba(0,0,0,.075);
+						color: $coral;
+					}
+				}
+			}
+		}
+	}
+
+}

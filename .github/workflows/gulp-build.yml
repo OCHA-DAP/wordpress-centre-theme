@@ -6,6 +6,7 @@ on:
     # On which branches
     branches:
       - dev
+      - prod
   # On release
   release:
     types: [published]
@@ -48,7 +49,7 @@ jobs:
           git status
           git add --force build/*
           git status
-          git commit -am "update gulp output files"
+          git commit -m "update gulp output files"
         shell: bash
 
       # Push
