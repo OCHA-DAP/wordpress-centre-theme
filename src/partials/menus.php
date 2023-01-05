@@ -161,31 +161,23 @@ if (!class_exists('unmenu')) {
 
 			$theme_locations = get_nav_menu_locations();
 
-			if (isset($metabox_data['_uncode_specific_menu'][0]) && $metabox_data['_uncode_specific_menu'][0] !== '') {
-				$primary_menu = $metabox_data['_uncode_specific_menu'][0];
+			$menu_generic = ot_get_option( '_uncode_'.$post_type.'_menu');
+			if ($menu_generic !== '') {
+				$primary_menu = $menu_generic;
 			} else {
-				$menu_generic = ot_get_option( '_uncode_'.$post_type.'_menu');
-				if ($menu_generic !== '') {
-					$primary_menu = $menu_generic;
-				} else {
-					$primary_menu = '';
-					if (isset($theme_locations['primary'])) {
-						$menu_obj = get_term( $theme_locations['primary'], 'nav_menu' );
-						if (isset($menu_obj->name)) $primary_menu = $menu_obj->name;
-					}
+				$primary_menu = '';
+				if (isset($theme_locations['primary'])) {
+					$menu_obj = get_term( $theme_locations['primary'], 'nav_menu' );
+					if (isset($menu_obj->name)) $primary_menu = $menu_obj->name;
 				}
 			}
 
-			if (isset($metabox_data['_uncode_specific_menu_width'][0]) && $metabox_data['_uncode_specific_menu_width'][0] !== '') {
-				if ($metabox_data['_uncode_specific_menu_width'][0] === 'full') $menu_full_width = true;
-			} else {
-				$menu_generic_width = ot_get_option( '_uncode_'.$post_type.'_menu_width');
-				if ($menu_generic_width === 'full') $menu_full_width = true;
-				else
-				{
-					$menu_full = ot_get_option( '_uncode_menu_full');
-					$menu_full_width = ($menu_full !== 'on') ? false : true;
-				}
+			$menu_generic_width = ot_get_option( '_uncode_'.$post_type.'_menu_width');
+			if ($menu_generic_width === 'full') $menu_full_width = true;
+			else
+			{
+				$menu_full = ot_get_option( '_uncode_menu_full');
+				$menu_full_width = ($menu_full !== 'on') ? false : true;
 			}
 			if (!isset($menu_full_width)) $menu_full_width = false;
 
@@ -210,7 +202,7 @@ if (!class_exists('unmenu')) {
 
 			$has_shadows = ot_get_option( '_uncode_menu_shadows') == 'on' ? true : false;
 			$has_borders = ot_get_option( '_uncode_menu_borders') == 'on' ? true : false;
-			$remove_shadow = (isset($metabox_data['_uncode_specific_menu_no_shadow'][0]) && $metabox_data['_uncode_specific_menu_no_shadow'][0] === 'on') ? true : false;
+			$remove_shadow = false;
 			$menushadows = $has_shadows ?  ' menu-shadows' : '';
 			$menushadows .= $remove_shadow ?  ' force-no-shadows' : '';
 			$menuborders = $has_borders ? (($vertical) ? ' vmenu-borders' : ' menu-borders') : ' menu-no-borders';
@@ -251,12 +243,8 @@ if (!class_exists('unmenu')) {
 
 			if ($transpmainheader !== '100') {
 				$remove_transparency = false;
-				if (isset($metabox_data['_uncode_specific_menu_opaque'][0]) && $metabox_data['_uncode_specific_menu_opaque'][0] === 'on') {
-					$remove_transparency = true;
-				} else {
-					$get_remove_transparency = ot_get_option( '_uncode_'.$post_type.'_menu_opaque');
-					if ($get_remove_transparency === 'on') $remove_transparency = true;
-				}
+				$get_remove_transparency = ot_get_option( '_uncode_'.$post_type.'_menu_opaque');
+				if ($get_remove_transparency === 'on') $remove_transparency = true;
 
 				if (!$remove_transparency) {
 					$stylemaincombo .= ' menu-transparent';
