@@ -439,3 +439,53 @@ function datatable_the_shortcode_func($atts) {
 }
 
 add_shortcode('datatable', 'datatable_the_shortcode_func');
+
+function get_latest_tweets() {
+    $tweets = [];
+
+	$username = 'humdata';
+	$limit = 5;
+
+    $url = 'https://syndication.twitter.com/srv/timeline-profile/screen-name/'.$username.'?limit='.$limit.'&omit_script=1&chrome=noheader nofooter noborders noscrollbar transparent';
+	$response = wp_remote_get(esc_url_raw($url));
+	if(is_array($response) && !is_wp_error($response)) {
+		preg_match("/<script id=\"__NEXT_DATA__\" type=\"application\/json\">(.*)<\/script>/U", $response['body'], $tweetsJson);
+
+		if(isset($tweetsJson[1])) {
+		    $timelineData = json_decode($tweetsJson[1], true);
+
+		    $i = 0;
+            foreach($timelineData['props']['pageProps']['timeline']['entries'] as $entryData) {
+                $tweetData = $entryData['content']['tweet'];
+                $tweetContent = $tweetData['full_text'];
+
+                // set URLs
+                foreach($tweetData['entities']['urls'] as $tweetContentURL)
+                    $tweetContent = str_ireplace($tweetContentURL['url'], '<a href="'.$tweetContentURL['url'].'" target="_blank" rel="nofollow">'.$tweetContentURL['url'].'</a>', $tweetContent);
+                // set usernames
+                foreach($tweetData['entities']['user_mentions'] as $tweetContentUserMention)
+                    $tweetContent = str_ireplace('@'.$tweetContentUserMention['screen_name'], '<a href="https://twitter.com/'.$tweetContentUserMention['screen_name'].'" target="_blank" rel="nofollow">@'.$tweetContentUserMention['screen_name'].'</a>', $tweetContent);
+                // set hashtags
+                foreach($tweetData['entities']['hashtags'] as $tweetContentHashtag)
+                    $tweetContent = str_ireplace('#'.$tweetContentHashtag['text'], '<a href="https://twitter.com/hashtag/'.$tweetContentHashtag['text'].'" target="_blank" rel="nofollow">#'.$tweetContentHashtag['text'].'</a>', $tweetContent);
+
+	            $tweets[$i] = [
+                    'date' => '<a href="https://twitter.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.str_replace('+0000 ', '', $tweetData['user']['created_at']).'</a>',
+		            'tweet' => nl2br($tweetContent)
+	            ];
+                $i++;
+            }
+
+		}
+
+	}
+	return $tweets;
+}
+
+add_action('rest_api_init', function() {
+	register_rest_route('humdata/v1', '/latest_tweets', array(
+		'methods' => 'GET',
+		'callback' => 'get_latest_tweets',
+        'permission_callback' => '__return_true'
+    ));
+});

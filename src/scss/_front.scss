@@ -219,6 +219,9 @@
 					.TweetAuthor-screenname {
 						line-height: 8px;
 					}
+					a {
+						border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+					}
 				}
 				&.tweet-text {
 					color: $white;
@@ -229,7 +232,9 @@
 					@include break-word();
 					span {
 					 	padding-bottom: 0;
-					 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+						a {
+							border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+						}
 					}
 				}
 			}

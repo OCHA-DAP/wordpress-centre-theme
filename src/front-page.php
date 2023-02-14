@@ -70,7 +70,8 @@ if ($latest_posts->have_posts()) :
 			$media = $page_header->poster_id;
 		}
 	}
-?>
+
+	?>
 
 	<section class='latest-stories-module latest-carousel'>
 		<h3>Latest Stories</h3>
@@ -102,6 +103,30 @@ if ($latest_press->have_posts()) : ?>
 			endwhile; ?>
 		</div>
 	</section>
-<?php endif; ?>
+<?php endif;
+
+
+/**
+/* TWITTER MODULE
+**/
+if (is_front_page()) { ?>
+	<section class="twitter-module">
+		<div class="row">
+			<div class="row-inner">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-7">
+					<div class="tweet">
+						<a href="http://www.twitter.com/humdata" target="_blank" class="twitter-logo"><div class="fa fa-twitter twhite" aria-hidden="true"></div></a>
+						<div class="tweet-content">
+							<p class="tweet-text"><span></span></p>
+							<p class="author"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+		</div>
+	</section>
+<?php } ?>
 
 <?php get_footer(); ?>
