@@ -489,3 +489,127 @@ add_action('rest_api_init', function() {
         'permission_callback' => '__return_true'
     ));
 });
+
+/**
+ * Register the filter for replacing WP related posts with RP4WP_Post_Link_Manager
+ */
+add_filter('related_posts', 'add_related_posts', 10, 2);
+
+/**
+ * Add post related links
+ **/
+function add_related_posts($post_id, $content)
+{
+	if(class_exists('RP4WP_Post_Link_Manager')) {
+		$uncode_related = new RP4WP_Post_Link_Manager();
+		$related_posts = $uncode_related->get_children($post_id, false);
+		$related_posts_ids = array();
+		foreach($related_posts as $key => $value) {
+			if(isset($value->ID)) $related_posts_ids[] = $value->ID;
+		}
+		$archive_query = '';
+		$regex = '/\[uncode_index(.*?)\]/';
+		$regex_attr = '/(.*?)=\"(.*?)\"/';
+		preg_match_all($regex, $content, $matches, PREG_SET_ORDER);
+		foreach($matches as $key => $value) {
+			$index_found = false;
+			if(isset($value[1])) {
+				preg_match_all($regex_attr, trim($value[1]), $matches_attr, PREG_SET_ORDER);
+				foreach($matches_attr as $key_attr => $value_attr) {
+					switch(trim($value_attr[1])) {
+						case 'auto_query':
+							if($value_attr[2] === 'yes') $index_found = true;
+							break;
+						case 'loop':
+							$archive_query = $value_attr[2];
+							break;
+					}
+				}
+			}
+			if($index_found) {
+				if($archive_query === '') $archive_query = ' loop="size:10|by_id:'.implode(',', $related_posts_ids).'|post_type:'.$post->post_type.'"';
+				else {
+					$parse_query = uncode_parse_loop_data($archive_query);
+					$parse_query['by_id'] = implode(',', $related_posts_ids);
+					if(!isset($parse_query['order'])) $parse_query['order'] = 'none';
+					$archive_query = ' loop="'.uncode_unparse_loop_data($parse_query).'"';
+				}
+				$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
+				if($index_count === 0) {
+					$value[1] .= $archive_query;
+				}
+				$replacement = '[uncode_index'.$value[1].']';
+				$content = str_replace($value[0], $replacement, $content);
+			}
+		}
+	}
+	return $content;
+}
+
+/**
+ * Register the filter for getting archive posts
+ */
+add_filter('archive_posts', 'get_archive_posts', 10, 3);
+
+/**
+ * Get archive posts
+ **/
+function get_archive_posts($post, $post_type, $tax)
+{
+	$content = get_post_field('post_content', apply_filters('wpml_object_id', ot_get_option('_uncode_'.$post_type.'_content_block'), 'post'));
+	$archive_query = ' loop="size:'.get_option('posts_per_page').'|order_by:date|post_type:'.(!is_date() ? $post->post_type : 'post');
+
+	if(is_author()) {
+		$archive_query .= '|authors:'.get_queried_object()->ID.'"';
+	} else if(is_date()) {
+		if(isset($wp_query->query_vars['year'])) $archive_query .= '|year:'.$wp_query->query_vars['year'];
+		if(isset($wp_query->query_vars['monthnum'])) $archive_query .= '|month:'.$wp_query->query_vars['monthnum'];
+		if(isset($wp_query->query_vars['day'])) $archive_query .= '|day:'.$wp_query->query_vars['day'];
+		$archive_query .= '"';
+	} else {
+		if($post->post_type === 'post') {
+			switch(get_queried_object()->taxonomy) {
+				case 'category':
+					$tax_query = 'categories';
+					break;
+				case 'post_tag':
+					$tax_query = 'tags';
+					break;
+				default:
+					$tax_query = 'tax_query';
+					break;
+			}
+		} else $tax_query = 'tax_query';
+		if($tax !== '') $archive_query .= '|'.$tax_query.':'.$tax.'"';
+		else $archive_query .= '"';
+	}
+
+	$regex = '/\[uncode_index(.*?)\]/';
+	$regex_attr = '/(.*?)=\"(.*?)\"/';
+	preg_match_all($regex, $content, $matches, PREG_SET_ORDER);
+	foreach($matches as $key => $value) {
+		$index_found = false;
+		if(isset($value[1])) {
+			preg_match_all($regex_attr, trim($value[1]), $matches_attr, PREG_SET_ORDER);
+			foreach($matches_attr as $key_attr => $value_attr) {
+				switch(trim($value_attr[1])) {
+					case 'auto_query':
+						if($value_attr[2] === 'yes') $index_found = true;
+						break;
+					case 'infinite':
+					case 'pagination':
+						break;
+				}
+			}
+		}
+		if($index_found) {
+			$value[1] = preg_replace('#\s(loop)="([^"]+)"#', $archive_query, $value[1], -1, $index_count);
+			if($index_count === 0) {
+				$value[1] .= $archive_query;
+			}
+			$replacement = '[uncode_index'.$value[1].']';
+			$content = str_replace($value[0], $replacement, $content);
+		}
+	}
+	return $content;
+}
