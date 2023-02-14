@@ -3797,7 +3797,7 @@ var util = window.util = {
 		if($('.twitter-module').length) {
 			$.ajax({
 				type: 'GET',
-				url: '/wp-json/humdata/v1/latest_tweets',
+				url: '/custom-latest-tweets/',
 				success: function (data) {
 					twitterDataReady(data);
 				}
