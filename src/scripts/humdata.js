@@ -69,6 +69,68 @@
 		$(this).find('.responsiveExpander').click();
 	})
 
+	//*********** TWITTER CONTENT BLOCK ***********//
+	var TWITTER_DURATION = 5000;
+
+	var tweetArray = [];
+	var tweetID;
+
+	function twitterDataReady(data) {
+		var processedTweets = [];
+		for (var i = 0; i < data.length; i++) {
+			var dataTweet = data[i];
+			processedTweets.push({
+				'tweet': dataTweet.tweet,
+				'date': dataTweet.date
+			});
+		}
+		$(document).trigger('tweetReady', {'tweets': processedTweets});
+	}
+
+	function getTweet() {
+		var val = tweetArray[tweetID];
+		if (val !== undefined) {
+			tweetID = (tweetID === tweetArray.length - 1) ? 0 : tweetID + 1;
+			$('.tweet .tweet-text span').html(val.tweet);
+			$('.tweet .author').html(val.date);
+		}
+	}
+
+	function initTwitter() {
+		if($('.twitter-module').length) {
+			$.ajax({
+				type: 'GET',
+				url: '/wp-json/humdata/v1/latest_tweets',
+				success: function (data) {
+					twitterDataReady(data);
+				}
+			});
+		}
+	}
+
+	// init Twitter
+	initTwitter();
+
+	//build tweet display
+	$(document).on('tweetReady', function (e, data) {
+		tweetArray = data.tweets;
+		tweetID = util.getRandomID(0, tweetArray.length - 1);
+		getTweet();
+	});
+
+	setInterval(function () {
+		$.when($('.tweet .tweet-content').animate({
+			'opacity': '0',
+			'marginTop': '+40px'
+		}, 750)).done(function () {
+			getTweet();
+			$('.tweet .tweet-content').css('marginTop', '-40px').animate({
+				'opacity': '1',
+				'marginTop': '0'
+			}, 600);
+		});
+	}, TWITTER_DURATION);
+
 
 	//*********** MAIN NAVIGATION EVENTS ***********//
 	//sticky nav
