@@ -459,19 +459,10 @@ function get_latest_tweets() {
                 $tweetData = $entryData['content']['tweet'];
                 $tweetContent = $tweetData['full_text'];
 
-                // set URLs
-                foreach($tweetData['entities']['urls'] as $tweetContentURL)
-                    $tweetContent = str_ireplace($tweetContentURL['url'], '<a href="'.$tweetContentURL['url'].'" target="_blank" rel="nofollow">'.$tweetContentURL['url'].'</a>', $tweetContent);
-                // set usernames
-                foreach($tweetData['entities']['user_mentions'] as $tweetContentUserMention)
-                    $tweetContent = str_ireplace('@'.$tweetContentUserMention['screen_name'], '<a href="https://twitter.com/'.$tweetContentUserMention['screen_name'].'" target="_blank" rel="nofollow">@'.$tweetContentUserMention['screen_name'].'</a>', $tweetContent);
-                // set hashtags
-                foreach($tweetData['entities']['hashtags'] as $tweetContentHashtag)
-                    $tweetContent = str_ireplace('#'.$tweetContentHashtag['text'], '<a href="https://twitter.com/hashtag/'.$tweetContentHashtag['text'].'" target="_blank" rel="nofollow">#'.$tweetContentHashtag['text'].'</a>', $tweetContent);
-
+                // suitable for the old TwitterFetcher lib
 	            $tweets[$i] = [
-                    'date' => '<a href="https://twitter.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.str_replace('+0000 ', '', $tweetData['user']['created_at']).'</a>',
-		            'tweet' => nl2br($tweetContent)
+		            'author' => '<span class="TweetAuthor-avatar"><img src="'.$tweetData['user']['profile_image_url_https'].'" class="Avatar"></span><a href="https://twitter.com/'.$tweetData['user']['screen_name'].'" target="_blank" rel="nofollow" class="TweetAuthor-link"><span class="TweetAuthor-name">'.$tweetData['user']['name'].'</span><span class="TweetAuthor-screenname">@'.$tweetData['user']['screen_name'].'</span></a>',
+		            'tweet' => '<a href="https://twitter.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.nl2br($tweetContent).'</a>'
 	            ];
                 $i++;
             }
