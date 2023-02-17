@@ -203,7 +203,7 @@
 					.TweetAuthor-avatar .Avatar {
 						border-radius: 50%;
 						margin-right: 12px;
-						width: 50px;
+						width: 48px;
 					}
 					.TweetAuthor-link {
 						text-decoration: none;
@@ -219,9 +219,6 @@
 					.TweetAuthor-screenname {
 						line-height: 8px;
 					}
-					a {
-						border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-					}
 				}
 				&.tweet-text {
 					color: $white;
@@ -232,9 +229,7 @@
 					@include break-word();
 					span {
 					 	padding-bottom: 0;
-						a {
-							border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-						}
+						border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 					}
 				}
 			}
