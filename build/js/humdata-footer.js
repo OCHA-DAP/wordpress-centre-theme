@@ -3778,7 +3778,7 @@ var util = window.util = {
 			var dataTweet = data[i];
 			processedTweets.push({
 				'tweet': dataTweet.tweet,
-				'date': dataTweet.date
+				'author': dataTweet.author
 			});
 		}
 		$(document).trigger('tweetReady', {'tweets': processedTweets});
@@ -3789,7 +3789,7 @@ var util = window.util = {
 		if (val !== undefined) {
 			tweetID = (tweetID === tweetArray.length - 1) ? 0 : tweetID + 1;
 			$('.tweet .tweet-text span').html(val.tweet);
-			$('.tweet .author').html(val.date);
+			$('.tweet .author').html(val.author);
 		}
 	}
 
@@ -3816,7 +3816,7 @@ var util = window.util = {
 	});
 
 	setInterval(function () {
-		$.when($('.tweet .tweet-content').animate({
+		$.when($('.tweet .tweet-content').stop().dequeue().animate({
 			'opacity': '0',
 			'marginTop': '+40px'
 		}, 750)).done(function () {
