@@ -446,7 +446,7 @@ function get_latest_tweets() {
 	$username = 'humdata';
 	$limit = 5;
 
-    $url = 'https://syndication.twitter.com/srv/timeline-profile/screen-name/'.$username.'?limit='.$limit.'&omit_script=1&chrome=noheader nofooter noborders noscrollbar transparent';
+    $url = 'https://syndication.twitter.com/srv/timeline-profile/screen-name/'.$username.'?limit='.$limit.'&omit_script=1&chrome=noheader nofooter noborders noscrollbar transparent&dnt=true';
 	$response = wp_remote_get(esc_url_raw($url));
 	if(is_array($response) && !is_wp_error($response)) {
 		preg_match("/<script id=\"__NEXT_DATA__\" type=\"application\/json\">(.*)<\/script>/U", $response['body'], $tweetsJson);
@@ -456,12 +456,13 @@ function get_latest_tweets() {
 
 		    $i = 0;
             foreach($timelineData['props']['pageProps']['timeline']['entries'] as $entryData) {
-                $tweetData = $entryData['content']['tweet'];
+	            $tweetData = (isset($entryData['content']['tweet']['retweeted_status'])) ? $entryData['content']['tweet']['retweeted_status'] : $entryData['content']['tweet'];
                 $tweetContent = $tweetData['full_text'];
+                $tweetUser = $tweetData['user'];
 
                 // suitable for the old TwitterFetcher lib
 	            $tweets[$i] = [
-		            'author' => '<span class="TweetAuthor-avatar"><img src="'.$tweetData['user']['profile_image_url_https'].'" class="Avatar"></span><a href="https://twitter.com/'.$tweetData['user']['screen_name'].'" target="_blank" rel="nofollow" class="TweetAuthor-link"><span class="TweetAuthor-name">'.$tweetData['user']['name'].'</span><span class="TweetAuthor-screenname">@'.$tweetData['user']['screen_name'].'</span></a>',
+		            'author' => '<span class="TweetAuthor-avatar"><img src="'.$tweetUser['profile_image_url_https'].'" class="Avatar"></span><a href="https://twitter.com/'.$tweetUser['screen_name'].'" target="_blank" rel="nofollow" class="TweetAuthor-link"><span class="TweetAuthor-name">'.$tweetUser['name'].'</span><span class="TweetAuthor-screenname">@'.$tweetData['user']['screen_name'].'</span></a>',
 		            'tweet' => '<a href="https://twitter.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.nl2br($tweetContent).'</a>'
 	            ];
                 $i++;
