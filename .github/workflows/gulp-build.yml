@@ -10,6 +10,12 @@ on:
   # On release
   release:
     types: [published]
+  # On PR
+  pull_request:
+    types:
+      - closed
+    branches:
+      - prod
 
 # Variables
 env:
@@ -43,13 +49,14 @@ jobs:
 
       # Commit
       - name: Commit files
+        continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git status
           git add --force build/*
           git status
-          git commit -m "update gulp output files"
+          git diff --exit-code || git commit -m "update gulp output files"
         shell: bash
 
       # Push
