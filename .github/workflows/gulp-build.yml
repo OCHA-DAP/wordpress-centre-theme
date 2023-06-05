@@ -54,7 +54,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git status
-          git add --force build/*
+          git add --force -A build/*
           git status
           git diff --exit-code || git commit -a -m "update gulp output files"
         shell: bash
