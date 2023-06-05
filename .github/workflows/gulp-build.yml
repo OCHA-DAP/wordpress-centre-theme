@@ -65,6 +65,7 @@ jobs:
         with:
           branch: ${{ (github.base_ref || github.ref) }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
 
   # Job name
   rclone-dev:
