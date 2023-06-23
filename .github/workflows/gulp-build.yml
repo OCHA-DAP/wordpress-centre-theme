@@ -51,14 +51,13 @@ jobs:
 
       # Commit
       - name: Commit files
-        continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git status
-          git add --force -A build/*
+          git add --force build/*
           git status
-          git diff --exit-code || git commit -am "update gulp output files"
+          git commit -m "update gulp output files"
         shell: bash
 
       # Push
@@ -67,7 +66,6 @@ jobs:
         with:
           branch: ${{ (github.base_ref || github.ref) }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
 
   # Job name
   rclone-dev:
