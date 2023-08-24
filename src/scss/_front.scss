@@ -331,6 +331,23 @@ a.underline {
 }
 
 
+@media (max-width: $screen-lg) and (min-width: $screen-sm) {
+	.latest-press-module {
+		.content-block {
+			.content-block--content {
+				p {
+					font-size: 18px;
+					line-height: 22px;
+				}
+				.source {
+					font-size: 14px;
+					line-height: 16px;
+				}
+			}
+		}
+	}
+}
+
 @media (max-width: $screen-md) {
 	.twitter-module {
 		padding: 40px 80px;

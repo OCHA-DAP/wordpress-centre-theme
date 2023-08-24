@@ -3797,6 +3797,7 @@ var util = window.util = {
 		if($('.twitter-module').length) {
 			$.ajax({
 				type: 'GET',
+				cache: false,
 				url: '/custom-latest-tweets/',
 				success: function (data) {
 					twitterDataReady(data);
