@@ -76,7 +76,7 @@ $latest_press = new WP_query($press_args);
 /* TWITTER MODULE
 **/
 if (is_front_page()) { ?>
-	<section class="twitter-module">
+	<section class="twitter-module hidden">
 		<div class="row">
 			<div class="row-inner">
 				<div class="col-lg-2"></div>
