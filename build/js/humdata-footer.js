@@ -3781,7 +3781,11 @@ var util = window.util = {
 				'author': dataTweet.author
 			});
 		}
-		$(document).trigger('tweetReady', {'tweets': processedTweets});
+
+		if(processedTweets.length) {
+			$(document).trigger('tweetReady', {'tweets': processedTweets});
+			$('.twitter-module').removeClass('hidden');
+		}
 	}
 
 	function getTweet() {
