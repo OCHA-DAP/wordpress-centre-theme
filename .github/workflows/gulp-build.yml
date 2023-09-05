@@ -57,7 +57,7 @@ jobs:
           git status
           git add --force build/*
           git status
-          git commit -m "update gulp output files"
+          git commit --allow-empty -m "update gulp output files"
         shell: bash
 
       # Push
