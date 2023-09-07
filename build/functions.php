@@ -447,9 +447,7 @@ function get_latest_tweets() {
 	$limit = 5;
 
     $url = 'https://syndication.twitter.com/srv/timeline-profile/screen-name/'.$username.'?limit='.$limit.'&omit_script=1&chrome=noheader nofooter noborders noscrollbar transparent&dnt=true';
-    $headers = ['User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'];
-	$cookies = [new WP_Http_Cookie(['name'  => 'auth_token', 'value' => '3d74f09d42f371dde6ce63cc7729049ba61ba01f'])];
-	$response = wp_remote_get(esc_url_raw($url), ['headers' => $headers, 'cookies' => $cookies]);
+	$response = wp_remote_get(esc_url_raw($url));
 	if(is_array($response) && !is_wp_error($response)) {
 		preg_match("/<script id=\"__NEXT_DATA__\" type=\"application\/json\">(.*)<\/script>/U", $response['body'], $tweetsJson);
 
