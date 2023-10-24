@@ -177,10 +177,13 @@
 	.tweet {
 		position: relative;	
 		text-align: center;	
-		.fa-twitter {
+		.x-icon {
+			display: block;
 			color: $white;
-			font-size: 55px;
+			width: 55px;
 			margin-bottom: 30px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		.tweet-content {
 			position: absolute;
