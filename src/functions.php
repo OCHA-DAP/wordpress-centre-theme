@@ -464,8 +464,8 @@ function get_latest_tweets() {
 
                 // suitable for the old TwitterFetcher lib
 	            $tweets[$i] = [
-		            'author' => '<span class="TweetAuthor-avatar"><img src="'.$tweetUser['profile_image_url_https'].'" class="Avatar"></span><a href="https://twitter.com/'.$tweetUser['screen_name'].'" target="_blank" rel="nofollow" class="TweetAuthor-link"><span class="TweetAuthor-name">'.$tweetUser['name'].'</span><span class="TweetAuthor-screenname">@'.$tweetData['user']['screen_name'].'</span></a>',
-		            'tweet' => '<a href="https://twitter.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.nl2br($tweetContent).'</a>'
+		            'author' => '<span class="TweetAuthor-avatar"><img src="'.$tweetUser['profile_image_url_https'].'" class="Avatar"></span><a href="https://x.com/'.$tweetUser['screen_name'].'" target="_blank" rel="nofollow" class="TweetAuthor-link"><span class="TweetAuthor-name">'.$tweetUser['name'].'</span><span class="TweetAuthor-screenname">@'.$tweetData['user']['screen_name'].'</span></a>',
+		            'tweet' => '<a href="https://x.com'.$tweetData['permalink'].'" target="_blank" rel="nofollow">'.nl2br($tweetContent).'</a>'
 	            ];
                 $i++;
             }
