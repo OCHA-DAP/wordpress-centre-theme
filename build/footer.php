@@ -15,24 +15,7 @@ if (is_front_page()) { ?>
 	<section class="contact-module bg-pattern-green">
 		<h2>Stay in touch</h2>
 		<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
-
-			<!-- Begin MailChimp Signup Form -->
-			<div id="mc_embed_signup">
-				<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-				    <div id="mc_embed_signup_scroll">
-						<div class="mc-field-group">
-							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit-btn">
-						</div>
-						
-						<div id="mce-responses" class="clear">
-							<div class="response" id="mce-error-response" style="display:none"></div>
-							<div class="response" id="mce-success-response" style="display:none"></div>
-						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-					    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value=""></div>
-				    </div>
-				</form>
-			</div>
-			<!--End mc_embed_signup-->
+		<?php echo do_shortcode('[mailchimp-newsletter-form]'); ?>
 	</section>
 <?php } 
 
@@ -53,7 +36,7 @@ $menu_list .= '</ul>';
 				<footer id='colophon' class='site-footer'>
 					<div class='row-container style-dark-bg footer-last'>
 						<div class='row row-parent style-dark no-top-padding no-h-padding no-bottom-padding'>
-							<div class='site-info uncell col-lg-4'>
+							<div class='site-info uncell col-lg-5'>
 								<a href="<?php echo $homeURL ?>">
 									<svg class='logo' viewBox="0 0 245 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 								    <defs>
@@ -90,23 +73,7 @@ $menu_list .= '</ul>';
 								</a>
 								<h5 class='logo-tagline'>Connecting people and data to improve lives</h5>
 								<p class='signup-text'>Sign up to our mailing list for latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
-								<div id="mc_embed_signup">
-									<form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-								    <div id="mc_embed_signup_scroll">
-											<div class="mc-field-group">
-												<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address"><input type="submit" value="submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit-btn">
-											</div>
-										
-											<div id="mce-responses" class="clear">
-												<div class="response" id="mce-error-response" style="display:none"></div>
-												<div class="response" id="mce-success-response" style="display:none"></div>
-											</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-									    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-									    	<input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value="">
-									    </div>
-									  </div>
-									</form>
-								</div>
+								<?php echo do_shortcode('[mailchimp-newsletter-form]'); ?>
 							</div>
 							<div class='site-info uncell col-lg-5'>
 								<?php echo $secondary_list ?>
