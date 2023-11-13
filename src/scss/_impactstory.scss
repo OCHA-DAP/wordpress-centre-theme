@@ -192,13 +192,13 @@
 			  color: #CCC !important;
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 			&:-moz-placeholder { /* Firefox 18- */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 		}
 		.btn.submit-btn {
