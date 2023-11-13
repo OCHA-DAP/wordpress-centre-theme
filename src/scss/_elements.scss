@@ -203,9 +203,15 @@ input{
 	}
 }
 
-#contact #mc_embed_signup div.mce_inline_error {
-	background-color: transparent;
-	color: #FF0000;
+#contact {
+	.mc_embed_signup {
+		input[type="email"] {
+			border: 1px solid $green;
+		}
+		.select2-container {
+			border: 1px solid $green;
+		}
+	}
 }
 
 .media-credit {
