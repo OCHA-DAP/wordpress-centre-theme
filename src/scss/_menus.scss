@@ -232,6 +232,17 @@
 						i {
 							color: $white;
 							font-size: 16px;
+							&.fa-github {
+								font-size: 20px;
+							}
+							&.x-icon {
+								display: inline-block;
+								width: 14px;
+								padding-bottom: 0;
+								svg {
+									padding-bottom: 0;
+								}
+							}
 						}
 						&:hover {
 							i {
