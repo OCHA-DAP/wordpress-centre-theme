@@ -166,6 +166,35 @@ a {
 			color: #3d3030;
 		}
 	}
+	&.submit-btn-external {
+		display: inline-block;
+		border-radius: 0;
+		color: $white;
+		font-family: $font-serif-book;
+		font-weight: bold;
+		font-size: 14px;
+		margin: 0;
+		letter-spacing: 0.75px;
+		text-transform: uppercase;
+		background-color: $green;
+		border: 0;
+		padding: 10px 13px;
+		&.submit-btn-external--big {
+			font-weight: bold;
+			font-size: 16px;
+			padding: 30px 40px !important;
+		}
+		&:hover {
+			background-color: $white;
+			color: #3d3030 !important;
+			i {
+				color: $green;
+			}
+		}
+		i {
+			margin-right: 5px;
+		}
+	}
 }
 
 input{
