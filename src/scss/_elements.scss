@@ -130,7 +130,7 @@ a {
 .style-light {
 	a {
 		color: $coral;
-		&:not(.btn-text-skin):hover {
+		&:not(.btn-text-skin):not(.submit-btn-external):hover {
 			color: darken($coral, 20%) !important;
 		}
 	}
@@ -183,16 +183,23 @@ a {
 			font-weight: bold;
 			font-size: 16px;
 			padding: 30px 40px !important;
+			i {
+				font-size: 20px;
+			}
 		}
 		&:hover {
 			background-color: $white;
-			color: #3d3030 !important;
-			i {
-				color: $green;
-			}
+			color: $green !important;
 		}
 		i {
 			margin-right: 5px;
+			font-size: 18px;
+			line-height: 1;
+			display: inline-block;
+			vertical-align: text-bottom;
+		}
+		.submit-btn-external__text {
+			display: inline-block;
 		}
 	}
 }
