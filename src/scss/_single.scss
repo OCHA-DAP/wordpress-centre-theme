@@ -70,7 +70,7 @@
 			}
 		}
 	}
-	a:not(.btn-text-skin) {
+	a:not(.btn-text-skin):not(.submit-btn-external) {
 		&:hover {
 			color: $coral !important;
 		}
