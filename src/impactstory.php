@@ -141,12 +141,6 @@ $page_header = new unheader(uncode_get_general_header_data(['_uncode_header_type
 											</blockquote>
 										<?php endif; ?>
 
-										<div class="volunteer-signup">
-											<p>Want to know the latest about the Centre and HDX?<br>Sign up for our
-												newsletter.</p>
-                                            <a href="https://humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&id=99796325d1&f_id=0066c2e1f0" title="Subscribe" target="_blank" class="btn submit-btn-external"><i class="fa fa-envelope-o"></i> <span class="submit-btn-external__text">Subscribe now</span></a>
-                                        </div>
-
 										<?php if(have_rows('related_content')): ?>
 											<h6>Related content:</h6>
 											<ul class="links">
