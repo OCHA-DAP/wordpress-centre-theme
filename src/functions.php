@@ -615,7 +615,7 @@ function mailchimp_newsletter_form_shortcode() {
 	?>
     <!-- Begin MailChimp Signup Form -->
     <div class="mc_embed_signup">
-        <form action="//humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&amp;id=99796325d1&amp;f_id=0066c2e1f0" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <form action="http://eepurl.com/dxhsO1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div class="mc-field-group">
                 <div class="hidden">
                     <input type="checkbox" name="group[4368][8]" value="">
