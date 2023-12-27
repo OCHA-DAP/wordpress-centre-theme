@@ -15,7 +15,7 @@ if (is_front_page()) { ?>
 	<section class="contact-module bg-pattern-green">
 		<h2>Stay in touch</h2>
 		<p class="large">Sign up to our mailing list to get the latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
-        <a href="https://humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&id=99796325d1&f_id=0066c2e1f0" title="Subscribe" target="_blank" class="btn submit-btn-external submit-btn-external--big"><i class="fa fa-envelope-o"></i> <span class="submit-btn-external__text">Subscribe</span></a>
+        <a href="http://eepurl.com/dxhsO1" title="Subscribe" target="_blank" class="btn submit-btn-external submit-btn-external--big"><i class="fa fa-envelope-o"></i> <span class="submit-btn-external__text">Subscribe</span></a>
 	</section>
 <?php } 
 
@@ -73,7 +73,7 @@ $menu_list .= '</ul>';
 								</a>
 								<h5 class='logo-tagline'>Connecting people and data to improve lives</h5>
 								<p class='signup-text'>Sign up to our mailing list for latest updates on the Centre or <a href="https://centre.humdata.org/brochure" target="_blank">download our brochure</a> to learn more</p>
-                                <a href="https://humdata.us14.list-manage.com/subscribe/post?u=ea3f905d50ea939780139789d&id=99796325d1&f_id=0066c2e1f0" title="Subscribe" target="_blank" class="btn submit-btn-external"><i class="fa fa-envelope-o"></i> <span class="submit-btn-external__text">Subscribe</span></a>
+                                <a href="http://eepurl.com/dxhsO1" title="Subscribe" target="_blank" class="btn submit-btn-external"><i class="fa fa-envelope-o"></i> <span class="submit-btn-external__text">Subscribe</span></a>
 							</div>
 							<div class='site-info uncell col-lg-5'>
 								<?php echo $secondary_list ?>
