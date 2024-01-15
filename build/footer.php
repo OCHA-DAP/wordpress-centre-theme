@@ -98,6 +98,7 @@ $menu_list .= '</ul>';
                                     </i>
                                 </a>
                                 <a href="https://github.com/OCHA-DAP" title="GitHub"><i class="fa fa-github"></i></a>
+                                <a href="https://linkedin.com/company/ocha-centre-for-humanitarian-data" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
 		              <div class="service">
