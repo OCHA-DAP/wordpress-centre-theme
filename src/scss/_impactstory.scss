@@ -32,6 +32,13 @@
 .impact-story {
 	.post-content {
 		margin-bottom: 60px;
+		.mc_embed_signup {
+			.select2-container {
+				width: 100% !important;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+		}
 	}
 	.summary {
 		font-size: 20px;
@@ -179,20 +186,19 @@
 			font-size: 16px;
 			height: 40px;
 			line-height: 40px;
-			max-width: 270px;
+			width: 100%;
 			padding-left: 10px;
-			width: 68%;	
 			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 			  color: #CCC !important;
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 			&:-moz-placeholder { /* Firefox 18- */
-			  color: #CCC !important;
+			  color: $graycc !important;
 			}
 		}
 		.btn.submit-btn {
@@ -305,11 +311,6 @@
 		}
 	}
 	.impact-story {
-		.post-content {
-			#mc_embed_signup {
-				padding: 0;
-			}
-		}
 		.author-info {
 			h5 {
 				font-size: 14px;

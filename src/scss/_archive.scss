@@ -5,7 +5,7 @@
 	&.category-case-study,
 	&.category-resource-library,
 	&.search-results-resource-library {
-		.style-light a:not(.btn-text-skin):hover {
+		.style-light a:not(.btn-text-skin):not(.submit-btn-external):hover {
 			color: inherit !important;
 		}
 		.t-inside-custom {		    

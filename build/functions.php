@@ -607,3 +607,45 @@ function get_archive_posts($post, $post_type, $tax)
 	}
 	return $content;
 }
+
+// Define the shortcode function
+function mailchimp_newsletter_form_shortcode() {
+	ob_start(); // Start output buffering
+
+	?>
+    <!-- Begin MailChimp Signup Form -->
+    <div class="mc_embed_signup">
+        <form action="http://eepurl.com/dxhsO1" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+                <div class="hidden">
+                    <input type="checkbox" name="group[4368][8]" value="">
+                    <input type="checkbox" name="group[4368][2]" value="">
+                    <input type="checkbox" name="group[4368][4]" value="">
+                    <input type="checkbox" name="group[4368][1]" value="">
+                </div>
+                <input type="email" value="" name="EMAIL" class="required email" placeholder="Your email address">
+                <select multiple="multiple" class="interest-areas-select">
+                    <option value="8">Data Services: the latest data, features and deep dives for the Humanitarian Data Exchange (HDX)</option>
+                    <option value="2">Data Responsibility: guidance on the safe, ethical and effective management of data</option>
+                    <option value="4">Learning and Practice: learning resources to improve the confidence of humanitarians to use data</option>
+                    <option value="1">Data Science: risk analysis, models and forecasts to help anticipate and respond to shocks</option>
+                </select>
+                <input type="submit" value="submit" name="subscribe" class="btn submit-btn">
+            </div>
+            <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display: none;"></div>
+                <div class="response" id="mce-success-response" style="display: none;"></div>
+            </div>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_ea3f905d50ea939780139789d_99796325d1" tabindex="-1" value="">
+            </div>
+        </form>
+    </div>
+    <!--End mc_embed_signup-->
+	<?php
+
+	return ob_get_clean(); // Return the buffered content
+}
+
+// Register the shortcode
+add_shortcode('mailchimp-newsletter-form', 'mailchimp_newsletter_form_shortcode');

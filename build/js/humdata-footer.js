@@ -4145,6 +4145,31 @@ var util = window.util = {
 		}
 	}
 
+	//*********** MAILCHIMP NEWSLETTER ***********//
+	$('.interest-areas-select').each(function() {
+		var select = $(this);
+		var form = select.parents('form:first');
+
+		// Initialize Select2
+		var $select2 = select.select2({placeholder: 'Area(s) of Interest'});
+		$select2.data().select2.$dropdown.addClass('interest-areas-container')
+
+		// Update hidden input values when Select2 selection changes
+		select.on('change', function () {
+			var selectedValues = select.val();
+
+			// Uncheck all hidden inputs
+			form.find('input[name^="group[4368]"]').prop('checked', false);
+
+			// Check hidden inputs based on selected values
+			if (selectedValues) {
+				selectedValues.forEach(function (value) {
+					form.find('input[name="group[4368][' + value + ']"]').prop('checked', true);
+				});
+			}
+		});
+	});
+
 })(jQuery);
 
 
