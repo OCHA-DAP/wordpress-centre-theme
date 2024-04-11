@@ -49,6 +49,7 @@ module.exports = {
       footer: ['footer'],
       //header: ['header'],
       //pageloader: ['pageloader', 'footer']
+      blankpages: ['blankpages'],
       mixpanel: ['mixpanel'],
     },
     chunks: { // Chunks are arrays of paths or globs matching a set of source files; this way you can organize a bunch of scripts that go together into pieces that can then be bundled (above)
@@ -83,6 +84,9 @@ module.exports = {
       ],
       mixpanel: [
         src+'scripts/humdata-mixpanel.js',
+      ],
+      blankpages: [
+        src+'scripts/humdata-blankpages.js',
       ]
     },
     dest: build+'js/', // Where the scripts end up in your theme

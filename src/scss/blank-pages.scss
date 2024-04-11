@@ -49,6 +49,12 @@ $malibu-color: #5EB1E4;
     }
   }
 
+  .border_color {
+    &_white {
+      border: 1px solid #fff;
+    }
+  }
+
   .form-check-input {
     width: 30px;
     height: 30px;

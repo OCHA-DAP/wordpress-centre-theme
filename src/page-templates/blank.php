@@ -19,6 +19,7 @@ $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_S
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<title><?php echo get_the_title($pageID); ?></title>
 	<script src="<?php echo esc_url(includes_url('js/jquery/jquery.min.js')); ?>"></script>
@@ -60,6 +61,7 @@ endif;
 		mpTrack.pageView(document.title, '<?php echo get_post($pageID)->post_name; ?>');
 	}
 </script>
+<script src="<?php echo get_stylesheet_directory_uri().'/js/humdata-blankpages.js'; ?>"></script>
 
 </body>
 </html>
