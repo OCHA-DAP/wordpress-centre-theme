@@ -9,6 +9,8 @@ Template Name: Blank Template
  *
  */
 
+remove_filter('the_content', 'wpautop');
+
 $pageID = get_the_ID();
 $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_SERVER['HTTP_HOST'] === 'centre.humdata.org') ? 'hdx-mixpanel-token-prod' : 'hdx-mixpanel-token-local';
 ?>
@@ -33,7 +35,8 @@ $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_S
 	<link rel="icon" href="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png" sizes="192x192">
 	<link rel="apple-touch-icon" href="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png">
 	<meta name="msapplication-TileImage" content="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/blank-pages.css'; ?>"/>
 </head>
 <body>
 
