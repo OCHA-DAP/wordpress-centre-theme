@@ -41,12 +41,16 @@ $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_S
 <body>
 
 <?php
-// Start the loop
-if (have_posts()) :
-	while (have_posts()) : the_post();
-		// Display post content
-		the_content();
-	endwhile;
+if(post_password_required()) :
+	echo get_the_password_form();
+else :
+    // Start the loop
+    if (have_posts()) :
+        while (have_posts()) : the_post();
+            // Display post content
+            the_content();
+        endwhile;
+    endif;
 endif;
 ?>
 
