@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-$body-font: 'Roboto Condensed', sans-serif;
+$body-font: 'Roboto', sans-serif;
 $red-color: #EB4B47;
 $green-color: #0C5B5A;
 $malibu-color: #5EB1E4;
@@ -11,8 +11,9 @@ $malibu-color: #5EB1E4;
 
   h2 {
     color: #000;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 300;
+    line-height: 26px;
   }
 
   h4 {
@@ -127,6 +128,10 @@ $malibu-color: #5EB1E4;
         border-color: #fff;
         color: #fff;
       }
+      .spinner {
+        vertical-align: sub;
+        max-height: 30px;
+      }
     }
 
     &.btn-outline-primary {
@@ -152,11 +157,11 @@ $malibu-color: #5EB1E4;
   .circle {
     display: inline-block;
     vertical-align: top;
-    margin: 0 5px 1.5rem;
+    margin: 0 10px 1.5rem;
 
     .circle__title {
-      width: 307px;
-      height: 307px;
+      width: 227px;
+      height: 227px;
       border: 1px solid $malibu-color;
       border-radius: 50%;
       display: flex;
@@ -167,19 +172,19 @@ $malibu-color: #5EB1E4;
     }
 
     .circle__name {
-      padding: 50px;
+      padding: 30px;
       text-align: center;
-      font-size: 29px;
+      font-size: 23px;
       font-weight: 300;
     }
 
     .circle__description {
       margin-top: 15px;
-      font-size: 22px;
+      font-size: 20px;
       text-align: center;
-      max-width: 307px;
+      max-width: 227px;
       color: #000;
-      font-weight: 300;
+      font-weight: 200;
     }
 
     &_color_red {
