@@ -4,16 +4,7 @@
         var $registrationForm = $('#hdf2024 #registration-form').first();
         var $submitBtn = $registrationForm.find('.btn');
         var $submitSpinner = $registrationForm.find('.spinner');
-        var $consentCheckbox = $registrationForm.find('#consent');
         var $confirmationMessage = $('#hdf2024 #registration-submitted');
-
-        $consentCheckbox.on('change', function () {
-            if (this.checked) {
-                $submitBtn.removeAttr('disabled');
-            } else {
-                $submitBtn.attr('disabled', 'disabled');
-            }
-        });
 
         $registrationForm.on('submit', function (e) {
             $submitBtn.attr('disabled', 'disabled');
@@ -31,6 +22,9 @@
                     $registrationForm.addClass('d-none');
                     $confirmationMessage.removeClass('d-none');
                     $submitSpinner.addClass('d-none');
+                    $('html, body').animate({
+                        scrollTop: $('#register').offset().top - 100
+                    }, 1500);
                 },
                 error: function (xhr, status, error) {
                     $submitBtn.removeAttr('disabled');

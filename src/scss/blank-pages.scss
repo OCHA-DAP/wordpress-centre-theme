@@ -148,50 +148,25 @@ $malibu-color: #5EB1E4;
   }
 
   .timetable {
-    color: $green-color;
     font-size: 22px;
     border-left: 1px solid $green-color;
     font-weight: 300;
   }
 
-  .circle {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 10px 1.5rem;
-
-    .circle__title {
-      width: 227px;
-      height: 227px;
-      border: 1px solid $malibu-color;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: $green-color;
-      color: #fff;
-    }
-
-    .circle__name {
-      padding: 30px;
+  .feature {
+    .feature__name {
       text-align: center;
       font-size: 23px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
-    .circle__description {
-      margin-top: 15px;
-      font-size: 20px;
+    .feature__description {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 19px;
       text-align: center;
-      max-width: 227px;
       color: #000;
       font-weight: 200;
-    }
-
-    &_color_red {
-      .circle__title {
-        background-color: $red-color;
-        border: 1px solid $malibu-color;
-      }
     }
   }
 
