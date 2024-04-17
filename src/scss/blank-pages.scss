@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$body-font: 'Roboto', sans-serif;
+$red-color: #EB4B47;
+$green-color: #0C5B5A;
+$malibu-color: #5EB1E4;
+
+#hdf2024 {
+
+  font-family: $body-font;
+
+  h2 {
+    color: #000;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 26px;
+  }
+
+  h4 {
+    font-size: 26px;
+    font-weight: 300;
+  }
+
+  h5 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #000;
+  }
+
+  .background {
+    &_color_red {
+      background-color: $red-color;
+    }
+
+    &_color_black {
+      background-color: #252525;
+    }
+
+    &_color_white {
+    }
+  }
+
+  .text_color {
+    &_green {
+      color: $green-color;
+    }
+
+    &_white {
+      color: #fff;
+    }
+  }
+
+  .border {
+    &_color_white {
+      border: 1px solid #fff;
+    }
+  }
+
+  .form-check-input {
+    width: 30px;
+    height: 30px;
+
+    &:checked {
+      background-color: $green-color;
+      border-color: $green-color;
+    }
+
+    &[type=checkbox] {
+      border-radius: 0;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .form-check-label {
+    font-weight: 300;
+    color: #fff;
+    font-size: 21px;
+    width: calc(100% - 40px);
+    margin-left: 10px;
+  }
+
+  .required {
+    color: $malibu-color;
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .form-control,
+  .form-select {
+    color: $malibu-color;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 0;
+    padding: 3px 10px;
+    border: 1px solid $malibu-color;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: $malibu-color;
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+
+  .form-label {
+    font-size: 21px;
+    color: #fff;
+  }
+
+  .btn {
+    border-radius: 0;
+    padding: 5px 20px;
+    font-size: 26px;
+
+    &.btn-danger {
+      background-color: #fff;
+      border-color: $red-color;
+      color: $red-color;
+
+      &:hover {
+        background-color: $red-color;
+        border-color: #fff;
+        color: #fff;
+      }
+      .spinner {
+        vertical-align: sub;
+        max-height: 30px;
+      }
+    }
+
+    &.btn-outline-primary {
+      border-color: $green-color;
+      color: $green-color;
+      font-weight: 300;
+
+      &:hover {
+        background-color: $green-color;
+        border-color: $green-color;
+        color: #fff;
+      }
+    }
+  }
+
+  .timetable {
+    font-size: 22px;
+    border-left: 1px solid $green-color;
+    font-weight: 300;
+  }
+
+  .feature {
+    .feature__name {
+      text-align: center;
+      font-size: 23px;
+      font-weight: 400;
+    }
+
+    .feature__description {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 19px;
+      text-align: center;
+      color: #000;
+      font-weight: 200;
+    }
+  }
+
+  .footer {
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        color: #f2645a;
+      }
+    }
+  }
+
+}
