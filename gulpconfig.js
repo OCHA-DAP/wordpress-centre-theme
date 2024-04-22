@@ -95,7 +95,6 @@ module.exports = {
     },
     minify: {
       src: build+'js/**/*.js',
-      uglify: {}, // Default options
       dest: build+'js/'
     },
     namespace: 'humdata-' // Script filenames will be prefaced with this (optional; leave blank if you have no need for it but be sure to change the corresponding value in `src/inc/assets.php` if you use it)

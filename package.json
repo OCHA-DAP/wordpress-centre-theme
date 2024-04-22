@@ -27,7 +27,7 @@
   "devDependencies": {
     "bootstrap": "^4.6.0",
     "bootstrap-sass": "^3.4.1",
-    "browser-sync": "^2.27.11",
+    "browser-sync": "^3.0.2",
     "del": "^2.2.2",
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.0",
@@ -42,7 +42,7 @@
     "gulp-ruby-sass": "^2.1.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^2.0.0",
+    "gulp-terser": "^2.1.0",
     "gulp-util": "^3.0.7",
     "html5-history-api": "^4.2.7",
     "jshint": "^2.13.5",

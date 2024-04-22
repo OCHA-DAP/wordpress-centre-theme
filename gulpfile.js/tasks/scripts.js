@@ -49,7 +49,7 @@ gulp.task('scripts-minify', function() {
   gulp.series('scripts-bundle')();
   return gulp.src(config.minify.src)
   .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.uglify(config.minify.uglify))
+  .pipe(plugins.terser())
   .pipe(plugins.sourcemaps.write('./'))
   .pipe(gulp.dest(config.minify.dest));
 });

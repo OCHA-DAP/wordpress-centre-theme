@@ -121,11 +121,10 @@ if(is_admin_bar_showing()) $html_class .= ' admin-mode';
 									<a href="https://humanitarian.id/" target="_blank">Humanitarian ID</a>
 								</li>
 								<li>
-									<a href="https://hum-insight.info/" target="_blank">Humanitarian InSight</a>
+									<a href="https://humanitarianaction.info/" target="_blank">Humanitarian Action</a>
 								</li>
 								<li>
-									<a href="https://www.humanitarianresponse.info" target="_blank">Humanitarian
-										Response</a>
+									<a href="https://response.reliefweb.int/" target="_blank">ReliefWeb Response</a>
 								</li>
 							</ul>
 						</div>
