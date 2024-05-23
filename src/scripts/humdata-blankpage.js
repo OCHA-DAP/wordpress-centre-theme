@@ -1,6 +1,8 @@
 (function ($) {
 
     $(document).ready(function () {
+        var $registrationContainer = $('#hdf2024 #register').first();
+        var $registrationAnchor = $('#hdf2024 #registration-anchor').first();
         var $registrationForm = $('#hdf2024 #registration-form').first();
         var $submitBtn = $registrationForm.find('.btn');
         var $submitSpinner = $registrationForm.find('.spinner');
@@ -35,6 +37,11 @@
                 }
             });
         });
+
+        if(window.location.href.indexOf('register=true') > -1) {
+            $registrationContainer.removeClass('d-none');
+            $registrationAnchor.removeClass('d-none');
+        }
     });
 
 })(jQuery);

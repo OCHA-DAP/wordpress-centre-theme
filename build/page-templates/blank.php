@@ -36,8 +36,9 @@ $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_S
 	<link rel="icon" href="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png" sizes="192x192">
 	<link rel="apple-touch-icon" href="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png">
 	<meta name="msapplication-TileImage" content="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/blank-pages.css?v=3'; ?>"/>
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/blank-pages.css?v=7'; ?>"/>
 </head>
 <body>
 
@@ -61,7 +62,7 @@ endif;
 		mpTrack.pageView(document.title, '<?php echo get_post($pageID)->post_name; ?>');
 	}
 </script>
-<script src="<?php echo get_stylesheet_directory_uri().'/js/humdata-blankpages.js'; ?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri().'/js/humdata-blankpage.js?v=2'; ?>"></script>
 
 </body>
 </html>
