@@ -62,7 +62,7 @@ endif;
 		mpTrack.pageView(document.title, '<?php echo get_post($pageID)->post_name; ?>');
 	}
 </script>
-<script src="<?php echo get_stylesheet_directory_uri().'/js/humdata-blankpages.js?v=2'; ?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri().'/js/humdata-blankpage.js?v=2'; ?>"></script>
 
 </body>
 </html>
