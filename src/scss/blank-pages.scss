@@ -170,6 +170,86 @@ $malibu-color: #5EB1E4;
     }
   }
 
+  #programme {
+    font-size: 22px;
+    font-weight: 300;
+    color: #000;
+    line-height: 26px;
+    .wrapper {
+      border-top: 1px solid $green-color;
+      a {
+        color: $red-color;
+        text-decoration: none;
+      }
+      .nav {
+        &.nav-pills {
+          .nav-item {
+            .nav-link {
+              color: $green-color;
+              font-weight: 300;
+              border-radius: 0;
+              border: 1px solid $green-color;
+              &.active {
+                color: #fff;
+                background-color: $green-color;
+              }
+            }
+          }
+        }
+      }
+      .tab-content {
+        .tab-pane {
+          .day {
+            font-size: 22px;
+            font-weight: 500;
+            color: $red-color;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+          }
+          .event {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid $green-color;
+            .time {
+              font-size: 20px;
+              font-weight: 500;
+              margin-bottom: 0;
+            }
+            .name {
+              font-size: 20px;
+              font-weight: 500;
+              margin-bottom: 1rem;
+            }
+            .description {
+              font-size: 20px;
+              font-weight: 300;
+              margin-bottom: 0;
+              &:last-child {
+                margin-bottom: 1rem;
+              }
+            }
+            .highlight {
+              color: $green-color;
+            }
+          }
+          .subevents {
+            margin-bottom: 1rem;
+            .sub-event {
+              padding-left: 2rem;
+              margin-bottom: 1rem;
+              border-bottom: 0;
+              &:last-child {
+                border-bottom: 1px solid $green-color;
+              }
+              .name {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .footer {
     a {
       color: #fff;
