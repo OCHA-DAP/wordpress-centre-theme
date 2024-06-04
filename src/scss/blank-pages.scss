@@ -214,6 +214,9 @@ $malibu-color: #5EB1E4;
           .event {
             margin-bottom: 1rem;
             border-bottom: 1px solid $green-color;
+            &.with-panellists {
+              border-bottom: 0;
+            }
             .time {
               font-size: 20px;
               font-weight: 500;
@@ -223,6 +226,14 @@ $malibu-color: #5EB1E4;
               font-size: 20px;
               font-weight: 500;
               margin-bottom: 1rem;
+            }
+            .speaker {
+              font-size: 20px;
+              font-weight: 300;
+              margin-bottom: 0;
+              &:last-child {
+                margin-bottom: 1rem;
+              }
             }
             .description {
               font-size: 20px;
