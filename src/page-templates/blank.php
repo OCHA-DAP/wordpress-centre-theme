@@ -38,7 +38,7 @@ $mixpanelToken = ($_SERVER['HTTP_HOST'] === 'hdx-centre.site.strattic.io' || $_S
 	<meta name="msapplication-TileImage" content="https://centre.humdata.org/wp-content/uploads/2018/07/favicon_32x32.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/blank-pages.css?v=9'; ?>"/>
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/blank-pages.css?v=10'; ?>"/>
 </head>
 <body>
 
