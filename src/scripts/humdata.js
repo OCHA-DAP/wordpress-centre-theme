@@ -105,7 +105,7 @@
 			$.ajax({
 				type: 'GET',
 				cache: false,
-				url: '/custom-latest-tweets/',
+				url: '/custom-latest-tweets.json',
 				success: function (data) {
 					twitterDataReady(data);
 				}

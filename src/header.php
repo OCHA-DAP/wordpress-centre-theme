@@ -149,7 +149,7 @@ if(is_admin_bar_showing()) $html_class .= ' admin-mode';
 
 		<nav>
 			<div class='nav-container'>
-				<a href="<?= esc_url(home_url(get_current_blog_id(), '/')) ?>">
+				<a href="<?= esc_url(home_url(get_current_blog_id(), '/')) ?>/">
 					<svg class='logo' viewBox="0 0 245 77" version="1.1" xmlns="http://www.w3.org/2000/svg"
 						 xmlns:xlink="http://www.w3.org/1999/xlink">
 						<defs>
