@@ -53,7 +53,7 @@ get_header();
 	<div class="content-width column-container">
 		<div class='column column-12'>
 			<ol class="breadcrumb header-subtitle" vocab="http://schema.org/" typeof="BreadcrumbList">
-				<li><a href="<?php echo $homeURL ?>" itemprop="url">Home</a></li>
+				<li><a href="<?php echo $homeURL ?>/" itemprop="url">Home</a></li>
 				<li>Resources</li>
 				<li><a href="<?php echo $homeURL ?>/learning-path" itemprop="url">All Learning Paths</a></li>
 				<li class="current"><?php echo get_the_title(); ?></li>
