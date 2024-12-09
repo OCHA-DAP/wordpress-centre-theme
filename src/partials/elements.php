@@ -1681,7 +1681,7 @@ if (!function_exists('uncode_breadcrumbs')) {
 		if (is_home() || is_front_page())
 		{
 
-			if ($show_on_home == 1) $html = '<ol vocab="http://schema.org/" typeof="BreadcrumbList"><li property="itemListElement" typeof="ListItem"><a href="' . $home_link . '">' . $text['home'] . '</a></li></ol>';
+			if ($show_on_home == 1) $html = '<ol vocab="http://schema.org/" typeof="BreadcrumbList"><li property="itemListElement" typeof="ListItem"><a href="' . $home_link . '/">' . $text['home'] . '</a></li></ol>';
 		} else
 		{
 
@@ -1690,7 +1690,7 @@ if (!function_exists('uncode_breadcrumbs')) {
 			$html = '<ol class="breadcrumb header-subtitle" vocab="http://schema.org/" typeof="BreadcrumbList">';
 			if ($show_home_link == 1)
 			{
-				$html.= '<li property="itemListElement" typeof="ListItem"><a href="' . $home_link . '" itemprop="url">' . $text['home'] . '</a></li>';
+				$html.= '<li property="itemListElement" typeof="ListItem"><a href="' . $home_link . '/" itemprop="url">' . $text['home'] . '</a></li>';
 				if ($frontpage_id == 0 || $parent_id != $frontpage_id) $html.= $delimiter;
 			}
 
