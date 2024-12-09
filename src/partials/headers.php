@@ -82,7 +82,7 @@ if(!class_exists('unheader')) {
 					if(basename(get_page_template()) === 'impactstory.php') {
 						$content_html .= '<div class="header-container"><h5 class="header-category">Impact Story</h5>';
 					}
-					$content_html .= '<h1 class="header-title entryid-'.get_the_ID().' 1 "><span>'.$page_title.'</span></h1><div class="search-container">'.get_search_form(false).'</div>';
+					$content_html .= '<h1 class="header-title entryid-'.get_the_ID().' 1 "><span>'.$page_title.'</span></h1>';
 					if(basename(get_page_template()) === 'impactstory.php') {
 						$content_html .= '</div>';
 					}
